@@ -9,7 +9,8 @@ from scipy.interpolate import interp1d
 
 class StiffnessBasedCentroidalDynamics:
 
-    def __init__(self, n_e, n_div, surfaces, N, sigma, opti):
+
+    def __init__(self, n_e, n_div, surfaces, N, sigma, opti):    
         
         self.n_e = n_e
         self.n_div = n_div
@@ -35,6 +36,53 @@ class StiffnessBasedCentroidalDynamics:
         self.ETA_NORMAL_L = opti.parameter(3, len(surfaces))  # (3, surfaces)  # (3,3)
         self.O_L = opti.parameter(3, len(surfaces))   # (3, surfaces)          # (3,3)
         self.w_compl = opti.parameter(1)  # Complementarity weight
+        self.W_x_k = opti.parameter(28,28)  # State weight matrix
+        self.W_u_k = opti.parameter(27,27)  # Input weight matrix
+        self.x_0 = opti.parameter(28)
+
+        weights_x = [1.0] * 28  # Higher weight for the first 18 components
+        W_x_k = cs.diag(weights_x)  # Create a diagonal matrix from the weights
+        weights_u = [1] + [0.0001] * 12 + [1]*2 +[0.0001] * 12# Higher weight for the first 18 components
+        W_u_k = cs.diag(weights_u)  # Create a diagonal matrix from the weights
+        
+        # Set the weight matrix in the optimizer
+        opti.set_value(self.W_x_k, W_x_k)
+        opti.set_value(self.W_u_k, W_u_k)
+        opti.set_value(self.ETA_NORMAL_L, cs.DM([0, 0, 1]))
+        opti.set_value(self.O_L, cs.DM([0, 0, 0]))
+        opti.set_value(self.SIGMA_L_k, sigma)
+        opti.set_value(self.w_compl, 1000)
+     
+    
+    def __init__(self, initial, footstep_planner, params):
+        self.paramas = params
+        
+        self.N = params['N']   # Number of iterations  
+        self.n_e = params['n_e'] # Number of ends 
+        self.n_div = params['n_div']
+        self.surfaces = params['surfaces']  # list of surfaces 
+        self.sigma = params['sigma']  # list of contacts
+        self.duration = int(self.N/25) 
+        self.epsilon = params["epsilon"]  # constant 
+        self.opti = params['opti']
+
+        self.g = params["g"]   # gravity 
+        self.mu = params["mu"]  
+        self.mu_z = params["mu_z"]
+        self.tau_min = params["tau_min"]
+        self.tau_max = params["tau_max"]
+        self.m = params["m"]   # mass 
+        self.LAMBDA_max = params["LAMBDA_max"]
+        self.feet_length = params["feet_length"]        
+        
+        self.initial = initial
+        self.footstep_planner = footstep_planner
+        
+        # for cost
+        self.SIGMA_L_k = self.opti.parameter(n_e, N)  # (n_e, N)  
+        self.ETA_NORMAL_L = self.opti.parameter(3, len(surfaces))  # (3, surfaces)  # (3,3)
+        self.O_L = self.opti.parameter(3, len(surfaces))   # (3, surfaces)          # (3,3)
+        self.w_compl = self.opti.parameter(1)  # Complementarity weight
         self.W_x_k = opti.parameter(28,28)  # State weight matrix
         self.W_u_k = opti.parameter(27,27)  # Input weight matrix
         self.x_0 = opti.parameter(28)
@@ -405,4 +453,6 @@ class StiffnessBasedCentroidalDynamics:
         X_sol = solution.value(X)  # Optimal states
         U_sol = solution.value(U)  # Optimal controls
         return X_sol, U_sol
+
+
 
