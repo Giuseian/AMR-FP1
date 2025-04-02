@@ -19,5 +19,9 @@ You need dartpy 0.2, if pip does not allow you to install this version on your s
 
 To run the simulation
 ```
+python main.py
+```
+
+```
 python simulation.py
 ```
