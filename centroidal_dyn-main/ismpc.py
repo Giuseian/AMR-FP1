@@ -18,6 +18,9 @@ class Ismpc:
     self.A_lip = np.array([[0, 1, 0], [self.eta**2, 0, -self.eta**2], [0, 0, 0]])
     self.B_lip = np.array([[0], [0], [1]])
 
+    """
+    write the right dynamics
+    """
     # dynamics
     self.f = lambda x, u: cs.vertcat(
       self.A_lip @ x[0:3] + self.B_lip @ u[0],
@@ -25,6 +28,11 @@ class Ismpc:
       self.A_lip @ x[6:9] + self.B_lip @ u[2] + np.array([0, - params['g'], 0]),
     )
 
+    """
+    change conic because it's not linear -> Opti without conic
+    see 
+    solver 
+    """
     # optimization problem
     self.opt = cs.Opti('conic')
     p_opts = {"expand": True}
@@ -68,6 +76,7 @@ class Ismpc:
     self.opt.subject_to(self.X[7, 0     ] + self.eta * (self.X[6, 0     ] - self.X[8, 0     ]) == \
                         self.X[7, self.N] + self.eta * (self.X[6, self.N] - self.X[8, self.N]))
 
+    
     # state
     self.x = np.zeros(9)
     self.lip_state = {'com': {'pos': np.zeros(3), 'vel': np.zeros(3), 'acc': np.zeros(3)},
@@ -92,7 +101,7 @@ class Ismpc:
 
     self.opt.set_initial(self.U, sol.value(self.U))
     self.opt.set_initial(self.X, sol.value(self.X))
-
+  
     # create output LIP state
     self.lip_state['com']['pos'] = np.array([self.x[0], self.x[3], self.x[6]])
     self.lip_state['com']['vel'] = np.array([self.x[1], self.x[4], self.x[7]])

@@ -6,7 +6,45 @@ class FootTrajectoryGenerator:
     self.step_height = params['step_height']
     self.initial = initial
     self.footstep_planner = footstep_planner
-    self.plan = self.footstep_planner.plan
+    #self.plan = self.footstep_planner.plan
+    ref_foot = "./outputs/ref_foot.txt"  # Update with your actual file path
+    data = np.loadtxt(ref_foot, delimiter=",")
+
+    # Extract the required values
+    lfoot1 = np.array([data[3, 0], data[4, 0], data[5, 0]])  # First column from rows 3-5
+    rfoot1 = np.array([data[0, 1], data[1, 1], data[2, 1]])  # Second column from rows 0-2
+    lfoot2 = np.array([data[3, 2], data[4, 2], data[5, 2]])
+    
+    phases_durations = "./outputs/phase_durations.txt"
+    dur = np.loadtxt(phases_durations, delimiter=",")
+    ss_duration = dur[0]*100
+    ds_duration = dur[1]*100 
+    ang = np.array([0,0,0])
+    self.plan = [
+                    {
+                    'pos'        : lfoot1,
+                    'ang'        : ang,
+                    'ss_duration': 0,
+                    'ds_duration': ds_duration, 
+                    'foot_id'    : "lfoot"
+                    },
+                    {
+                    'pos'        : rfoot1,
+                    'ang'        : ang,
+                    'ss_duration': ss_duration, 
+                    'ds_duration': ds_duration, 
+                    'foot_id'    : "rfoot"
+                    },
+                    {
+                    'pos'        : lfoot2,
+                    'ang'        : ang,
+                    'ss_duration': ss_duration, 
+                    'ds_duration': ds_duration, 
+                    'foot_id'    : "lfoot"
+                    }  
+    ] 
+
+    
 
   def generate_feet_trajectories_at_time(self, time):
     step_index = self.footstep_planner.get_step_index_at_time(time)
@@ -86,6 +124,9 @@ class FootTrajectoryGenerator:
     swing_vel[2] = ( 4 * A * t**3 + 3 * B * t**2 + 2 * C * t   ) / self.delta
     swing_acc[2] = (12 * A * t**2 + 6 * B * t    + 2 * C       ) / self.delta**2
 
+    #print("swing_pos: ", swing_pos)
+    #print("swing_vel: ", swing_vel)
+    #print("swing_acc: ", swing_acc)
     # support foot remains stationary
     support_pos = self.plan[step_index]['pos']
     support_ang = self.plan[step_index]['ang']
@@ -104,7 +145,6 @@ class FootTrajectoryGenerator:
         'vel': np.hstack((swing_ang_vel, swing_vel)),
         'acc': np.hstack((swing_ang_acc, swing_acc))
     }
-
     return {
         support_foot: support_data,
         swing_foot: swing_data

@@ -3,7 +3,7 @@ import dartpy as dart
 import copy
 from utils import *
 import os
-import control
+import ismpc
 import footstep_planner
 import inverse_dynamics as id
 import filter
@@ -85,8 +85,8 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             self.params
             )
 
-        # initialize MPC controller  -> this should be checked and should be changed accordingly
-        self.mpc = control.StiffnessBasedCentroidalDynamics(
+        # initialize MPC controller
+        self.mpc = ismpc.Ismpc(
             self.initial, 
             self.footstep_planner, 
             self.params
@@ -99,6 +99,10 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             self.params
             )
 
+
+
+
+        ## togliere -> 
         # initialize kalman filter
         A = np.identity(3) + self.params['world_time_step'] * self.mpc.A_lip
         B = self.params['world_time_step'] * self.mpc.B_lip
@@ -125,36 +129,73 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
         self.logger.initialize_plot(frequency=10)
         
     def customPreStep(self):
+        
         # create current and desired states
         self.current = self.retrieve_state()
 
-        # update kalman filter
-        u = np.array([self.desired['zmp']['vel'][0], self.desired['zmp']['vel'][1], self.desired['zmp']['vel'][2]])
-        self.kf.predict(u)
-        x_flt, _ = self.kf.update(np.array([self.current['com']['pos'][0], self.current['com']['vel'][0], self.current['zmp']['pos'][0], \
-                                            self.current['com']['pos'][1], self.current['com']['vel'][1], self.current['zmp']['pos'][1], \
-                                            self.current['com']['pos'][2], self.current['com']['vel'][2], self.current['zmp']['pos'][2]]))
         
-        # update current state using kalman filter output
-        self.current['com']['pos'][0] = x_flt[0]
-        self.current['com']['vel'][0] = x_flt[1]
-        self.current['zmp']['pos'][0] = x_flt[2]
-        self.current['com']['pos'][1] = x_flt[3]
-        self.current['com']['vel'][1] = x_flt[4]
-        self.current['zmp']['pos'][1] = x_flt[5]
-        self.current['com']['pos'][2] = x_flt[6]
-        self.current['com']['vel'][2] = x_flt[7]
-        self.current['zmp']['pos'][2] = x_flt[8]
+        # here our code: modify accordingly
+        phases_duration = np.loadtxt('./outputs/time_durations.txt', delimiter=',')
 
-        # get references using mpc
-        lip_state, contact = self.mpc.solve(self.current, self.time)
+        dur1 = int((phases_duration[1]-phases_duration[0])*100) 
+        dur2 = int((phases_duration[2]-phases_duration[1])*100) 
+        
+        desired_positions = {
+            "phase1": [],
+            "phase2": []
+        }
+        
+        desired_velocities = {
+            "phase1": [],
+            "phase2": []
+        }
+        
+        pos = np.loadtxt("./outputs/com_pos.txt", delimiter=',').tolist()
+        vel = np.loadtxt("./outputs/com_vel.txt", delimiter=',').tolist()
+        
+        for i in range(dur1):
+            desired_positions['phase1'].append(pos[i])
+            desired_velocities['phase1'].append(vel[i])
+        
+        for j in range(dur1, dur2):
+            desired_positions['phase2'].append(pos[j])
+            desired_velocities['phase2'].append(vel[j])
 
-        self.desired['com']['pos'] = lip_state['com']['pos']
-        self.desired['com']['vel'] = lip_state['com']['vel']
-        self.desired['com']['acc'] = lip_state['com']['acc']
-        self.desired['zmp']['pos'] = lip_state['zmp']['pos']
-        self.desired['zmp']['vel'] = lip_state['zmp']['vel']
+        if self.time < dur1:
+            print("FIRST PHASE\n")
+            contact = "lfoot"
 
+            desired_pos = desired_positions['phase1'][self.time]
+            desired_vel = desired_velocities['phase1'][self.time]
+            
+            self.desired['com']['pos'] = desired_pos
+            self.desired['com']['vel'] = desired_vel
+            
+            commands = self.id.get_joint_torques(self.desired, self.current, contact)   # da mettere nello spaghetto if 
+            for i in range(self.params['dof'] - 6):
+                self.hrp4.setCommand(i + 6, commands[i])
+
+            
+        elif self.time > dur1 and self.time < dur2:
+            print("SECOND PHASE\n")
+            contact = "rfoot"
+            
+            desired_pos = desired_positions['phase2'][self.time-dur1]
+            desired_vel = desired_velocities['phase2'][self.time-dur1]
+            
+            self.desired['com']['pos'] = desired_pos
+            self.desired['com']['vel'] = desired_vel
+            
+            commands = self.id.get_joint_torques(self.desired, self.current, contact)    
+            # set acceleration commands
+            for i in range(self.params['dof'] - 6):
+                self.hrp4.setCommand(i + 6, commands[i])
+            
+        
+
+        self.desired['com']['acc'] = [0, 0, 0]
+        
+        
         # get foot trajectories
         feet_trajectories = self.foot_trajectory_generator.generate_feet_trajectories_at_time(self.time)
         for foot in ['lfoot', 'rfoot']:
@@ -165,14 +206,8 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
         for link in ['torso', 'base']:
             for key in ['pos', 'vel', 'acc']:
                 self.desired[link][key] = (self.desired['lfoot'][key][:3] + self.desired['rfoot'][key][:3]) / 2.
-
-        # get torque commands using inverse dynamics
-        commands = self.id.get_joint_torques(self.desired, self.current, contact) 
         
-        # set acceleration commands
-        for i in range(self.params['dof'] - 6):
-            self.hrp4.setCommand(i + 6, commands[i])
-
+        
         # log and plot
         self.logger.log_data(self.current, self.desired)
         #self.logger.update_plot(self.time)
@@ -249,12 +284,76 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
                       'acc': np.zeros(3)}
         }
 
+import os
+import dartpy as dart
+import numpy as np
+
+if __name__ == "__main__":
+    # Initialize world
+    world = dart.simulation.World()
+    
+    # URDF loader
+    urdfParser = dart.utils.DartLoader()
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Paths to URDF files
+    hrp4_path = os.path.join(current_dir, "urdf", "hrp4.urdf")
+    ground_path = os.path.join(current_dir, "urdf", "ground.urdf")
+    
+    # Check if files exist
+    assert os.path.exists(hrp4_path), f"URDF file not found: {hrp4_path}"
+    assert os.path.exists(ground_path), f"URDF file not found: {ground_path}"
+    
+    # Parse URDF files
+    hrp4 = urdfParser.parseSkeleton(hrp4_path)
+    if hrp4 is None:
+        raise RuntimeError(f"Failed to parse HRP4 URDF: {hrp4_path}")
+    
+    ground = urdfParser.parseSkeleton(ground_path)
+    if ground is None:
+        raise RuntimeError(f"Failed to parse Ground URDF: {ground_path}")
+    
+    # Add skeletons to the world
+    world.addSkeleton(hrp4)
+    world.addSkeleton(ground)
+    world.setGravity([0, 0, -9.81])
+    world.setTimeStep(0.01)
+    
+    # Set default inertia for bodies with zero mass
+    default_inertia = dart.dynamics.Inertia(1e-8, np.zeros(3), 1e-10 * np.identity(3))
+    for body in hrp4.getBodyNodes():
+        if body.getMass() == 0.0:
+            print(f"Setting default mass and inertia for body: {body.getName()}")
+            body.setMass(1e-8)
+            body.setInertia(default_inertia)
+    
+    # Initialize HRP4 controller
+    try:
+        node = Hrp4Controller(world, hrp4)
+    except NameError:
+        raise RuntimeError("Hrp4Controller is not defined. Ensure it is implemented and imported.")
+    
+    # Create viewer
+    viewer = dart.gui.osg.Viewer()
+    node.setTargetRealTimeFactor(10)  # Speed up visualization by 10x
+    viewer.addWorldNode(node)
+    
+    # Viewer settings
+    viewer.setUpViewInWindow(0, 0, 1280, 720)
+    viewer.setCameraHomePosition([5., -1., 1.5],
+                                 [1., 0., 0.5],
+                                 [0., 0., 1.])
+    
+    # Run the viewer
+    viewer.run()
+
+
 if __name__ == "__main__":
     world = dart.simulation.World()
 
     urdfParser = dart.utils.DartLoader()
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    hrp4   = urdfParser.parseSkeleton(os.path.join(current_dir, "urdf", "hrp4.urdf"))
+    hrp4 = urdfParser.parseSkeleton(os.path.join(current_dir, "urdf", "hrp4.urdf"))
     ground = urdfParser.parseSkeleton(os.path.join(current_dir, "urdf", "ground.urdf"))
     world.addSkeleton(hrp4)
     world.addSkeleton(ground)
@@ -267,7 +366,7 @@ if __name__ == "__main__":
         if body.getMass() == 0.0:
             body.setMass(1e-8)
             body.setInertia(default_inertia)
-
+   
     node = Hrp4Controller(world, hrp4)
 
     # create world node and add it to viewer
