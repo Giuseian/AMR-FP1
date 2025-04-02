@@ -1,7 +1,6 @@
 # AMR-FP1
 
-This is the implementation of **"Trajectory Generation for Legged Robots Based on a Closed-Form Solution of Centroidal Dynamics"**<br /> 
-[paper](https://ieeexplore.ieee.org/document/10669176)
+This is the implementation of **"Trajectory Generation for Legged Robots Based on a Closed-Form Solution of Centroidal Dynamics"** [paper](https://ieeexplore.ieee.org/document/10669176)
 
 The main reference is:<br />
 [N. Scianca, D. De Simone, L. Lanari, G. Oriolo, "MPC for Humanoid Gait Generation: Stability and Feasibility"](https://ieeexplore.ieee.org/document/8955951)<br />
