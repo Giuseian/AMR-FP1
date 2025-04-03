@@ -1,13 +1,13 @@
 gravity_force: [0, 0, 98.1]
 0-th interval
-right foot x: 0.00623983 and left foot x: 0.00657521
-right foot y: 9.0405 and left foot y: -10.0305
-right foot z: 48.0895 and left foot z: 48.178
-SIGMA_L_k: [0. 0.] and sum_forces: [0.012815, -0.989999, 96.2675]
+right foot x: 14.0781 and left foot x: 14.0811
+right foot y: 9.68971 and left foot y: -9.71175
+right foot z: 49.3218 and left foot z: 49.33
+SIGMA_L_k: [0. 0.] and sum_forces: [28.1592, -0.0220484, 98.6518]
 
 1-th interval
-right foot x: 0.00779354 and left foot x: 0
-right foot y: 8.86595 and left foot y: 0
-right foot z: 114.511 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [0.00779354, 8.86595, 114.511]
+right foot x: -22.6165 and left foot x: 0
+right foot y: 0.0195612 and left foot y: 0
+right foot z: 97.5275 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-22.6165, 0.0195612, 97.5275]
 

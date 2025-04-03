@@ -8,7 +8,7 @@ from scipy.interpolate import interp1d # type: ignore
 
 class StiffnessBasedCentroidalDynamics:
 
-    def __init__(self, n_e, n_div, surfaces, N, sigma, opti):
+    def __init__(self, n_e, n_div, surfaces, N, sigma, opti, non_slip = False):
         
         self.n_e = n_e
         self.n_div = n_div
@@ -16,10 +16,11 @@ class StiffnessBasedCentroidalDynamics:
         self.N = N
         self.sigma = sigma
         self.opti = opti
+        self.non_slip = non_slip
         
         self.epsilon = 1e-6
         self.g = [0,0,9.81]
-        self.mu = 5
+        self.mu = 0.5
         self.mu_z = 0.6
         self.tau_min = 0.4
         self.tau_max = 5
@@ -36,9 +37,9 @@ class StiffnessBasedCentroidalDynamics:
         self.W_u_k = opti.parameter(27,27)  # Input weight matrix
         self.x_0 = opti.parameter(28)
 
-        weights_x = [1.0]*7 + [0.0001]*6 + [1]*15  # Higher weight for the first 18 components
+        weights_x =  [200]*3 + [1.0]*3 + [100]*3 + [1]*19  
         W_x_k = cs.diag(weights_x)  # Create a diagonal matrix from the weights
-        weights_u = [1] + [0.0001] * 12 + [1]*2 + [1]*12# Higher weight for the first 18 components
+        weights_u = [10] + [1] * 26 # Higher weight for the first 18 components
         W_u_k = cs.diag(weights_u)  # Create a diagonal matrix from the weights
         
         # Set the weight matrix in the optimizer
@@ -385,9 +386,8 @@ class StiffnessBasedCentroidalDynamics:
             
             # Eq. 20: Non-slip condition
             g_vector.append(mu * f_l_z - cs.sqrt(f_l_x**2 + f_l_y**2))
-            
-            # Eq. 21abc: Contact moment for eta_l_x y and z
             """
+            # Eq. 21abc: Contact moment for eta_l_x y and z
             g_vector.append(eta_l_x /  f_l_z + feet_length)
             g_vector.append(- eta_l_x /  f_l_z - feet_length)
             g_vector.append(eta_l_y / f_l_z - feet_length)
@@ -395,7 +395,6 @@ class StiffnessBasedCentroidalDynamics:
             g_vector.append(eta_l_z / f_l_z + mu_z)
             g_vector.append(-eta_l_z   /  f_l_z + mu_z)
             """
-        
         # Convert g_vector to a CasADi MX vector
         g_constraint = cs.vertcat(*g_vector)  # (14, 1) = (n_g, 1), where n_g is the total number of inequality constraints
         return g_constraint
@@ -407,7 +406,7 @@ class StiffnessBasedCentroidalDynamics:
         epsilon = self.epsilon
         g_constraint = self.constraint_vector(q_k, p_k, LAMBDA_L_k, P_L_k, R_L_k, ETA_HAT_L_k, tau_k)
         
-        L_limit = -cs.sum1(cs.log(cs.fmax(epsilon, g_constraint)))  # Log-barrier term
+        L_limit = -cs.sum1(cs.log(cs.fmax(0.01, g_constraint)))  # Log-barrier term
         
         return L_limit
 
@@ -476,10 +475,16 @@ class StiffnessBasedCentroidalDynamics:
             
             cost += task_cost_k + contact_dependent_cost_k #+ limit_cost_k
             x_next = self.update_dynamics(x_k, u_k)
-            #lambda_sol = self.constraint_lambda(p_k_ref, P_L_k_ref, LAMBDA_L_k_ref, self.g)
             #self.constraint_box(p_k, P_L_k)
-            self.opti.subject_to(X[:, k + 1] == x_next)
-            #self.opti.subject_to(tau_k > 0)
+            self.opti.subject_to(X[:, k + 1] == x_next) # dynamic constraint
+            self.opti.subject_to(tau_k > 0) # duration constraint
+            #self.opti.subject_to(v_k[0] >= 0)
+            if self.non_slip:
+                F_L, ETA_L = self.define_contact_wrench(p_k, LAMBDA_L_k, P_L_k, R_L_k, ETA_HAT_L_k)
+                for i in range(self.n_e):
+                    f_l_x, f_l_y, f_l_z = F_L[0, i], F_L[1, i], F_L[2, i]      
+                    self.opti.subject_to(self.mu * f_l_z >= cs.sqrt(f_l_x**2 + f_l_y**2)) # non-slip constraint
+            
             
         last_x = X[:,N_intervals]
         last_x_ref = X_ref[:, N_intervals]
@@ -487,7 +492,6 @@ class StiffnessBasedCentroidalDynamics:
         cost += 0.5 * cs.mtimes([(last_x - last_x_ref).T, self.W_x_k, (last_x- last_x_ref)])
         x_0 = self.init_state(X)
         self.opti.subject_to(X[:, 0] == x_0)  # Enforce the initial state
-            
         self.opti.minimize(cost)
 
         return
@@ -498,18 +502,13 @@ class StiffnessBasedCentroidalDynamics:
         self.impose_constraints(X, U, X_ref, U_ref)
         self.opti.solver("ipopt", {
                             "ipopt.max_iter": 100000,               # Allow more iterations
-                            "ipopt.tol": 1e-4,                      # Overall convergence tolerance (default: 1e-8)
-                            "ipopt.constr_viol_tol": 1e-4,          # Constraint violation tolerance (default: 1e-6)
-                            "ipopt.compl_inf_tol": 1e-4,            # Complementarity tolerance (default: 1e-6)
-                            "ipopt.acceptable_tol": 1e-3,           # Acceptable solution tolerance (less strict)
-                            "ipopt.acceptable_constr_viol_tol": 1e-3,  # Acceptable constraint violation
                     })
 
         solution = self.opti.solve()
         X_sol = solution.value(X)  # Optimal states
         U_sol = solution.value(U)  # Optimal controls
         return X_sol, U_sol
-    
+        
     def time_domain_solution(self, X, U):
         N = X.shape[1] - 1
         phases_duration = []

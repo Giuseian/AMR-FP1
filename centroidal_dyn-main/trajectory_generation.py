@@ -1,6 +1,7 @@
 import numpy as np
 
 def ref_trajectory_generation(n_e, N, ref_type, sigma):
+    
     n_intervals = N
     dt = 0.1
     X_ref = None
@@ -46,22 +47,19 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
         X_ref[14 + 3*n_e:14 + 3*n_e + 4*n_e, 0] = start_feet_orient.flatten()
 
         foot_vel = np.zeros(6)
-
+        phase_duration = 1.5
+            
         sig_idx = 0
-        
         for t in range(N):
             right_contact = sigma[sig_idx]
             left_contact = sigma[sig_idx+1]
             
             lambda_right, lambda_left = np.sqrt(9.81),np.sqrt(9.81)
-            phase_duration = 0.75
             if right_contact == -1 and left_contact == 0:
-                phase_duration = 1.5
                 lambda_right = 0
                 lambda_left = np.sqrt(9.81/0.5)
                 
             if left_contact == -1 and right_contact == 0:
-                phase_duration = 1.5
                 lambda_left = 0
                 lambda_right = np.sqrt(9.81/0.5)
 
@@ -74,30 +72,35 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             right_contact = sigma[sig_idx]
             left_contact = sigma[sig_idx+1]
             c_v_x = 0.5
+
+            if right_contact == 0 and left_contact == 0:
+                c_v_x = 0.0
                 
             # update foot position and velocity
             right_vel_x, left_vel_x, right_vel_z, left_vel_z = 0.0, 0.0, 0.0, 0.0
-            phase_duration = 0.75
             if right_contact == -1 and sigma[sig_idx-2] == 0:
-                phase_duration = 1.5
-                c_v_x = 0
-            
+                right_vel_x = 1
+                #right_vel_z = 1
+                
             if left_contact == -1 and sigma[sig_idx-1] == 0:
-                phase_duration = 1.5
-                c_v_x = 0
+                left_vel_x = 1
+                #left_vel_z = 1
                 
             if right_contact == 0 and sigma[sig_idx-2] == -1:
-                right_vel_x = c_v_x*2
+                right_vel_x = 1
+                #right_vel_z = -1
 
             if left_contact == 0 and sigma[sig_idx-1] == -1:
-                left_vel_x = c_v_x*2
+                left_vel_x = 1
+                #left_vel_z = -1
 
             # update com position 
             com_vel = np.array([c_v_x, 0.0, 0.0])
             X_ref[7:10, t] = com_vel   # constant com velocity
             com_ds = com_vel * dt
             X_ref[0:3, t] = X_ref[0:3, t-1] + com_ds
-                
+            X_ref[2, t] = start_pos[2]
+
             # update time
             time_k += phase_duration
             X_ref[13:14, t] = time_k

@@ -6,46 +6,41 @@ class FootTrajectoryGenerator:
     self.step_height = params['step_height']
     self.initial = initial
     self.footstep_planner = footstep_planner
-    #self.plan = self.footstep_planner.plan
-    ref_foot = "./outputs/ref_foot.txt"  # Update with your actual file path
+    self.plan = []
+    #self.footstep_planner.plan
+    
+    ref_foot = "./outputs/ref_foot.txt"  
     data = np.loadtxt(ref_foot, delimiter=",")
 
-    # Extract the required values
-    lfoot1 = np.array([data[3, 0], data[4, 0], data[5, 0]])  # First column from rows 3-5
-    rfoot1 = np.array([data[0, 1], data[1, 1], data[2, 1]])  # Second column from rows 0-2
-    lfoot2 = np.array([data[3, 2], data[4, 2], data[5, 2]])
+    # Extract the required values: this is only valid for [0,0,0], [0,-1,0] contact sequence
+    # Extract required values
+    lfoot1 = data[-3:, 0]  # First column from last 3 rows
+    rfoot1 = data[:3, 1]  # Second column from first 3 rows
+    lfoot2 = data[-3:, 2]  # Third column from last 3 rows
     
+    supports = [lfoot1, rfoot1, lfoot2]
+    supports_name = ["lfoot", "rfoot", "lfoot"]
     phases_durations = "./outputs/phase_durations.txt"
-    dur = np.loadtxt(phases_durations, delimiter=",")
-    ss_duration = dur[0]*100
-    ds_duration = dur[1]*100 
+    duration = np.loadtxt(phases_durations, delimiter=",")
     ang = np.array([0,0,0])
+    
     self.plan = [
                     {
                     'pos'        : lfoot1,
                     'ang'        : ang,
                     'ss_duration': 0,
-                    'ds_duration': ds_duration, 
+                    'ds_duration': phases_durations[0], 
                     'foot_id'    : "lfoot"
                     },
                     {
                     'pos'        : rfoot1,
                     'ang'        : ang,
-                    'ss_duration': ss_duration, 
-                    'ds_duration': ds_duration, 
+                    'ss_duration': phases_durations[0],
+                    'ds_duration': phases_durations[1], 
                     'foot_id'    : "rfoot"
-                    },
-                    {
-                    'pos'        : lfoot2,
-                    'ang'        : ang,
-                    'ss_duration': ss_duration, 
-                    'ds_duration': ds_duration, 
-                    'foot_id'    : "lfoot"
-                    }  
-    ] 
-
+                    }
+    ]
     
-
   def generate_feet_trajectories_at_time(self, time):
     step_index = self.footstep_planner.get_step_index_at_time(time)
     time_in_step = time - self.footstep_planner.get_start_time(step_index)

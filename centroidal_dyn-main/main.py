@@ -24,7 +24,7 @@ if __name__ == "__main__":
     print(f"Solving for {ref} reference...\n")
     X_init_ref, U_init_ref = ref_trajectory_generation(n_e, N, ref, sigma[ref])
 
-    X_init = np.full(X.shape, 0.5)
+    X_init = np.full(X.shape, 0.7)
     U_init = np.full(U.shape, 0.5)
     opti.set_initial(X, X_init)
     opti.set_initial(U, U_init)
@@ -53,6 +53,6 @@ if __name__ == "__main__":
     print("\nU components plots saved under /plots folder ...\n")
     checking_sum_forces(X=X_sol, X_ref=X_init_ref, U = U_sol, U_ref = U_init_ref, dm=dynamic_model, ref_type=ref, opti=opti)
     print("\nDynamic check of forces saved under /outputs folder ...\n")
-    animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
-    animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
-    print("\nVideo Simulations saved under /videos folder...\nExit!")
+    #animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
+    #animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
+    #print("\nVideo Simulations saved under /videos folder...\nExit!")
