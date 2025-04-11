@@ -200,6 +200,112 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
     
     return
 
+def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
+    
+    N_intervals = X.shape[1] # Number of intervals
+    N = N_intervals-1
+    time = np.arange(N_intervals)  # Create a time vector
+
+    # Extract components for plotting
+    positions, velocities, momentum, foot_positions_L, foot_velocities_L = [], [], [], [], []
+    ref_position, ref_velocity, ref_momentum, ref_P_L_k, ref_foot_velocities_L = [], [], [], [], []
+    
+    # Loop to extract the relevant components
+    for k in range(N_intervals):
+        x_k = X[:, k]
+        x_ref_k = X_ref[:, k]
+        if N > 1 and N<U.shape[1]:
+            u_k = U[:,k]
+            u_k_ref = U_ref[:,k]
+        elif N == 1:
+            u_k = U[:]
+            u_k_ref = U_ref[:]
+        else:
+            u_k = U[:,k-1]
+            u_k_ref = U_ref[:,k-1]
+        
+        # Decompose state and control
+        p_k, q_k, v_k, L_k, t_k, P_L_k, Q_L_k = dm.get_x_comp(x_k)
+        _, V_L_k, _, _, _, _ = dm.get_u_comp(u_k)
+            
+        ref_pos, _, ref_vel, ref_for, _, ref_PLk, _ = dm.get_x_comp(x_ref_k)
+        _, ref_V_L_k, _, _, _, _ = dm.get_u_comp(u_k_ref)
+        
+        
+        positions.append(p_k)
+        velocities.append(v_k)
+        momentum.append(L_k)
+        foot_positions_L.append(P_L_k)
+        foot_velocities_L.append(V_L_k)
+        
+        ref_position.append(ref_pos)
+        ref_velocity.append(ref_vel)
+        ref_momentum.append(ref_for)
+        ref_P_L_k.append(ref_PLk)
+        ref_foot_velocities_L.append(ref_V_L_k)
+        
+    r = 10
+    # Convert lists to numpy arrays
+    positions = np.round(np.array(positions),r)
+    velocities = np.round(np.array(velocities),r)
+    momentum = np.round(np.array(momentum),r)
+    foot_positions_L = np.round(np.array(foot_positions_L),r)  # Shape (N_intervals, 3, 2)
+    foot_velocities_L = np.round(np.array(foot_velocities_L),r)
+    ref_position = np.round(np.array(ref_position),r)  
+    ref_velocity = np.round(np.array(ref_velocity),r)
+    ref_momentum = np.round(np.array(ref_momentum),r)
+    ref_P_L_k = np.round(np.array(ref_P_L_k),r)
+    ref_foot_velocities_L = np.round(np.array(ref_foot_velocities_L),r)
+    
+    fig, axs = plt.subplots(5, 3, figsize=(15, 16), sharex=True)
+
+    labels = ['x', 'y', 'z']
+    properties = {
+        "CoM Position": (positions, ref_position, axs[0]),
+        "CoM Velocity": (velocities, ref_velocity, axs[1]),
+        "Angular Momentum": (momentum, ref_momentum, axs[2])
+    }
+
+    for i, (title, (values, ref_values, ax_row)) in enumerate(properties.items()):
+        for j in range(3):  # Loop through x, y, z
+            ax_row[j].plot(time, values[:, j], label=f"{title}_{labels[j]}")
+            if ref_values is not None:
+                ax_row[j].plot(time, ref_values[:, j], color='r', linestyle='--', label=f"ref_{title}_{labels[j]}")
+            ax_row[j].set_ylabel(f"{title} ({labels[j]})")
+            ax_row[j].set_title(f"{title} - {labels[j]}")
+            ax_row[j].legend()
+            ax_row[j].grid()
+
+    # Foot Positions (P_L_k) for Left and Right Foot separately
+    for j in range(3):  # Loop through x, y, z
+        axs[3, j].plot(time, foot_positions_L[:, j, 0], label=f"Foot 1 {labels[j]}")
+        axs[3, j].plot(time, foot_positions_L[:, j, 1], label=f"Foot 2 {labels[j]}")
+        axs[3, j].plot(time, ref_P_L_k[:, j, 0], color='r', linestyle='--', label=f"ref_Foot 1 {labels[j]}")
+        axs[3, j].plot(time, ref_P_L_k[:, j, 1], color='g', linestyle='--', label=f"ref_Foot 2 {labels[j]}")
+        axs[3, j].set_ylabel(f"Foot Position {labels[j]} (m)")
+        axs[3, j].set_title(f"Foot Position - {labels[j]}")
+        axs[3, j].legend()
+        axs[3, j].grid()
+
+        axs[4, j].plot(time, foot_velocities_L[:, j, 0], label=f"Foot 1 {labels[j]}")
+        axs[4, j].plot(time, foot_velocities_L[:, j, 1], label=f"Foot 2 {labels[j]}")
+        axs[4, j].plot(time, ref_foot_velocities_L[:, j, 0], color='r', linestyle='--', label=f"ref_Foot 1 {labels[j]}")
+        axs[4, j].plot(time, ref_foot_velocities_L[:, j, 1], color='g', linestyle='--', label=f"ref_Foot 2 {labels[j]}")
+        axs[4, j].set_ylabel(f"Foot Velocity {labels[j]} (m)")
+        axs[4, j].set_title(f"Foot Velocity - {labels[j]}")
+        axs[4, j].legend()
+        axs[4, j].grid()
+        
+        
+    axs[-1, 0].set_xlabel("Time (steps)")
+    axs[-1, 1].set_xlabel("Time (steps)")
+    axs[-1, 2].set_xlabel("Time (steps)")
+    plt.tight_layout()
+    save_path = os.path.join("./plots/", "contact_x.png")  # Save as PNG (change extension if needed)
+    plt.savefig(save_path, dpi=300, bbox_inches="tight")  # High-quality save
+    
+    return
+
 def checking_sum_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
     N_intervals = X.shape[1] - 1  # Number of intervals
     SIGMA_L = dm.SIGMA_L_k
@@ -270,8 +376,8 @@ def animate_trajectories_td(X, n_e, save_path="trajectory_animation_td.gif", ref
 
     # Initialize trajectory lines
     com_line, = ax.plot([], [], [], label="CoM", color="blue", linestyle="-")
-    right_foot_line, = ax.plot([], [], [], label="Right Foot", color="red", linestyle="--")
-    left_foot_line, = ax.plot([], [], [], label="Left Foot", color="green", linestyle="--")
+    right_foot_line, = ax.plot([], [], [], label="Right Foot", color="red", linestyle="-")
+    left_foot_line, = ax.plot([], [], [], label="Left Foot", color="green", linestyle="-")
 
     # Add markers at the starting positions
     ax.scatter(*com_positions[0], color="blue", s=100, label="CoM Start", edgecolor="black", marker="o", alpha=0.7)
@@ -320,8 +426,8 @@ def animate_trajectories(X, n_e, save_path="trajectory_animation.gif", ref_type=
 
     # Initialize lines for CoM and feet
     com_line, = ax.plot([], [], [], label="CoM", color="blue", linestyle="-")
-    right_foot_line, = ax.plot([], [], [], label="Right Foot", color="red", linestyle="--")
-    left_foot_line, = ax.plot([], [], [], label="Left Foot", color="green", linestyle="--")
+    right_foot_line, = ax.plot([], [], [], label="Right Foot", color="red", linestyle="-")
+    left_foot_line, = ax.plot([], [], [], label="Left Foot", color="green", linestyle="-")
 
     # Add markers at the starting positions with slight offsets
     ax.scatter(com_positions[0, 0], com_positions[1, 0], com_positions[2, 0],
@@ -338,6 +444,7 @@ def animate_trajectories(X, n_e, save_path="trajectory_animation.gif", ref_type=
 
     # Set axis limits (adjust as needed)
     ax.set_zlim([0, np.max(X[2, :]) + 0.5])
+    ax.set_xlim([0, np.max(X[0, :]) + 0.5])
 
     # Set labels, title, and legend
     ax.set_xlabel("X (m)")

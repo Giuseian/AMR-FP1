@@ -6,7 +6,8 @@ class FootTrajectoryGenerator:
     self.step_height = params['step_height']
     self.initial = initial
     self.footstep_planner = footstep_planner
-    self.plan = []
+    #self.plan = self.footstep_planner.plan
+    
     #self.footstep_planner.plan
     
     ref_foot = "./outputs/ref_foot.txt"  
@@ -14,10 +15,14 @@ class FootTrajectoryGenerator:
 
     # Extract the required values: this is only valid for [0,0,0], [0,-1,0] contact sequence
     # Extract required values
-    lfoot1 = data[-3:, 0]  # First column from last 3 rows
-    rfoot1 = data[:3, 1]  # Second column from first 3 rows
-    lfoot2 = data[-3:, 2]  # Third column from last 3 rows
+    # [0, 0, 0], [0, -1, 0]
     
+    lfoot1 = data[-3:, 0]
+    rfoot1 = data[:3,1]
+    lfoot2 = data[-3:, 2]
+    print(f"first feet (R): {lfoot1}")
+    print(f"second feet (L): {rfoot1}")
+    print(f"third feet (R): {lfoot2}")
     supports = [lfoot1, rfoot1, lfoot2]
     supports_name = ["lfoot", "rfoot", "lfoot"]
     phases_durations = "./outputs/phase_durations.txt"
@@ -35,7 +40,21 @@ class FootTrajectoryGenerator:
                     {
                     'pos'        : rfoot1,
                     'ang'        : ang,
-                    'ss_duration': phases_durations[0],
+                    'ss_duration': phases_durations[1],
+                    'ds_duration': phases_durations[1], 
+                    'foot_id'    : "rfoot"
+                    },
+                    {
+                    'pos'        : lfoot2,
+                    'ang'        : ang,
+                    'ss_duration': phases_durations[1],
+                    'ds_duration': phases_durations[1], 
+                    'foot_id'    : "lfoot"
+                    },
+                    {
+                    'pos'        : rfoot1,
+                    'ang'        : ang,
+                    'ss_duration': phases_durations[1],
                     'ds_duration': phases_durations[1], 
                     'foot_id'    : "rfoot"
                     }

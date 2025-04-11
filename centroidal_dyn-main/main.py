@@ -6,12 +6,13 @@ from sbcdyn import *
 if __name__ == "__main__":
     sigma = {"still":   cs.DM([[0],
                             [0]]),
-            #"walking" : cs.DM([[0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0],
-            #                   [0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0] ])
+            "walking" : cs.DM([[0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0],
+                           [0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0] ])
             #"walking" : cs.DM([[0, 0, 0, -1, 0, 0, 0],
-            #                   [0, -1, 0, 0, 0, -1, 0]])
-            "walking": cs.DM([[0, 0, 0],
-                            [0, -1, 0]])
+            #               [0, -1, 0, 0, 0, -1, 0] ])
+            
+            #"walking" : cs.DM([[0, 0, 0],
+            #                   [0, -1, 0]])
             }
 
     ref = "walking"
@@ -48,11 +49,11 @@ if __name__ == "__main__":
     np.savetxt("./outputs/phase_durations.txt", phases_durations, delimiter=",", fmt="%.8f") 
     
     plot_components(full_array, phases_duration)
-    print("\nX components plots saved under /plots folder ...\n")
     evolution_contact_forces(X=X_sol, X_ref=X_init_ref, U=U_sol, U_ref=U_init_ref, dm=dynamic_model, ref_type=ref, opti=opti)
-    print("\nU components plots saved under /plots folder ...\n")
+    evolution_plots(X=X_sol, U=U_sol, X_ref=X_init_ref, U_ref=U_init_ref, dm=dynamic_model, ref_type=ref)
     checking_sum_forces(X=X_sol, X_ref=X_init_ref, U = U_sol, U_ref = U_init_ref, dm=dynamic_model, ref_type=ref, opti=opti)
-    print("\nDynamic check of forces saved under /outputs folder ...\n")
-    #animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
-    #animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
-    #print("\nVideo Simulations saved under /videos folder...\nExit!")
+    
+    animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
+    animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
+    print("\nSee LOGS under outputs, plots and videos folders ...\nExit!")
+    

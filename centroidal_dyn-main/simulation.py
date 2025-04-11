@@ -100,8 +100,6 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             )
 
 
-
-
         # initialize kalman filter
         A = np.identity(3) + self.params['world_time_step'] * self.mpc.A_lip
         B = self.params['world_time_step'] * self.mpc.B_lip
@@ -132,12 +130,11 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
         # create current and desired states
         self.current = self.retrieve_state()
 
-        
         # here our code
 
         phases_duration = np.loadtxt('./outputs/phase_durations.txt', delimiter=',')
         desired_positions, desired_velocities = [], []
-        contacts = ["lfoot", "rfoot", "ds"] # change this wrt sigma sequence
+        contacts = ["ds", "rfoot"] # change this wrt sigma sequence
 
         
         pos = np.loadtxt("./outputs/com_pos.txt", delimiter=',').tolist()
@@ -148,8 +145,7 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             desired_velocities.append(vel[i])
         
         phase1 = phases_duration[0]*100
-        fin_phase2 = (phases_duration[0]+phases_duration[1])*100
-        
+        fin_phase2 = (phases_duration[0]+phases_duration[1])*100 
         if self.time >= 0 and self.time < phase1:
             contact = contacts[0]
         elif self.time >= phase1 and self.time < fin_phase2:
@@ -157,12 +153,23 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
                 
         if self.time < fin_phase2 - 2:
             print(f"time: {self.time}, contact: {contact}") 
+            
             desired_pos = desired_positions[self.time]
+            
             desired_vel = desired_velocities[self.time]                
             self.desired['com']['pos'] = desired_pos
             self.desired['com']['vel'] = desired_vel
-            self.desired['com']['acc'] = [0, 0, 0]
-                    
+            if contact != "ds":
+                acc_x = desired_vel[0] / (self.time) 
+                
+            else:
+                acc_x = 0.0
+
+            self.desired['com']['acc'] = [acc_x, 0.0, 0.0] 
+            print(f"COM pos: {desired_pos}")
+            print(f"COM vel: {desired_vel}")
+            print(f"COM x acc: {acc_x}")
+               
             commands = self.id.get_joint_torques(self.desired, self.current, contact)    
             for i in range(self.params['dof'] - 6):
                 self.hrp4.setCommand(i + 6, commands[i])
@@ -170,7 +177,7 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             self.time += 1
         else:
             exit()
-               
+        
         # get foot trajectories
         feet_trajectories = self.foot_trajectory_generator.generate_feet_trajectories_at_time(self.time)
         for foot in ['lfoot', 'rfoot']:
