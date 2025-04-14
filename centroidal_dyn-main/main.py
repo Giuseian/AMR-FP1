@@ -2,8 +2,13 @@ import casadi as cs # type: ignore
 from graphics import *
 from trajectory_generation import *
 from sbcdyn import * 
+import argparse
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Trajectory optimization and visualization.")
+    parser.add_argument("--make_video", action="store_true", help="Generate videos if this flag is set.")
+    args = parser.parse_args()
+
     sigma = {"still":   cs.DM([[0],
                             [0]]),
             "walking" : cs.DM([[0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, -1, 0],
@@ -53,7 +58,13 @@ if __name__ == "__main__":
     evolution_plots(X=X_sol, U=U_sol, X_ref=X_init_ref, U_ref=U_init_ref, dm=dynamic_model, ref_type=ref)
     checking_sum_forces(X=X_sol, X_ref=X_init_ref, U = U_sol, U_ref = U_init_ref, dm=dynamic_model, ref_type=ref, opti=opti)
     print("\n Plots saved under plots folders...\n")
-    animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
-    animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
-    print("\n Videos saved under videos folder ...\nExit!")
+    # Conditionally generate videos
+    if args.make_video:
+        animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
+        animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
+        print("\n Videos saved under videos folder ...")
+    else:
+        print("\n Video creation skipped (use --make_video to enable).\n")
+
+    print("Exit!")
     
