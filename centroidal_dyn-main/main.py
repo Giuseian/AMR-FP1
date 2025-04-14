@@ -47,13 +47,13 @@ if __name__ == "__main__":
     np.savetxt("./outputs/com_vel.txt", com_vel, delimiter=",", fmt="%.8f")  
     np.savetxt("./outputs/time_durations.txt", time_durations, delimiter=",", fmt="%.8f") 
     np.savetxt("./outputs/phase_durations.txt", phases_durations, delimiter=",", fmt="%.8f") 
-    
+    print("\n LOGS saved under outputs folders...\n")
     plot_components(full_array, phases_duration)
     evolution_contact_forces(X=X_sol, X_ref=X_init_ref, U=U_sol, U_ref=U_init_ref, dm=dynamic_model, ref_type=ref, opti=opti)
     evolution_plots(X=X_sol, U=U_sol, X_ref=X_init_ref, U_ref=U_init_ref, dm=dynamic_model, ref_type=ref)
     checking_sum_forces(X=X_sol, X_ref=X_init_ref, U = U_sol, U_ref = U_init_ref, dm=dynamic_model, ref_type=ref, opti=opti)
-    
+    print("\n Plots saved under plots folders...\n")
     animate_trajectories_td(full_array, n_e=2, save_path="./videos/walking_in_time.gif", ref_type=ref, label="Actual")
     animate_trajectories(X_sol, n_e=2, save_path="./videos/walking_in_contacts.gif", ref_type=ref, label="Actual")
-    print("\nSee LOGS under outputs, plots and videos folders ...\nExit!")
+    print("\n Videos saved under videos folder ...\nExit!")
     

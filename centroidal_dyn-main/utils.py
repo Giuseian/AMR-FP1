@@ -90,3 +90,38 @@ class QPSolver:
             print("QP Solver failed:", e)
             x_sol = np.zeros(self.n_vars)
         return x_sol
+
+def parabolic_trajectory_3D(p_start, p_end, h_max, num_points):
+    """
+    p_start, p_end: 3D start/end foot positions, e.g. np.array([x, y, z])
+    h_max: peak height above the start/end z (assuming start.z = end.z = 0)
+    num_points: how many samples we want from start to end
+    Returns: a (num_points, 3) array of 3D points
+    """
+    traj = np.zeros((num_points, 3))
+    t_vals = np.linspace(0, 1, num_points)
+    
+    # We assume the foot starts at p_start[2] and ends at p_end[2].
+    # If your terrain is flat, you can set them to 0. 
+    # We'll define "flat_z" = average of start/end for reference.
+    z_start = p_start[2]
+    z_end   = p_end[2]
+    
+    for i, t in enumerate(t_vals):
+        # Linear XY (horizontal) interpolation
+        xy = p_start[:2] + t * (p_end[:2] - p_start[:2])
+        
+        # Parabolic Z that goes from z_start to z_end 
+        # but lifts up by h_max in the middle
+        # We'll do a standard parabola shape and then shift up if needed:
+        z_parab = 4.0 * h_max * t * (1 - t)
+        # Add the baseline from start to end
+        # so that if z_start == z_end == 0, it’s just the standard parabola.
+        z_lin   = z_start + t * (z_end - z_start)
+        z_total = z_lin + z_parab
+        
+        traj[i, 0] = xy[0]
+        traj[i, 1] = xy[1]
+        traj[i, 2] = z_total
+    
+    return traj

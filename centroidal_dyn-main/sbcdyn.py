@@ -5,6 +5,7 @@ from matplotlib.animation import FuncAnimation # type: ignore
 import matplotlib.animation as animation # type: ignore
 from mpl_toolkits.mplot3d import Axes3D # type: ignore
 from scipy.interpolate import interp1d # type: ignore
+from utils import parabolic_trajectory_3D
 
 class StiffnessBasedCentroidalDynamics:
 
@@ -509,22 +510,73 @@ class StiffnessBasedCentroidalDynamics:
         X_sol = solution.value(X)  # Optimal states
         U_sol = solution.value(U)  # Optimal controls
         return X_sol, U_sol
-        
+
     def time_domain_solution(self, X, U):
-        N = X.shape[1] - 1
+        sig = np.array(self.sigma)
         phases_duration = []
         full_list = []
+        N = X.shape[1]-1
         for n in range(N):
             intra_list = []
-            x_n = X[:,n].reshape(-1, 1)
-            t_n_plus_one = X[13:14,n+1].item()
-            t_n = x_n[13:14].item()
-            duration = int((t_n_plus_one - t_n)// 0.01)
-            phases_duration.append(int(duration))
-            u_n = U[:,n]
-            for _ in range(duration):
-                intra_list.append(np.array(x_n))
+            x_n = X[:, n].reshape(-1, 1)    # state at start of phase
+            t_n = x_n[13].item()                  # start time of phase n
+            t_n_plus_one = X[13, n+1].item()      # end time of phase n
+            u_n = U[:, n]                  # control for this phase
+            # number of sub-steps in this phase
+            num_samples = int((t_n_plus_one - t_n) // 0.01)
+            phases_duration.append(int(num_samples))
+            # For each small integration step within the phase:
+            for i_sub in range(num_samples):
+                # propagate the centroidal state
                 x_n = self.get_x_t(x_n, u_n, 0.01)
+                # Here we will overwrite foot positions if needed
+                # because we know exactly what the foot *should* do
+                # based on sigma transitions:
+                for foot_id in [0, 1]:  # 0 => right foot, 1 => left foot
+                    # foot start index in X is 14 for right, 17 for left
+                    if foot_id == 0:
+                        # Right foot is X[14:17], sigma row 0
+                        foot_slice = slice(14, 17)
+                        sigma_now     = sig[0, n]
+                        sigma_next    = sig[0, n+1]
+                    else:
+                        # Left foot is X[17:20], sigma row 1
+                        foot_slice = slice(17, 20)
+                        sigma_now     = sig[1, n]
+                        sigma_next    = sig[1, n+1]
+        
+                    # The logic for overwriting foot positions:
+                    #   - from 0→0 or 0→-1 => no movement (foot stays the same as X_sol had)
+                    #   - from -1→0 => foot goes on a parabolic arc *during* this phase
+                    if sigma_now == -1 and sigma_next == 0:
+                        # We know the foot is transitioning from flight to contact in this phase.
+                        # We want a parabolic arc from the foot's position at the start of the phase
+                        # to the contact position at the end of the phase.
+                        # 1) Grab foot position at phase start and at phase end from X_sol
+                        foot_start_3d = X[foot_slice, n]   # shape (3,)
+                        foot_end_3d   = X[foot_slice, n+1] # shape (3,)
+        
+                        # 2) Precompute the parabolic trajectory samples for entire phase
+                        #    so we know exactly where the foot should be at substep i_sub
+                        #    We'll store it once per phase in some array, e.g. foot_traj.
+                        # For efficiency, you can do this *once* per phase (outside i_sub loop)
+                        # and store results in a local list. For clarity, shown inline here:
+                        if i_sub == 0:
+                            # build a list/array of 3D points for all sub-steps in this phase
+                            h_max = 0.03  # or whatever your desired step height is
+                            foot_traj_3d = parabolic_trajectory_3D(
+                                foot_start_3d, foot_end_3d, h_max, num_samples
+                            )
+                        
+                        # Overwrite foot with the i_sub-th sample along the parabolic path
+                        x_n[foot_slice] = foot_traj_3d[i_sub].reshape(-1,1)
+                    
+                    else:
+                        # foot remains the same => do nothing
+                        pass
+        
+                # Save the updated state into the "intra_list"
+                intra_list.append(np.array(x_n))
+        
             full_list += intra_list
         return np.array(full_list).squeeze(2), phases_duration
-
