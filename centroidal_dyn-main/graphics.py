@@ -97,7 +97,6 @@ def plot_components(full_array, phases_duration):
     lf_z = full_array[:,19]
     _plt(phases_duration, [rf_z, lf_z], ["rf_z", "lf_z"], "Feet_z")
 
-
     return
 
 def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
@@ -244,7 +243,7 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
         ref_P_L_k.append(ref_PLk)
         ref_foot_velocities_L.append(ref_V_L_k)
         
-    r = 10
+    r = 5
     # Convert lists to numpy arrays
     positions = np.round(np.array(positions),r)
     velocities = np.round(np.array(velocities),r)

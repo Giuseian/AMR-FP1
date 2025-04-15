@@ -38,10 +38,9 @@ class StiffnessBasedCentroidalDynamics:
         self.W_u_k = opti.parameter(27,27)  # Input weight matrix
         self.x_0 = opti.parameter(28)
 
-        weights_x =  [2000]*3 + [100]*4 + [100]*3 + [1]*3 + [100]*7 + [1]*8
-        #weights_x =  [1.0] *2 + [500] + [1.0]*4 + [0.0001]*6 + [1]*15
+        weights_x = [1.0]*2 + [600] + [1.0]*4 + [0.0001]*6 + [1]*15  # Higher weight for the first 18 components
         W_x_k = cs.diag(weights_x)  # Create a diagonal matrix from the weights
-        weights_u = [10] + [1] * 26 # Higher weight for the first 18 components
+        weights_u = [1] + [0.0001] * 12 + [2500]*2 + [1]*12# Higher weight for the first 18 components
         W_u_k = cs.diag(weights_u)  # Create a diagonal matrix from the weights
         
         # Set the weight matrix in the optimizer
