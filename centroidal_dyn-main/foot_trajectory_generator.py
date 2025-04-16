@@ -33,22 +33,22 @@ class FootTrajectoryGenerator:
                     {
                     'pos'        : rfoot1,
                     'ang'        : ang,
-                    'ss_duration': 150,
-                    'ds_duration': 100, 
+                    'ss_duration': 84,
+                    'ds_duration': 59, 
                     'foot_id'    : "rfoot"
                     },
                     {
                     'pos'        : lfoot1,
                     'ang'        : ang,
-                    'ss_duration': 150,
-                    'ds_duration': 100, 
+                    'ss_duration': 211,
+                    'ds_duration': 124, 
                     'foot_id'    : "lfoot"
                     },
                     {
                     'pos'        : rfoot2,
                     'ang'        : ang,
-                    'ss_duration': 150,
-                    'ds_duration': 100, 
+                    'ss_duration': 169,
+                    'ds_duration': 102, 
                     'foot_id'    : "rfoot"
                     },
                     {
