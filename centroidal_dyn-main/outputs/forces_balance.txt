@@ -1,145 +1,145 @@
 gravity_force: [0, 0, 98.1]
 0-th interval
-right foot x: 0.049842 and left foot x: 0.0497574
-right foot y: 9.57412 and left foot y: -10.367
-right foot z: 49.0462 and left foot z: 49.128
-SIGMA_L_k: [0. 0.] and sum_forces: [0.0995994, -0.792879, 98.1742]
+right foot x: 0.216066 and left foot x: 0.217076
+right foot y: 9.44952 and left foot y: -9.62478
+right foot z: 48.9832 and left foot z: 49.1293
+SIGMA_L_k: [0. 0.] and sum_forces: [0.433142, -0.175262, 98.1125]
 
 1-th interval
-right foot x: -0.734283 and left foot x: 0
-right foot y: 7.62125 and left foot y: 0
-right foot z: 97.3214 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [-0.734283, 7.62125, 97.3214]
+right foot x: -2.62533 and left foot x: 0
+right foot y: 1.21917 and left foot y: 0
+right foot z: 97.996 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-2.62533, 1.21917, 97.996]
 
 2-th interval
-right foot x: 2.83951 and left foot x: -6.94028
-right foot y: 6.3017 and left foot y: -12.8951
-right foot z: 50.0914 and left foot z: 50.1075
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.10077, -6.59345, 100.199]
+right foot x: 3.58242 and left foot x: -9.38283
+right foot y: 8.36196 and left foot y: -9.15423
+right foot z: 49.1382 and left foot z: 49.3629
+SIGMA_L_k: [0. 0.] and sum_forces: [-5.80042, -0.792276, 98.5011]
 
 3-th interval
-right foot x: 0 and left foot x: -4.94609
-right foot y: 0 and left foot y: -6.87101
-right foot z: 0 and left foot z: 94.8571
-SIGMA_L_k: [-1.  0.] and sum_forces: [-4.94609, -6.87101, 94.8571]
+right foot x: 0 and left foot x: -4.89056
+right foot y: 0 and left foot y: -1.05089
+right foot z: 0 and left foot z: 97.5153
+SIGMA_L_k: [-1.  0.] and sum_forces: [-4.89056, -1.05089, 97.5153]
 
 4-th interval
-right foot x: -7.36699 and left foot x: 2.45929
-right foot y: 12.4561 and left foot y: -5.94603
-right foot z: 51.2223 and left foot z: 51.2243
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.9077, 6.51006, 102.447]
+right foot x: -12.5294 and left foot x: 3.50347
+right foot y: 8.15943 and left foot y: -7.40919
+right foot z: 49.4489 and left foot z: 49.3726
+SIGMA_L_k: [0. 0.] and sum_forces: [-9.02597, 0.750239, 98.8214]
 
 5-th interval
-right foot x: -4.90146 and left foot x: 0
-right foot y: 6.5324 and left foot y: 0
-right foot z: 92.8824 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.90146, 6.5324, 92.8824]
+right foot x: -5.37735 and left foot x: 0
+right foot y: 0.853069 and left foot y: 0
+right foot z: 97.3018 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-5.37735, 0.853069, 97.3018]
 
 6-th interval
-right foot x: 2.45547 and left foot x: -7.35439
-right foot y: 5.98879 and left foot y: -12.3849
-right foot z: 52.1406 and left foot z: 52.141
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.89891, -6.39613, 104.282]
+right foot x: 2.17712 and left foot x: -11.1562
+right foot y: 7.17143 and left foot y: -7.957
+right foot z: 49.4799 and left foot z: 49.5054
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.97904, -0.785567, 98.9853]
 
 7-th interval
-right foot x: 0 and left foot x: -4.9132
-right foot y: 0 and left foot y: -6.56798
-right foot z: 0 and left foot z: 91.2953
-SIGMA_L_k: [-1.  0.] and sum_forces: [-4.9132, -6.56798, 91.2953]
+right foot x: 0 and left foot x: -5.18554
+right foot y: 0 and left foot y: -0.837318
+right foot z: 0 and left foot z: 97.1991
+SIGMA_L_k: [-1.  0.] and sum_forces: [-5.18554, -0.837318, 97.1991]
 
 8-th interval
-right foot x: -7.35139 and left foot x: 2.45866
-right foot y: 12.3908 and left foot y: -5.98552
-right foot z: 52.866 and left foot z: 52.8668
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.89272, 6.40524, 105.733]
+right foot x: -11.5242 and left foot x: 2.58214
+right foot y: 7.90502 and left foot y: -7.12705
+right foot z: 49.5498 and left foot z: 49.5113
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.94203, 0.777971, 99.0611]
 
 9-th interval
-right foot x: -4.91901 and left foot x: 0
-right foot y: 6.55729 and left foot y: 0
-right foot z: 90.0451 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.91901, 6.55729, 90.0451]
+right foot x: -5.25863 and left foot x: 0
+right foot y: 0.825629 and left foot y: 0
+right foot z: 97.1525 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-5.25863, 0.825629, 97.1525]
 
 10-th interval
-right foot x: 2.45942 and left foot x: -7.35042
-right foot y: 5.99561 and left foot y: -12.3824
-right foot z: 53.4287 and left foot z: 53.4292
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.891, -6.38674, 106.858]
+right foot x: 2.51073 and left foot x: -11.4826
+right foot y: 7.11328 and left foot y: -7.8912
+right foot z: 49.5277 and left foot z: 49.5653
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.97191, -0.777919, 99.0931]
 
 11-th interval
-right foot x: 0 and left foot x: -4.9198
-right foot y: 0 and left foot y: -6.5724
-right foot z: 0 and left foot z: 89.0824
-SIGMA_L_k: [-1.  0.] and sum_forces: [-4.9198, -6.5724, 89.0824]
+right foot x: 0 and left foot x: -5.26694
+right foot y: 0 and left foot y: -0.825386
+right foot z: 0 and left foot z: 97.1332
+SIGMA_L_k: [-1.  0.] and sum_forces: [-5.26694, -0.825386, 97.1332]
 
 12-th interval
-right foot x: -7.35031 and left foot x: 2.45956
-right foot y: 12.3899 and left foot y: -5.98887
-right foot z: 53.8546 and left foot z: 53.8554
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.89076, 6.40099, 107.71]
+right foot x: -11.5209 and left foot x: 2.54033
+right foot y: 7.88779 and left foot y: -7.10885
+right foot z: 49.5707 and left foot z: 49.534
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.98055, 0.778933, 99.1047]
 
 13-th interval
-right foot x: -4.91995 and left foot x: 0
-right foot y: 6.5551 and left foot y: 0
-right foot z: 88.3666 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.91995, 6.5551, 88.3666]
+right foot x: -5.27347 and left foot x: 0
+right foot y: 0.82304 and left foot y: 0
+right foot z: 97.1279 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-5.27347, 0.82304, 97.1279]
 
 14-th interval
-right foot x: 2.45956 and left foot x: -7.35028
-right foot y: 5.99805 and left foot y: -12.3812
-right foot z: 54.1631 and left foot z: 54.1635
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.89072, -6.38312, 108.327]
+right foot x: 2.52727 and left foot x: -11.5038
+right foot y: 7.10863 and left foot y: -7.88708
+right foot z: 49.5336 and left foot z: 49.5712
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.97656, -0.778451, 99.1047]
 
 15-th interval
-right foot x: 0 and left foot x: -4.91995
-right foot y: 0 and left foot y: -6.57005
-right foot z: 0 and left foot z: 87.8672
-SIGMA_L_k: [-1.  0.] and sum_forces: [-4.91995, -6.57005, 87.8672]
+right foot x: 0 and left foot x: -5.25668
+right foot y: 0 and left foot y: -0.825691
+right foot z: 0 and left foot z: 97.1329
+SIGMA_L_k: [-1.  0.] and sum_forces: [-5.25668, -0.825691, 97.1329]
 
 16-th interval
-right foot x: -7.35035 and left foot x: 2.45961
-right foot y: 12.389 and left foot y: -5.99058
-right foot z: 54.3666 and left foot z: 54.3675
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.89075, 6.3984, 108.734]
+right foot x: -11.471 and left foot x: 2.52159
+right foot y: 7.88427 and left foot y: -7.10684
+right foot z: 49.5638 and left foot z: 49.5294
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.94939, 0.777432, 99.0931]
 
 17-th interval
-right foot x: -4.92005 and left foot x: 0
-right foot y: 6.55352 and left foot y: 0
-right foot z: 87.5629 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.92005, 6.55352, 87.5629]
+right foot x: -5.19865 and left foot x: 0
+right foot y: 0.819497 and left foot y: 0
+right foot z: 97.1518 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-5.19865, 0.819497, 97.1518]
 
 18-th interval
-right foot x: 2.45905 and left foot x: -7.34936
-right foot y: 5.99953 and left foot y: -12.3812
-right foot z: 54.4747 and left foot z: 54.4751
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.89031, -6.3817, 108.95]
+right foot x: 2.44609 and left foot x: -11.3023
+right foot y: 7.1054 and left foot y: -7.88918
+right foot z: 49.5137 and left foot z: 49.5475
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.85617, -0.783777, 99.0612]
 
 19-th interval
-right foot x: 0 and left foot x: -4.91814
-right foot y: 0 and left foot y: -6.57095
-right foot z: 0 and left foot z: 87.4407
-SIGMA_L_k: [-1.  0.] and sum_forces: [-4.91814, -6.57095, 87.4407]
+right foot x: 0 and left foot x: -5.02687
+right foot y: 0 and left foot y: -0.839498
+right foot z: 0 and left foot z: 97.1987
+SIGMA_L_k: [-1.  0.] and sum_forces: [-5.02687, -0.839498, 97.1987]
 
 20-th interval
-right foot x: -7.36967 and left foot x: 2.46825
-right foot y: 12.4063 and left foot y: -5.99809
-right foot z: 54.491 and left foot z: 54.4923
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.90142, 6.40817, 108.983]
+right foot x: -11.0271 and left foot x: 2.41984
+right foot y: 7.87268 and left foot y: -7.117
+right foot z: 49.4994 and left foot z: 49.4856
+SIGMA_L_k: [0. 0.] and sum_forces: [-8.60725, 0.755675, 98.9851]
 
 21-th interval
-right foot x: -4.93308 and left foot x: 0
-right foot y: 6.55503 and left foot y: 0
-right foot z: 87.4955 and left foot z: 0
-SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.93308, 6.55503, 87.4955]
+right foot x: -4.50036 and left foot x: 0
+right foot y: 0.758919 and left foot y: 0
+right foot z: 97.3084 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.50036, 0.758919, 97.3084]
 
 22-th interval
-right foot x: 2.31921 and left foot x: -7.1924
-right foot y: 6.10971 and left foot y: -12.4198
-right foot z: 54.4169 and left foot z: 54.4188
-SIGMA_L_k: [0. 0.] and sum_forces: [-4.87319, -6.31009, 108.836]
+right foot x: 1.67156 and left foot x: -9.43731
+right foot y: 6.9478 and left foot y: -7.83309
+right foot z: 49.3912 and left foot z: 49.4171
+SIGMA_L_k: [0. 0.] and sum_forces: [-7.76575, -0.88529, 98.8082]
 
 23-th interval
-right foot x: 0 and left foot x: -3.92613
-right foot y: 0 and left foot y: -7.77867
-right foot z: 0 and left foot z: 87.7295
-SIGMA_L_k: [-1.  0.] and sum_forces: [-3.92613, -7.77867, 87.7295]
+right foot x: 0 and left foot x: -2.97872
+right foot y: 0 and left foot y: -1.17356
+right foot z: 0 and left foot z: 97.5608
+SIGMA_L_k: [-1.  0.] and sum_forces: [-2.97872, -1.17356, 97.5608]
 

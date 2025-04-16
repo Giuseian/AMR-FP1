@@ -81,7 +81,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
         for t in range(1, N+1):
             right_contact = sigma[sig_idx]
             left_contact = sigma[sig_idx+1]
-            c_v_x = 1
+            c_v_x = 0.1
             if t == 2:
                 c_v_x /= 2
             # update foot position and velocity
@@ -104,7 +104,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             # update com position 
             com_vel = np.array([c_v_x, 0.0, 0.0])
             X_ref[7:10, t] = com_vel   # constant com velocity
-            com_ds = com_vel * dt
+            com_ds = com_vel * U_ref[0, t-1]
             X_ref[0:3, t] = X_ref[0:3, t-1] + com_ds
                 
             # update time
@@ -112,8 +112,8 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             X_ref[13:14, t] = time_k
             
             feet_vel = np.array([right_vel_x, 0.0, right_vel_z, left_vel_x, 0.0, left_vel_z])
-            right_ds = feet_vel[:3]*dt
-            left_ds = feet_vel[3:6]*dt
+            right_ds = feet_vel[:3]*U_ref[0, t-1]
+            left_ds = feet_vel[3:6]*U_ref[0, t-1]
             X_ref[14:17, t] = X_ref[14:17, t-1] + right_ds
             X_ref[17:20, t] = X_ref[17:20, t-1] + left_ds
             X_ref[3:7, t] = start_orient
@@ -255,8 +255,6 @@ def FORCES_ref_trajectory_generation(n_e, N, ref_type, sigma):
                 c_v_x = 0.0
                 com_ds_x = 0.0  
             
-                
-
             # update com position 
             com_vel = np.array([c_v_x, 0.0, 0.0])
             X_ref[7:10, t] = com_vel   # constant com velocity
