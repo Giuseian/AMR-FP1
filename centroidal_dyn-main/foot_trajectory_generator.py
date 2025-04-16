@@ -16,49 +16,39 @@ class FootTrajectoryGenerator:
     # Extract the required values: this is only valid for [0,0,0], [0,-1,0] contact sequence
     # Extract required values
     # [0, 0, 0], [0, -1, 0]
-    
-    rfoot1 = data[:3, 1]
-    lfoot1 = data[:3, 2]
-    rfoot2 = data[-3:, 4]
-    print(f"first feet (R): {rfoot1}")
-    print(f"second feet (L): {lfoot1}")
-    print(f"third feet (R): {rfoot2}")
+    lfoot0 = data[-3:, 0]
+    rfoot1 = data[3:, 1]
+    lfoot1 = data[-3:, 3]
+    rfoot2 = data[3:, 5]
+    lfoot2 = data[-3:, 7]
+    print(f"first feet (R): {lfoot0}")
+    print(f"second feet (L): {rfoot1}")
+    print(f"third feet (R): {lfoot1}")
+    print(f"fourth feet (L): {rfoot2}")
+    print(f"fifth feet (R): {lfoot2}")
     supports = [rfoot1, lfoot1, rfoot2]
     supports_name = ["rfoot", "lfoot", "rfoot"]
     phases_durations = "./outputs/phase_durations.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
-    ang = np.array([0,0,0])
-    
+    ang = np.array([0.0, 0.0, 0.0])
+
     self.plan = [
-                    {
-                    'pos'        : rfoot1,
-                    'ang'        : ang,
-                    'ss_duration': 0,
-                    'ds_duration': 59, 
-                    'foot_id'    : "rfoot"
-                    },
-                    {
-                    'pos'        : rfoot1,
-                    'ang'        : ang,
-                    'ss_duration': 84,
-                    'ds_duration': 124, 
-                    'foot_id'    : "rfoot"
-                    },
-                    {
-                    'pos'        : lfoot1,
-                    'ang'        : ang,
-                    'ss_duration': 211,
-                    'ds_duration': 102, 
-                    'foot_id'    : "lfoot"
-                    },
-                    {
-                    'pos'        : rfoot2,
-                    'ang'        : ang,
-                    'ss_duration':  169,
-                    'ds_duration': 89, 
-                    'foot_id'    : "rfoot"
-                    }
+        # index 0  – dummy double‑support (left foot will swing first)
+        { 'pos': lfoot0, 'ang': ang, 'ss_duration': 0,   'ds_duration': 59, 'foot_id': 'lfoot' },
+
+        # index 1  – SS₁ (left swings) + DS₂
+        { 'pos': rfoot1, 'ang': ang, 'ss_duration': 84,  'ds_duration':124, 'foot_id': 'rfoot' },
+
+        # index 2  – SS₃ (right swings) + DS₄
+        { 'pos': lfoot1, 'ang': ang, 'ss_duration':211,  'ds_duration':102, 'foot_id': 'lfoot' },
+
+        # index 3  – SS₅ (left swings again) + DS₆
+        { 'pos': rfoot2, 'ang': ang, 'ss_duration':169,  'ds_duration': 89, 'foot_id': 'rfoot' },
+
+        # optional terminal settling DS so step_index+1 is always valid
+        { 'pos': lfoot2, 'ang': ang, 'ss_duration': 163,   'ds_duration': 87, 'foot_id': 'lfoot' }
     ]
+
     self.footstep_planner.plan = self.plan
     
   def generate_feet_trajectories_at_time(self, time):
