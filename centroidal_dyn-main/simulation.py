@@ -21,10 +21,10 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             'h': 0.72,
             'foot_size': 0.1,
             'step_height': 0.02,
-            'ss_duration': 70,
-            'ds_duration': 30,
+            'ss_duration': 150,
+            'ds_duration': 100,
             'world_time_step': world.getTimeStep(),
-            'first_swing': 'rfoot',
+            'first_swing': 'lfoot',
             'µ': 0.5,
             'N': 100,
             'dof': self.hrp4.getNumDofs(),
@@ -243,65 +243,76 @@ import dartpy as dart
 import numpy as np
 
 if __name__ == "__main__":
-    
-    # Initialize world
+        
+    print("Starting setup...")
+
     world = dart.simulation.World()
-    
-    # URDF loader
+    print("World created")
+
     urdfParser = dart.utils.DartLoader()
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # Paths to URDF files
+    print("Parser and path ready")
+
     hrp4_path = os.path.join(current_dir, "urdf", "hrp4.urdf")
     ground_path = os.path.join(current_dir, "urdf", "ground.urdf")
-    
-    # Check if files exist
+    print("Paths set")
+
     assert os.path.exists(hrp4_path), f"URDF file not found: {hrp4_path}"
     assert os.path.exists(ground_path), f"URDF file not found: {ground_path}"
-    
-    # Parse URDF files
+    print("URDF files found")
+
     hrp4 = urdfParser.parseSkeleton(hrp4_path)
     if hrp4 is None:
-        raise RuntimeError(f"Failed to parse HRP4 URDF: {hrp4_path}")
-    
+        raise RuntimeError("HRP4 URDF parse failed")
+    print("HRP4 parsed")
+
     ground = urdfParser.parseSkeleton(ground_path)
     if ground is None:
-        raise RuntimeError(f"Failed to parse Ground URDF: {ground_path}")
-    
-    # Add skeletons to the world
+        raise RuntimeError("Ground URDF parse failed")
+    print("Ground parsed")
+
+    print("Adding HRP4 to world...")
     world.addSkeleton(hrp4)
+    print("HRP4 added")
+
+    print("Adding ground to world...")
     world.addSkeleton(ground)
+    print("Ground added")
+
+    print("Setting gravity...")
     world.setGravity([0, 0, -9.81])
+    print("Gravity set")
+
+    print("Setting time step...")
     world.setTimeStep(0.01)
-    
-    # Set default inertia for bodies with zero mass
+    print("World configured")
+
+    # default inertia
     default_inertia = dart.dynamics.Inertia(1e-8, np.zeros(3), 1e-10 * np.identity(3))
     for body in hrp4.getBodyNodes():
         if body.getMass() == 0.0:
-            print(f"Setting default mass and inertia for body: {body.getName()}")
+            print(f"Fixing body: {body.getName()}")
             body.setMass(1e-8)
             body.setInertia(default_inertia)
-    
-    # Initialize HRP4 controller
-    try:
-        node = Hrp4Controller(world, hrp4)
-    except NameError:
-        raise RuntimeError("Hrp4Controller is not defined. Ensure it is implemented and imported.")
-    
-    # Create viewer
+
+    print("Bodies fixed (if needed)")
+
+    # Controller
+    print("Initializing controller...")
+    node = Hrp4Controller(world, hrp4)
+    print("Controller initialized")
+
     viewer = dart.gui.osg.Viewer()
-    node.setTargetRealTimeFactor(10)  # Speed up visualization by 10x
+    node.setTargetRealTimeFactor(10)
     viewer.addWorldNode(node)
-    
-    # Viewer settings
     viewer.setUpViewInWindow(0, 0, 1280, 720)
     viewer.setCameraHomePosition([5., -1., 1.5],
-                                 [1., 0., 0.5],
-                                 [0., 0., 1.])
-    
-    # Run the viewer
-    viewer.run()
+                                [1.,  0., 0.5],
+                                [0.,  0., 1. ])
+    print("Viewer set up")
 
+    print("Running viewer...")
+    viewer.run()
 
 if __name__ == "__main__":
     world = dart.simulation.World()

@@ -24,7 +24,7 @@ class StiffnessBasedCentroidalDynamics:
         self.mu = 0.5
         self.mu_z = 0.6
         self.tau_min = 0.4
-        self.tau_max = 5
+        self.tau_max = 10
         self.m = 10
         self.LAMBDA_max = 1000
         self.feet_length = 0.1
@@ -336,22 +336,10 @@ class StiffnessBasedCentroidalDynamics:
         
         return x_k_plus_one
 
-
-    def constraint_lambda(self, p_k_ref, P_L_k_ref, LAMBDA_L_k_ref, g):
-        diff = cs.mtimes(cs.repmat(p_k_ref, 1, self.n_e) - P_L_k_ref, LAMBDA_L_k_ref**2) - g
-        lambda_obj = 0.5 * cs.mtimes(diff.T, diff)
-        self.opti.minimize(lambda_obj)
-
-        self.opti.solver("ipopt")
-        solution = self.opti.solve()        
-        LAMBDA_L_sol = solution.value(LAMBDA_L_k_ref)
-        
-        return LAMBDA_L_sol
-
     def constraint_box(self, p_k, P_L_k):
 
         self.opti.subject_to(cs.sumsqr(P_L_k[0:3] - p_k) <= 1) # euclidian distance have square root, but it cause optimization problems
-        self.opti.subject_to(cs.sumsqr(P_L_k[3:6] - p_k) <= 1) # but we have an equivalent formulation by setting <= maxdistance^2 (1**2 = 1vin this case)
+        self.opti.subject_to(cs.sumsqr(P_L_k[3:6] - p_k) <= 1) # but we have an equivalent formulation by setting <= maxdistance^2 (1**2 = 1 in this case)
         
         return 
     

@@ -30,14 +30,14 @@ if __name__ == "__main__":
     print(f"Solving for {ref} reference...\n")
     X_init_ref, U_init_ref = ref_trajectory_generation(n_e, N, ref, sigma[ref])
 
-    X_init = np.full(X.shape, 0.7)
-    U_init = np.full(U.shape, 0.5)
+    X_init = np.full(X.shape, 0.0001)
+    U_init = np.full(U.shape, 0.001)
     opti.set_initial(X, X_init)
     opti.set_initial(U, U_init)
     opti.set_value(X_ref, X_init_ref)
     opti.set_value(U_ref, U_init_ref)
 
-    dynamic_model = StiffnessBasedCentroidalDynamics(n_e, n_div, surfaces, N, sigma[ref],opti)
+    dynamic_model = StiffnessBasedCentroidalDynamics(n_e, n_div, surfaces, N, sigma[ref],opti, non_slip=True)
     X_sol, U_sol = dynamic_model.solve(X, U, X_ref, U_ref)
     full_array, phases_duration = dynamic_model.time_domain_solution(X_sol, U_sol)
     

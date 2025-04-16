@@ -17,45 +17,45 @@ class FootTrajectoryGenerator:
     # Extract required values
     # [0, 0, 0], [0, -1, 0]
     
-    lfoot1 = data[-3:, 0]
-    rfoot1 = data[:3,1]
-    lfoot2 = data[-3:, 2]
-    print(f"first feet (R): {lfoot1}")
-    print(f"second feet (L): {rfoot1}")
-    print(f"third feet (R): {lfoot2}")
-    supports = [lfoot1, rfoot1, lfoot2]
-    supports_name = ["lfoot", "rfoot", "lfoot"]
+    rfoot1 = data[:3, 1]
+    lfoot1 = data[:3, 2]
+    rfoot2 = data[-3:, 4]
+    print(f"first feet (R): {rfoot1}")
+    print(f"second feet (L): {lfoot1}")
+    print(f"third feet (R): {rfoot2}")
+    supports = [rfoot1, lfoot1, rfoot2]
+    supports_name = ["rfoot", "lfoot", "rfoot"]
     phases_durations = "./outputs/phase_durations.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
     ang = np.array([0,0,0])
     
     self.plan = [
                     {
-                    'pos'        : lfoot1,
-                    'ang'        : ang,
-                    'ss_duration': 0,
-                    'ds_duration': phases_durations[0], 
-                    'foot_id'    : "lfoot"
-                    },
-                    {
                     'pos'        : rfoot1,
                     'ang'        : ang,
-                    'ss_duration': phases_durations[1],
-                    'ds_duration': phases_durations[1], 
+                    'ss_duration': 150,
+                    'ds_duration': 100, 
                     'foot_id'    : "rfoot"
                     },
                     {
-                    'pos'        : lfoot2,
+                    'pos'        : lfoot1,
                     'ang'        : ang,
-                    'ss_duration': phases_durations[1],
-                    'ds_duration': phases_durations[1], 
+                    'ss_duration': 150,
+                    'ds_duration': 100, 
                     'foot_id'    : "lfoot"
+                    },
+                    {
+                    'pos'        : rfoot2,
+                    'ang'        : ang,
+                    'ss_duration': 150,
+                    'ds_duration': 100, 
+                    'foot_id'    : "rfoot"
                     },
                     {
                     'pos'        : rfoot1,
                     'ang'        : ang,
-                    'ss_duration': phases_durations[1],
-                    'ds_duration': phases_durations[1], 
+                    'ss_duration':  150,
+                    'ds_duration': 100, 
                     'foot_id'    : "rfoot"
                     }
     ]
