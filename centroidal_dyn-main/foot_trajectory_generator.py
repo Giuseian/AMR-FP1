@@ -59,6 +59,7 @@ class FootTrajectoryGenerator:
                     'foot_id'    : "rfoot"
                     }
     ]
+    self.footstep_planner.plan = self.plan
     
   def generate_feet_trajectories_at_time(self, time):
     step_index = self.footstep_planner.get_step_index_at_time(time)
