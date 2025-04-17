@@ -103,9 +103,8 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
 
             # update com position 
             com_vel = np.array([c_v_x, 0.0, 0.0])
-            X_ref[7:10, t] = com_vel   # constant com velocity
+            X_ref[7:10, t-1] = com_vel   # constant com velocity
             com_ds = com_vel * U_ref[0, t-1]
-            com_ds[1] -= 0.05
             X_ref[0:3, t] = X_ref[0:3, t-1] + com_ds
             
             # update time

@@ -37,7 +37,7 @@ if __name__ == "__main__":
     opti.set_value(X_ref, X_init_ref)
     opti.set_value(U_ref, U_init_ref)
 
-    dynamic_model = StiffnessBasedCentroidalDynamics(n_e, n_div, surfaces, N, sigma[ref],opti, non_slip=True)
+    dynamic_model = StiffnessBasedCentroidalDynamics(n_e, n_div, surfaces, N, sigma[ref],opti)
     X_sol, U_sol = dynamic_model.solve(X, U, X_ref, U_ref)
     full_array, phases_duration = dynamic_model.time_domain_solution(X_sol, U_sol)
     
