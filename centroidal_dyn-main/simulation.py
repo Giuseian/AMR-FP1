@@ -131,7 +131,6 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             print(f"time: {self.time}, contact: {contact}") 
             
             desired_pos = desired_positions[self.time]
-            desired_pos[1] -= 0.1
             desired_vel = desired_velocities[self.time]                
             self.desired['com']['pos'] = desired_pos
             self.desired['com']['vel'] = desired_vel
