@@ -15,14 +15,16 @@ class FootTrajectoryGenerator:
 
     # Extract the required values: this is only valid for [0,0,0], [0,-1,0] contact sequence
     # Extract required values
-    # [0, 0, 0], [0, -1, 0]
+    # [0, 0, 0, -1], [0, -1, 0, 0]
     lfoot0 = data[-3:, 0]
     rfoot1 = data[3:, 1]
     lfoot1 = data[-3:, 3]
-    
+    rfoot2 = data[3:, 4]
+
     print(f"first feet (L in contact): {lfoot0}")
     print(f"second feet (R in contact): {rfoot1}")
     print(f"third feet (L in contact): {lfoot1}")
+    print(f"fourth feet (R in contact): {rfoot2}")
     
     phases_durations = "./outputs/phase_durations.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
@@ -30,6 +32,8 @@ class FootTrajectoryGenerator:
     p2 = duration[1]*100
     p3 = duration[2]*100
     p4 = duration[3]*100
+    p5 = duration[4]*100
+    p6 = duration[5]*100
     
     ang = np.array([0.0, 0.0, 0.0])
 
@@ -42,6 +46,10 @@ class FootTrajectoryGenerator:
 
         # index 2  – SS₃ (right swings) + DS₄
         { 'pos': lfoot1, 'ang': ang, 'ss_duration': 0,  'ds_duration': p4, 'foot_id': 'lfoot' },
+
+        { 'pos': rfoot2, 'ang': ang, 'ss_duration': p5,  'ds_duration': p6, 'foot_id': 'rfoot' },
+
+        { 'pos': lfoot1, 'ang': ang, 'ss_duration': p3,  'ds_duration': p4, 'foot_id': 'lfoot' }, # verifica
 
     ]
 

@@ -107,7 +107,7 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
 
         phases_duration = np.loadtxt('./outputs/phase_durations.txt', delimiter=',')
         desired_positions, desired_velocities = [], []
-        contacts = ["ds", "rfoot", "ds"] # change this wrt sigma sequence
+        contacts = ["ds", "rfoot", "ds", "lfoot"] # change this wrt sigma sequence
 
         
         pos = np.loadtxt("./outputs/com_pos.txt", delimiter=',').tolist()
@@ -120,14 +120,17 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
         phase1 = phases_duration[0]*100
         fin_phase2 = (phases_duration[0]+phases_duration[1])*100 
         fin_phase3 = fin_phase2 + phases_duration[2]*100
+        fin_phase4 = fin_phase3 + phases_duration[3]*100
+        
         if self.time >= 0 and self.time < phase1:
             contact = contacts[0]
         elif self.time >= phase1 and self.time < fin_phase2:
             contact = contacts[1]
         elif self.time >= fin_phase2 and self.time < fin_phase3:
             contact = contacts[2]
-
-        if self.time < fin_phase3:
+        elif self.time >= fin_phase3 and self.time < fin_phase4:
+            contact = contacts[3]
+        if self.time < fin_phase4:
             print(f"time: {self.time}, contact: {contact}") 
             
             desired_pos = desired_positions[self.time]

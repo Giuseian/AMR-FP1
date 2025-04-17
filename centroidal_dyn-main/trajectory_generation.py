@@ -46,7 +46,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
         X_ref = np.zeros((28, N+1))
         U_ref = np.zeros((27, N)) + 0.000001
         time_k = 0
-        start_vel = [0, -0.1, 0]
+        start_vel = [0, -0.07, 0]
         X_ref[0:3, 0] = start_pos                         # Initial CoM position
         X_ref[3:7, 0] = start_orient
         X_ref[7:10, 0] = start_vel
@@ -63,7 +63,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             left_contact = sigma[sig_idx+1]
             
             lambda_right, lambda_left = np.sqrt(9.81),np.sqrt(9.81)
-            phase_duration = 1
+            phase_duration = 1  # ds
             if right_contact == -1 and left_contact == 0:
                 phase_duration = 1
                 lambda_right = 0
@@ -83,30 +83,30 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             right_contact = sigma[sig_idx]
             left_contact = sigma[sig_idx+1]
             c_v_x = 0.1
-            c_v_y = -0.1
+            c_v_y = -0.07
             if t == 2:
                 c_v_x /= 2
-                c_v_y /= 2
+                #c_v_y /= 2
             # update foot position and velocity
             right_vel_x, left_vel_x, right_vel_z, left_vel_z = 0.0, 0.0, 0.0, 0.0
-            phase_duration = 1
+            phase_duration = 1    # ss
             if right_contact == -1 and sigma[sig_idx-2] == 0:
-                phase_duration = 1
+                phase_duration = 1  # ds
                 c_v_x = 0 
-                c_v_y = 0.1
+                c_v_y = 0.07
             
             if left_contact == -1 and sigma[sig_idx-1] == 0:
-                phase_duration = 1
+                phase_duration = 1  # ds
                 c_v_x = 0
-                c_v_y = -0.1
+                c_v_y = -0.07
                 
             if right_contact == 0 and sigma[sig_idx-2] == -1:
                 right_vel_x = c_v_x*2
-                c_v_y = -0.1
+                c_v_y = -0.07
 
             if left_contact == 0 and sigma[sig_idx-1] == -1:
                 left_vel_x = c_v_x*2
-                c_v_y = 0.1
+                c_v_y = 0.07
 
             # update com position 
             com_vel = np.array([c_v_x, c_v_y, 0.0])
