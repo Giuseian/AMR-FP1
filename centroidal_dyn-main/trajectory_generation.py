@@ -46,6 +46,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
         X_ref = np.zeros((28, N+1))
         U_ref = np.zeros((27, N)) + 0.000001
         time_k = 0
+        start_vel = [0, -0.1, 0]
         X_ref[0:3, 0] = start_pos                         # Initial CoM position
         X_ref[3:7, 0] = start_orient
         X_ref[7:10, 0] = start_vel
@@ -64,12 +65,12 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             lambda_right, lambda_left = np.sqrt(9.81),np.sqrt(9.81)
             phase_duration = 1
             if right_contact == -1 and left_contact == 0:
-                phase_duration = 1.5
+                phase_duration = 1
                 lambda_right = 0
                 lambda_left = np.sqrt(9.81/0.5)
                 
             if left_contact == -1 and right_contact == 0:
-                phase_duration = 1.5
+                phase_duration = 1
                 lambda_left = 0
                 lambda_right = np.sqrt(9.81/0.5)
 
@@ -82,27 +83,33 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             right_contact = sigma[sig_idx]
             left_contact = sigma[sig_idx+1]
             c_v_x = 0.1
+            c_v_y = -0.1
             if t == 2:
                 c_v_x /= 2
+                c_v_y /= 2
             # update foot position and velocity
             right_vel_x, left_vel_x, right_vel_z, left_vel_z = 0.0, 0.0, 0.0, 0.0
-            phase_duration = 1.5
+            phase_duration = 1
             if right_contact == -1 and sigma[sig_idx-2] == 0:
                 phase_duration = 1
                 c_v_x = 0 
+                c_v_y = 0.1
             
             if left_contact == -1 and sigma[sig_idx-1] == 0:
                 phase_duration = 1
                 c_v_x = 0
+                c_v_y = -0.1
                 
             if right_contact == 0 and sigma[sig_idx-2] == -1:
                 right_vel_x = c_v_x*2
+                c_v_y = -0.1
 
             if left_contact == 0 and sigma[sig_idx-1] == -1:
                 left_vel_x = c_v_x*2
+                c_v_y = 0.1
 
             # update com position 
-            com_vel = np.array([c_v_x, 0.0, 0.0])
+            com_vel = np.array([c_v_x, c_v_y, 0.0])
             X_ref[7:10, t-1] = com_vel   # constant com velocity
             com_ds = com_vel * U_ref[0, t-1]
             X_ref[0:3, t] = X_ref[0:3, t-1] + com_ds

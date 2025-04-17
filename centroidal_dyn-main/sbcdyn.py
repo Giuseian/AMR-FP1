@@ -38,7 +38,7 @@ class StiffnessBasedCentroidalDynamics:
         self.W_u_k = opti.parameter(27,27)  # Input weight matrix
         self.x_0 = opti.parameter(28)
 
-        weights_x = [1] + [2] + [500] + [1.0]*4 + [1]*3 + [0.0001]*3 + [1]*15  # Higher weight for the first 18 components
+        weights_x = [1] + [500] + [500] + [1.0]*4 + [1]*3 + [0.0001]*3 + [1]*15  # Higher weight for the first 18 components
         W_x_k = cs.diag(weights_x)  # Create a diagonal matrix from the weights
         weights_u = [1] + [1] * 12 + [1]*2 + [1]*12# Higher weight for the first 18 components
         W_u_k = cs.diag(weights_u)  # Create a diagonal matrix from the weights
@@ -57,7 +57,7 @@ class StiffnessBasedCentroidalDynamics:
         X_init = np.zeros(X.shape[0])
         start_pos = np.array([-6.17867734e-04, 4.43297775e-04, 7.23981584e-01])      # Initial CoM position
         start_orient = np.array([1,0,0,0])
-        start_vel = np.zeros(3)
+        start_vel = [0.0, -0.1, 0.0]
         start_feet_pos = np.array([[1.03109240e-17, -1.01638576e-01, -1.38777878e-17], [1.03109240e-17, 1.01638576e-01, -1.38777878e-17]])  # Initial feet positions (distance 0.5 from CoM)
         start_feet_orient = np.array([[1, 0, 0, 0], [1, 0, 0, 0]])  # Neutral orientations
         
