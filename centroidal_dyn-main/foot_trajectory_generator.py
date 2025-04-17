@@ -15,33 +15,59 @@ class FootTrajectoryGenerator:
 
     # Extract the required values: this is only valid for [0,0,0], [0,-1,0] contact sequence
     # Extract required values
-    # [0, 0, 0], [0, -1, 0]
-    lfoot0 = data[-3:, 0]
-    rfoot1 = data[3:, 1]
-    lfoot1 = data[-3:, 3]
+    # [0, 0, 0, -1, 0, 0], [0, -1, 0, 0, 0, -1]
     
+    """
+    0.00000000,0.00000000,0.00000000,0.00000000,0.20000000,0.20000000,0.20000000,0.20000000,0.40000000,0.40000000,0.40000000,0.40000000,0.60000000,0.60000000,0.60000000,0.60000000,0.80000000,0.80000000,0.80000000,0.80000000,1.00000000,1.00000000,1.00000000,1.00000000,1.20000000
+    -0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858
+    -0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000
+
+    0.00000000,0.00000000,0.10000000,0.10000000,0.10000000,0.10000000,0.30000000,0.30000000,0.30000000,0.30000000,0.50000000,0.50000000,0.50000000,0.50000000,0.70000000,0.70000000,0.70000000,0.70000000,0.90000000,0.90000000,0.90000000,0.90000000,1.10000000,1.10000000,1.10000000
+    0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858
+    -0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000
+
+    """
+    lfoot0 = data[-3:, 0]   # ds: start [0,0]
+    rfoot1 = data[:3, 1]    # ss: left lifts right stays [0,-1]
+    lfoot1 = data[-3:, 3]   # ds: left arrives right keeps same position [0,0]
+    
+    rfoot2 = data[:3, 4]      
+    lfoot2 = data[-3:, 6]   
+    rfoot3 = data[:3, 8]
+
     print(f"first feet (L in contact): {lfoot0}")
     print(f"second feet (R in contact): {rfoot1}")
     print(f"third feet (L in contact): {lfoot1}")
+    print(f"fourth feet (R in contact): {rfoot2}")
+    print(f"fifth feet (L in contact): {lfoot2}")
+    print(f"sixth feet (R in contact): {rfoot3}")
     
+
     phases_durations = "./outputs/phase_durations.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
     p1 = duration[0]*100
     p2 = duration[1]*100
     p3 = duration[2]*100
     p4 = duration[3]*100
-    
+    p5 = duration[4]*100
+    p6 = duration[5]*100
+    p7 = duration[6]*100
+    p8 = duration[7]*100
+    p9 = duration[7]*100
     ang = np.array([0.0, 0.0, 0.0])
 
     self.plan = [
-        # index 0  – dummy double‑support (left foot will swing first)
-        { 'pos': lfoot0, 'ang': ang, 'ss_duration': 0,   'ds_duration': p1, 'foot_id': 'lfoot' },
+        { 'pos': lfoot0, 'ang': ang, 'ss_duration': 0,   'ds_duration': p1, 'foot_id': 'lfoot' },   # 0,0
 
-        # index 1  – SS₁ (left swings) + DS₂
-        { 'pos': rfoot1, 'ang': ang, 'ss_duration': p2,  'ds_duration': p3, 'foot_id': 'rfoot' },
+        { 'pos': rfoot1, 'ang': ang, 'ss_duration': p2,  'ds_duration': p3, 'foot_id': 'rfoot' },   # 0,-1
 
-        # index 2  – SS₃ (right swings) + DS₄
-        { 'pos': lfoot1, 'ang': ang, 'ss_duration': 0,  'ds_duration': p4, 'foot_id': 'lfoot' },
+        { 'pos': lfoot1, 'ang': ang, 'ss_duration': p3,  'ds_duration': p4, 'foot_id': 'lfoot' },    # 0, 0
+
+        { 'pos': rfoot2, 'ang': ang, 'ss_duration': p5,  'ds_duration': p6, 'foot_id': 'rfoot' },   # -1, 0
+
+        { 'pos': lfoot2, 'ang': ang, 'ss_duration': p6,  'ds_duration': p7, 'foot_id': 'lfoot' },   # 0, 0
+
+        { 'pos': rfoot3, 'ang': ang, 'ss_duration': p8,  'ds_duration': p9, 'foot_id': 'rfoot' },   # 0, -1
 
     ]
 
