@@ -80,31 +80,32 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
 
         sig_idx = 2
         for t in range(1, N+1):
-            right_contact = sigma[sig_idx]
+            right_contact = sigma[sig_idx]  
             left_contact = sigma[sig_idx+1]
             c_v_x = 0.1
-            c_v_y = -0.07
+            #c_v_y = -0.07
             if t == 2:
                 c_v_x /= 2
                 #c_v_y /= 2
             # update foot position and velocity
             right_vel_x, left_vel_x, right_vel_z, left_vel_z = 0.0, 0.0, 0.0, 0.0
             phase_duration = 1    # ss
-            if right_contact == -1 and sigma[sig_idx-2] == 0:
+            
+            if right_contact == -1 and sigma[sig_idx-2] == 0:   # rf 0 -> -1
                 phase_duration = 1  # ds
                 c_v_x = 0 
                 c_v_y = 0.07
             
-            if left_contact == -1 and sigma[sig_idx-1] == 0:
+            if left_contact == -1 and sigma[sig_idx-1] == 0:    # lf 0 -> -1
                 phase_duration = 1  # ds
                 c_v_x = 0
                 c_v_y = -0.07
                 
-            if right_contact == 0 and sigma[sig_idx-2] == -1:
+            if right_contact == 0 and sigma[sig_idx-2] == -1:   # rf -1 -> 0
                 right_vel_x = c_v_x*2
                 c_v_y = -0.07
 
-            if left_contact == 0 and sigma[sig_idx-1] == -1:
+            if left_contact == 0 and sigma[sig_idx-1] == -1:    # lf -1 -> 0
                 left_vel_x = c_v_x*2
                 c_v_y = 0.07
 
