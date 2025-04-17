@@ -1,5 +1,6 @@
 gravity_force: [0, 0, 98.1]
 0-th interval
+<<<<<<< Updated upstream
 right foot x: 0.318799 and left foot x: 0.313519
 right foot y: 10.0058 and left foot y: -8.80055
 right foot z: 49.0598 and left foot z: 49.0579
@@ -142,4 +143,148 @@ right foot x: 0 and left foot x: -5.50766
 right foot y: 0 and left foot y: 1.10996
 right foot z: 0 and left foot z: 97.5885
 SIGMA_L_k: [-1.  0.] and sum_forces: [-5.50766, 1.10996, 97.5885]
+=======
+right foot x: 0.329929 and left foot x: 0.329376
+right foot y: 9.61484 and left foot y: -9.46146
+right foot z: 48.9643 and left foot z: 49.1483
+SIGMA_L_k: [0. 0.] and sum_forces: [0.659305, 0.15338, 98.1126]
+
+1-th interval
+right foot x: -4.26699 and left foot x: 0
+right foot y: -0.777611 and left foot y: 0
+right foot z: 97.9957 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-4.26699, -0.777611, 97.9957]
+
+2-th interval
+right foot x: 4.83574 and left foot x: -8.18886
+right foot y: 6.67516 and left foot y: -11.8382
+right foot z: 48.875 and left foot z: 49.6268
+SIGMA_L_k: [0. 0.] and sum_forces: [-3.35312, -5.16307, 98.5018]
+
+3-th interval
+right foot x: 0 and left foot x: -8.59253
+right foot y: 0 and left foot y: 2.64731
+right foot z: 0 and left foot z: 97.515
+SIGMA_L_k: [-1.  0.] and sum_forces: [-8.59253, 2.64731, 97.515]
+
+4-th interval
+right foot x: -10.3294 and left foot x: 5.55132
+right foot y: 10.9977 and left foot y: -4.94952
+right foot z: 49.5211 and left foot z: 49.3003
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.77811, 6.04822, 98.8215]
+
+5-th interval
+right foot x: -9.30656 and left foot x: 0
+right foot y: -2.71595 and left foot y: 0
+right foot z: 97.302 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-9.30656, -2.71595, 97.302]
+
+6-th interval
+right foot x: 4.26058 and left foot x: -9.05191
+right foot y: 4.79671 and left foot y: -10.7364
+right foot z: 49.344 and left foot z: 49.6412
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.79133, -5.93974, 98.9852]
+
+7-th interval
+right foot x: 0 and left foot x: -9.17816
+right foot y: 0 and left foot y: 2.67383
+right foot z: 0 and left foot z: 97.1996
+SIGMA_L_k: [-1.  0.] and sum_forces: [-9.17816, 2.67383, 97.1996]
+
+8-th interval
+right foot x: -9.42994 and left foot x: 4.65982
+right foot y: 10.7341 and left foot y: -4.6774
+right foot z: 49.6168 and left foot z: 49.444
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.77012, 6.05673, 99.0607]
+
+9-th interval
+right foot x: -9.26865 and left foot x: 0
+right foot y: -2.77421 and left foot y: 0
+right foot z: 97.1529 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-9.26865, -2.77421, 97.1529]
+
+10-th interval
+right foot x: 4.5928 and left foot x: -9.40122
+right foot y: 4.71951 and left foot y: -10.6777
+right foot z: 49.3984 and left foot z: 49.6944
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.80842, -5.95821, 99.0928]
+
+11-th interval
+right foot x: 0 and left foot x: -9.28124
+right foot y: 0 and left foot y: 2.68126
+right foot z: 0 and left foot z: 97.1337
+SIGMA_L_k: [-1.  0.] and sum_forces: [-9.28124, 2.68126, 97.1337]
+
+12-th interval
+right foot x: -9.43962 and left foot x: 4.62093
+right foot y: 10.7151 and left foot y: -4.65771
+right foot z: 49.6372 and left foot z: 49.4671
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.81869, 6.05743, 99.1043]
+
+13-th interval
+right foot x: -9.29098 and left foot x: 0
+right foot y: -2.77797 and left foot y: 0
+right foot z: 97.1284 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-9.29098, -2.77797, 97.1284]
+
+14-th interval
+right foot x: 4.60958 and left foot x: -9.42641
+right foot y: 4.71622 and left foot y: -10.6759
+right foot z: 49.4045 and left foot z: 49.7
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.81683, -5.95965, 99.1045]
+
+15-th interval
+right foot x: 0 and left foot x: -9.27298
+right foot y: 0 and left foot y: 2.68116
+right foot z: 0 and left foot z: 97.1335
+SIGMA_L_k: [-1.  0.] and sum_forces: [-9.27298, 2.68116, 97.1335]
+
+16-th interval
+right foot x: -9.38858 and left foot x: 4.60047
+right foot y: 10.7186 and left foot y: -4.66175
+right foot z: 49.6305 and left foot z: 49.4622
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.78811, 6.0569, 99.0927]
+
+17-th interval
+right foot x: -9.21595 and left foot x: 0
+right foot y: -2.78185 and left foot y: 0
+right foot z: 97.1523 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-9.21595, -2.78185, 97.1523]
+
+18-th interval
+right foot x: 4.53555 and left foot x: -9.23177
+right foot y: 4.74348 and left foot y: -10.7121
+right foot z: 49.3842 and left foot z: 49.6767
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.69621, -5.9686, 99.0609]
+
+19-th interval
+right foot x: 0 and left foot x: -9.03793
+right foot y: 0 and left foot y: 2.67078
+right foot z: 0 and left foot z: 97.1993
+SIGMA_L_k: [-1.  0.] and sum_forces: [-9.03793, 2.67078, 97.1993]
+
+20-th interval
+right foot x: -8.91623 and left foot x: 4.48016
+right foot y: 10.7875 and left foot y: -4.74164
+right foot z: 49.5683 and left foot z: 49.4163
+SIGMA_L_k: [0. 0.] and sum_forces: [-4.43607, 6.04589, 98.9846]
+
+21-th interval
+right foot x: -8.49531 and left foot x: 0
+right foot y: -2.84262 and left foot y: 0
+right foot z: 97.309 and left foot z: 0
+SIGMA_L_k: [ 0. -1.] and sum_forces: [-8.49531, -2.84262, 97.309]
+
+22-th interval
+right foot x: 3.90784 and left foot x: -7.49815
+right foot y: 5.07139 and left foot y: -11.1821
+right foot z: 49.2621 and left foot z: 49.5457
+SIGMA_L_k: [0. 0.] and sum_forces: [-3.59032, -6.11071, 98.8078]
+
+23-th interval
+right foot x: 0 and left foot x: -6.84674
+right foot y: 0 and left foot y: 2.42767
+right foot z: 0 and left foot z: 97.5615
+SIGMA_L_k: [-1.  0.] and sum_forces: [-6.84674, 2.42767, 97.5615]
+>>>>>>> Stashed changes
 
