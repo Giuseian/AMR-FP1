@@ -56,7 +56,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
         foot_vel = np.zeros(6)
 
         sig_idx = 0
-        print("sigma" , sigma)
+        #print("sigma" , sigma)
         for t in range(N):
             right_contact = sigma[sig_idx]
             left_contact = sigma[sig_idx+1]

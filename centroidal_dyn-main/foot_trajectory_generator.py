@@ -19,34 +19,30 @@ class FootTrajectoryGenerator:
     lfoot0 = data[-3:, 0]
     rfoot1 = data[3:, 1]
     lfoot1 = data[-3:, 3]
-    rfoot2 = data[3:, 5]
-    lfoot2 = data[-3:, 7]
-    print(f"first feet (R): {lfoot0}")
-    print(f"second feet (L): {rfoot1}")
-    print(f"third feet (R): {lfoot1}")
-    print(f"fourth feet (L): {rfoot2}")
-    print(f"fifth feet (R): {lfoot2}")
-    supports = [rfoot1, lfoot1, rfoot2]
-    supports_name = ["rfoot", "lfoot", "rfoot"]
+    
+    print(f"first feet (L in contact): {lfoot0}")
+    print(f"second feet (R in contact): {rfoot1}")
+    print(f"third feet (L in contact): {lfoot1}")
+    
     phases_durations = "./outputs/phase_durations.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
+    p1 = duration[0]*100
+    p2 = duration[1]*100
+    p3 = duration[2]*100
+    p4 = duration[3]*100
+    
     ang = np.array([0.0, 0.0, 0.0])
 
     self.plan = [
         # index 0  – dummy double‑support (left foot will swing first)
-        { 'pos': lfoot0, 'ang': ang, 'ss_duration': 0,   'ds_duration': 59, 'foot_id': 'lfoot' },
+        { 'pos': lfoot0, 'ang': ang, 'ss_duration': 0,   'ds_duration': p1, 'foot_id': 'lfoot' },
 
         # index 1  – SS₁ (left swings) + DS₂
-        { 'pos': rfoot1, 'ang': ang, 'ss_duration': 84,  'ds_duration':124, 'foot_id': 'rfoot' },
+        { 'pos': rfoot1, 'ang': ang, 'ss_duration': p2,  'ds_duration': p3, 'foot_id': 'rfoot' },
 
         # index 2  – SS₃ (right swings) + DS₄
-        { 'pos': lfoot1, 'ang': ang, 'ss_duration':211,  'ds_duration':102, 'foot_id': 'lfoot' },
+        { 'pos': lfoot1, 'ang': ang, 'ss_duration': 0,  'ds_duration': p4, 'foot_id': 'lfoot' },
 
-        # index 3  – SS₅ (left swings again) + DS₆
-        { 'pos': rfoot2, 'ang': ang, 'ss_duration':169,  'ds_duration': 89, 'foot_id': 'rfoot' },
-
-        # optional terminal settling DS so step_index+1 is always valid
-        { 'pos': lfoot2, 'ang': ang, 'ss_duration': 163,   'ds_duration': 87, 'foot_id': 'lfoot' }
     ]
 
     self.footstep_planner.plan = self.plan
