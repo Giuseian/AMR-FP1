@@ -1,0 +1,43 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Related Works}\label{sec:relatedworks}
+
+\subsection{Centroidal Dynamics Basics}
+
+The purpose of this section is to explore the applications and importance of Centroidal Dynamics of Humanoid Robots ~\cite{CD}. 
+\\Centroidal Dynamics is the dynamics of a humanoid robot projected at its Center of Mass (CoM), a uniquely important point in its dynamics representing the effective location of the total mass of the robot and the point through which the resultant gravity force acts. 
+\\A humanoid robot can be seen as a multi-link chain where the dynamics of individual parts can be complex, while the motion of the CoM can be easily described. 
+
+\subsection{Reduced Order Models for Trajectory Generation}
+\label{sec:rom}
+For the advantages explained in the previous section, various reduced order models and control algorithms contain the CoM and therefore the Centroidal Dynamics as integral components. 
+
+\subsubsection{Linear Inverted Pendulum Mode}
+The Linear Inverted Pendulum Model (LIPM) \cite{LIPM} is a point mass model that focuses on the translational dynamics of a legged robot's locomotion. It was the reduced model most applied in humanoid and quadruped robots during the 2000's and 2010's.
+Since Centroidal Dynamics is not linear, LIPM makes two assumptions to linearize the dynamics: (1) there is no angular momentum around the center of mass, (2) the center of mass keeps a constant height.
+Stability is achieved by ensuring the Zero Moment Point (ZMP) stays within the support polygon which is the foot region.
+
+\subsubsection{Variable-Height Linear Inverted Pendulum Model}
+The Variable-Height Inverted Pendulum Model (VH-LIPM) \cite{VHLIPM} extends the classic Linear Inverted Pendulum Model by allowing the center of mass (CoM) to move vertically rather than being constrained to a fixed height.
+
+\subsubsection{Spring-Loaded Inverted Pendulum Model}
+The Spring-Loaded Inverted Pendulum Model (SLIP) \cite{SLIP} models locomotion as a point mass on top of a massless, elastic spring, representing the compliant behavior of legs during running, hopping, and bouncing gaits. Unlike the rigid inverted pendulum, SLIP captures energy storage and release through the spring mechanism, enabling dynamic movements with minimal energy loss.
+The SLIP model can express the vertical motion of the CoM required for running.
+
+\subsection{Integration of Trajectory Optimization}
+
+Trajectory optimization is a mathematical approach used to compute the best possible path or motion for a system while satisfying given constraints and optimizing a performance objective.
+\\For instance, in order to define a trajectory optimization problem, we need state variable, control inputs, objective function and constraints.
+Reduced order models defined at Section ~\ref{sec:rom} integrate Trajectory Optimization to solve the motion generation of legged robots.
+
+
+\subsection{Limitations}
+All the reduced order models discussed above introduce several limitations: 
+the LIPM was originally used for the horizontal movement, the LIPM and VH-LIPM involve strong assumptions to linearize the dynamics while the SLIP model is non linear, thus no closed solution is found. 
+Furthermore, when integrating trajectory optimization a high number of decision variables is required to achieve acceptable accuracy. Additionally, feasibility is typically ensured only at discrete key points.
+Although these restrictions may be acceptable in some cases, they can not be extended to other scenarios like multicontact planning and acribatic motion. Overmore a closed form solution for trajectory optimitazion problems improves the efficiency in terms of decision variables number and the feasibility of the trajectory is achieved at any time instant.
+\\In the Section ~\ref{sec:} it is proposed a new Stiffness-based method able to find a closed-form solution to optimize long trajectories.
+
+\end{document}

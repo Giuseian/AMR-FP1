@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Related Works}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Centroidal Dynamics Basics}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Reduced Order Models for Trajectory Generation}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Linear Inverted Pendulum Mode}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Variable-Height Linear Inverted Pendulum Model}{3}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Spring-Loaded Inverted Pendulum Model}{3}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Integration of Trajectory Optimization}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Limitations}{4}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Proposed Method: Stiffness-Based Centroidal Dynamics}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Equations}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Closed Form Solution and Discrete Time Equations}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Integration of Base Link Rotation}{5}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Formulation and Trajectory Optimization Problem}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}State Equation}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Costs}{6}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Task Related Cost}{6}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Inequality Constraints}{6}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Contact Dependent Cost}{6}{subsubsection.4.2.3}%
+\contentsline {section}{\numberline {5}Simulation and Results}{7}{section.5}%
+\contentsline {section}{References}{8}{section*.2}%
