@@ -1,0 +1,55 @@
+\begin{thebibliography}{10}
+
+\bibitem{CD}
+A.~Goswami D.E.~Orin and S.~H. Lee.
+\newblock {\em Centroidal dynamics of a humanoid robot}.
+\newblock Auton. Robots, vol. 35, no. 2/3, pp. 161–176, 2013.
+
+\bibitem{LIPM}
+K.~Kando K.~Yokoi S.~Kajita, F.~Kanehiro and H.~Hirukawa.
+\newblock The 3d linear inverted pendulum mode: A simple modeling for a biped
+  walking pattern generation.
+\newblock {\em National Institute of Advanced Industrial Science and Technology
+  (AIST)}, 2001.
+
+\bibitem{VHLIPM}
+Stéphane Caron.
+\newblock Biped stabilization by linear feedback of the variable-height
+  inverted pendulum model.
+\newblock 2019.
+
+\bibitem{SLIP}
+I.~Poulakakis and J.~W. Grizzle.
+\newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
+  asymmetric hopper.
+\newblock {\em IEEE Trans. Autom. Control, vol. 54, no. 8, pp. 1779–1793},
+  2009.
+
+\bibitem{LIPM_se1}
+
+
+\bibitem{LIPM_se2}
+
+
+\bibitem{ZMP_cf}
+
+
+\bibitem{ZMP_sc1}
+
+
+\bibitem{ZMP_sc2}
+
+
+\bibitem{cd_c}
+
+
+\bibitem{cd_se}
+
+
+\bibitem{zmp_sr}
+
+
+\bibitem{cwc}
+
+
+\end{thebibliography}
