@@ -107,7 +107,7 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
 
         phases_duration = np.loadtxt('./outputs/phase_durations.txt', delimiter=',')
         desired_positions, desired_velocities = [], []
-        contacts = ["ds", "rfoot", "ds", "lfoot", "ds", "rfoot"] # change this wrt sigma sequence
+        contacts = ["ds", "rfoot", "ds", "lfoot", "ds", "rfoot", "ds", "lfoot", "ds", "rfoot", "ds", "lfoot", "ds", "rfoot", "ds", "lfoot", "ds", "rfoot"] # change this wrt sigma sequence
 
         
         pos = np.loadtxt("./outputs/com_pos.txt", delimiter=',').tolist()
@@ -117,31 +117,26 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
             desired_positions.append(pos[i])
             desired_velocities.append(vel[i])
         
-        phase1 = phases_duration[0]*100
-        fin_phase2 = (phases_duration[0]+phases_duration[1])*100 
-        fin_phase3 = fin_phase2 + phases_duration[2]*100
-        fin_phase4 = fin_phase3 + phases_duration[3]*100
-        fin_phase5 = fin_phase4 + phases_duration[4]*100
-        fin_phase6 = fin_phase5 + phases_duration[5]*100
+        # Compute cumulative phase end times
+        fin_phases = []
+        cumulative = 0
+        for i in range(len(phases_duration)):
+            if i < len(contacts):
+                cumulative += phases_duration[i] * 100
+                fin_phases.append(cumulative)
 
-        if self.time >= 0 and self.time < phase1:
-            contact = contacts[0]
-        elif self.time >= phase1 and self.time < fin_phase2:
-            contact = contacts[1]
-        elif self.time >= fin_phase2 and self.time < fin_phase3:
-            contact = contacts[2]
-        elif self.time >= fin_phase3 and self.time < fin_phase4:
-            contact = contacts[3]
-        elif self.time >= fin_phase4 and self.time < fin_phase5:
-            contact = contacts[4]
-        elif self.time >= fin_phase5 and self.time < fin_phase6:
-            contact = contacts[5]
+        # Determine which contact corresponds to the current time
+        contact = None
+        for i, end_time in enumerate(fin_phases):
+            if self.time < end_time:
+                contact = contacts[i]
+                break
 
-        if self.time < fin_phase6:
+
+        if self.time < fin_phases[-1]:
             print(f"time: {self.time}, contact: {contact}") 
             
             desired_pos = desired_positions[self.time]
-            desired_pos[1] -= 0.1
             desired_vel = desired_velocities[self.time]                
             self.desired['com']['pos'] = desired_pos
             self.desired['com']['vel'] = desired_vel
@@ -149,7 +144,7 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
                 acc_x = desired_vel[0] / (self.time) 
                 
             else:
-                acc_x = 0.0
+                acc_x = 0.0     
 
             self.desired['com']['acc'] = [acc_x, 0.0, 0.0] 
             print(f"COM pos: {desired_pos}")

@@ -6,43 +6,26 @@ class FootTrajectoryGenerator:
     self.step_height = params['step_height']
     self.initial = initial
     self.footstep_planner = footstep_planner
-    #self.plan = self.footstep_planner.plan
-    
-    #self.footstep_planner.plan
     
     ref_foot = "./outputs/ref_foot.txt"  
     data = np.loadtxt(ref_foot, delimiter=",")
-
-    # Extract the required values: this is only valid for [0,0,0], [0,-1,0] contact sequence
-    # Extract required values
-    # [0, 0, 0, -1, 0, 0], [0, -1, 0, 0, 0, -1]
     
-    """
-    0.00000000,0.00000000,0.00000000,0.00000000,0.20000000,0.20000000,0.20000000,0.20000000,0.40000000,0.40000000,0.40000000,0.40000000,0.60000000,0.60000000,0.60000000,0.60000000,0.80000000,0.80000000,0.80000000,0.80000000,1.00000000,1.00000000,1.00000000,1.00000000,1.20000000
-    -0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858,-0.10163858
-    -0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000
-
-    0.00000000,0.00000000,0.10000000,0.10000000,0.10000000,0.10000000,0.30000000,0.30000000,0.30000000,0.30000000,0.50000000,0.50000000,0.50000000,0.50000000,0.70000000,0.70000000,0.70000000,0.70000000,0.90000000,0.90000000,0.90000000,0.90000000,1.10000000,1.10000000,1.10000000
-    0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858,0.10163858
-    -0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000,-0.00000000
-
-    """
-    lfoot0 = data[-3:, 0]   # ds: start [0,0]
-    rfoot1 = data[:3, 1]    # ss: left lifts right stays [0,-1]
-    lfoot1 = data[-3:, 3]   # ds: left arrives right keeps same position [0,0]
-    
+    lfoot0 = data[-3:, 0]   
+    rfoot1 = data[:3, 1]    
+    lfoot1 = data[-3:, 3]      
     rfoot2 = data[:3, 4]      
     lfoot2 = data[-3:, 6]   
     rfoot3 = data[:3, 8]
-
-    print(f"first feet (L in contact): {lfoot0}")
-    print(f"second feet (R in contact): {rfoot1}")
-    print(f"third feet (L in contact): {lfoot1}")
-    print(f"fourth feet (R in contact): {rfoot2}")
-    print(f"fifth feet (L in contact): {lfoot2}")
-    print(f"sixth feet (R in contact): {rfoot3}")
+    lfoot3 = data[-3:, 10]
+    rfoot4 = data[:3, 12]
+    lfoot4 = data[-3:, 14]
+    rfoot5 = data[:3, 16]
+    lfoot5 = data[-3:, 18]
+    rfoot6 = data[:3, 20]
+    lfoot6 = data[-3:, 22]
+    rfoot7 = data[:3, 24]
+    foot = [lfoot0, rfoot1, lfoot1, rfoot2, lfoot2, rfoot3, lfoot3, rfoot4, lfoot4, rfoot5, lfoot5, rfoot6, lfoot6, rfoot7]
     
-
     phases_durations = "./outputs/phase_durations.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
     p1 = duration[0]*100
@@ -53,9 +36,24 @@ class FootTrajectoryGenerator:
     p6 = duration[5]*100
     p7 = duration[6]*100
     p8 = duration[7]*100
-    p9 = duration[7]*100
+    p9 = duration[8]*100
+    p10 = duration[9]*100
+    p11 = duration[10]*100
+    p12 = duration[11]*100
+    p13 = duration[12]*100
+    p14 = duration[13]*100
+    p15 = duration[14]*100
+    p16 = duration[15]*100
+    p17 = duration[16]*100
+    p18 = duration[17]*100
+    p19 = duration[18]*100
+    p20 = duration[19]*100
+    p21 = duration[20]*100
+    p22 = duration[21]*100
+    p23 = duration[22]*100
+    p24 = duration[23]*100
     ang = np.array([0.0, 0.0, 0.0])
-
+    
     self.plan = [
         { 'pos': lfoot0, 'ang': ang, 'ss_duration': 0,   'ds_duration': p1, 'foot_id': 'lfoot' },   # 0,0
 
@@ -68,9 +66,25 @@ class FootTrajectoryGenerator:
         { 'pos': lfoot2, 'ang': ang, 'ss_duration': p6,  'ds_duration': p7, 'foot_id': 'lfoot' },   # 0, 0
 
         { 'pos': rfoot3, 'ang': ang, 'ss_duration': p8,  'ds_duration': p9, 'foot_id': 'rfoot' },   # 0, -1
+        
+        { 'pos': lfoot3, 'ang': ang, 'ss_duration': p10,  'ds_duration': p11, 'foot_id': 'lfoot' },   
+
+        { 'pos': rfoot4, 'ang': ang, 'ss_duration': p12,  'ds_duration': p13, 'foot_id': 'rfoot' },   
+
+        { 'pos': lfoot4, 'ang': ang, 'ss_duration': p13,  'ds_duration': p14, 'foot_id': 'lfoot' },   
+
+        { 'pos': rfoot5, 'ang': ang, 'ss_duration': p15,  'ds_duration': p16, 'foot_id': 'rfoot' },   
+
+        { 'pos': lfoot5, 'ang': ang, 'ss_duration': p17,  'ds_duration': p18, 'foot_id': 'lfoot' },   
+
+        { 'pos': rfoot6, 'ang': ang, 'ss_duration': p19,  'ds_duration': p20, 'foot_id': 'rfoot' },   
+
+        { 'pos': lfoot6, 'ang': ang, 'ss_duration': p21,  'ds_duration': p22, 'foot_id': 'lfoot' },   
+
+        { 'pos': rfoot7, 'ang': ang, 'ss_duration': p23,  'ds_duration': p24, 'foot_id': 'rfoot' },   
+
 
     ]
-
     self.footstep_planner.plan = self.plan
     
   def generate_feet_trajectories_at_time(self, time):
