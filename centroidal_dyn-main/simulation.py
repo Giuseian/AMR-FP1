@@ -105,13 +105,13 @@ class Hrp4Controller(dart.gui.osg.RealTimeWorldNode):
 
         # here our code
 
-        phases_duration = np.loadtxt('./outputs/phase_durations.txt', delimiter=',')
+        phases_duration = np.loadtxt('./outputs/phase_durations_walking.txt', delimiter=',')
         desired_positions, desired_velocities = [], []
         contacts = ["ds", "rfoot", "ds", "lfoot", "ds", "rfoot", "ds", "lfoot", "ds", "rfoot", "ds", "lfoot", "ds", "rfoot", "ds", "lfoot", "ds", "rfoot"] # change this wrt sigma sequence
 
         
-        pos = np.loadtxt("./outputs/com_pos.txt", delimiter=',').tolist()
-        vel = np.loadtxt("./outputs/com_vel.txt", delimiter=',').tolist()
+        pos = np.loadtxt("./outputs/com_pos_walking.txt", delimiter=',').tolist()
+        vel = np.loadtxt("./outputs/com_vel_walking.txt", delimiter=',').tolist()
         
         for i in range(len(pos)): 
             desired_positions.append(pos[i])

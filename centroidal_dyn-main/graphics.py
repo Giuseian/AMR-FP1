@@ -62,31 +62,30 @@ def _plt(phases_duration, components, labels, title):
     plt.title(title)
     plt.legend()
     plt.grid(True)
-    #plt.show()
     save_path = os.path.join("./plots/", f"{title}.png")  # Save as PNG (change extension if needed)
     plt.savefig(save_path, dpi=300, bbox_inches="tight")  # High-quality save
     return
 
-def plot_components(full_array, phases_duration):
+def plot_components(full_array, phases_duration, ref):
     # com trajectory
     p_x = full_array[:, 0]
     p_y = full_array[:, 1]
     p_z = full_array[:, 2]
-    _plt(phases_duration, [p_x], ["p_x"], "CoM x Trajectory")
-    _plt(phases_duration, [p_y], ["p_y"], "CoM y Trajectory")
-    _plt(phases_duration, [p_z], ["p_z"], "CoM z Trajectory")
+    _plt(phases_duration, [p_x], ["p_x"], f"CoM x Trajectory {ref}")
+    _plt(phases_duration, [p_y], ["p_y"], f"CoM y Trajectory {ref}")
+    _plt(phases_duration, [p_z], ["p_z"], f"CoM z Trajectory {ref}")
 
     # com velocity
     v_x = full_array[:, 7]
     v_y = full_array[:, 8]
     v_z = full_array[:, 9]
-    _plt(phases_duration, [v_x, v_y, v_z], ["v_x", "v_y", "v_z"], "CoM Velocity")
+    _plt(phases_duration, [v_x, v_y, v_z], ["v_x", "v_y", "v_z"], f"CoM Velocity {ref}")
 
     # angular momentum
     L_x = full_array[:,10]
     L_y = full_array[:,11]
     L_z = full_array[:,12]
-    _plt(phases_duration, [L_x, L_y, L_z], ["L_x", "L_y", "L_z"], "Angular Momentum")
+    _plt(phases_duration, [L_x, L_y, L_z], ["L_x", "L_y", "L_z"], f"Angular Momentum {ref}")
 
     # Feet positions
     rf_x = full_array[:,14]
@@ -95,7 +94,7 @@ def plot_components(full_array, phases_duration):
     lf_x = full_array[:,17]
     lf_y = full_array[:,18]
     lf_z = full_array[:,19]
-    _plt(phases_duration, [rf_z, lf_z], ["rf_z", "lf_z"], "Feet_z")
+    _plt(phases_duration, [rf_z, lf_z], ["rf_z", "lf_z"], f"Feet_z {ref}")
 
     return
 
@@ -194,7 +193,7 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
             axs_right[i, j].grid()
 
     plt.tight_layout()
-    save_path = os.path.join("./plots/", "contact_forces.png")  # Save as PNG (change extension if needed)
+    save_path = os.path.join("./plots/", f"contact_forces_{ref_type}.png")  # Save as PNG (change extension if needed)
     plt.savefig(save_path, dpi=300, bbox_inches="tight")  # High-quality save
     
     return
@@ -300,7 +299,7 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
     axs[-1, 1].set_xlabel("Time (steps)")
     axs[-1, 2].set_xlabel("Time (steps)")
     plt.tight_layout()
-    save_path = os.path.join("./plots/", "contact_x.png")  # Save as PNG (change extension if needed)
+    save_path = os.path.join("./plots/", f"contact_x_{ref_type}.png")  # Save as PNG (change extension if needed)
     plt.savefig(save_path, dpi=300, bbox_inches="tight")  # High-quality save
     
     return
@@ -312,7 +311,7 @@ def checking_sum_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
     gravity_force = cs.DM(dm.m) * cs.DM(dm.g)
 
     # Open a file for writing (you can change 'output.txt' to your preferred file name)
-    with open('./outputs/forces_balance.txt', 'w') as file:
+    with open(f'./outputs/forces_balance_{ref_type}.txt', 'w') as file:
         # Write gravity force at the beginning
         file.write(f"gravity_force: {gravity_force}\n")
 
@@ -361,8 +360,8 @@ def checking_sum_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
 
 
 
-def animate_trajectories_td(X, n_e, save_path="trajectory_animation_td.gif", ref_type="", label=""):
-    
+def animate_trajectories_td(X, ref_type, label):
+    save_path=f"./videos/trajectory_animation_td_{ref_type}.gif"
     
     # Extract positions (assuming X has shape [529, 28])
     com_positions = X[:, 0:3]  # CoM (Center of Mass) positions
@@ -413,7 +412,8 @@ def animate_trajectories_td(X, n_e, save_path="trajectory_animation_td.gif", ref
     return
 
 
-def animate_trajectories(X, n_e, save_path="trajectory_animation.gif", ref_type="", label=""):
+def animate_trajectories(X, ref_type, label=""):
+    save_path=f"./videos/trajectory_animation_{ref_type}.gif"
     # Extract positions directly from X
     com_positions = X[0:3, :]  # CoM positions over time
     left_foot_positions = X[14:17, :]  # Left foot positions over time

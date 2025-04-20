@@ -9,7 +9,7 @@ from utils import parabolic_trajectory_3D
 
 class StiffnessBasedCentroidalDynamics:
 
-    def __init__(self, n_e, n_div, surfaces, N, sigma, opti, non_slip = False):
+    def __init__(self, n_e, n_div, surfaces, N, sigma, opti, ref, non_slip = False):
         
         self.n_e = n_e
         self.n_div = n_div
@@ -17,6 +17,7 @@ class StiffnessBasedCentroidalDynamics:
         self.N = N
         self.sigma = sigma
         self.opti = opti
+        self.ref = ref
         self.non_slip = non_slip
         
         self.epsilon = 1e-6
@@ -57,9 +58,13 @@ class StiffnessBasedCentroidalDynamics:
         X_init = np.zeros(X.shape[0])
         start_pos = np.array([-6.17867734e-04, 4.43297775e-04, 7.23981584e-01])      # Initial CoM position
         start_orient = np.array([1,0,0,0])
-        start_vel = [0.0, -0.07, 0.0]
         start_feet_pos = np.array([[1.03109240e-17, -1.01638576e-01, -1.38777878e-17], [1.03109240e-17, 1.01638576e-01, -1.38777878e-17]])  # Initial feet positions (distance 0.5 from CoM)
         start_feet_orient = np.array([[1, 0, 0, 0], [1, 0, 0, 0]])  # Neutral orientations
+        
+        if self.ref == "still":
+            start_vel = np.zeros(3)
+        else:
+            start_vel = [0.0, -0.07, 0.0]
         
         X_init[0:3] = start_pos
         X_init[3:7] = start_orient

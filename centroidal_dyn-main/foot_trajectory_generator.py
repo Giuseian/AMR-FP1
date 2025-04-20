@@ -7,7 +7,7 @@ class FootTrajectoryGenerator:
     self.initial = initial
     self.footstep_planner = footstep_planner
     
-    ref_foot = "./outputs/ref_foot.txt"  
+    ref_foot = "./outputs/ref_foot_walking.txt"  
     data = np.loadtxt(ref_foot, delimiter=",")
     
     lfoot0 = data[-3:, 0]   
@@ -26,7 +26,7 @@ class FootTrajectoryGenerator:
     rfoot7 = data[:3, 24]
     foot = [lfoot0, rfoot1, lfoot1, rfoot2, lfoot2, rfoot3, lfoot3, rfoot4, lfoot4, rfoot5, lfoot5, rfoot6, lfoot6, rfoot7]
     
-    phases_durations = "./outputs/phase_durations.txt"
+    phases_durations = "./outputs/phase_durations_walking.txt"
     duration = np.loadtxt(phases_durations, delimiter=",")
     p1 = duration[0]*100
     p2 = duration[1]*100

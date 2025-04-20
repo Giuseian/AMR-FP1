@@ -6,7 +6,7 @@
 
 \subsection{Centroidal Dynamics Basics}
 
-The purpose of this section is to explore the applications and importance of Centroidal Dynamics of Humanoid Robots ~\cite{CD}. 
+The purpose of this section is to explore the applications and importance of Centroidal Dynamics of Humanoid Robots \cite{CD}. 
 \\Centroidal Dynamics is the dynamics of a humanoid robot projected at its Center of Mass (CoM), a uniquely important point in its dynamics representing the effective location of the total mass of the robot and the point through which the resultant gravity force acts. 
 \\A humanoid robot can be seen as a multi-link chain where the dynamics of individual parts can be complex, while the motion of the CoM can be easily described. 
 
@@ -29,15 +29,29 @@ The SLIP model can express the vertical motion of the CoM required for running.
 \subsection{Integration of Trajectory Optimization}
 
 Trajectory optimization is a mathematical approach used to compute the best possible path or motion for a system while satisfying given constraints and optimizing a performance objective.
-\\For instance, in order to define a trajectory optimization problem, we need state variable, control inputs, objective function and constraints.
-Reduced order models defined at Section ~\ref{sec:rom} integrate Trajectory Optimization to solve the motion generation of legged robots.
+\\For instance, in order to define a trajectory optimization problem, we need state variables, control inputs, an objective function, and constraints.
+Reduced order models defined in Section~\ref{sec:rom} integrate trajectory optimization to solve the motion generation of legged robots.
+
+Reduced order models are incorporated into trajectory optimization problems in various ways. For example, some methods use the LIPM as the system's state equation, define the desired ZMP as a cost term, or enforce ZMP-based stability criteria as constraints. More advanced approaches that include both CoM motion and base link rotation typically rely on full centroidal dynamics, which can be integrated either as state equations or constraints. These formulations often impose stability through conditions like the support polygon or the centroidal wrench cone.
+
+However, the use of numerical integration and collocation techniques generally requires small time steps to maintain accuracy, which leads to a large number of decision variables. Moreover, trajectory feasibility is typically enforced only at discrete keypoints, even though some studies address feasibility between those points.
+
+If a closed-form solution of the dynamic model is available, it allows for the trajectory to be expressed using far fewer decision variables while ensuring feasibility at all time instants, as long as control constraints like ZMP or contact wrench bounds are satisfied. Some studies have attempted to linearize or analytically integrate centroidal dynamics, often by making simplifying assumptions such as ignoring vertical-axis rotations or enforcing a constant CoM height. While useful in some practical scenarios, these assumptions limit applicability to more complex motions such as multi-contact or acrobatic maneuvers.
+
+One analytical integration method involves applying a zero-order hold to contact wrenches, but this induces undesirable variations in angular momentum unless the integration time step is kept very small. To overcome this, a previously proposed multi-contact LIPM (mc-LIPM) expresses contact forces in terms of stiffness and displacement between the contact point and CoM. This formulation allows for larger integration time steps—up to a full contact phase—without inducing significant angular momentum variation. However, it still lacks full expressiveness for modeling rotational dynamics.
+
 
 
 \subsection{Limitations}
-All the reduced order models discussed above introduce several limitations: 
-the LIPM was originally used for the horizontal movement, the LIPM and VH-LIPM involve strong assumptions to linearize the dynamics while the SLIP model is non linear, thus no closed solution is found. 
-Furthermore, when integrating trajectory optimization a high number of decision variables is required to achieve acceptable accuracy. Additionally, feasibility is typically ensured only at discrete key points.
-Although these restrictions may be acceptable in some cases, they can not be extended to other scenarios like multicontact planning and acribatic motion. Overmore a closed form solution for trajectory optimitazion problems improves the efficiency in terms of decision variables number and the feasibility of the trajectory is achieved at any time instant.
-\\In the Section ~\ref{sec:} it is proposed a new Stiffness-based method able to find a closed-form solution to optimize long trajectories.
+
+All the reduced order models discussed above introduce several limitations. The LIPM was originally designed for horizontal motion only, and both LIPM and VH-LIPM rely on strong assumptions to linearize the inherently nonlinear dynamics. In contrast, the SLIP model maintains the nonlinear characteristics but lacks a closed-form solution, which complicates its analytical handling.
+
+Furthermore, when integrating trajectory optimization, these models often require a high number of decision variables to achieve acceptable accuracy. Feasibility is generally guaranteed only at discrete keyframes or nodes, which may lead to discontinuities or infeasibility between those points.
+
+Although these simplifications may be acceptable in basic locomotion scenarios, they are insufficient for more complex tasks such as multi-contact planning, dynamic manipulation, or acrobatic motion. In such contexts, higher fidelity and time-continuous feasibility are required.
+
+Moreover, the absence of closed-form solutions for many trajectory optimization problems leads to high computational costs and makes real-time applications challenging. A method that reduces the number of decision variables while ensuring feasibility at every time instant would therefore significantly improve efficiency and applicability.
+
+In this approach, a novel stiffness-based method is introduced. It provides a closed-form solution to the trajectory optimization problem, enabling the generation of long, feasible motion trajectories with fewer decision variables and better computational performance.
 
 \end{document}
