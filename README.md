@@ -19,17 +19,18 @@ pip install dartpy casadi scipy matplotlib osqp
 You need dartpy 0.2, if pip does not allow you to install this version on your system, you might want to use conda
 
 To run the simulation, choose one of the following tasks 
-- "still", to simulate a fixed robot
-- "walking", to simulate a walking robot
+- **still**, to simulate a fixed robot
+- **walking**, to simulate a walking robot
 ```
 python main.py [task] --make_video
 ```
 if you want to save the video (more time)
-or 
+or
 ```
 python main.py [task] 
 ```
 
+Then, to see the Dartpy robot simulation, run
 ```
 python simulation.py
 ```
