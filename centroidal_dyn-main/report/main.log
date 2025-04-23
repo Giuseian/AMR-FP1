@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  18 APR 2025 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  23 APR 2025 07:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -431,20 +431,128 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count317
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count318
-) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/commath\commath.sty) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
-Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks30
-\thm@bodyfont=\toks31
-\thm@headfont=\toks32
-\thm@notefont=\toks33
-\thm@headpunct=\toks34
-\thm@preskip=\skip92
-\thm@postskip=\skip93
-\thm@headsep=\skip94
-\dth@everypar=\toks35
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/commath\commath.sty) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+\@float@every@algorithm=\toks30
+\c@algorithm=\count319
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count320
+\c@ALG@rem=\count321
+\c@ALG@nested=\count322
+\ALG@tlm=\skip92
+\ALG@thistlm=\skip93
+\c@ALG@Lnr=\count323
+\c@ALG@blocknr=\count324
+\c@ALG@storecount=\count325
+\c@ALG@tmpcounter=\count326
+\ALG@tmplength=\skip94
 )
-\c@definition=\count319
-\c@theorem=\count320
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count327
+\lst@gtempboxa=\box103
+\lst@token=\toks31
+\lst@length=\count328
+\lst@currlwidth=\dimen192
+\lst@column=\count329
+\lst@pos=\count330
+\lst@lostspace=\dimen193
+\lst@width=\dimen194
+\lst@newlines=\count331
+\lst@lineno=\count332
+\lst@maxwidth=\dimen195
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count333
+\lst@skipnumbers=\count334
+\lst@framebox=\box104
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen196
+\lightrulewidth=\dimen197
+\cmidrulewidth=\dimen198
+\belowrulesep=\dimen199
+\belowbottomsep=\dimen256
+\aboverulesep=\dimen257
+\abovetopsep=\dimen258
+\cmidrulesep=\dimen259
+\cmidrulekern=\dimen260
+\defaultaddspace=\dimen261
+\@cmidla=\count335
+\@cmidlb=\count336
+\@aboverulesep=\dimen262
+\@belowrulesep=\dimen263
+\@thisruleclass=\count337
+\@lastruleclass=\count338
+\@thisrulewidth=\dimen264
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/media9\media9.sty
+Package: media9 2024/09/16 v1.29 acrobat-9/X compatible media
+\g_mix_pkgresizeflag_int=\count339
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/media9\pdfbase.sty
+Package: pdfbase 2024/09/16 v0.59 driver independent access to low-level PDF features
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count340
+\l__pdf_internal_box=\box105
+)
+\g_pbs_page_int=\count341
+\g_pbs_oc_int=\count342
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/ocgx2\ocgbase.sty
+Package: ocgbase 2024/09/15 v0.24 support package for ocgx2.sty
+)
+\l_mix_poster_box=\box106
+\g_mix_wd_dim=\dimen265
+\g_mix_ht_dim=\dimen266
+\g_mix_dp_dim=\dimen267
+\g_mix_rmcnt_int=\count343
+\l_mix_viewcnt_int=\count344
+\g@mix@page@int=\count345
+\g_mix_resizeflag_int=\count346
+\l_mix_lineno_int=\count347
+\l_mix_pbtn_box=\box107
+\g_mix_mbtncnt_int=\count348
+\mix@btn@dim=\dimen268
+) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks32
+\thm@bodyfont=\toks33
+\thm@headfont=\toks34
+\thm@notefont=\toks35
+\thm@headpunct=\toks36
+\thm@preskip=\skip95
+\thm@postskip=\skip96
+\thm@headsep=\skip97
+\dth@everypar=\toks37
+)
+\c@definition=\count349
+\c@theorem=\count350
  (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/hyphenat\hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
 \langwohyphens=\language79
@@ -453,44 +561,41 @@ LaTeX Info: Redefining \_ on input line 43.
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/import\import.sty
 Package: import 2020/04/01  v 6.2
-)) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count321
-\l__pdf_internal_box=\box103
-) (main.aux)
+))
+No file main.aux.
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
- (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+(C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
-\scratchdimen=\dimen192
-\scratchbox=\box104
-\nofMPsegments=\count323
-\nofMParguments=\count324
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count325
-\MPscratchDim=\dimen193
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
-\everyMPtoPDFconversion=\toks37
+\scratchcounter=\count351
+\scratchdimen=\dimen269
+\scratchbox=\box108
+\nofMPsegments=\count352
+\nofMParguments=\count353
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count354
+\MPscratchDim=\dimen270
+\MPnumerator=\count355
+\makeMPintoPDFobject=\count356
+\everyMPtoPDFconversion=\toks39
 ) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -531,12 +636,14 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 57.
+Package hyperref Info: Link coloring OFF on input line 67.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count357
 \openout2 = `title.aux'.
 
 (title.tex
@@ -568,7 +675,7 @@ No file main.toc.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.62 \newpage
+l.72 \newpage
               [1
 
 
@@ -600,24 +707,42 @@ Overfull \hbox (20.45029pt too wide) in paragraph at lines 31--34
 [3
 
 ]
+Overfull \hbox (1.71576pt too wide) in paragraph at lines 41--42
+\OT1/cmr/m/n/12 in-te-gra-tion time steps|up to a full con-tact phase|without in-duc-ing sig-nif-i-cant an-gu-lar
+ []
 
-LaTeX Warning: Reference `sec:' on page 4 undefined on input line 41.
 
 
-Overfull \hbox (12.30824pt too wide) in paragraph at lines 37--42
-\OT1/cmr/m/n/12 high num-ber of de-ci-sion vari-ables is re-quired to achieve ac-cept-able ac-cu-racy. Ad-di-tion-ally,
+[4]
+Overfull \hbox (16.72949pt too wide) in paragraph at lines 49--50
+\OT1/cmr/m/n/12 gen-er-ally guar-an-teed only at dis-crete keyframes or nodes, which may lead to dis-con-ti-nu-ities
+ []
+
+
+Overfull \hbox (4.99721pt too wide) in paragraph at lines 51--52
+\OT1/cmr/m/n/12 ma-nip-u-la-tion, or ac-ro-batic mo-tion. In such con-texts, higher fi-delity and time-continuous
+ []
+
+
+Overfull \hbox (8.70041pt too wide) in paragraph at lines 53--54
+\OT1/cmr/m/n/12 prob-lems leads to high com-pu-ta-tional costs and makes real-time ap-pli-ca-tions chal-leng-ing.
+ []
+
+
+Overfull \hbox (2.62964pt too wide) in paragraph at lines 55--56
+\OT1/cmr/m/n/12 long, fea-si-ble mo-tion tra-jec-to-ries with fewer de-ci-sion vari-ables and bet-ter com-pu-ta-tional
  []
 
 )
 
-[4] (chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
+[5] (chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 Overfull \hbox (62.58682pt too wide) in paragraph at lines 5--5
 []\OT1/cmr/bx/n/17.28 Proposed Method: Stiffness-Based Cen-troidal Dy-nam-ics 
  []
 
 )
 
-[5
+[6
 
 ] (chapters/Formulation and Trajectory Optimization Problem.tex
 Overfull \hbox (15.06668pt too wide) in paragraph at lines 5--5
@@ -626,20 +751,152 @@ Overfull \hbox (15.06668pt too wide) in paragraph at lines 5--5
 
 )
 
-[6
-
-] (chapters/Simulation and Results.tex)
-
 [7
 
-] (main.bbl)
+] (chapters/Simulation and Results.tex
 
-Package caption Warning: Unused \captionsetup[figure] on input line 45.
-See the caption package documentation for explanation.
+LaTeX Warning: Reference `tab:cs_still' on page 8 undefined on input line 21.
 
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 41.
 
 
 [8
+
+]
+
+LaTeX Warning: Reference `tab:cs' on page 9 undefined on input line 70.
+
+
+
+[9]
+<figures/CoM x Trajectory still.png, id=96, 421.575pt x 283.2984pt>
+File: figures/CoM x Trajectory still.png Graphic file (type png)
+<use figures/CoM x Trajectory still.png>
+Package pdftex.def Info: figures/CoM x Trajectory still.png  used on input line 131.
+(pdftex.def)             Requested size: 197.3295pt x 132.60559pt.
+<figures/CoM y Trajectory still.png, id=98, 406.6392pt x 283.2984pt>
+File: figures/CoM y Trajectory still.png Graphic file (type png)
+<use figures/CoM y Trajectory still.png>
+Package pdftex.def Info: figures/CoM y Trajectory still.png  used on input line 138.
+(pdftex.def)             Requested size: 197.3295pt x 137.47736pt.
+<figures/CoM z Trajectory still.png, id=99, 387.6081pt x 283.2984pt>
+File: figures/CoM z Trajectory still.png Graphic file (type png)
+<use figures/CoM z Trajectory still.png>
+Package pdftex.def Info: figures/CoM z Trajectory still.png  used on input line 145.
+(pdftex.def)             Requested size: 197.3295pt x 144.22954pt.
+
+
+[10]
+<figures/Feet_z still.png, id=109, 387.6081pt x 283.2984pt>
+File: figures/Feet_z still.png Graphic file (type png)
+<use figures/Feet_z still.png>
+Package pdftex.def Info: figures/Feet_z still.png  used on input line 155.
+(pdftex.def)             Requested size: 263.11047pt x 192.3075pt.
+<figures/contact_x_still.png, id=110, 1081.4001pt x 1148.1294pt>
+File: figures/contact_x_still.png Graphic file (type png)
+<use figures/contact_x_still.png>
+Package pdftex.def Info: figures/contact_x_still.png  used on input line 165.
+(pdftex.def)             Requested size: 263.11047pt x 279.34079pt.
+
+
+[11 <./figures/CoM x Trajectory still.png> <./figures/CoM y Trajectory still.png> <./figures/CoM z Trajectory still.png> <./figures/Feet_z still.png>]
+
+LaTeX Warning: Reference `tab:contact_forces_still' on page 12 undefined on input line 173.
+
+<figures/contact_forces_still.png, id=123, 1076.823pt x 714.2685pt>
+File: figures/contact_forces_still.png Graphic file (type png)
+<use figures/contact_forces_still.png>
+Package pdftex.def Info: figures/contact_forces_still.png  used on input line 191.
+(pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
+
+
+[12 <./figures/contact_x_still.png>]
+<figures/still.PNG, id=135, 596.82974pt x 357.13425pt>
+File: figures/still.PNG Graphic file (type png)
+<use figures/still.PNG>
+Package pdftex.def Info: figures/still.PNG  used on input line 201.
+(pdftex.def)             Requested size: 350.81174pt x 209.92265pt.
+
+
+LaTeX Warning: Reference `fig:sub1' on page 13 undefined on input line 214.
+
+
+LaTeX Warning: Reference `fig:sub2' on page 13 undefined on input line 215.
+
+
+LaTeX Warning: Reference `fig:sub3' on page 13 undefined on input line 216.
+
+<figures/CoM x Trajectory walking.png, id=136, 397.7259pt x 283.2984pt>
+File: figures/CoM x Trajectory walking.png Graphic file (type png)
+<use figures/CoM x Trajectory walking.png>
+Package pdftex.def Info: figures/CoM x Trajectory walking.png  used on input line 221.
+(pdftex.def)             Requested size: 197.3295pt x 140.55518pt.
+<figures/CoM y Trajectory walking.png, id=137, 418.9251pt x 283.2984pt>
+File: figures/CoM y Trajectory walking.png Graphic file (type png)
+<use figures/CoM y Trajectory walking.png>
+Package pdftex.def Info: figures/CoM y Trajectory walking.png  used on input line 228.
+(pdftex.def)             Requested size: 197.3295pt x 133.4442pt.
+<figures/CoM z Trajectory walking.png, id=138, 410.4936pt x 283.2984pt>
+File: figures/CoM z Trajectory walking.png Graphic file (type png)
+<use figures/CoM z Trajectory walking.png>
+Package pdftex.def Info: figures/CoM z Trajectory walking.png  used on input line 235.
+(pdftex.def)             Requested size: 197.3295pt x 136.18484pt.
+
+
+[13 <./figures/contact_forces_still.png> <./figures/still.PNG>]
+<figures/Feet_z walking.png, id=150, 410.4936pt x 283.2984pt>
+File: figures/Feet_z walking.png Graphic file (type png)
+<use figures/Feet_z walking.png>
+Package pdftex.def Info: figures/Feet_z walking.png  used on input line 245.
+(pdftex.def)             Requested size: 263.11047pt x 181.59132pt.
+<figures/contact_x_walking.png, id=151, 1082.8455pt x 1148.1294pt>
+File: figures/contact_x_walking.png Graphic file (type png)
+<use figures/contact_x_walking.png>
+Package pdftex.def Info: figures/contact_x_walking.png  used on input line 255.
+(pdftex.def)             Requested size: 263.11047pt x 278.9729pt.
+
+
+LaTeX Warning: Reference `tab:contact_forces_walking' on page 14 undefined on input line 263.
+
+
+
+[14 <./figures/CoM x Trajectory walking.png> <./figures/CoM y Trajectory walking.png> <./figures/CoM z Trajectory walking.png>]
+
+[15 <./figures/Feet_z walking.png> <./figures/contact_x_walking.png>]
+<figures/contact_forces_walking.png, id=172, 1076.823pt x 714.2685pt>
+File: figures/contact_forces_walking.png Graphic file (type png)
+<use figures/contact_forces_walking.png>
+Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 303.
+(pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
+
+
+[16]
+<figures/walking.PNG, id=180, 596.2275pt x 359.54324pt>
+File: figures/walking.PNG Graphic file (type png)
+<use figures/walking.PNG>
+Package pdftex.def Info: figures/walking.PNG  used on input line 313.
+(pdftex.def)             Requested size: 350.81174pt x 211.55261pt.
+<figures/robot.PNG, id=183, 1081.641pt x 513.117pt>
+File: figures/robot.PNG Graphic file (type png)
+<use figures/robot.PNG>
+Package pdftex.def Info: figures/robot.PNG  used on input line 330.
+(pdftex.def)             Requested size: 1081.63837pt x 513.11575pt.
+<<VPlayer.swf>><<figures/walking_sim.mp4>>
+Underfull \hbox (badness 10000) detected at line 330
+[]
+ []
+
+)
+
+[17 <./figures/contact_forces_walking.png> <./figures/walking.PNG>]
+
+[18 <./figures/robot.PNG>] (main.bbl)
+
+Package media9 Warning: Rerun to get internal references right!
+
+
+
+[19
 
 ] (main.aux (title.aux))
  ***********
@@ -660,20 +917,20 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  8E0F413B4B34DF1D768641111B5B52CD;4122.
+(rerunfilecheck)             After:  23EC01EA28EDCEF3E6E9B369728D99E6;6288.
  ) 
 Here is how much of TeX's memory you used:
- 13640 strings out of 473536
- 222619 string characters out of 5714956
- 620552 words of memory out of 5000000
- 36598 multiletter control sequences out of 15000+600000
- 569157 words of font info for 75 fonts, out of 8000000 for 9000
+ 17304 strings out of 473536
+ 290425 string characters out of 5714956
+ 711183 words of memory out of 5000000
+ 40155 multiletter control sequences out of 15000+600000
+ 569794 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,626b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (9 pages, 101103 bytes).
+ 75i,15n,82p,1064b,714s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\giuse\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (20 pages, 13309651 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

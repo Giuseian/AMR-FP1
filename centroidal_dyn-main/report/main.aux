@@ -2,6 +2,9 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\pbs@newkey[2]{}
+\providecommand\pbs@seq@push@cx[2]{}
+\providecommand\mix@newkey[2]{}
 \@input{title.aux}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
 \newlabel{sec:introduction}{{1}{2}{Introduction}{section.1}{}}
@@ -19,20 +22,79 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Spring-Loaded Inverted Pendulum Model}{3}{subsubsection.2.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Integration of Trajectory Optimization}{4}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Limitations}{4}{subsection.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Proposed Method: Stiffness-Based Centroidal Dynamics}{5}{section.3}\protected@file@percent }
-\newlabel{sec:proposedmethods}{{3}{5}{Proposed Method: Stiffness-Based Centroidal Dynamics}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Equations}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Closed Form Solution and Discrete Time Equations}{5}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Integration of Base Link Rotation}{5}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Formulation and Trajectory Optimization Problem}{6}{section.4}\protected@file@percent }
-\newlabel{sec:formulation}{{4}{6}{Formulation and Trajectory Optimization Problem}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}State Equation}{6}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Costs}{6}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Task Related Cost}{6}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Inequality Constraints}{6}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Contact Dependent Cost}{6}{subsubsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Simulation and Results}{7}{section.5}\protected@file@percent }
-\newlabel{sec:simulation}{{5}{7}{Simulation and Results}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Proposed Method: Stiffness-Based Centroidal Dynamics}{6}{section.3}\protected@file@percent }
+\newlabel{sec:proposedmethods}{{3}{6}{Proposed Method: Stiffness-Based Centroidal Dynamics}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Equations}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Closed Form Solution and Discrete Time Equations}{6}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Integration of Base Link Rotation}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Formulation and Trajectory Optimization Problem}{7}{section.4}\protected@file@percent }
+\newlabel{sec:formulation}{{4}{7}{Formulation and Trajectory Optimization Problem}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}State Equation}{7}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Costs}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Task Related Cost}{7}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Inequality Constraints}{7}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Contact Dependent Cost}{7}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Simulation and Results}{8}{section.5}\protected@file@percent }
+\newlabel{sec:simulation}{{5}{8}{Simulation and Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{8}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Still Task}{8}{subsubsection.5.1.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:cs_still}{{\caption@xref {tab:cs_still}{ on input line 23}}{8}{Still Task}{table.caption.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Contact sequence for still task}}{8}{table.caption.2}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Reference Trajectory Initialization and Update}}{9}{algorithm.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Walking Task}{9}{subsubsection.5.1.2}\protected@file@percent }
+\newlabel{tab:cs}{{\caption@xref {tab:cs}{ on input line 72}}{10}{Walking Task}{table.caption.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Contact sequence for walking task}}{10}{table.caption.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Reference Trajectory Initialization and Update}}{10}{algorithm.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Solutions}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Still Task: results}{10}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}CoM Plots}{11}{subsubsection.5.3.1}\protected@file@percent }
+\newlabel{fig:sub1_still}{{1a}{11}{Com X Trajectory 1}{figure.caption.4}{}}
+\newlabel{sub@fig:sub1_still}{{a}{11}{Com X Trajectory 1}{figure.caption.4}{}}
+\newlabel{fig:sub2_still}{{1b}{11}{Com Y Trajectory 1}{figure.caption.4}{}}
+\newlabel{sub@fig:sub2_still}{{b}{11}{Com Y Trajectory 1}{figure.caption.4}{}}
+\newlabel{fig:sub3_still}{{1c}{11}{Com Z Trajectory 1}{figure.caption.4}{}}
+\newlabel{sub@fig:sub3_still}{{c}{11}{Com Z Trajectory 1}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Com Trajectory}}{11}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:threeimages_still}{{1}{11}{Com Trajectory}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Feet along Z}}{11}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:feet_still}{{2}{11}{Feet along Z}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}State and Input Contact Values}{12}{subsubsection.5.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Trajectory vs Reference: state vector}}{12}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:contact_x_still}{{3}{12}{Trajectory vs Reference: state vector}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Contact Forces}{12}{subsubsection.5.3.3}\protected@file@percent }
+\newlabel{tab:contact_forces_still}{{\caption@xref {tab:contact_forces_still}{ on input line 175}}{12}{Contact Forces}{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Z-axis gravity force and $\Sigma _L^k$ values}}{12}{table.caption.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Trajectory vs Reference: Forces}}{13}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:contact_forces_still}{{4}{13}{Trajectory vs Reference: Forces}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.4}Robot representation}{13}{subsubsection.5.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Still}}{13}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:still}{{5}{13}{Still}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Walking Task: results}{13}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}CoM Plots}{14}{subsubsection.5.4.1}\protected@file@percent }
+\newlabel{fig:sub1_walking}{{6a}{14}{Com X Trajectory 1}{figure.caption.10}{}}
+\newlabel{sub@fig:sub1_walking}{{a}{14}{Com X Trajectory 1}{figure.caption.10}{}}
+\newlabel{fig:sub2_walking}{{6b}{14}{Com Y Trajectory 1}{figure.caption.10}{}}
+\newlabel{sub@fig:sub2_walking}{{b}{14}{Com Y Trajectory 1}{figure.caption.10}{}}
+\newlabel{fig:sub3_walking}{{6c}{14}{Com Z Trajectory 1}{figure.caption.10}{}}
+\newlabel{sub@fig:sub3_walking}{{c}{14}{Com Z Trajectory 1}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Com Trajectory}}{14}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:threeimages_walking}{{6}{14}{Com Trajectory}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}State and Input Contact Values}{14}{subsubsection.5.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Feet along Z}}{15}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:feet_walking}{{7}{15}{Feet along Z}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Trajectory vs Reference: state vector}}{15}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:contact_x_walking}{{8}{15}{Trajectory vs Reference: state vector}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}Contact Forces}{16}{subsubsection.5.4.3}\protected@file@percent }
+\newlabel{tab:contact_forces_walking}{{\caption@xref {tab:contact_forces_walking}{ on input line 265}}{16}{Contact Forces}{table.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Z-axis gravity force and $\Sigma _L^k$ values}}{16}{table.caption.13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Trajectory vs Reference: Forces}}{17}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:contact_forces_walking}{{9}{17}{Trajectory vs Reference: Forces}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.4}Robot representation}{17}{subsubsection.5.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Walking}}{17}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:walking}{{10}{17}{Walking}{figure.caption.15}{}}
+\pbs@seq@push@cx{pbs@props@19}{/rm@oc0 197 0 R}
+\ifcsname mix@AtEnd@Doc\endcsname\else\AtBeginDocument{\RequirePackage{tikz}}\fi
 \bibstyle{unsrt}
 \bibdata{ref}
 \bibcite{CD}{1}
@@ -49,5 +111,5 @@
 \bibcite{zmp_sr}{12}
 \bibcite{cwc}{13}
 \citation{*}
-\@writefile{toc}{\contentsline {section}{References}{8}{section*.2}\protected@file@percent }
-\gdef \@abspage@last{9}
+\@writefile{toc}{\contentsline {section}{References}{19}{section*.16}\protected@file@percent }
+\gdef \@abspage@last{20}

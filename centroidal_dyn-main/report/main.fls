@@ -138,6 +138,41 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption3.st
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption3.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\commath\commath.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\commath\commath.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\media9.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\media9.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\pdfbase.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\pdfbase.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\ocgx2\ocgbase.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\ocgx2\ocgbase.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\hyphenat\hyphenat.sty
@@ -146,11 +181,6 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\subfiles\subfiles.s
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\subfiles\subfiles.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\import\import.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\import\import.sty
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\main.aux
-INPUT .\main.aux
-INPUT main.aux
 OUTPUT main.aux
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -247,6 +277,123 @@ INPUT chapters\Simulation and Results.tex
 INPUT .\chapters\Simulation and Results.tex
 INPUT .\chapters\Simulation and Results.tex
 INPUT chapters\Simulation and Results.tex
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
+INPUT .\figures\CoM x Trajectory still.png
+INPUT .\figures\CoM x Trajectory still.png
+INPUT figures\CoM x Trajectory still.png
+INPUT .\figures\CoM x Trajectory still.png
+INPUT .\figures\CoM x Trajectory still.png
+INPUT .\figures\CoM x Trajectory still.png
+INPUT .\figures\CoM x Trajectory still.png
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT .\figures\CoM y Trajectory still.png
+INPUT .\figures\CoM y Trajectory still.png
+INPUT figures\CoM y Trajectory still.png
+INPUT .\figures\CoM y Trajectory still.png
+INPUT .\figures\CoM y Trajectory still.png
+INPUT .\figures\CoM y Trajectory still.png
+INPUT .\figures\CoM y Trajectory still.png
+INPUT .\figures\CoM z Trajectory still.png
+INPUT .\figures\CoM z Trajectory still.png
+INPUT figures\CoM z Trajectory still.png
+INPUT .\figures\CoM z Trajectory still.png
+INPUT .\figures\CoM z Trajectory still.png
+INPUT .\figures\CoM z Trajectory still.png
+INPUT .\figures\CoM z Trajectory still.png
+INPUT .\figures\Feet_z still.png
+INPUT .\figures\Feet_z still.png
+INPUT figures\Feet_z still.png
+INPUT .\figures\Feet_z still.png
+INPUT .\figures\Feet_z still.png
+INPUT .\figures\Feet_z still.png
+INPUT .\figures\Feet_z still.png
+INPUT .\figures\contact_x_still.png
+INPUT .\figures\contact_x_still.png
+INPUT figures\contact_x_still.png
+INPUT .\figures\contact_x_still.png
+INPUT .\figures\contact_x_still.png
+INPUT .\figures\contact_x_still.png
+INPUT .\figures\contact_x_still.png
+INPUT .\figures\contact_forces_still.png
+INPUT .\figures\contact_forces_still.png
+INPUT figures\contact_forces_still.png
+INPUT .\figures\contact_forces_still.png
+INPUT .\figures\contact_forces_still.png
+INPUT .\figures\contact_forces_still.png
+INPUT .\figures\contact_forces_still.png
+INPUT .\figures\still.PNG
+INPUT .\figures\still.PNG
+INPUT figures\still.PNG
+INPUT .\figures\still.PNG
+INPUT .\figures\still.PNG
+INPUT .\figures\still.PNG
+INPUT .\figures\still.PNG
+INPUT .\figures\CoM x Trajectory walking.png
+INPUT .\figures\CoM x Trajectory walking.png
+INPUT figures\CoM x Trajectory walking.png
+INPUT .\figures\CoM x Trajectory walking.png
+INPUT .\figures\CoM x Trajectory walking.png
+INPUT .\figures\CoM x Trajectory walking.png
+INPUT .\figures\CoM x Trajectory walking.png
+INPUT .\figures\CoM y Trajectory walking.png
+INPUT .\figures\CoM y Trajectory walking.png
+INPUT figures\CoM y Trajectory walking.png
+INPUT .\figures\CoM y Trajectory walking.png
+INPUT .\figures\CoM y Trajectory walking.png
+INPUT .\figures\CoM y Trajectory walking.png
+INPUT .\figures\CoM y Trajectory walking.png
+INPUT .\figures\CoM z Trajectory walking.png
+INPUT .\figures\CoM z Trajectory walking.png
+INPUT figures\CoM z Trajectory walking.png
+INPUT .\figures\CoM z Trajectory walking.png
+INPUT .\figures\CoM z Trajectory walking.png
+INPUT .\figures\CoM z Trajectory walking.png
+INPUT .\figures\CoM z Trajectory walking.png
+INPUT .\figures\Feet_z walking.png
+INPUT .\figures\Feet_z walking.png
+INPUT figures\Feet_z walking.png
+INPUT .\figures\Feet_z walking.png
+INPUT .\figures\Feet_z walking.png
+INPUT .\figures\Feet_z walking.png
+INPUT .\figures\Feet_z walking.png
+INPUT .\figures\contact_x_walking.png
+INPUT .\figures\contact_x_walking.png
+INPUT figures\contact_x_walking.png
+INPUT .\figures\contact_x_walking.png
+INPUT .\figures\contact_x_walking.png
+INPUT .\figures\contact_x_walking.png
+INPUT .\figures\contact_x_walking.png
+INPUT .\figures\contact_forces_walking.png
+INPUT .\figures\contact_forces_walking.png
+INPUT figures\contact_forces_walking.png
+INPUT .\figures\contact_forces_walking.png
+INPUT .\figures\contact_forces_walking.png
+INPUT .\figures\contact_forces_walking.png
+INPUT .\figures\contact_forces_walking.png
+INPUT .\figures\walking.PNG
+INPUT .\figures\walking.PNG
+INPUT figures\walking.PNG
+INPUT .\figures\walking.PNG
+INPUT .\figures\walking.PNG
+INPUT .\figures\walking.PNG
+INPUT .\figures\walking.PNG
+INPUT .\figures\robot.PNG
+INPUT .\figures\robot.PNG
+INPUT figures\robot.PNG
+INPUT .\figures\robot.PNG
+INPUT .\figures\robot.PNG
+INPUT .\figures\robot.PNG
+INPUT .\figures\robot.PNG
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\players\VPlayer.swf
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\players\VPlayer.swf
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\players\VPlayer.swf
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\players\VPlayer.swf
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\media9\players\VPlayer.swf
+INPUT .\figures\walking_sim.mp4
+INPUT .\figures\walking_sim.mp4
+INPUT .\figures\walking_sim.mp4
+INPUT .\figures\walking_sim.mp4
+INPUT .\figures\walking_sim.mp4
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl
@@ -257,11 +404,27 @@ INPUT .\title.aux
 INPUT title.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\giuse\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Users\giuse\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
