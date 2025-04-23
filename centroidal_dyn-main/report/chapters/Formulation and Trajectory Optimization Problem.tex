@@ -2,9 +2,57 @@
 
 \begin{document}
 
-\section{Formulation and Trajectory Optimization Problem}\label{sec:formulation}
-
+\section{Formulation of Trajectory Optimization Problem}
+\label{sec:formulation}
+\begin{comment}
 \subsection{State Equation}
+To mathematically describe the evolution of the system over discrete time intervals, we define a state vector $x_k$ at each time step $k$. This state contains all the information necessary to describe the system's configuration and motion. The state variable is defined as follows :
+\begin{itemize}
+    \item $\mathbf{p}_k$: the position of the system’s center of mass in the global frame.
+    \item $\mathbf{q}_k$: the orientation of the system, typically represented as a unit quaternion to avoid singularities associated with Euler angles.
+    \item $\mathbf{v}_k$: the linear velocity of the system's center of mass.
+    \item $\mathbf{L}_k$: the system's angular momentum, which plays a critical role in dynamic balance and motion planning.
+    \item $t_k$: the timestamp indicating the start of the $k$^\text{th} contact phase, marking discrete events in the locomotion sequence.
+    \item $\{ \mathbf{p}_{l,k} \}_{l=1}^{n_e}$: the positions of the $n_e$ end-effectors (e.g., feet or hands), relative to the global coordinate frame.
+    \item $\{ \mathbf{q}_{l,k} \}_{l=1}^{n_e}$: the orientations of these end-effectors, also represented using quaternions.
+\end{itemize}
+where $p_k$ is the position, $v_k$ is the linear velocity, $q_k$ is the quaternion representing orientation, and $\omega_k$ is the angular velocity of the system at time step $k$. 
+The control input vector $u_k$ can be defined in different forms depending on the control strategy. Since in \ref{sec:method} we are using a stiffness-based control strategy, the control input is defined as:
+\begin{equation}
+    u_k = \left\{ \tau_k, \{ \mathbf{v}_{l,k} \}_{l=1}^{n_e}, \{ \boldsymbol{\omega}_{l,k} \}_{l=1}^{n_e}, \{ \boldsymbol{\lambda}_{l,k} \}_{l=1}^{n_e}, \{ \mathbf{r}_{l,k} \}_{l=1}^{n_e}, \{ \boldsymbol{\eta}_{l,k} \}_{l=1}^{n_e} \right\}
+\end{equation}
+\begin{itemize}
+    \item $\boldsymbol{\lambda}_{l,k}$: Lagrange multipliers enforcing constraints (e.g., contact or joint limits).
+    \item $\mathbf{r}_{l,k}$: reaction forces at the contact points.
+\end{itemize}
+
+This formulation enables explicit enforcement of physical constraints such as contact complementarity by treating velocities as control variables. For instance, assigning a high cost to velocities at inactive contacts discourages motion in those regions, effectively ensuring that contacts are only active when physically meaningful.
+
+The update to the timestamp is given by:
+\begin{equation}
+    t_{k+1} = t_k + \tau_k
+\end{equation}
+
+The state update for each end-effector’s position and orientation is governed by the basic kinematic relations:
+\begin{equation}
+    \mathbf{p}_{l,k+1} = \mathbf{p}_{l,k} + \mathbf{v}_{l,k} \tau_k
+\end{equation}
+\begin{equation}
+    \mathbf{q}_{l,k+1} = \mathcal{Q}(\boldsymbol{\omega}_{l,k}, \tau_k) \cdot \mathbf{q}_{l,k}
+\end{equation}
+
+Here, $\mathcal{Q}(\boldsymbol{\omega}_{l,k}, \tau_k)$ represents the quaternion corresponding to the angular displacement over the time interval $\tau_k$, computed from the angular velocity $\boldsymbol{\omega}_{l,k}$.
+
+Integrating all these elements, the complete system dynamics are compactly expressed as a state transition function:
+\begin{equation}
+    x_{k+1} = f(x_k, u_k)
+\end{equation}
+
+This function encapsulates both the kinematics and dynamics of the system, allowing for predictive simulation or optimization over multiple time steps.
+\end{comment}
+
+
+
 \subsection{Costs}
 \subsubsection{Task Related Cost}
 \subsubsection{Inequality Constraints}
