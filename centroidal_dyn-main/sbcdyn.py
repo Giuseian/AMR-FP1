@@ -38,8 +38,8 @@ class StiffnessBasedCentroidalDynamics:
         self.W_x_k = opti.parameter(28,28)  # State weight matrix
         self.W_u_k = opti.parameter(27,27)  # Input weight matrix
         self.x_0 = opti.parameter(28)
-
-        weights_x = [1] + [500] + [500] + [1.0]*4 + [1]*3 + [0.0001]*3 + [1]*15  # Higher weight for the first 18 components
+        vel_weight = 100 if ref == "still" else 1.0
+        weights_x = [1] + [500] + [500] + [1.0]*4 + [vel_weight]*3 + [0.0001]*3 + [1]*15  # Higher weight for the first 18 components
         W_x_k = cs.diag(weights_x)  # Create a diagonal matrix from the weights
         weights_u = [1] + [1] * 12 + [1]*2 + [1]*12# Higher weight for the first 18 components
         W_u_k = cs.diag(weights_u)  # Create a diagonal matrix from the weights

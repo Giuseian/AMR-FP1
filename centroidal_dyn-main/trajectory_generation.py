@@ -16,7 +16,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
         X_ref = np.zeros((28, N+1))
         U_ref = np.zeros((27, N)) + 0.000001
         time_k = 0
-        phase_duration = 4 # tau
+        phase_duration = 1 # tau
         for t in range(N+1):
             X_ref[0:3, t] = start_pos                         # Initial CoM position
             X_ref[3:7, t] = start_orient
