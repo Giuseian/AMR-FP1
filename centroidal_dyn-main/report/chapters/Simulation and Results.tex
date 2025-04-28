@@ -81,7 +81,7 @@ Walk & 24 &
 The algorithm used for this task is shown below:
 
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Reference Trajectory Initialization and Update}
 \begin{algorithmic}[1]
 \State Initialize $X_{\text{ref}} \in \mathbb{R}^{28 \times (N+1)}$, $U_{\text{ref}} \in \mathbb{R}^{27 \times N}$
@@ -297,21 +297,6 @@ In this section it is possible to visualize first the path followed by the CoM, 
     \caption{Walking}
     \label{fig:walking}
 \end{figure}
-
-The CoM solution and reference foot are also passed to the URDF Skeleton into the Dart Simulation environment. 
-
-\centering
-\includemedia[
-  width=0.8\linewidth,
-  height=0.45\linewidth,
-  activate=onclick,
-  addresource=figures/walking_sim.mp4,
-  flashvars={
-     source=figures/walking_sim.mp4
-    &autoPlay=true
-  }
-]{\includegraphics{figures/robot.PNG}}{VPlayer.swf}
- 
 
 
 \end{document}
