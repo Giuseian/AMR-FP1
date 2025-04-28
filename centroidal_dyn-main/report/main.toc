@@ -15,19 +15,20 @@
 \contentsline {subsection}{\numberline {4.1}Costs}{7}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Task Related Cost}{7}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Inequality Constraints}{7}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Contact Dependent Cost}{7}{subsubsection.4.1.3}%
-\contentsline {section}{\numberline {5}Simulation and Results}{8}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{8}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Still Task}{8}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Walking Task}{9}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Solutions}{10}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Still Task: results}{10}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}CoM Plots}{11}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}State and Input Contact Values}{12}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Contact Forces}{12}{subsubsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.4}Robot representation}{13}{subsubsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.4}Walking Task: results}{13}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}CoM Plots}{14}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}State and Input Contact Values}{14}{subsubsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.3}Contact Forces}{16}{subsubsection.5.4.3}%
-\contentsline {subsubsection}{\numberline {5.4.4}Robot representation}{17}{subsubsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {4.1.3}Contact Dependent Cost}{9}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Final Cost Function and Problem Formulation}{10}{subsubsection.4.1.4}%
+\contentsline {section}{\numberline {5}Simulation and Results}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{11}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Still Task}{11}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Walking Task}{12}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Solutions}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Still Task: results}{13}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}CoM Plots}{14}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}State and Input Contact Values}{15}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Contact Forces}{15}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Robot representation}{16}{subsubsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.4}Walking Task: results}{16}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}CoM Plots}{17}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}State and Input Contact Values}{17}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Contact Forces}{19}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}Robot representation}{20}{subsubsection.5.4.4}%

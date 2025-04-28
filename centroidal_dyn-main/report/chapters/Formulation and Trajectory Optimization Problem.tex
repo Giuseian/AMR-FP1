@@ -50,13 +50,115 @@ Integrating all these elements, the complete system dynamics are compactly expre
 
 This function encapsulates both the kinematics and dynamics of the system, allowing for predictive simulation or optimization over multiple time steps.
 \end{comment}
-
-
-
 \subsection{Costs}
+The cost function is a crucial component of the trajectory optimization problem, as it quantifies the performance of a given trajectory. The cost function is typically composed of several terms, each representing different aspects of the system's performance.
 \subsubsection{Task Related Cost}
+In trajectory tracking tasks, it is important for the system to follow a planned or reference trajectory as closely as possible. The \textit{task-related cost} measures how much the system's current state and inputs deviate from their desired (reference) values. Minimizing this cost ensures the system stays close to the intended path during motion.
+The task-related cost function is formulated as:
+\begin{equation}
+L_{\text{task},k} = \frac{1}{2} \| W^x_k (x_k - x^{\text{ref}}_k) \|^2 + \frac{1}{2} \| W^u_k (u_k - u^{\text{ref}}_k) \|^2
+\end{equation}
+where $(\ast)^{\text{ref}}$ represents the reference (target) values for the state $x_k$ and the control input $u_k$.
+In this work, we focus on a waypoint-tracking task, where a series of intermediate waypoints are specified for the center of mass (CoM), base link, and limb endpoints. Desired positions and velocities along a smooth path connecting these waypoints are generated using spline curves.
+The system's stiffness parameters are computed by solving the following least-squares optimization problem at each time step $k$:
+\begin{equation}
+\min \left\| \sum_l \lambda_{l,k}^2 \right\|^2 \quad \text{subject to} \quad \sum_l \lambda_{l,k}^2 (p^{\text{ref}}_k - p^{\text{ref}}_{l,k}) = g
+\end{equation}
+This optimization distributes stiffness values to maintain support for the CoM against gravity.
+In addition, the reference values for the Centroidal Moment Pivot (CMP) offset and the moments at the end effectors are typically set to zero unless non-zero values are specifically chosen to induce desired dynamic effects.
+The weighting matrices $W^x_k$ and $W^u_k$ are design parameters that control the importance given to state and input deviations in the cost function.
+Finally, when dealing with rotational variables represented by quaternions, the deviation between the actual and reference orientations is calculated by transforming the quaternion difference into an equivalent angle-axis representation:
+\begin{equation}
+q - q^{\text{ref}} := \omega(q^{\text{ref}^{-1}} q)
+\end{equation}
+where $\omega(\cdot)$ maps a unit quaternion into an angle-axis vector.
 \subsubsection{Inequality Constraints}
+In physical systems involving contact dynamics, it is essential to ensure that certain physical conditions—such as feasible positions, contact forces, and proper stiffness—are always satisfied. These conditions are formulated as \textit{inequality constraints} and play a key role in maintaining the physical realism of the motion and feasibility of the optimization problem.
+In this framework, inequality constraints are used to regulate the position of each contact point relative to the CoM and the base link, enforce non-slipping conditions, and bound parameters like phase duration and stiffness values.
+First, the box constraint on the position of each end link relative to the CoM and the base link is expressed as:
+\begin{equation}
+p_{\text{l,min}} \leq q^{-1}(p - p_l) \leq p_{\text{l,max}},
+\end{equation}
+where $p$ is the CoM position, $p_l$ is the position of the $l$-th end, and $q^{-1}$ denotes the inverse transformation to the local frame.
+Simple range constraints are imposed on the duration of each phase and the stiffness values:
+\begin{align}
+\tau_{\text{min}} \leq \tau \leq \tau_{\text{max}}, \\
+0 \leq \lambda_l \leq \lambda_{\text{max}}, \quad \forall l.
+\end{align}
+Next, for each end in contact, the contact wrench must satisfy non-slip and moment conditions.  
+If we want to avoid relative motion of the contact surfaces, we must ensure sufficient friction. Thus, to achieve no slipping, the force must be within the friction cone, i.e., the tangential force $f_t$ must satisfy 
+\begin{equation}
+    \lvert f_t \rvert \leq \mu f_n  \Longrightarrow \sqrt{f_{l,x}^2 + f_{l,y}^2} \leq \mu f_{l,z}
+\end{equation}
+where $\mu$ is the static friction coefficient, and $(f_{l,x}, f_{l,y}, f_{l,z})$ are the force components at the contact.
+Constraints on the moments at the contact point are given as:
+\begin{align}
+-c_{\text{max},x} f_{l,z} \leq \eta_{l,x} \leq c_{\text{max},x} f_{l,z}, \\
+c_{\text{min},y} f_{l,z} \leq \eta_{l,y} \leq c_{\text{max},y} f_{l,z}, \\
+-\mu_z f_{l,z} \leq \eta_{l,z} \leq \mu_z f_{l,z},
+\end{align}
+where $c_{\text{min}}$ and $c_{\text{max}}$ define the rectangular bounds of the center-of-pressure (CoP) region, and $\mu_z$ is the friction coefficient for the moment.
+All the inequality constraints can be compactly represented as:
+\begin{equation}
+g(x_k, u_k) \geq 0,
+\end{equation}
+where $g(\cdot)$ is a differentiable vector-valued function, evaluated componentwise.
+To handle these constraints during optimization, a log-barrier function is introduced:
+\begin{equation}
+L_{\text{limit}}(x_k, u_k) = \sum_{i=1}^{n_g} -\log \max(\epsilon, g_i(x_k, u_k)),
+\end{equation}
+where $n_g$ is the number of constraints, $g_i$ is the $i$-th constraint function, and $\epsilon$ is a small positive constant that ensures numerical stability and prevents the log function from becoming undefined.
 \subsubsection{Contact Dependent Cost}
+Modeling the interaction between a robot's ends and the environment is crucial in dynamic contact systems. The contact-dependent cost is introduced to enforce the complementarity between the contact forces, end velocities, and stiffness values. This ensures that if an end effector is in contact, its motion and interaction forces behave physically, and if it is not in contact, unnecessary forces or stiffness values are suppressed.
+By minimizing these costs, the system ensures physically meaningful transitions between contact and non-contact states throughout the trajectory.
+\\
+The contact-dependent cost is defined as:
+\begin{equation}
+\begin{aligned}
+    J_{\text{compl},k} 
+    &= w_{\text{compl}}^2 \sum_l \Bigg(
+    \underbrace{ \sum_i \delta\left[\sigma_{l,k} = i\right] \left( \eta_i^\top (p_{l,k} - o_i) \right)^2 }_{\text{contact distance constraint}} \\
+    &\quad + \underbrace{ \delta\left[\sigma_{l,k} \neq \emptyset\right] \left( \| v_{l,k} \|^2 + \| \omega_{l,k} \|^2 \right) }_{\text{zero velocity constraint}} \\
+    &\quad + \underbrace{ \delta\left[\sigma_{l,k} = \emptyset\right] \lambda_{l,k}^2 }_{\text{zero stiffness constraint}}
+    \Bigg)
+\end{aligned}
+\end{equation}
+where $\sigma_{l,k}$ denotes the contact state of the $l$-th end at time step $k$. In particular, 
+\begin{itemize}
+    \item $\sigma_{l,k} = i$ if the $l$-th end is in contact with the $i$-th contact surface.
+    \item $\sigma_{l,k} = \emptyset$ if it is not in contact.
+\end{itemize}
+The operator $\delta[\ast]$ is an indicator function that returns $1$ if the condition inside the brackets is true, and $0$ otherwise.
+\\
+Each term inside the cost function has a specific physical meaning:
+\begin{itemize}
+    \item The first term enforces that if the $l$-th end is in contact with surface $i$, namely the distance in the normal direction (defined by normal vector $\eta_i$) from the end's position $p_{l,k}$ to the contact surface origin $o_i$ must be zero.
+    \item The second term requires that if the $l$-th end is in contact with any surface, its linear velocity $v_{l,k}$ and angular velocity $\omega_{l,k}$ must also be zero, representing static contact.
+    \item The third term ensures that if the $l$-th end is not in contact, the associated stiffness $\lambda_{l,k}$ must be zero. Physically, this prevents generating unnecessary contact forces when there is no actual contact.
+\end{itemize}
+By properly tuning the weight parameter $w_{\text{compl}}$, these complementarity errors can be made acceptably small after optimization. A sufficiently large value of $w_{\text{compl}}$ is necessary to enforce these physical consistency conditions without overly penalizing the overall optimization performance.
+\subsubsection{Final Cost Function and Problem Formulation}
+After defining the task-related, limit-related, and contact-dependent costs, the overall cost function is constructed by summing these individual terms over all time steps. This aggregated cost captures all important objectives and physical constraints of the motion planning task.
+\\
+The overall cost function is defined as:
+\begin{equation}
+J[\sigma] = \sum_k \left[ L_{\text{task},k} + L_{\text{limit},k} + L_{\text{compl},k}[\sigma_k] \right]
+\end{equation}
+The planning problem can then be formulated as the following optimal control problem:
+\begin{equation}
+\begin{aligned}
+& \text{find} \quad x, u \quad \text{that minimizes} \quad J[\sigma](x,u) \\
+& \text{subject to} \quad x_{k+1} = f(x_k, u_k)
+\end{aligned}
+\end{equation}
+Here, $x$ and $u$ denote the state and control input trajectories, respectively. The function $f(x_k, u_k)$ represents the discrete-time system dynamics, ensuring that the state evolution is dynamically feasible.
+\begin{comment}
+This problem is formulated using a \textit{single shooting} approach, where the control inputs are directly optimized and the states are obtained by integrating the system dynamics forward in time. 
+Due to the nonlinearities in the cost terms (especially those involving contact forces and constraints) and the system dynamics, the resulting optimization is generally a \textit{nonlinear programming problem} (NLP). However, in certain cases where the dynamics and cost functions are affine and the constraints are quadratic, the problem structure could be approximated as a \textit{quadratic programming} (QP) problem to enable faster computation.
+Overall, the optimization simultaneously enforces task tracking, physical feasibility, and complementarity conditions related to contact interactions throughout the planned motion.
+\end{comment}
+
+
 
 
 \end{document}
