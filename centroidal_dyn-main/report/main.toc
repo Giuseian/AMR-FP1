@@ -8,27 +8,24 @@
 \contentsline {subsection}{\numberline {2.3}Integration of Trajectory Optimization}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Limitations}{4}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Proposed Method}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Equations}{6}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Closed Form Solution and Discrete Time Equations}{6}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Integration of Base Link Rotation}{6}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Formulation of Trajectory Optimization Problem}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Costs}{7}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Task Related Cost}{7}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Inequality Constraints}{7}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Contact Dependent Cost}{9}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Final Cost Function and Problem Formulation}{10}{subsubsection.4.1.4}%
-\contentsline {section}{\numberline {5}Simulation and Results}{11}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{11}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Still Task}{11}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Walking Task}{12}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Solutions}{13}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Still Task: results}{13}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}CoM Plots}{14}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}State and Input Contact Values}{15}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Contact Forces}{15}{subsubsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.4}Robot representation}{16}{subsubsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.4}Walking Task: results}{16}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}CoM Plots}{17}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}State and Input Contact Values}{17}{subsubsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.3}Contact Forces}{19}{subsubsection.5.4.3}%
-\contentsline {subsubsection}{\numberline {5.4.4}Robot representation}{20}{subsubsection.5.4.4}%
+\contentsline {subsection}{\numberline {3.1}Stiffness-Based Centroidal Dynamics}{6}{subsection.3.1}%
+\contentsline {paragraph}{Spring-like parametrization of contact wrenches.}{6}{section*.2}%
+\contentsline {paragraph}{Closed‐form centroidal dynamics.}{7}{section*.4}%
+\contentsline {paragraph}{Discussion and special cases.}{7}{section*.5}%
+\contentsline {subsection}{\numberline {3.2}Closed‐Form Solutions and Discrete‐Time Equations}{8}{subsection.3.2}%
+\contentsline {paragraph}{\ State at the beginning of interval $k$.}{8}{section*.6}%
+\contentsline {paragraph}{\ Analytical solution on $[t_k,t_{k+1}]$.}{8}{section*.7}%
+\contentsline {subsection}{\numberline {3.3}Integration of Base‐Link Rotation}{9}{subsection.3.3}%
+\contentsline {paragraph}{Discrete quaternion update.}{9}{section*.13}%
+\contentsline {section}{\numberline {4}Formulation of Trajectory Optimization Problem}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}State Equation}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Costs}{11}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Task Related Cost}{11}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Inequality Constraints}{12}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Contact Dependent Cost}{13}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Final Cost Function and Problem Formulation}{14}{subsubsection.4.2.4}%
+\contentsline {section}{\numberline {5}Simulation and Results}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Solutions}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Still Task: results}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Walking Task: results}{20}{subsection.5.4}%

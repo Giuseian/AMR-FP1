@@ -35,6 +35,8 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\generic\iftex\iftex.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amssymb.sty
@@ -175,8 +177,6 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\ocgx2\ocgbase.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\ocgx2\ocgbase.sty
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\amscls\amsthm.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\hyphenat\hyphenat.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\hyphenat\hyphenat.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\subfiles\subfiles.sty
@@ -368,14 +368,22 @@ INPUT .\chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 INPUT chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 INPUT .\chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 INPUT chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT chapters\Formulation and Trajectory Optimization Problem.tex
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmmib8.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmmib6.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy8.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy6.tfm
 INPUT .\chapters\Simulation and Results.tex
 INPUT .\chapters\Simulation and Results.tex
 INPUT chapters\Simulation and Results.tex
@@ -425,13 +433,6 @@ INPUT .\figures\contact_forces_still.png
 INPUT .\figures\contact_forces_still.png
 INPUT .\figures\contact_forces_still.png
 INPUT .\figures\contact_forces_still.png
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
 INPUT .\figures\CoM x Trajectory walking.png
 INPUT .\figures\CoM x Trajectory walking.png
 INPUT figures\CoM x Trajectory walking.png
@@ -518,6 +519,8 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmib10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmib10.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
