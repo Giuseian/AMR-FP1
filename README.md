@@ -6,7 +6,7 @@
 ## Repository Structure 
 
 
-## Proposed Method 
+## Proposed Method
 
 
 ## Results 
