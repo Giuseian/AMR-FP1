@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1745824914.51599 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1745824930.99243 0
+["pdflatex"] 1745830658.86491 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1745830668.31216 0
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1745391673 184048 8b4cbdf9b31a7d34c2879dde0fcef0cd ""
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1727796667 14064 68aad3df386db7c4237fbef94e309b49 ""
   "C:/Users/giuse/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738070886 12013393 340aa120c33380df9200b841e2c7e3b5 ""
@@ -193,7 +193,7 @@
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/units/units.sty" 1469029150 2206 65ad9fb19763b1681bea4cb389fe84f8 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1745824897 2241 847f2d03091563b58ec5dd5fd6abf07c ""
+  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1745830604 2307 7f8449b0ca0f45423023789e030a5b3d ""
   "chapters/Formulation and Trajectory Optimization Problem.tex" 1745824928 13542 71589bf892f4d84f380bfdb268f94460 ""
   "chapters/Introduction.tex" 1744975581 117 590f6974e10654be84abd2d495c120e6 ""
   "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1745389990 274 24ab9a69edfb9276c5a8bc60a55d9d74 ""
@@ -216,12 +216,12 @@
   "figures/still.PNG" 1745386008 58790 357d9e483d75da82c248f73fce59fe19 ""
   "figures/walking.PNG" 1745386007 42859 aa9cff2d05fd54003831e72c936ebe3a ""
   "figures/walking_sim.mp4" 1745386005 7841490 7bfbd30b01e3b8f3be0cce9070fd6573 ""
-  "main.aux" 1745824930 10233 86843584e437e13239ee2ad37098945c "pdflatex"
-  "main.out" 1745824930 6160 7dd4a03a5e0fbba88ee830880cede176 "pdflatex"
-  "main.tex" 1745824897 2241 847f2d03091563b58ec5dd5fd6abf07c ""
-  "main.toc" 1745824930 3158 c7e55b14c83baa168938683d0ce0a5e9 "pdflatex"
-  "title.aux" 1745824916 1140 0b54328e5ef61a51594c29cab5fbe26f "pdflatex"
-  "title.tex" 1744975936 1030 3376f21531ae8b4bea79ba66a115875b ""
+  "main.aux" 1745830668 10233 86843584e437e13239ee2ad37098945c "pdflatex"
+  "main.out" 1745830668 6160 7dd4a03a5e0fbba88ee830880cede176 "pdflatex"
+  "main.tex" 1745830604 2307 7f8449b0ca0f45423023789e030a5b3d ""
+  "main.toc" 1745830668 3158 c7e55b14c83baa168938683d0ce0a5e9 "pdflatex"
+  "title.aux" 1745830659 1140 0b54328e5ef61a51594c29cab5fbe26f "pdflatex"
+  "title.tex" 1745830658 935 0cc02f2c62d4bf835ddaaf959dd3967c ""
   (generated)
   "main.aux"
   "main.log"
