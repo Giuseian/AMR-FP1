@@ -3,7 +3,19 @@
 ## Project Description
 
 
+
+
 ## Repository Structure 
+```
+AMR-FP1-centroidal_dyn-main/
+├── meshes/                     # .dae files defining robot visualization
+├── urdf/                       # .urdf files defining ground and robot  
+├── report/                     # LaTeX report files
+├── outputs/                    # .txt files containing TO solutions 
+├── plots/                      # .png files containing TO solutions 
+```
+
+
 
 
 ## Proposed Method
