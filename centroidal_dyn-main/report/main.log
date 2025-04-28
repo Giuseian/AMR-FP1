@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  28 APR 2025 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  28 APR 2025 13:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -828,7 +828,7 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \openout2 = `title.aux'.
 
  (title.tex
-<figures/SapienzaLogo.pdf, id=106, 284.52731pt x 85.33737pt>
+<figures/SapienzaLogo.pdf, id=90, 284.52731pt x 85.33737pt>
 File: figures/SapienzaLogo.pdf Graphic file (type pdf)
 <use figures/SapienzaLogo.pdf>
 Package pdftex.def Info: figures/SapienzaLogo.pdf  used on input line 4.
@@ -860,20 +860,22 @@ l.86 \newpage
               [1
 
 
-] (chapters/Introduction.tex)
+]
 
-[2] (chapters/Related Works.tex
+[2] (chapters/Introduction.tex)
 
-LaTeX Warning: Citation `CD' on page 3 undefined on input line 9.
+[3] (chapters/Related Works.tex
 
-
-LaTeX Warning: Citation `LIPM' on page 3 undefined on input line 18.
-
-
-LaTeX Warning: Citation `VHLIPM' on page 3 undefined on input line 23.
+LaTeX Warning: Citation `CD' on page 4 undefined on input line 9.
 
 
-LaTeX Warning: Citation `SLIP' on page 3 undefined on input line 26.
+LaTeX Warning: Citation `LIPM' on page 4 undefined on input line 18.
+
+
+LaTeX Warning: Citation `VHLIPM' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation `SLIP' on page 4 undefined on input line 26.
 
 
 Overfull \hbox (20.45029pt too wide) in paragraph at lines 31--34
@@ -882,7 +884,7 @@ Overfull \hbox (20.45029pt too wide) in paragraph at lines 31--34
 
 
 
-[3
+[4
 
 ]
 Overfull \hbox (1.71576pt too wide) in paragraph at lines 41--42
@@ -891,7 +893,7 @@ Overfull \hbox (1.71576pt too wide) in paragraph at lines 41--42
 
 
 
-[4]
+[5]
 Overfull \hbox (16.72949pt too wide) in paragraph at lines 49--50
 \OT1/cmr/m/n/12 gen-er-ally guar-an-teed only at dis-crete keyframes or nodes, which may lead to dis-con-ti-nu-ities
  []
@@ -913,9 +915,9 @@ Overfull \hbox (2.62964pt too wide) in paragraph at lines 55--56
 
 )
 
-[5] (chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
+[6] (chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 
-[6
+[7
 
 ]
 Overfull \hbox (6.81151pt too wide) in paragraph at lines 101--103
@@ -924,82 +926,58 @@ Overfull \hbox (6.81151pt too wide) in paragraph at lines 101--103
 
 
 
-[7]
+[8]
 Overfull \hbox (20.89574pt too wide) in paragraph at lines 130--131
 [][]\OT1/cmr/m/it/12 Remark \OT1/cmr/m/n/12 3 (Re-la-tion to ex-ist-ing mod-els)\OT1/cmr/m/it/12 . []\OT1/cmr/m/n/12 Stiffness-based (or force-to-point) parametriza-tion
  []
 
 
 
-[8]
+[9]
 
 Package amsfonts Warning: Obsolete command \Bbb; \mathbb should be used instead on input line 218.
 
 )
 
-[9] (chapters/Formulation and Trajectory Optimization Problem.tex
-
-LaTeX Warning: Reference `sec:method' on page 10 undefined on input line 20.
-
-
-Overfull \hbox (1.5852pt too wide) in paragraph at lines 29--30
-[]\OT1/cmr/m/n/12 This for-mu-la-tion en-ables ex-plicit en-force-ment of phys-i-cal con-straints such as con-tact
+[10] (chapters/Formulation and Trajectory Optimization Problem.tex
+Overfull \hbox (0.60687pt too wide) in paragraph at lines 10--11
+[]\OT1/cmr/m/n/12 a state vec-tor $\OML/cmm/m/it/12 x[]$\OT1/cmr/m/n/12 , con-tain-ing all the in-for-ma-tion nec-es-sary to de-scribe the sys-tem's
  []
 
 
-Overfull \hbox (9.58699pt too wide) in paragraph at lines 44--45
-[]\OT1/cmr/m/n/12 Here, $\OMS/cmsy/m/n/12 Q\OT1/cmr/m/n/12 ([][]\OML/cmm/m/it/12 ; ^^\[]\OT1/cmr/m/n/12 )$ rep-re-sents the quater-nion cor-re-spond-ing to the an-gu-lar dis-place-ment
- []
-
-
-Overfull \hbox (10.32817pt too wide) in paragraph at lines 46--47
-[]\OT1/cmr/m/n/12 Integrating all these el-e-ments, the com-plete sys-tem dy-nam-ics are com-pactly ex-pressed
- []
-
-
-Overfull \hbox (5.11017pt too wide) in paragraph at lines 51--53
-[]\OT1/cmr/m/n/12 This func-tion en-cap-su-lates both the kine-mat-ics and dy-nam-ics of the sys-tem, al-low-ing
- []
-
-
-
-[10
-
-]
-Overfull \hbox (16.33783pt too wide) in paragraph at lines 54--55
+Overfull \hbox (16.33783pt too wide) in paragraph at lines 74--75
 \OT1/cmr/m/n/12 com-posed of sev-eral terms, each rep-re-sent-ing dif-fer-ent as-pects of the sys-tem's per-for-mance. 
  []
 
 
-Overfull \hbox (0.41022pt too wide) in paragraph at lines 76--79
-\OT1/cmr/m/n/12 phys-i-cal con-di-tions|such as fea-si-ble po-si-tions, con-tact forces, and proper stiff-ness|are
+
+[11
+
+]
+Overfull \hbox (10.31567pt too wide) in paragraph at lines 96--99
+ []\OT1/cmr/bx/n/12 Inequality Con-straints[] \OT1/cmr/m/n/12 In phys-i-cal sys-tems in-volv-ing con-tact dy-nam-ics, it is es-sen-tial
  []
 
 
+Overfull \hbox (1.22324pt too wide) in paragraph at lines 96--99
+\OT1/cmr/m/n/12 and proper stiff-ness|are al-ways sat-is-fied. These con-di-tions are for-mu-lated as \OT1/cmr/m/it/12 in-equal-ity
+ []
 
-[11]
+
 
 [12]
-Overfull \hbox (6.67682pt too wide) in paragraph at lines 112--116
-\OT1/cmr/m/n/12 phys-i-cally, and if it is not in con-tact, un-nec-es-sary forces or stiff-ness val-ues are sup-pressed.
- []
 
+[13]
 
-Overfull \hbox (5.14073pt too wide) in paragraph at lines 112--116
-\OT1/cmr/m/n/12 By min-i-miz-ing these costs, the sys-tem en-sures phys-i-cally mean-ing-ful tran-si-tions be-tween
- []
+[14] Excluding 'comment' comment.)
 
-
-
-[13] Excluding 'comment' comment.)
-
-[14] (chapters/Simulation and Results.tex
+[15] (chapters/Simulation and Results.tex
 
 Package caption Warning: \label without proper reference on input line 23.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:cs_still' on page 15 undefined on input line 21.
+LaTeX Warning: Reference `tab:cs_still' on page 16 undefined on input line 21.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 41.
 
@@ -1007,40 +985,40 @@ Package caption Warning: \label without proper reference on input line 66.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:cs' on page 15 undefined on input line 64.
+LaTeX Warning: Reference `tab:cs' on page 16 undefined on input line 64.
 
 
 
-[15
+[16
 
 ]
-<figures/CoM x Trajectory still.png, id=297, 434.3427pt x 283.2984pt>
+<figures/CoM x Trajectory still.png, id=291, 434.3427pt x 283.2984pt>
 File: figures/CoM x Trajectory still.png Graphic file (type png)
 <use figures/CoM x Trajectory still.png>
 Package pdftex.def Info: figures/CoM x Trajectory still.png  used on input line 125.
 (pdftex.def)             Requested size: 197.3295pt x 128.71075pt.
-<figures/CoM y Trajectory still.png, id=299, 425.9112pt x 283.2984pt>
+<figures/CoM y Trajectory still.png, id=293, 425.9112pt x 283.2984pt>
 File: figures/CoM y Trajectory still.png Graphic file (type png)
 <use figures/CoM y Trajectory still.png>
 Package pdftex.def Info: figures/CoM y Trajectory still.png  used on input line 132.
 (pdftex.def)             Requested size: 197.3295pt x 131.25256pt.
-<figures/CoM z Trajectory still.png, id=300, 406.6392pt x 283.2984pt>
+<figures/CoM z Trajectory still.png, id=294, 406.6392pt x 283.2984pt>
 File: figures/CoM z Trajectory still.png Graphic file (type png)
 <use figures/CoM z Trajectory still.png>
 Package pdftex.def Info: figures/CoM z Trajectory still.png  used on input line 139.
 (pdftex.def)             Requested size: 197.3295pt x 137.47736pt.
 
 
-[16]
-<figures/Feet_z still.png, id=309, 377.9721pt x 283.2984pt>
+[17]
+<figures/Feet_z still.png, id=303, 377.9721pt x 283.2984pt>
 File: figures/Feet_z still.png Graphic file (type png)
 <use figures/Feet_z still.png>
 Package pdftex.def Info: figures/Feet_z still.png  used on input line 149.
 (pdftex.def)             Requested size: 263.11047pt x 197.20522pt.
 
 
-[17 <./figures/CoM x Trajectory still.png> <./figures/CoM y Trajectory still.png> <./figures/CoM z Trajectory still.png>]
-<figures/contact_x_still.png, id=320, 1077.0639pt x 1148.1294pt>
+[18 <./figures/CoM x Trajectory still.png> <./figures/CoM y Trajectory still.png> <./figures/CoM z Trajectory still.png>]
+<figures/contact_x_still.png, id=315, 1077.0639pt x 1148.1294pt>
 File: figures/contact_x_still.png Graphic file (type png)
 <use figures/contact_x_still.png>
 Package pdftex.def Info: figures/contact_x_still.png  used on input line 159.
@@ -1051,88 +1029,88 @@ Package caption Warning: \label without proper reference on input line 169.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:contact_forces_still' on page 18 undefined on input line 167.
+LaTeX Warning: Reference `tab:contact_forces_still' on page 19 undefined on input line 167.
 
-<figures/contact_forces_still.png, id=322, 1077.0639pt x 714.2685pt>
+<figures/contact_forces_still.png, id=317, 1077.0639pt x 714.2685pt>
 File: figures/contact_forces_still.png Graphic file (type png)
 <use figures/contact_forces_still.png>
 Package pdftex.def Info: figures/contact_forces_still.png  used on input line 186.
 (pdftex.def)             Requested size: 350.81174pt x 232.64676pt.
 
 
-[18 <./figures/Feet_z still.png>]
+[19 <./figures/Feet_z still.png>]
 
-[19 <./figures/contact_x_still.png> <./figures/contact_forces_still.png>]
+[20 <./figures/contact_x_still.png> <./figures/contact_forces_still.png>]
 
-LaTeX Warning: Reference `fig:sub1' on page 20 undefined on input line 197.
-
-
-LaTeX Warning: Reference `fig:sub2' on page 20 undefined on input line 198.
+LaTeX Warning: Reference `fig:sub1' on page 21 undefined on input line 197.
 
 
-LaTeX Warning: Reference `fig:sub3' on page 20 undefined on input line 199.
+LaTeX Warning: Reference `fig:sub2' on page 21 undefined on input line 198.
 
-<figures/CoM x Trajectory walking.png, id=343, 397.7259pt x 283.2984pt>
+
+LaTeX Warning: Reference `fig:sub3' on page 21 undefined on input line 199.
+
+<figures/CoM x Trajectory walking.png, id=337, 397.7259pt x 283.2984pt>
 File: figures/CoM x Trajectory walking.png Graphic file (type png)
 <use figures/CoM x Trajectory walking.png>
 Package pdftex.def Info: figures/CoM x Trajectory walking.png  used on input line 204.
 (pdftex.def)             Requested size: 197.3295pt x 140.55518pt.
-<figures/CoM y Trajectory walking.png, id=344, 418.9251pt x 283.2984pt>
+<figures/CoM y Trajectory walking.png, id=338, 418.9251pt x 283.2984pt>
 File: figures/CoM y Trajectory walking.png Graphic file (type png)
 <use figures/CoM y Trajectory walking.png>
 Package pdftex.def Info: figures/CoM y Trajectory walking.png  used on input line 211.
 (pdftex.def)             Requested size: 197.3295pt x 133.4442pt.
-<figures/CoM z Trajectory walking.png, id=345, 410.4936pt x 283.2984pt>
+<figures/CoM z Trajectory walking.png, id=339, 410.4936pt x 283.2984pt>
 File: figures/CoM z Trajectory walking.png Graphic file (type png)
 <use figures/CoM z Trajectory walking.png>
 Package pdftex.def Info: figures/CoM z Trajectory walking.png  used on input line 218.
 (pdftex.def)             Requested size: 197.3295pt x 136.18484pt.
-<figures/Feet_z walking.png, id=346, 410.4936pt x 283.2984pt>
+<figures/Feet_z walking.png, id=340, 410.4936pt x 283.2984pt>
 File: figures/Feet_z walking.png Graphic file (type png)
 <use figures/Feet_z walking.png>
 Package pdftex.def Info: figures/Feet_z walking.png  used on input line 228.
 (pdftex.def)             Requested size: 263.11047pt x 181.59132pt.
-<figures/contact_x_walking.png, id=347, 1082.8455pt x 1148.1294pt>
+<figures/contact_x_walking.png, id=341, 1082.8455pt x 1148.1294pt>
 File: figures/contact_x_walking.png Graphic file (type png)
 <use figures/contact_x_walking.png>
 Package pdftex.def Info: figures/contact_x_walking.png  used on input line 238.
 (pdftex.def)             Requested size: 263.11047pt x 278.9729pt.
 
 
-[20 <./figures/CoM x Trajectory walking.png> <./figures/CoM y Trajectory walking.png> <./figures/CoM z Trajectory walking.png>]
+[21 <./figures/CoM x Trajectory walking.png> <./figures/CoM y Trajectory walking.png> <./figures/CoM z Trajectory walking.png>]
 
 Package caption Warning: \label without proper reference on input line 248.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:contact_forces_walking' on page 21 undefined on input line 246.
+LaTeX Warning: Reference `tab:contact_forces_walking' on page 22 undefined on input line 246.
 
 
 
-[21 <./figures/Feet_z walking.png> <./figures/contact_x_walking.png>]
-<figures/contact_forces_walking.png, id=370, 1076.823pt x 714.2685pt>
+[22 <./figures/Feet_z walking.png> <./figures/contact_x_walking.png>]
+<figures/contact_forces_walking.png, id=364, 1076.823pt x 714.2685pt>
 File: figures/contact_forces_walking.png Graphic file (type png)
 <use figures/contact_forces_walking.png>
 Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 286.
 (pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
 
 
-[22]
-<figures/walking.PNG, id=377, 596.2275pt x 359.54324pt>
+[23]
+<figures/walking.PNG, id=371, 596.2275pt x 359.54324pt>
 File: figures/walking.PNG Graphic file (type png)
 <use figures/walking.PNG>
 Package pdftex.def Info: figures/walking.PNG  used on input line 296.
 (pdftex.def)             Requested size: 350.81174pt x 211.55261pt.
-<figures/robot.PNG, id=380, 1081.641pt x 513.117pt>
+<figures/robot.PNG, id=374, 1081.641pt x 513.117pt>
 File: figures/robot.PNG Graphic file (type png)
 <use figures/robot.PNG>
 Package pdftex.def Info: figures/robot.PNG  used on input line 313.
 (pdftex.def)             Requested size: 1081.63837pt x 513.11575pt.
 <<VPlayer.swf>><<figures/walking_sim.mp4>>)
 
-[23 <./figures/contact_forces_walking.png> <./figures/walking.PNG>]
+[24 <./figures/contact_forces_walking.png> <./figures/walking.PNG>]
 
-[24 <./figures/robot.PNG>] (main.aux (title.aux))
+[25 <./figures/robot.PNG>] (main.aux (title.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
@@ -1142,20 +1120,20 @@ L3 programming layer <2024-12-25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C4EACE2E7E8E8AD6BBF0CFB65BA2219F;4864.
+(rerunfilecheck)             Checksum: E3C60997B76DACA0D02F85B62EC726D1;4219.
  ) 
 Here is how much of TeX's memory you used:
- 27447 strings out of 473536
- 515030 string characters out of 5714956
- 883992 words of memory out of 5000000
- 50041 multiletter control sequences out of 15000+600000
- 569955 words of font info for 75 fonts, out of 8000000 for 9000
+ 27453 strings out of 473536
+ 515125 string characters out of 5714956
+ 883983 words of memory out of 5000000
+ 50043 multiletter control sequences out of 15000+600000
+ 570263 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,15n,83p,998b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\giuse\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (25 pages, 13461286 bytes).
+ 85i,15n,83p,998b,720s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\giuse\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (26 pages, 13472512 bytes).
 PDF statistics:
- 518 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
- 372 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 125 named destinations out of 1000 (max. 500000)
+ 340 words of extra memory for PDF output out of 10000 (max. 10000000)
 

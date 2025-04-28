@@ -4,35 +4,59 @@
 
 \section{Formulation of Trajectory Optimization Problem}
 \label{sec:formulation}
-%\begin{comment}
 \subsection{State Equation}
-To mathematically describe the evolution of the system over discrete time intervals, we define a state vector $x_k$ at each time step $k$. This state contains all the information necessary to describe the system's configuration and motion. The state variable is defined as follows :
+To mathematically describe the evolution of the system over discrete time intervals, we define at each time step $k$:
 \begin{itemize}
-    \item $\mathbf{p}_k$: the position of the system’s center of mass in the global frame.
-    \item $\mathbf{q}_k$: the orientation of the system, typically represented as a unit quaternion to avoid singularities associated with Euler angles.
-    \item $\mathbf{v}_k$: the linear velocity of the system's center of mass.
-    \item $\mathbf{L}_k$: the system's angular momentum, which plays a critical role in dynamic balance and motion planning.
-    %\item $t_k$: the timestamp indicating the start of the $k$^\text{th} contact phase, marking discrete events in the locomotion sequence.
-    %\item $\{ \mathbf{p}_{l,k} \}_{l=1}^{n_e}$: the positions of the $n_e$ end-effectors (e.g., feet or hands), relative to the global coordinate frame.
-    %\item $\{ \mathbf{q}_{l,k} \}_{l=1}^{n_e}$: the orientations of these end-effectors, also represented using quaternions.
+    \item a state vector $x_k$, containing all the information necessary to describe the system's configuration and motion;
+    \item a control input vector $u_k$, based on the stiffness-based control strategy introduced in Section~\ref{sec:proposedmethods}.
 \end{itemize}
-where $p_k$ is the position, $v_k$ is the linear velocity, $q_k$ is the quaternion representing orientation, and $\omega_k$ is the angular velocity of the system at time step $k$. 
-The control input vector $u_k$ can be defined in different forms depending on the control strategy. Since in \ref{sec:method} we are using a stiffness-based control strategy, the control input is defined as:
+
+\vspace{0.3cm} % Small vertical space
+
+\noindent
+\begin{minipage}{0.48\textwidth}
 \begin{equation}
-    u_k = \left\{ \tau_k, \{ \mathbf{v}_{l,k} \}_{l=1}^{n_e}, \{ \boldsymbol{\omega}_{l,k} \}_{l=1}^{n_e}, \{ \boldsymbol{\lambda}_{l,k} \}_{l=1}^{n_e}, \{ \mathbf{r}_{l,k} \}_{l=1}^{n_e}, \{ \boldsymbol{\eta}_{l,k} \}_{l=1}^{n_e} \right\}
+    \mathbf{x}_k = 
+    \left[
+    \begin{array}{c}
+    \mathbf{p}_k \\
+    \mathbf{q}_k \\
+    \mathbf{v}_k \\
+    \mathbf{L}_k \\
+    t_k \\
+    \{\mathbf{p}_{l,k}\}_{l=1,\dots,n_e} \\
+    \{\mathbf{q}_{l,k}\}_{l=1,\dots,n_e}
+    \end{array}
+    \right]
 \end{equation}
-\begin{itemize}
-    \item $\boldsymbol{\lambda}_{l,k}$: Lagrange multipliers enforcing constraints (e.g., contact or joint limits).
-    \item $\mathbf{r}_{l,k}$: reaction forces at the contact points.
-\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{equation}
+    u_k = 
+    \left[ 
+   \begin{array}{c}
+   \tau_k \\
+   \{ \mathbf{v}_{l,k} \}_{l=1}^{n_e} \\
+   \{ \boldsymbol{\omega}_{l,k} \}_{l=1}^{n_e} \\
+   \{ \boldsymbol{\lambda}_{l,k} \}_{l=1}^{n_e} \\
+   \{ \mathbf{r}_{l,k} \}_{l=1}^{n_e} \\
+   \{ \boldsymbol{\eta}_{l,k} \}_{l=1}^{n_e} 
+   \end{array}
+   \right]
+\end{equation}
+\end{minipage}
 
+\vspace{0.3cm} 
+
+Each component of the state and input vectors has been introduced and detailed in Section~\ref{sec:proposedmethods}.
+\\ 
 This formulation enables explicit enforcement of physical constraints such as contact complementarity by treating velocities as control variables. For instance, assigning a high cost to velocities at inactive contacts discourages motion in those regions, effectively ensuring that contacts are only active when physically meaningful.
-
+\paragraph{Equations Update}
 The update to the timestamp is given by:
 \begin{equation}
     t_{k+1} = t_k + \tau_k
 \end{equation}
-
 The state update for each end-effector’s position and orientation is governed by the basic kinematic relations:
 \begin{equation}
     \mathbf{p}_{l,k+1} = \mathbf{p}_{l,k} + \mathbf{v}_{l,k} \tau_k
@@ -40,19 +64,15 @@ The state update for each end-effector’s position and orientation is governed 
 \begin{equation}
     \mathbf{q}_{l,k+1} = \mathcal{Q}(\boldsymbol{\omega}_{l,k}, \tau_k) \cdot \mathbf{q}_{l,k}
 \end{equation}
-
 Here, $\mathcal{Q}(\boldsymbol{\omega}_{l,k}, \tau_k)$ represents the quaternion corresponding to the angular displacement over the time interval $\tau_k$, computed from the angular velocity $\boldsymbol{\omega}_{l,k}$.
-
 Integrating all these elements, the complete system dynamics are compactly expressed as a state transition function:
 \begin{equation}
     x_{k+1} = f(x_k, u_k)
 \end{equation}
-
 This function encapsulates both the kinematics and dynamics of the system, allowing for predictive simulation or optimization over multiple time steps.
-%\end{comment}
-\subsection{Costs}
+\subsection{Formulation of Optimal Control Problem}
 The cost function is a crucial component of the trajectory optimization problem, as it quantifies the performance of a given trajectory. The cost function is typically composed of several terms, each representing different aspects of the system's performance.
-\subsubsection{Task Related Cost}
+\paragraph{Task Related Cost}
 In trajectory tracking tasks, it is important for the system to follow a planned or reference trajectory as closely as possible. The \textit{task-related cost} measures how much the system's current state and inputs deviate from their desired (reference) values. Minimizing this cost ensures the system stays close to the intended path during motion.
 The task-related cost function is formulated as:
 \begin{equation}
@@ -72,7 +92,7 @@ Finally, when dealing with rotational variables represented by quaternions, the 
 q - q^{\text{ref}} := \omega(q^{\text{ref}^{-1}} q)
 \end{equation}
 where $\omega(\cdot)$ maps a unit quaternion into an angle-axis vector.
-\subsubsection{Inequality Constraints}
+\paragraph{Inequality Constraints}
 In physical systems involving contact dynamics, it is essential to ensure that certain physical conditions—such as feasible positions, contact forces, and proper stiffness—are always satisfied. These conditions are formulated as \textit{inequality constraints} and play a key role in maintaining the physical realism of the motion and feasibility of the optimization problem.
 In this framework, inequality constraints are used to regulate the position of each contact point relative to the CoM and the base link, enforce non-slipping conditions, and bound parameters like phase duration and stiffness values.
 First, the box constraint on the position of each end link relative to the CoM and the base link is expressed as:
@@ -108,7 +128,7 @@ To handle these constraints during optimization, a log-barrier function is intro
 L_{\text{limit}}(x_k, u_k) = \sum_{i=1}^{n_g} -\log \max(\epsilon, g_i(x_k, u_k)),
 \end{equation}
 where $n_g$ is the number of constraints, $g_i$ is the $i$-th constraint function, and $\epsilon$ is a small positive constant that ensures numerical stability and prevents the log function from becoming undefined.
-\subsubsection{Contact Dependent Cost}
+\paragraph{Contact Dependent Cost}
 Modeling the interaction between a robot's ends and the environment is crucial in dynamic contact systems. The contact-dependent cost is introduced to enforce the complementarity between the contact forces, end velocities, and stiffness values. This ensures that if an end effector is in contact, its motion and interaction forces behave physically, and if it is not in contact, unnecessary forces or stiffness values are suppressed.
 By minimizing these costs, the system ensures physically meaningful transitions between contact and non-contact states throughout the trajectory.
 \\
@@ -137,7 +157,7 @@ Each term inside the cost function has a specific physical meaning:
     \item The third term ensures that if the $l$-th end is not in contact, the associated stiffness $\lambda_{l,k}$ must be zero. Physically, this prevents generating unnecessary contact forces when there is no actual contact.
 \end{itemize}
 By properly tuning the weight parameter $w_{\text{compl}}$, these complementarity errors can be made acceptably small after optimization. A sufficiently large value of $w_{\text{compl}}$ is necessary to enforce these physical consistency conditions without overly penalizing the overall optimization performance.
-\subsubsection{Final Cost Function and Problem Formulation}
+\paragraph{Final Cost Function and Problem Formulation}
 After defining the task-related, limit-related, and contact-dependent costs, the overall cost function is constructed by summing these individual terms over all time steps. This aggregated cost captures all important objectives and physical constraints of the motion planning task.
 \\
 The overall cost function is defined as:

@@ -352,6 +352,8 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 OUTPUT main.toc
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT .\chapters\Introduction.tex
 INPUT .\chapters\Introduction.tex
 INPUT chapters\Introduction.tex
@@ -397,7 +399,6 @@ INPUT .\figures\CoM x Trajectory still.png
 INPUT .\figures\CoM x Trajectory still.png
 INPUT .\figures\CoM x Trajectory still.png
 INPUT .\figures\CoM x Trajectory still.png
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT .\figures\CoM y Trajectory still.png
 INPUT .\figures\CoM y Trajectory still.png
 INPUT figures\CoM y Trajectory still.png
@@ -507,6 +508,8 @@ INPUT .\main.out
 INPUT .\main.out
 INPUT C:\Users\giuse\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\giuse\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
