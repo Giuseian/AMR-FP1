@@ -62,12 +62,12 @@ The state update for each end-effector’s position and orientation is governed 
     \mathbf{p}_{l,k+1} = \mathbf{p}_{l,k} + \mathbf{v}_{l,k} \tau_k
 \end{equation}
 \begin{equation}
-    \mathbf{q}_{l,k+1} = \mathcal{Q}(\boldsymbol{\omega}_{l,k}, \tau_k) \cdot \mathbf{q}_{l,k}
+    \mathbf{q}_{l,k+1} = \textit{q}(\boldsymbol{\omega}_{l,k}, \tau_k) \cdot \mathbf{q}_{k}
 \end{equation}
-Here, $\mathcal{Q}(\boldsymbol{\omega}_{l,k}, \tau_k)$ represents the quaternion corresponding to the angular displacement over the time interval $\tau_k$, computed from the angular velocity $\boldsymbol{\omega}_{l,k}$.
+Here, $\textit{q}(\boldsymbol{\omega}_{l,k}, \tau_k)$ represents the quaternion corresponding to the angular displacement over the time interval $\tau_k$, computed from the angular velocity $\boldsymbol{\omega}_{l,k}$.
 Integrating all these elements, the complete system dynamics are compactly expressed as a state transition function:
 \begin{equation}
-    x_{k+1} = f(x_k, u_k)
+    \mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
 \end{equation}
 This function encapsulates both the kinematics and dynamics of the system, allowing for predictive simulation or optimization over multiple time steps.
 \subsection{Formulation of Optimal Control Problem}
@@ -76,20 +76,20 @@ The cost function is a crucial component of the trajectory optimization problem,
 In trajectory tracking tasks, it is important for the system to follow a planned or reference trajectory as closely as possible. The \textit{task-related cost} measures how much the system's current state and inputs deviate from their desired (reference) values. Minimizing this cost ensures the system stays close to the intended path during motion.
 The task-related cost function is formulated as:
 \begin{equation}
-L_{\text{task},k} = \frac{1}{2} \| W^x_k (x_k - x^{\text{ref}}_k) \|^2 + \frac{1}{2} \| W^u_k (u_k - u^{\text{ref}}_k) \|^2
+L_{\text{task},k} = \frac{1}{2} \| W^x_k (\mathbf{x}_k - \mathbf{x}^{\text{ref}}_k) \|^2 + \frac{1}{2} \| W^u_k (\mathbf{u}_k - \mathbf{u}^{\text{ref}}_k) \|^2
 \end{equation}
 where $(\ast)^{\text{ref}}$ represents the reference (target) values for the state $x_k$ and the control input $u_k$.
 In this work, we focus on a waypoint-tracking task, where a series of intermediate waypoints are specified for the center of mass (CoM), base link, and limb endpoints. Desired positions and velocities along a smooth path connecting these waypoints are generated using spline curves.
 The system's stiffness parameters are computed by solving the following least-squares optimization problem at each time step $k$:
 \begin{equation}
-\min \left\| \sum_l \lambda_{l,k}^2 \right\|^2 \quad \text{subject to} \quad \sum_l \lambda_{l,k}^2 (p^{\text{ref}}_k - p^{\text{ref}}_{l,k}) = g
+\min \left\| \sum_l \lambda_{l,k}^2 \right\|^2 \quad \text{subject to} \quad \sum_l \lambda_{l,k}^2 (\mathbf{p}^{\text{ref}}_k - \mathbf{p}^{\text{ref}}_{l,k}) = \mathbf{g}
 \end{equation}
 This optimization distributes stiffness values to maintain support for the CoM against gravity.
 In addition, the reference values for the Centroidal Moment Pivot (CMP) offset and the moments at the end effectors are typically set to zero unless non-zero values are specifically chosen to induce desired dynamic effects.
 The weighting matrices $W^x_k$ and $W^u_k$ are design parameters that control the importance given to state and input deviations in the cost function.
 Finally, when dealing with rotational variables represented by quaternions, the deviation between the actual and reference orientations is calculated by transforming the quaternion difference into an equivalent angle-axis representation:
 \begin{equation}
-q - q^{\text{ref}} := \omega(q^{\text{ref}^{-1}} q)
+\mathbf{q} - \mathbf{q}^{\text{ref}} := \omega(\mathbf{q}^{\text{ref}^{-1}} \mathbf{q})
 \end{equation}
 where $\omega(\cdot)$ maps a unit quaternion into an angle-axis vector.
 \paragraph{Inequality Constraints}
@@ -97,9 +97,9 @@ In physical systems involving contact dynamics, it is essential to ensure that c
 In this framework, inequality constraints are used to regulate the position of each contact point relative to the CoM and the base link, enforce non-slipping conditions, and bound parameters like phase duration and stiffness values.
 First, the box constraint on the position of each end link relative to the CoM and the base link is expressed as:
 \begin{equation}
-p_{\text{l,min}} \leq q^{-1}(p - p_l) \leq p_{\text{l,max}},
+\mathbf{p}_{\text{l,min}} \leq \mathbf{q}^{-1}(\mathbf{p}_l - \mathbf{p}) \leq \mathbf{p}_{\text{l,max}},
 \end{equation}
-where $p$ is the CoM position, $p_l$ is the position of the $l$-th end, and $q^{-1}$ denotes the inverse transformation to the local frame.
+where $\mathbf{p}$ is the CoM position, $\mathbf{p}_l$ is the position of the $l$-th end, and $\mathbf{q}^{-1}$ denotes the inverse transformation to the local frame.
 Simple range constraints are imposed on the duration of each phase and the stiffness values:
 \begin{align}
 \tau_{\text{min}} \leq \tau \leq \tau_{\text{max}}, \\
@@ -120,12 +120,12 @@ c_{\text{min},y} f_{l,z} \leq \eta_{l,y} \leq c_{\text{max},y} f_{l,z}, \\
 where $c_{\text{min}}$ and $c_{\text{max}}$ define the rectangular bounds of the center-of-pressure (CoP) region, and $\mu_z$ is the friction coefficient for the moment.
 All the inequality constraints can be compactly represented as:
 \begin{equation}
-g(x_k, u_k) \geq 0,
+g(\mathbf{x}_k, \mathbf{u}_k) \geq 0,
 \end{equation}
 where $g(\cdot)$ is a differentiable vector-valued function, evaluated componentwise.
 To handle these constraints during optimization, a log-barrier function is introduced:
 \begin{equation}
-L_{\text{limit}}(x_k, u_k) = \sum_{i=1}^{n_g} -\log \max(\epsilon, g_i(x_k, u_k)),
+L_{\text{limit}}(\mathbf{x}_k, \mathbf{u}_k) = \sum_{i=1}^{n_g} -\log \max(\epsilon, g_i(\mathbf{x}_k, \mathbf{u}_k)),
 \end{equation}
 where $n_g$ is the number of constraints, $g_i$ is the $i$-th constraint function, and $\epsilon$ is a small positive constant that ensures numerical stability and prevents the log function from becoming undefined.
 \paragraph{Contact Dependent Cost}
@@ -137,8 +137,8 @@ The contact-dependent cost is defined as:
 \begin{aligned}
     J_{\text{compl},k} 
     &= w_{\text{compl}}^2 \sum_l \Bigg(
-    \underbrace{ \sum_i \delta\left[\sigma_{l,k} = i\right] \left( \eta_i^\top (p_{l,k} - o_i) \right)^2 }_{\text{contact distance constraint}} \\
-    &\quad + \underbrace{ \delta\left[\sigma_{l,k} \neq \emptyset\right] \left( \| v_{l,k} \|^2 + \| \omega_{l,k} \|^2 \right) }_{\text{zero velocity constraint}} \\
+    \underbrace{ \sum_i \delta\left[\sigma_{l,k} = i\right] \left( \boldsymbol{\eta}_i^\top (\mathbf{p}_{l,k} - \mathbf{o}_i) \right)^2 }_{\text{contact distance constraint}} \\
+    &\quad + \underbrace{ \delta\left[\sigma_{l,k} \neq \emptyset\right] \left( \| \mathbf{v}_{l,k} \|^2 + \| \boldsymbol{\omega}_{l,k} \|^2 \right) }_{\text{zero velocity constraint}} \\
     &\quad + \underbrace{ \delta\left[\sigma_{l,k} = \emptyset\right] \lambda_{l,k}^2 }_{\text{zero stiffness constraint}}
     \Bigg)
 \end{aligned}
@@ -152,8 +152,8 @@ The operator $\delta[\ast]$ is an indicator function that returns $1$ if the con
 \\
 Each term inside the cost function has a specific physical meaning:
 \begin{itemize}
-    \item The first term enforces that if the $l$-th end is in contact with surface $i$, namely the distance in the normal direction (defined by normal vector $\eta_i$) from the end's position $p_{l,k}$ to the contact surface origin $o_i$ must be zero.
-    \item The second term requires that if the $l$-th end is in contact with any surface, its linear velocity $v_{l,k}$ and angular velocity $\omega_{l,k}$ must also be zero, representing static contact.
+    \item The first term enforces that if the $l$-th end is in contact with surface $i$, namely the distance in the normal direction (defined by normal vector $\boldsymbol{\eta}_i$) from the end's position $\mathbf{p}_{l,k}$ to the contact surface origin $\mathbf{o}_i$ must be zero.
+    \item The second term requires that if the $l$-th end is in contact with any surface, its linear velocity $\mathbf{v}_{l,k}$ and angular velocity $\boldsymbol{\omega}_{l,k}$ must also be zero, representing static contact.
     \item The third term ensures that if the $l$-th end is not in contact, the associated stiffness $\lambda_{l,k}$ must be zero. Physically, this prevents generating unnecessary contact forces when there is no actual contact.
 \end{itemize}
 By properly tuning the weight parameter $w_{\text{compl}}$, these complementarity errors can be made acceptably small after optimization. A sufficiently large value of $w_{\text{compl}}$ is necessary to enforce these physical consistency conditions without overly penalizing the overall optimization performance.
@@ -162,13 +162,13 @@ After defining the task-related, limit-related, and contact-dependent costs, the
 \\
 The overall cost function is defined as:
 \begin{equation}
-J[\sigma] = \sum_k \left[ L_{\text{task},k} + L_{\text{limit},k} + L_{\text{compl},k}[\sigma_k] \right]
+J[\boldsymbol{\sigma}] = \sum_k \left[ L_{\text{task},k} + L_{\text{limit},k} + L_{\text{compl},k}[\boldsymbol{\sigma}_k] \right]
 \end{equation}
 The planning problem can then be formulated as the following optimal control problem:
 \begin{equation}
 \begin{aligned}
-& \text{find} \quad x, u \quad \text{that minimizes} \quad J[\sigma](x,u) \\
-& \text{subject to} \quad x_{k+1} = f(x_k, u_k)
+& \text{find} \quad \mathbf{x}, \mathbf{u} \quad \text{that minimizes} \quad J[\boldsymbol{\sigma}](\mathbf{x},\mathbf{u}) \\
+& \text{subject to} \quad \mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
 \end{aligned}
 \end{equation}
 Here, $x$ and $u$ denote the state and control input trajectories, respectively. The function $f(x_k, u_k)$ represents the discrete-time system dynamics, ensuring that the state evolution is dynamically feasible.
