@@ -3,7 +3,27 @@
 ## Project Description
 
 
+
+
 ## Repository Structure 
+```
+AMR-FP1-centroidal_dyn-main/
+├── meshes/                            # .dae files defining robot visualization
+├── urdf/                              # .urdf files defining ground and robot  
+├── report/                            # LaTeX report files
+├── outputs/                           # .txt files containing TO solutions 
+├── plots/                             # .png files containing TO solutions
+├── foot_trajectory_generatory.py      #
+├── footstep_planner.py                # 
+├── graphics.py                        # Visualization plots 
+├── main.py                            # Run the code 
+├── sbcdyn.py                          # Stiffness Based Centroidal Dynamics Formulas Definition  
+├── simulation.py                      # Visualization of Robot TO Solution  
+├── trajectory_generation.py           # Reference Trajectory Generator
+└── utils.py                           # Utils file  
+```
+
+
 
 
 ## Proposed Method
@@ -17,7 +37,7 @@ You need a Python installation and some dependencis. If using PIP, you can run t
 ```
 pip install dartpy casadi scipy matplotlib osqp
 ```
-You need dartpy 0.2, if pip does not allow you to install this version on your system, you might want to use conda
+You need dartpy 0.2 : If pip does not allow you to install this version on your system, you might want to use conda
 
 To run the simulation, choose one of the following tasks 
 - **still**, to simulate a fixed robot
@@ -31,7 +51,7 @@ or
 python main.py [task] 
 ```
 
-Then, to see the Dartpy robot simulation, run
+Then, to see the robot simulation in Dartpy, run
 ```
 python simulation.py
 ```
