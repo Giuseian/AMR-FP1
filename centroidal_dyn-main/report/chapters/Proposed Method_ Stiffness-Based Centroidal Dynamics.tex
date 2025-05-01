@@ -1,4 +1,5 @@
 \documentclass[main.tex]{subfiles}
+
 \begin{document}
 
 \section{Proposed Method}\label{sec:proposedmethods}
@@ -7,93 +8,93 @@
 We begin from the standard \emph{centroidal dynamics} equations, which relate the motion of the robot’s center of mass (CoM) to the total external wrench (force and moment) acting on the system:
 \begin{subequations}\label{eq:centroidal‐dynamics}
 \begin{align}
-m\,\ddot p &= f \;-\; m\,g, \label{eq:centroidal‐dynamics:trans}\\
-\dot L     &= \eta.      \label{eq:centroidal‐dynamics:rot}
+m\,\ddot{\mathbf{p}} &= \mathbf{f} \;-\; m\,\mathbf{g}, \label{eq:centroidal‐dynamics:trans}\\
+\dot{\mathbf{L}}     &= \boldsymbol{\eta}.      \label{eq:centroidal‐dynamics:rot}
 \end{align}
 \end{subequations}
 Here:
 \begin{itemize}
-  \item $p\in\mathbb{R}^3$ is the position of the CoM, and $\ddot p$ its acceleration.
-  \item $L\in\mathbb{R}^3$ is the total angular momentum about the CoM.
-  \item $f\in\mathbb{R}^3$ and $\eta\in\mathbb{R}^3$ are, respectively, the translational and rotational components of the total external wrench.
-  \item $m>0$ is the total mass, and $g\in\mathbb{R}^3$ is the gravity vector (e.g.\ $g=[0,0,-9.81]^\top$).
+  \item $\mathbf{p}\in\mathbb{R}^3$ is the position of the CoM, and $\ddot{\mathbf{p}}$ its acceleration.
+  \item $\mathbf{L}\in\mathbb{R}^3$ is the total angular momentum about the CoM.
+  \item $\mathbf{f}\in\mathbb{R}^3$ and $\boldsymbol{\eta}\in\mathbb{R}^3$ are, respectively, the translational and rotational components of the total external wrench.
+  \item $m>0$ is the total mass, and $\mathbf{g}\in\mathbb{R}^3$ is the gravity vector (e.g.\ $\mathbf{g}=[0,0,-9.81]^\top$).
 \end{itemize}
 
-We assume all external wrenches are contact wrenches at $n_e$ end‐effectors (``ends'') of the robot.  Denote by $p_l\in\mathbb{R}^3$ the world‐frame position of the $l$-th end, and let
+We assume all external wrenches are contact wrenches at $n_e$ end‐effectors (``ends'') of the robot.  Denote by $\mathbf{p}_l\in\mathbb{R}^3$ the world‐frame position of the $l$-th end, and let
 \[
-f_l\in\mathbb{R}^3,\quad
-\eta_l\in\mathbb{R}^3,\qquad l=1,\dots,n_e
+\mathbf{f}_l\in\mathbb{R}^3,\quad
+\boldsymbol{\eta}_l\in\mathbb{R}^3,\qquad l=1,\dots,n_e
 \]
 be the translational and rotational components of the contact wrench at that end.  Then the total wrench is
 \begin{equation}\label{eq:sum‐wrench}
-f    \;=\;\sum_{l=1}^{n_e} f_l,
+\mathbf{f}    \;=\;\sum_{l=1}^{n_e} \mathbf{f}_l,
 \qquad
-\eta \;=\;\sum_{l=1}^{n_e}\Bigl[(p_l - p)\times f_l \;+\;\eta_l\Bigr].
+\boldsymbol{\eta} \;=\;\sum_{l=1}^{n_e}\Bigl[(\mathbf{p}_l - \mathbf{p})\times \mathbf{f}_l \;+\;\boldsymbol{\eta}_l\Bigr].
 \end{equation}
-The cross‐product in \eqref{eq:sum‐wrench} makes the system \emph{bilinear} in $(p,f_l)$, coupling CoM motion with contact forces.
+The cross‐product in \eqref{eq:sum‐wrench} makes the system \emph{bilinear} in $(\mathbf{p},\mathbf{f}_l)$, coupling CoM motion with contact forces.
 
 \medskip
 \paragraph{Spring-like parametrization of contact wrenches.}
-Rather than holding $f_l,\eta_l$ constant, we introduce a \emph{stiffness} parameter $\lambda_l\ge0$ and a \emph{CMP‐offset} vector $r_l\in\mathbb{R}^3$ for each end, plus a pure‐moment direction $\hat\eta_l\in\mathbb{R}^3$.  Inspired by a spring model, we set:
+Rather than holding $\mathbf{f}_l,\boldsymbol{\eta}_l$ constant, we introduce a \emph{stiffness} parameter $\lambda_l\ge0$ and a \emph{CMP‐offset} vector $\mathbf{r}_l\in\mathbb{R}^3$ for each end, plus a pure‐moment direction $\mathbf{\hat{\boldsymbol{\eta}}}_l\in\mathbb{R}^3$.  Inspired by a spring model, we set:
 \begin{equation}\label{eq:stiff‐param}
 \boxed{
 \displaystyle
-f_l = m\,\lambda_l^2\Bigl(p \;-\;(p_l + r_l)\Bigr),
+\mathbf{f}_l = m\,\lambda_l^2\Bigl(\mathbf{p} \;-\;(\mathbf{p}_l + \mathbf{r}_l)\Bigr),
 \qquad
-\eta_l = m\,\lambda_l^2\,\hat\eta_l.
+\boldsymbol{\eta}_l = m\,\lambda_l^2\,\mathbf{\hat{\boldsymbol{\eta}}}_l.
 }
 \end{equation}
 Intuitively:
 \begin{itemize}
   \item $\lambda_l^2$ scales like a contact stiffness: larger $\lambda_l$ → stronger repulsive force.
-  \item $p_l + r_l$ is the \emph{virtual pivot} (similar to a Centroidal Moment Pivot, CMP).  The force pulls the CoM toward that point.
-  \item $\hat\eta_l$ encodes any pure moment about the CoM, scaled consistently by $\lambda_l^2$.
+  \item $\mathbf{p}_l + \mathbf{r}_l$ is the \emph{virtual pivot} (similar to a Centroidal Moment Pivot, CMP).  The force pulls the CoM toward that point.
+  \item $\mathbf{\hat{\boldsymbol{\eta}}}_l$ encodes any pure moment about the CoM, scaled consistently by $\lambda_l^2$.
 \end{itemize}
 
 \subsubsection*{Derivation of the stiffness‐based model}
 By substituting \eqref{eq:sum‐wrench} and \eqref{eq:stiff‐param} into \eqref{eq:centroidal‐dynamics:trans} and neglecting $O(\epsilon^2)$ terms one obtains
 \begin{align}
-m\,\ddot p
-&= \sum_{l=1}^{n_e} m\,\lambda_l^2\bigl(p - (p_l + r_l)\bigr) \;-\; m\,g
+m\,\ddot{\mathbf{p}}
+&= \sum_{l=1}^{n_e} m\,\lambda_l^2\bigl(\mathbf{p} - (\mathbf{p}_l + \mathbf{r}_l)\bigr) \;-\; m\,\mathbf{g}
 \notag\\
-&\approx \sum_{l=1}^{n_e} m\,\lambda_l^2\bigl(p - (p_l + r_l)\bigr) \;-\; m\,g \;+\; m\,\epsilon^2 p
+&\approx \sum_{l=1}^{n_e} m\,\lambda_l^2\bigl(\mathbf{p} - (\mathbf{p}_l + \mathbf{r}_l)\bigr) \;-\; m\,\mathbf{g} \;+\; m\,\epsilon^2 \mathbf{p}
 \notag\\
-&= m\Bigl(\sum_{l}\lambda_l^2 + \epsilon^2\Bigr)p \;-\; m\Bigl(\sum_{l}\lambda_l^2(p_l + r_l) + g\Bigr)
+&= m\Bigl(\sum_{l}\lambda_l^2 + \epsilon^2\Bigr)\mathbf{p} \;-\; m\Bigl(\sum_{l}\lambda_l^2(\mathbf{p}_l + \mathbf{r}_l) + \mathbf{g}\Bigr)
 \notag\\
-&= m\,\bar\lambda^2\bigl(p - \bar p - \bar r\bigr),
+&= m\,\bar\lambda^2\bigl(\mathbf{p} - \mathbf{\bar{p}} - \mathbf{\bar{r}}\bigr),
 \label{eq:deriv‐trans}
 \end{align}
 where
 \[
 \bar\lambda^2 = \sum_{l}\lambda_l^2 + \epsilon^2,
 \quad
-\bar p = \frac{\sum_{l}\lambda_l^2\,p_l + g}{\bar\lambda^2},
+\mathbf{\bar{p}} = \frac{\sum_{l}\lambda_l^2\,\mathbf{p}_l + \mathbf{g}}{\bar\lambda^2},
 \quad
-\bar r = \frac{\sum_{l}\lambda_l^2\,r_l}{\bar\lambda^2}.
+\mathbf{\bar{r}} = \frac{\sum_{l}\lambda_l^2\,\mathbf{r}_l}{\bar\lambda^2}.
 \]
 
 Similarly, substituting into \eqref{eq:centroidal‐dynamics:rot} gives
 \begin{align}
-\dot L
-&= \sum_{l=1}^{n_e}\bigl[(p_l - p)\times m\,\lambda_l^2(p - p_l - r_l) + m\,\lambda_l^2\,\hat\eta_l\Bigr]
+\dot{\mathbf{L}}
+&= \sum_{l=1}^{n_e}\bigl[(\mathbf{p}_l - \mathbf{p})\times m\,\lambda_l^2(\mathbf{p} - \mathbf{p}_l - \mathbf{r}_l) + m\,\lambda_l^2\,\mathbf{\hat{\boldsymbol{\eta}}}_l\Bigr]
 \notag\\
-&= \sum_{l}\bigl[(p - p_l)\times m\,\lambda_l^2\,r_l\bigr]
-   \;+\;\sum_{l}m\,\lambda_l^2\,\hat\eta_l
+&= \sum_{l}\bigl[(\mathbf{p} - \mathbf{p}_l)\times m\,\lambda_l^2\,\mathbf{r}_l\bigr]
+   \;+\;\sum_{l}m\,\lambda_l^2\,\mathbf{\hat{\boldsymbol{\eta}}}_l
 \notag\\
-&= p \times m\,\bar\lambda^2\,\bar r
-   \;+\;\sum_{l}m\,\lambda_l^2\bigl(\hat\eta_l - p_l\times r_l\bigr)
+&= \mathbf{p} \times m\,\bar\lambda^2\,\mathbf{\bar{r}}
+   \;+\;\sum_{l}m\,\lambda_l^2\bigl(\mathbf{\hat{\boldsymbol{\eta}}}_l - \mathbf{p}_l\times \mathbf{r}_l\bigr)
 \notag\\
-&\approx \bigl(m\,\ddot p + m\,\bar\lambda^2(\bar p+\bar r)\bigr)\times\bar r
-   \;+\;\sum_{l}m\,\lambda_l^2\bigl(\hat\eta_l - p_l\times r_l\bigr)
+&\approx \bigl(m\,\ddot{\mathbf{p}} + m\,\bar\lambda^2(\mathbf{\bar{p}}+\mathbf{\bar{r}})\bigr)\times \mathbf{\bar{r}}
+   \;+\;\sum_{l}m\,\lambda_l^2\bigl(\mathbf{\hat{\boldsymbol{\eta}}}_l - \mathbf{p}_l\times \mathbf{r}_l\bigr)
 \notag\\
-&= m\bigl(\ddot p\times\bar r + \bar\eta\bigr),
+&= m\bigl(\ddot{\mathbf{p}}\times \mathbf{\bar{r}} + \mathbf{\bar{\boldsymbol{\eta}}}\bigr),
 \label{eq:deriv‐rot}
 \end{align}
 where
 \[
-\bar\eta
-= \bar\lambda^2(\bar p\times\bar r)
-  + \sum_{l}\lambda_l^2\bigl(\hat\eta_l - p_l\times r_l\bigr).
+\mathbf{\bar{\boldsymbol{\eta}}}
+= \bar\lambda^2(\mathbf{\bar{p}}\times \mathbf{\bar{r}})
+  + \sum_{l}\lambda_l^2\bigl(\mathbf{\hat{\boldsymbol{\eta}}}_l - \mathbf{p}_l\times \mathbf{r}_l\bigr).
 \]
 
 \medskip
@@ -101,15 +102,15 @@ where
 Combining \eqref{eq:deriv‐trans} and \eqref{eq:deriv‐rot} yields the stiffness‐based centroidal equations:
 \begin{subequations}\label{eq:stiff‐centroidal}
 \begin{align}
-\ddot p &= \bar\lambda^2\bigl(p - (\bar p + \bar r)\bigr),
+\ddot{\mathbf{p}} &= \bar\lambda^2\bigl(\mathbf{p} - (\mathbf{\bar{p}} + \mathbf{\bar{r}})\bigr),
 \label{eq:stiff‐centroidal:trans}\\
-\dot L &= m\bigl(\ddot p \times \bar r + \bar\eta\bigr).
+\dot{\mathbf{L}} &= m\bigl(\ddot{\mathbf{p}} \times \mathbf{\bar{r}} + \mathbf{\bar{\boldsymbol{\eta}}}\bigr).
 \label{eq:stiff‐centroidal:rot}
 \end{align}
 \end{subequations}
-
+ 
 \noindent
-The aggregated parameters $\bar\lambda,\bar p,\bar r,\bar\eta$ recover the same expressions as before. 
+The aggregated parameters $\bar\lambda,\mathbf{\bar{p}},\mathbf{\bar{r}},\mathbf{\bar{\boldsymbol{\eta}}}$ recover the same expressions as before. 
 
 \paragraph{Discussion and special cases.}
 \begin{remark}[Exactness vs.\ flight phase]
@@ -119,15 +120,15 @@ If one ignores flight (i.e.\ always in contact, $\sum_l\lambda_l^2>0$), one may 
 \begin{remark}[Ballistic motion]
 When all ends lose contact ($\lambda_l=0$ for all $l$), one finds
 \[
-\ddot p = \epsilon^2\,p - g \approx -\,g,
+\ddot{\mathbf{p}} = \epsilon^2\,\mathbf{p} - \mathbf{g} \approx -\,\mathbf{g},
 \quad
-\dot L = 0,
+\dot{\mathbf{L}} = 0,
 \]
 recovering the usual ballistic CoM motion and conservation of angular momentum.
 \end{remark}
 
 \begin{remark}[Relation to existing models]
-Stiffness‐based (or force‐to‐point) parametrization has appeared before, but typically only at the \emph{total} wrench level.  Here we assign a separate $\lambda_l,r_l,\hat\eta_l$ to each end, which yields a unified multi‐contact description.  The classical CoP and (e)CMP emerge naturally as $\bar p$ and $\bar p+\bar r$, respectively.
+Stiffness‐based (or force‐to‐point) parametrization has appeared before, but typically only at the \emph{total} wrench level.  Here we assign a separate $\lambda_l,\mathbf{r}_l,\mathbf{\hat{\boldsymbol{\eta}}}_l$ to each end, which yields a unified multi‐contact description.  The classical CoP and (e)CMP emerge naturally as $\mathbf{\bar{p}}$ and $\mathbf{\bar{p}}+\mathbf{\bar{r}}$, respectively.
 \end{remark}
 
 \subsection{Closed‐Form Solutions and Discrete‐Time Equations}
@@ -139,9 +140,9 @@ t_{k+1}=t_k+\tau_k.
 \]
 We assume that \emph{contact states} (i.e.\ which ends are in contact) change only at the boundaries $t_k$.  Moreover, we apply a \emph{zero‐order hold} on the stiffness‐based parameters
 \[
-\{\lambda_{l}(t),\,r_{l}(t),\,\hat\eta_{l}(t)\}
+\{\lambda_{l}(t),\,\mathbf{r}_{l}(t),\,\mathbf{\hat{\boldsymbol{\eta}}}_{l}(t)\}
 \quad\mapsto\quad
-\{\lambda_{l,k},\,r_{l,k},\,\hat\eta_{l,k}\}
+\{\lambda_{l,k},\,\mathbf{r}_{l,k},\,\mathbf{\hat{\boldsymbol{\eta}}}_{l,k}\}
 \quad\text{for }t\in[t_k,t_{k+1}),
 \]
 meaning that each parameter is held constant over the interval.
@@ -150,43 +151,43 @@ meaning that each parameter is held constant over the interval.
 \paragraph{\ State at the beginning of interval $k$.}
 Let
 \[
-p_k = p(t_k),\quad
-v_k = \dot p(t_k),\quad
-L_k = L(t_k),
+\mathbf{p}_k = \mathbf{p}(t_k),\quad
+\mathbf{v}_k = \dot{\mathbf{p}}(t_k),\quad
+\mathbf{L}_k = \mathbf{L}(t_k),
 \]
 and compute the aggregated quantities
 \[
 \bar\lambda_k
 =\sqrt{\sum_{l=1}^{n_e}\lambda_{l,k}^2+\epsilon^2},\quad
-\bar p_k
-=\frac{\sum_{l=1}^{n_e}\lambda_{l,k}^2\,p_{l,k}+g}{\bar\lambda_k^2},\quad
-\bar r_k
-=\frac{\sum_{l=1}^{n_e}\lambda_{l,k}^2\,r_{l,k}}{\bar\lambda_k^2},
+\mathbf{\bar{p}}_k
+=\frac{\sum_{l=1}^{n_e}\lambda_{l,k}^2\,\mathbf{p}_{l,k}+\mathbf{g}}{\bar\lambda_k^2},\quad
+\mathbf{\bar{r}}_k
+=\frac{\sum_{l=1}^{n_e}\lambda_{l,k}^2\,\mathbf{r}_{l,k}}{\bar\lambda_k^2},
 \]
 \[
-\bar\eta_k
-=\bar\lambda_k^2\,(\bar p_k\times\bar r_k)
-\;+\;\sum_{l=1}^{n_e}\lambda_{l,k}^2\bigl(\hat\eta_{l,k}-p_{l,k}\times r_{l,k}\bigr).
+\mathbf{\bar{\boldsymbol{\eta}}}_k
+=\bar\lambda_k^2\,(\mathbf{\bar{p}}_k\times\mathbf{\bar{r}}_k)
+\;+\;\sum_{l=1}^{n_e}\lambda_{l,k}^2\bigl(\mathbf{\hat{\boldsymbol{\eta}}}_{l,k}-\mathbf{p}_{l,k}\times \mathbf{r}_{l,k}\bigr).
 \]
 
 \paragraph{\ Analytical solution on $[t_k,t_{k+1}]$.}
-With $\bar\lambda_k,\bar p_k,\bar r_k,\bar\eta_k$ constant, the CoM‐dynamics 
+With $\bar\lambda_k,\mathbf{\bar{p}}_k,\mathbf{\bar{r}}_k,\mathbf{\bar{\boldsymbol{\eta}}}_k$ constant, the CoM‐dynamics 
 \[
-\ddot p = \bar\lambda_k^2\bigl(p -(\bar p_k+\bar r_k)\bigr)
+\ddot{\mathbf{p}} = \bar\lambda_k^2\bigl(\mathbf{p} -(\mathbf{\bar{p}}_k+\mathbf{\bar{r}}_k)\bigr)
 \]
 is a linear second‐order ODE whose homogeneous+particular solution reads
 \[
-p(t)
-= (\bar p_k+\bar r_k)
-\;+\;C_k(\Delta t)\,\bigl(p_k -(\bar p_k+\bar r_k)\bigr)
-\;+\;\frac{S_k(\Delta t)}{\bar\lambda_k}\,v_k,
+\mathbf{p}(t)
+= (\mathbf{\bar{p}}_k+\mathbf{\bar{r}}_k)
+\;+\;C_k(\Delta t)\,\bigl(\mathbf{p}_k -(\mathbf{\bar{p}}_k+\mathbf{\bar{r}}_k)\bigr)
+\;+\;\frac{S_k(\Delta t)}{\bar\lambda_k}\,\mathbf{v}_k,
 \tag{7a}
 \]
 \[
-v(t)
-=\dot p(t)
-=\bar\lambda_k\,S_k(\Delta t)\,\bigl(p_k -(\bar p_k+\bar r_k)\bigr)
-\;+\;C_k(\Delta t)\,v_k,
+\mathbf{v}(t)
+=\dot{\mathbf{p}}(t)
+=\bar\lambda_k\,S_k(\Delta t)\,\bigl(\mathbf{p}_k -(\mathbf{\bar{p}}_k+\mathbf{\bar{r}}_k)\bigr)
+\;+\;C_k(\Delta t)\,\mathbf{v}_k,
 \tag{7b}
 \]
 where $\Delta t = t - t_k$ and
@@ -196,14 +197,14 @@ S_k(\Delta t) = \sinh\bigl(\bar\lambda_k\,\Delta t\bigr).
 \]
 Finally, substituting into the angular‐momentum equation
 \[
-\dot L = m\bigl(\ddot p\times \bar r_k + \bar\eta_k\bigr)
+\dot{\mathbf{L}} = m\bigl(\ddot{\mathbf{p}}\times \mathbf{\bar{r}}_k + \mathbf{\bar{\boldsymbol{\eta}}}_k\bigr)
 \]
 and integrating from $t_k$ to $t$ gives
 \[
-L(t)
-= L_k
-\;+\;m\Bigl(\bigl(v(t)-v_k\bigr)\times\bar r_k
-   \;+\;(t-t_k)\,\bar\eta_k\Bigr).
+\mathbf{L}(t)
+= \mathbf{L}_k
+\;+\;m\Bigl(\bigl(\mathbf{v}(t)-\mathbf{v}_k\bigr)\times \mathbf{\bar{r}}_k
+   \;+\;(t-t_k)\,\mathbf{\bar{\boldsymbol{\eta}}}_k\Bigr).
 \tag{7c}
 \]
 
@@ -215,44 +216,43 @@ A zero‐order hold means we approximate time‐varying parameters by piecewise�
 \bigskip
 \subsection{Integration of Base‐Link Rotation}
 
-The centroidal state $(p,\dot p,L)$ does not specify the \emph{orientation} $R(t)\in SO(3)$ or the \emph{base‐link} angular velocity $\omega(t)\in\Bbb R^3$.  In a multi‐body system one shows
+The centroidal state $(\mathbf{p},\dot{\mathbf{p}},\mathbf{L})$ does not specify the \emph{orientation} $\mathbf{R}(t)\in SO(3)$ or the \emph{base‐link} angular velocity $\boldsymbol{\omega}(t)\in\Bbb R^3$.  In a multi‐body system one shows
 \[
-L \;=\; \underbrace{R\,I\,R^\top}_{\displaystyle I_{\rm sys}(R)}\,\omega
-\;+\;R\,\hat L,
+\mathbf{L} \;=\; \underbrace{\mathbf{R}\,I\,\mathbf{R}^\top}_{\displaystyle I_{\rm sys}(\mathbf{R})}\,\boldsymbol{\omega}
+\;+\;\mathbf{R}\,\mathbf{\hat{L}},
 \tag{8}
 \]
 where
 \begin{itemize}
   \item $I\in\Bbb R^{3\times3}$ is the composite inertia in the base‐link frame,
-  \item $\hat L$ is the angular momentum about the base link due to internal motions.
+  \item $\mathbf{\hat{L}}$ is the angular momentum about the base link due to internal motions.
 \end{itemize}
-If we fix reference values $I_{\rm ref},\,\hat L_{\rm ref}$ (e.g.\ from a nominal whole‐body motion), we solve for
+If we fix reference values $I_{\rm ref},\,\mathbf{\hat{L}}_{\rm ref}$ (e.g.\ from a nominal whole‐body motion), we solve for
 \[
-\omega(t)
-= \;I_{\rm sys}(R)^{-1}\bigl(L - R\,\hat L_{\rm ref}\bigr)
-\approx R\,I_{\rm ref}^{-1}\bigl(R^\top L - \hat L_{\rm ref}\bigr).
+\boldsymbol{\omega}(t)
+= \;I_{\rm sys}(\mathbf{R})^{-1}\bigl(\mathbf{L} - \mathbf{R}\,\mathbf{\hat{L}}_{\rm ref}\bigr)
+\approx \mathbf{R}\,I_{\rm ref}^{-1}\bigl(\mathbf{R}^\top \mathbf{L} - \mathbf{\hat{L}}_{\rm ref}\bigr).
 \tag{9}
 \]
 
 \paragraph{Discrete quaternion update.}
-Let $q_k\in\mathbb{H}$ be the unit‐quaternion representing $R(t_k)$.
+Let $\mathbf{q}_k\in\mathbb{H}$ be the unit‐quaternion representing $\mathbf{R}(t_k)$.
 Over $[t_k,t_{k+1}]$ we subdivide into $n_{\rm div}$ equal steps
 \[
 t_k = t'_0 < \cdots < t'_i < \cdots < t'_{n_{\rm div}} = t_{k+1},\qquad
 \tau_k' = \frac{\tau_k}{n_{\rm div}},\quad
 t'_i = t_k + i\,\tau_k'.
 \]
-At each substep we assume $\omega$ nearly constant and update
+At each substep we assume $\boldsymbol{\omega}$ nearly constant and update
 \[
-q_{k+1}
-= \underbrace{q\bigl(\omega(t'_{n_{\rm div}})\,\tau_k'\bigr)}
+\mathbf{q}_{k+1}
+= \underbrace{\mathbf{q}\bigl(\boldsymbol{\omega}(t'_{n_{\rm div}})\,\tau_k'\bigr)}
 _{\text{quat. for small rotation}}
 \;\cdots\;
-q\bigl(\omega(t'_1)\,\tau_k'\bigr)\;\cdot\;
-q\bigl(\omega(t'_0)\,\tau_k'\bigr)\;\cdot\;q_k,
+\mathbf{q}\bigl(\boldsymbol{\omega}(t'_1)\,\tau_k'\bigr)\;\cdot\;
+\mathbf{q}\bigl(\boldsymbol{\omega}(t'_0)\,\tau_k'\bigr)\;\cdot\;\mathbf{q}_k,
 \tag{10}
 \]
-where $q(\theta)$ is the unit quaternion corresponding to the axis‐angle $\theta\in\Bbb R^3$.  The designer chooses $n_{\rm div}$ to balance integration accuracy against computational cost of gradient evaluation in trajectory optimization.
-
+where $\mathbf{q}(\boldsymbol{\theta})$ is the unit quaternion corresponding to the axis‐angle $\boldsymbol{\theta}\in\Bbb R^3$.  The designer chooses $n_{\rm div}$ to balance integration accuracy against computational cost of gradient evaluation in trajectory optimization.
 
 \end{document}

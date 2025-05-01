@@ -275,13 +275,6 @@ INPUT chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 INPUT .\chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 INPUT chapters\Proposed Method_ Stiffness-Based Centroidal Dynamics.tex
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
-INPUT chapters\Formulation and Trajectory Optimization Problem.tex
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
@@ -290,6 +283,13 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy8.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy6.tfm
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT .\chapters\Formulation and Trajectory Optimization Problem.tex
+INPUT chapters\Formulation and Trajectory Optimization Problem.tex
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti8.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT .\chapters\Simulation and Results.tex
