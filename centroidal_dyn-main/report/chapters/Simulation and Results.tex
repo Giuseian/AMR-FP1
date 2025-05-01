@@ -84,27 +84,25 @@ Walk & 24 & 0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0 & 0\,-
 
 It starts by setting up matrices for the reference trajectory states (X\_ref for positions and U\_ref for control inputs) and defining the initial conditions for the center of mass (CoM), foot positions, and orientations. Then, for each step (from 0 to N-1), the algorithm reads the contact states (which indicate whether the foot is in contact with the ground), sets the phase duration (the length of time each walking phase lasts), and adjusts the control parameters accordingly.
 \begin{algorithm}[H]
-\caption{Reference Trajectory Initialization and Update for Walking Task}
-\begin{algorithmic}[1]
-\State Initialize $X_{\text{ref}} \in \mathbb{R}^{28 \times (N+1)}$, $U_{\text{ref}} \in \mathbb{R}^{27 \times N}$
-\State Set initial CoM state, feet positions, and orientations in $X_{\text{ref}}$
-\State $\text{time} \gets 0$, $\text{sig\_idx} \gets 0$
-\For{$t = 0$ to $N-1$}
-    \State Read contact states from $\sigma$
-    \State Set phase duration and contact force gains $\lambda$
-    \State Update $U_{\text{ref}}$ with phase duration and $\lambda$
-    \State $\text{sig\_idx} \gets \text{sig\_idx} + 2$
-\EndFor
-\For{$t = 1$ to $N$}
-    \State Read current and previous contact states
-    \State Set CoM velocity $(v_x, v_y)$ and feet step velocities
-    \State Update CoM and feet positions based on velocity and duration
-    \State Update time and orientations in $X_{\text{ref}}$
-    \State $\text{sig\_idx} \gets \text{sig\_idx} + 2$
-\EndFor
-\State \Return $X_{\text{ref}}, U_{\text{ref}}$
-\end{algorithmic}
-\end{algorithm}
+    \caption{Reference Trajectory Initialization and Update}
+    \begin{algorithmic}[1]
+    \State Initialize $X_{\text{ref}} \in \mathbb{R}^{28 \times (N+1)}$, $U_{\text{ref}} \in \mathbb{R}^{27 \times N}$
+    \State Set initial CoM state and feet state in $X_{\text{ref}}$
+    \State $\text{time} \gets 0$
+    
+    \For{$t = 0$ to $N-1$}
+        \State Read current contact state from $\sigma$
+        \State Set phase duration $\tau$ and contact force gains $\lambda$
+        \State Update $U_{\text{ref}}$ with the above
+        \State Set CoM velocity and feet velocities, according to which foot is about to move
+        \State Set CoM and feet positions based on velocity and duration $(p = v*\tau)$
+        \State time = time + phase duration
+        \State Update $X_{\text{ref}}(t+1)$ with the above
+    \EndFor
+    
+    \State \Return $X_{\text{ref}}, U_{\text{ref}}$
+    \end{algorithmic}
+    \end{algorithm}
 
 \subsection{Implementation Details}
 
