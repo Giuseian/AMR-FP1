@@ -22,6 +22,6 @@
 \contentsline {paragraph}{Final Cost Function and Problem Formulation}{15}{section*.21}%
 \contentsline {section}{\numberline {5}Simulation and Results}{16}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Trajectory Generation}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Solutions}{18}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Still Task: results}{18}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Walking Task: results}{20}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.2}Implementation Details}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Still Task: results}{21}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Walking Task: results}{24}{subsection.5.4}%

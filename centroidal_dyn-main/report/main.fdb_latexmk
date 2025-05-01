@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746035527.42718 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746035540.33145 0
+["pdflatex"] 1746084808.99515 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746084823.45382 0
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1745391673 184048 8b4cbdf9b31a7d34c2879dde0fcef0cd ""
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1727796667 14064 68aad3df386db7c4237fbef94e309b49 ""
   "C:/Users/giuse/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738070886 12013393 340aa120c33380df9200b841e2c7e3b5 ""
@@ -148,7 +148,7 @@
   "chapters/Introduction.tex" 1745833785 117 590f6974e10654be84abd2d495c120e6 ""
   "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1746035516 12140 9ae30a21afa0b6e3290127f4ef65e099 ""
   "chapters/Related Works.tex" 1745911224 7693 e9435226dbb3ef144e9460614fed9e4d ""
-  "chapters/Simulation and Results.tex" 1746035519 13197 ac96609c43fcdc3ad0247a3bb969b6b8 ""
+  "chapters/Simulation and Results.tex" 1746084783 36175 19dcbe36420ab82501f9946b2cdc947c ""
   "figures/CoM x Trajectory still.png" 1746033345 98842 87079232f837156bd1c156089a97ce98 ""
   "figures/CoM x Trajectory walking.png" 1746033345 85823 e27955a4216db6300f1227690ca9df6d ""
   "figures/CoM y Trajectory still.png" 1746033345 109138 4dc2786ba92432310ba669af6ecadfa3 ""
@@ -163,11 +163,11 @@
   "figures/contact_x_still.png" 1746033345 849477 4b00f623c618ec0f5d77900f9e8d8160 ""
   "figures/contact_x_walking.png" 1746033345 1715496 c04e4a24c72d34fb4b8bb95304a84dd9 ""
   "figures/walking.PNG" 1746033344 42859 aa9cff2d05fd54003831e72c936ebe3a ""
-  "main.aux" 1746035539 9580 55793e7a1316292ffdfb58184fb2b602 "pdflatex"
-  "main.out" 1746035539 2558 18846a04a2b81374ff743e9129498b8c "pdflatex"
+  "main.aux" 1746084823 10818 1d33fd508bd22d31d55c781e9db10449 "pdflatex"
+  "main.out" 1746084823 2626 f47acf8102e9d8a3ffa8add39a90c809 "pdflatex"
   "main.tex" 1746033495 2452 7724c644f80836248ae9210c1d1e51ab ""
-  "main.toc" 1746035539 2209 f23663c78d8c2e7c8d701e105e0c116c "pdflatex"
-  "title.aux" 1746035530 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.toc" 1746084823 2222 fb00bc7708288fe811b0537353ab30f6 "pdflatex"
+  "title.aux" 1746084810 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   "title.tex" 1745832171 1083 b6e2453ec8b77864a2b3f062d0b39a22 ""
   (generated)
   "main.aux"
