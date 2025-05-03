@@ -61,46 +61,39 @@ python simulation.py
 * The original paper:
 
 ```bib
-@ARTICLE{10669176,
+@article{tazaki2024trajectory,
+  title={Trajectory generation for legged robots based on a closed-form solution of centroidal dynamics},
   author={Tazaki, Yuichi},
-  journal={IEEE Robotics and Automation Letters}, 
-  title={Trajectory Generation for Legged Robots Based on a Closed-Form Solution of Centroidal Dynamics}, 
+  journal={IEEE Robotics and Automation Letters},
   year={2024},
-  volume={9},
-  number={11},
-  pages={9239-9246},
-  keywords={Trajectory;Closed-form solutions;Mathematical models;Dynamics;Legged locomotion;Reduced order systems;Closed-form solutions;Reduced order systems;Robot motion;Centroidal dynamics;closed-form solution;legged robots;trajectory generation},
-  doi={10.1109/LRA.2024.3455944}}
+  publisher={IEEE}
+}
 ```
 
 * Other Related Works : 
 
 ```bib
-@ARTICLE{8955951,
+@article{scianca2020mpc,
+  title={MPC for humanoid gait generation: Stability and feasibility},
   author={Scianca, Nicola and De Simone, Daniele and Lanari, Leonardo and Oriolo, Giuseppe},
-  journal={IEEE Transactions on Robotics}, 
-  title={MPC for Humanoid Gait Generation: Stability and Feasibility}, 
-  year={2020},
+  journal={IEEE Transactions on Robotics},
   volume={36},
   number={4},
-  pages={1171-1188},
-  keywords={Trajectory;Humanoid robots;Stability criteria;Timing;Predictive control;Gait generation;humanoid robots;internal stability;legged locomotion;predictive control;recursive feasibility},
-  doi={10.1109/TRO.2019.2958483}}
+  pages={1171--1188},
+  year={2020},
+  publisher={IEEE}
+}
 ```
 
 ```bib
-@article{CIPRIANO2023104495,
-title = {Humanoid motion generation in a world of stairs},
-journal = {Robotics and Autonomous Systems},
-volume = {168},
-pages = {104495},
-year = {2023},
-issn = {0921-8890},
-doi = {https://doi.org/10.1016/j.robot.2023.104495},
-url = {https://www.sciencedirect.com/science/article/pii/S0921889023001343},
-author = {Michele Cipriano and Paolo Ferrari and Nicola Scianca and Leonardo Lanari and Giuseppe Oriolo},
-keywords = {Humanoid robot, Footstep Planning, Gait Generation, MPC, Uneven ground, Sensor-based},
-abstract = {Consider the problem of generating humanoid motions in an environment consisting of horizontal patches located at different heights (world of stairs). To this end, the paper proposes an integrated scheme which combines footstep planning and gait generation. In particular, footsteps are produced by a randomized algorithm that guarantees both feasibility and quality of the plan according to a chosen criterion; whereas for 3D gait generation we devise an ad hoc extension of the Intrinsically Stable MPC scheme. In its basic form, the proposed scheme addresses the off-line case (known environments), but a sensor-based adaptation is developed for the on-line case (unknown environments) based on an anytime version of the footstep planner. In order to validate the proposed approach, we present simulations in CoppeliaSim for the HRP-4 humanoid robot navigating scenarios of different complexity, both in the on-line and off-line case.}
+@article{cipriano2023humanoid,
+  title={Humanoid motion generation in a world of stairs},
+  author={Cipriano, Michele and Ferrari, Paolo and Scianca, Nicola and Lanari, Leonardo and Oriolo, Giuseppe},
+  journal={Robotics and Autonomous Systems},
+  volume={168},
+  pages={104495},
+  year={2023},
+  publisher={Elsevier}
 }
 ```
 
