@@ -1,5 +1,14 @@
 # Fdb version 4
-["pdflatex"] 1746088204.31975 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746088218.63954 0
+["bibtex main"] 1746277098.84123 "main.aux" "main.bbl" "main" 1746277110.10371 0
+  "./ref.bib" 1746275986 7831 4c422ea833f8452379491af0a5062084 ""
+  "C:/Users/giuse/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291868336 18030 1376b4b231b50c66211e47e42eda2875 ""
+  "main.aux" 1746277109 12397 39b4ffd4d0dbf1e988268a856006928b "pdflatex"
+  "title.aux" 1746277100 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  (generated)
+  "main.bbl"
+  "main.blg"
+  (rewritten before read)
+["pdflatex"] 1746277099.2084 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746277110.10436 0
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1745391673 184048 8b4cbdf9b31a7d34c2879dde0fcef0cd ""
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1727796667 14064 68aad3df386db7c4237fbef94e309b49 ""
   "C:/Users/giuse/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738070886 12013393 340aa120c33380df9200b841e2c7e3b5 ""
@@ -143,11 +152,11 @@
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/units/units.sty" 1469029150 2206 65ad9fb19763b1681bea4cb389fe84f8 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1746033495 2452 7724c644f80836248ae9210c1d1e51ab ""
-  "chapters/Formulation and Trajectory Optimization Problem.tex" 1746033479 13483 9f70fc06ba40761c1e8c9a7033b0c59b ""
+  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1746277077 2448 232cc4a72e5c56ab4e7b6bfb11b79b9a ""
+  "chapters/Formulation and Trajectory Optimization Problem.tex" 1746275933 13501 692b2e021fc6ade6be7f780315be3f63 ""
   "chapters/Introduction.tex" 1745833785 117 590f6974e10654be84abd2d495c120e6 ""
   "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1746035516 12140 9ae30a21afa0b6e3290127f4ef65e099 ""
-  "chapters/Related Works.tex" 1745911224 7693 e9435226dbb3ef144e9460614fed9e4d ""
+  "chapters/Related Works.tex" 1746277078 12353 6aba3f4c7a20157a0f778653af8550b9 ""
   "chapters/Simulation and Results.tex" 1746088108 36063 660c2bb16293ec110aadbcfd5f01342f ""
   "figures/CoM x Trajectory still.png" 1746033345 98842 87079232f837156bd1c156089a97ce98 ""
   "figures/CoM x Trajectory walking.png" 1746033345 85823 e27955a4216db6300f1227690ca9df6d ""
@@ -163,11 +172,12 @@
   "figures/contact_x_still.png" 1746033345 849477 4b00f623c618ec0f5d77900f9e8d8160 ""
   "figures/contact_x_walking.png" 1746033345 1715496 c04e4a24c72d34fb4b8bb95304a84dd9 ""
   "figures/walking.PNG" 1746033344 42859 aa9cff2d05fd54003831e72c936ebe3a ""
-  "main.aux" 1746088218 10801 a438c549c3676be8714b5e680f54b358 "pdflatex"
-  "main.out" 1746088218 2626 f47acf8102e9d8a3ffa8add39a90c809 "pdflatex"
-  "main.tex" 1746033495 2452 7724c644f80836248ae9210c1d1e51ab ""
-  "main.toc" 1746088218 2222 fb00bc7708288fe811b0537353ab30f6 "pdflatex"
-  "title.aux" 1746088205 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1746277109 12397 39b4ffd4d0dbf1e988268a856006928b "pdflatex"
+  "main.bbl" 1746277099 6419 0ea7a26d022e47360fd38cd853ba25be "bibtex main"
+  "main.out" 1746277109 2818 a781649d9b5ccc916134f8ac966038f8 "pdflatex"
+  "main.tex" 1746277077 2448 232cc4a72e5c56ab4e7b6bfb11b79b9a ""
+  "main.toc" 1746277109 2415 5169dc309a362308e3bf4cc88cc0fbef "pdflatex"
+  "title.aux" 1746277100 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   "title.tex" 1745832171 1083 b6e2453ec8b77864a2b3f062d0b39a22 ""
   (generated)
   "main.aux"

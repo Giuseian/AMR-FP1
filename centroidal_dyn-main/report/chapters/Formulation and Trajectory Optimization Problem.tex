@@ -171,7 +171,7 @@ The planning problem can then be formulated as the following optimal control pro
 & \text{subject to} \quad \mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
 \end{aligned}
 \end{equation}
-Here, $x$ and $u$ denote the state and control input trajectories, respectively. The function $f(\mathbf{x}_k, \mathbf{u}_k)$ represents the discrete-time system dynamics, ensuring that the state evolution is dynamically feasible.
+Here, $\mathbf{x}$ and $\mathbf{u}$ denote the state and control input trajectories, respectively. The function $f(\mathbf{x}_k, \mathbf{u}_k)$ represents the discrete-time system dynamics, ensuring that the state evolution is dynamically feasible.
 \begin{comment}
 This problem is formulated using a \textit{single shooting} approach, where the control inputs are directly optimized and the states are obtained by integrating the system dynamics forward in time. 
 Due to the nonlinearities in the cost terms (especially those involving contact forces and constraints) and the system dynamics, the resulting optimization is generally a \textit{nonlinear programming problem} (NLP). However, in certain cases where the dynamics and cost functions are affine and the constraints are quadratic, the problem structure could be approximated as a \textit{quadratic programming} (QP) problem to enable faster computation.

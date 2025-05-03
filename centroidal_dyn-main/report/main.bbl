@@ -1,0 +1,146 @@
+\begin{thebibliography}{10}
+
+\bibitem{orin2013centroidal}
+David~E Orin, Ambarish Goswami, and Sung-Hee Lee.
+\newblock Centroidal dynamics of a humanoid robot.
+\newblock {\em Autonomous robots}, 35:161--176, 2013.
+
+\bibitem{kajita1991study}
+Shuuji Kajita and Kazuo Tani.
+\newblock Study of dynamic biped locomotion on rugged terrain-derivation and
+  application of the linear inverted pendulum mode.
+\newblock In {\em Proceedings. 1991 IEEE International Conference on Robotics
+  and Automation}, pages 1405--1406. IEEE Computer Society, 1991.
+
+\bibitem{caron2020biped}
+St{\'e}phane Caron.
+\newblock Biped stabilization by linear feedback of the variable-height
+  inverted pendulum model.
+\newblock In {\em 2020 IEEE International Conference on Robotics and Automation
+  (ICRA)}, pages 9782--9788. IEEE, 2020.
+
+\bibitem{englsberger2015three}
+Johannes Englsberger, Christian Ott, and Alin Albu-Sch{\"a}ffer.
+\newblock Three-dimensional bipedal walking control based on divergent
+  component of motion.
+\newblock {\em Ieee transactions on robotics}, 31(2):355--368, 2015.
+
+\bibitem{full1999templates}
+Robert~J Full and Daniel~E Koditschek.
+\newblock Templates and anchors: neuromechanical hypotheses of legged
+  locomotion on land.
+\newblock {\em Journal of experimental biology}, 202(23):3325--3332, 1999.
+
+\bibitem{holmes2006dynamics}
+Philip Holmes, Robert~J Full, Dan Koditschek, and John Guckenheimer.
+\newblock The dynamics of legged locomotion: Models, analyses, and challenges.
+\newblock {\em SIAM review}, 48(2):207--304, 2006.
+
+\bibitem{poulakakis2009spring}
+Ioannis Poulakakis and Jessy~W Grizzle.
+\newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
+  asymmetric hopper.
+\newblock {\em IEEE Transactions on Automatic Control}, 54(8):1779--1793, 2009.
+
+\bibitem{westervelt2003hybrid}
+Eric~R Westervelt, Jessy~W Grizzle, and Daniel~E Koditschek.
+\newblock Hybrid zero dynamics of planar biped walkers.
+\newblock {\em IEEE transactions on automatic control}, 48(1):42--56, 2003.
+
+\bibitem{englsberger2017smooth}
+Johannes Englsberger, George Mesesan, and Christian Ott.
+\newblock Smooth trajectory generation and push-recovery based on divergent
+  component of motion.
+\newblock In {\em 2017 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, pages 4560--4567. IEEE, 2017.
+
+\bibitem{kamioka2018simultaneous}
+Takumi Kamioka, Hiroyuki Kaneko, Toru Takenaka, and Takahide Yoshiike.
+\newblock Simultaneous optimization of zmp and footsteps based on the
+  analytical solution of divergent component of motion.
+\newblock In {\em 2018 IEEE international conference on robotics and automation
+  (ICRA)}, pages 1763--1770. IEEE, 2018.
+
+\bibitem{tedrake2015closed}
+Russ Tedrake, Scott Kuindersma, Robin Deits, and Kanako Miura.
+\newblock A closed-form solution for real-time zmp gait generation and feedback
+  stabilization.
+\newblock In {\em 2015 IEEE-RAS 15th international conference on humanoid
+  robots (humanoids)}, pages 936--940. IEEE, 2015.
+
+\bibitem{murooka2022centroidal}
+Masaki Murooka, Mitsuharu Morisawa, and Fumio Kanehiro.
+\newblock Centroidal trajectory generation and stabilization based on preview
+  control for humanoid multi-contact motion.
+\newblock {\em IEEE Robotics and Automation Letters}, 7(3):8225--8232, 2022.
+
+\bibitem{kuindersma2016optimization}
+Scott Kuindersma, Robin Deits, Maurice Fallon, Andr{\'e}s Valenzuela, Hongkai
+  Dai, Frank Permenter, Twan Koolen, Pat Marion, and Russ Tedrake.
+\newblock Optimization-based locomotion planning, estimation, and control
+  design for the atlas humanoid robot.
+\newblock {\em Autonomous robots}, 40:429--455, 2016.
+
+\bibitem{rossini2023real}
+Luca Rossini, Enrico~Mingo Hoffman, Seung~Hyeon Bang, Luis Sentis, and Nikos~G
+  Tsagarakis.
+\newblock A real-time approach for humanoid robot walking including dynamic
+  obstacles avoidance.
+\newblock In {\em 2023 IEEE-RAS 22nd International Conference on Humanoid
+  Robots (Humanoids)}, pages 1--8. IEEE, 2023.
+
+\bibitem{ding2021nonlinear}
+Jiatao Ding, Chengxu Zhou, Songyan Xin, Xiaohui Xiao, and Nikolaos~G
+  Tsagarakis.
+\newblock Nonlinear model predictive control for robust bipedal locomotion:
+  exploring angular momentum and com height changes.
+\newblock {\em Advanced Robotics}, 35(18):1079--1097, 2021.
+
+\bibitem{dai2016planning}
+Hongkai Dai and Russ Tedrake.
+\newblock Planning robust walking motion on uneven terrain via convex
+  optimization.
+\newblock In {\em 2016 IEEE-RAS 16th International Conference on Humanoid
+  Robots (Humanoids)}, pages 579--586. IEEE, 2016.
+
+\bibitem{audren2014model}
+Herv{\'e} Audren, Joris Vaillant, Abderrahmane Kheddar, Adrien Escande, Kenji
+  Kaneko, and Eiichi Yoshida.
+\newblock Model preview control in multi-contact motion-application to a
+  humanoid robot.
+\newblock In {\em 2014 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems}, pages 4030--4035. IEEE, 2014.
+
+\bibitem{tazaki2022fast}
+Yuichi Tazaki.
+\newblock Fast multi-contact motion planning based on best-neighbor search of
+  contact sequences.
+\newblock In {\em 2022 IEEE-RAS 21st International Conference on Humanoid
+  Robots (Humanoids)}, pages 277--284. IEEE, 2022.
+
+\bibitem{tazaki2024trajectory}
+Yuichi Tazaki.
+\newblock Trajectory generation for legged robots based on a closed-form
+  solution of centroidal dynamics.
+\newblock {\em IEEE Robotics and Automation Letters}, 2024.
+
+\bibitem{scianca2020mpc}
+Nicola Scianca, Daniele De~Simone, Leonardo Lanari, and Giuseppe Oriolo.
+\newblock Mpc for humanoid gait generation: Stability and feasibility.
+\newblock {\em IEEE Transactions on Robotics}, 36(4):1171--1188, 2020.
+
+\bibitem{cipriano2023humanoid}
+Michele Cipriano, Paolo Ferrari, Nicola Scianca, Leonardo Lanari, and Giuseppe
+  Oriolo.
+\newblock Humanoid motion generation in a world of stairs.
+\newblock {\em Robotics and Autonomous Systems}, 168:104495, 2023.
+
+\bibitem{kajita2003biped}
+Shuuji Kajita, Fumio Kanehiro, Kenji Kaneko, Kiyoshi Fujiwara, Kensuke Harada,
+  Kazuhito Yokoi, and Hirohisa Hirukawa.
+\newblock Biped walking pattern generation by using preview control of
+  zero-moment point.
+\newblock In {\em 2003 IEEE international conference on robotics and automation
+  (Cat. No. 03CH37422)}, volume~2, pages 1620--1626. IEEE, 2003.
+
+\end{thebibliography}

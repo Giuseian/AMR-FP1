@@ -389,6 +389,9 @@ INPUT .\figures\walking.PNG
 INPUT .\figures\walking.PNG
 INPUT .\figures\walking.PNG
 INPUT .\figures\walking.PNG
+INPUT .\main.bbl
+INPUT .\main.bbl
+INPUT main.bbl
 INPUT main.aux
 INPUT .\title.aux
 INPUT .\title.aux

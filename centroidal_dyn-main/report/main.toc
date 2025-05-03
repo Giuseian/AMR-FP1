@@ -1,27 +1,30 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
 \contentsline {section}{\numberline {2}Related Works}{4}{section.2}%
-\contentsline {paragraph}{Integration of Trajectory Optimization}{5}{section*.2}%
-\contentsline {paragraph}{Limitations}{5}{section*.3}%
-\contentsline {section}{\numberline {3}Proposed Method}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Stiffness-Based Centroidal Dynamics}{7}{subsection.3.1}%
-\contentsline {paragraph}{Spring-like parametrization of contact wrenches.}{7}{section*.4}%
-\contentsline {paragraph}{Closed‐form centroidal dynamics.}{8}{section*.6}%
-\contentsline {paragraph}{Discussion and special cases.}{8}{section*.7}%
-\contentsline {subsection}{\numberline {3.2}Closed‐Form Solutions and Discrete‐Time Equations}{9}{subsection.3.2}%
-\contentsline {paragraph}{\ State at the beginning of interval $k$.}{9}{section*.8}%
-\contentsline {paragraph}{\ Analytical solution on $[t_k,t_{k+1}]$.}{9}{section*.9}%
-\contentsline {subsection}{\numberline {3.3}Integration of Base‐Link Rotation}{10}{subsection.3.3}%
-\contentsline {paragraph}{Discrete quaternion update.}{10}{section*.15}%
-\contentsline {section}{\numberline {4}Formulation of Trajectory Optimization Problem}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}State Equation}{11}{subsection.4.1}%
-\contentsline {paragraph}{Equations Update}{11}{section*.17}%
-\contentsline {subsection}{\numberline {4.2}Formulation of Optimal Control Problem}{12}{subsection.4.2}%
-\contentsline {paragraph}{Task Related Cost}{12}{section*.18}%
-\contentsline {paragraph}{Inequality Constraints}{12}{section*.19}%
-\contentsline {paragraph}{Contact Dependent Cost}{14}{section*.20}%
-\contentsline {paragraph}{Final Cost Function and Problem Formulation}{15}{section*.21}%
-\contentsline {section}{\numberline {5}Simulation and Results}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Implementation Details}{18}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Still Task: results}{21}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Walking Task: results}{24}{subsection.5.4}%
+\contentsline {paragraph}{Simplified Centroidal Models}{4}{section*.2}%
+\contentsline {paragraph}{Integration of Trajectory Optimization}{4}{section*.3}%
+\contentsline {paragraph}{Limitations and Solutions}{5}{section*.4}%
+\contentsline {section}{\numberline {3}Proposed Method}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Stiffness-Based Centroidal Dynamics}{6}{subsection.3.1}%
+\contentsline {paragraph}{Spring-like parametrization of contact wrenches.}{6}{section*.5}%
+\contentsline {paragraph}{Closed‐form centroidal dynamics.}{7}{section*.7}%
+\contentsline {paragraph}{Discussion and special cases.}{7}{section*.8}%
+\contentsline {subsection}{\numberline {3.2}Closed‐Form Solutions and Discrete‐Time Equations}{8}{subsection.3.2}%
+\contentsline {paragraph}{\ State at the beginning of interval $k$.}{8}{section*.9}%
+\contentsline {paragraph}{\ Analytical solution on $[t_k,t_{k+1}]$.}{8}{section*.10}%
+\contentsline {subsection}{\numberline {3.3}Integration of Base‐Link Rotation}{9}{subsection.3.3}%
+\contentsline {paragraph}{Discrete quaternion update.}{9}{section*.16}%
+\contentsline {section}{\numberline {4}Formulation of Trajectory Optimization Problem}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}State Equation}{10}{subsection.4.1}%
+\contentsline {paragraph}{Equations Update}{10}{section*.18}%
+\contentsline {subsection}{\numberline {4.2}Formulation of Optimal Control Problem}{11}{subsection.4.2}%
+\contentsline {paragraph}{Task Related Cost}{11}{section*.19}%
+\contentsline {paragraph}{Inequality Constraints}{11}{section*.20}%
+\contentsline {paragraph}{Contact Dependent Cost}{13}{section*.21}%
+\contentsline {paragraph}{Final Cost Function and Problem Formulation}{14}{section*.22}%
+\contentsline {section}{\numberline {5}Simulation and Results}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Implementation Details}{17}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Still Task: results}{20}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Walking Task: results}{23}{subsection.5.4}%
+\contentsline {section}{References}{28}{section*.54}%
+\contentsline {chapter}{references}{30}{section*.54}%
