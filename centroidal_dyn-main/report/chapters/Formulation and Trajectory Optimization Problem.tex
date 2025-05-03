@@ -7,8 +7,8 @@
 \subsection{State Equation}
 To mathematically describe the evolution of the system over discrete time intervals, we define at each time step $k$:
 \begin{itemize}
-    \item a state vector $x_k$, containing all the information necessary to describe the system's configuration and motion;
-    \item a control input vector $u_k$, based on the stiffness-based control strategy introduced in Section~\ref{sec:proposedmethods}.
+    \item a state vector $\mathbf{x}_k$, containing all the information necessary to describe the system's configuration and motion;
+    \item a control input vector $\mathbf{u}_k$, based on the stiffness-based control strategy introduced in Section~\ref{sec:proposedmethods}.
 \end{itemize}
 
 \vspace{0.3cm} % Small vertical space
@@ -33,7 +33,7 @@ To mathematically describe the evolution of the system over discrete time interv
 \hfill
 \begin{minipage}{0.48\textwidth}
 \begin{equation}
-    u_k = 
+    \mathbf{u}_k = 
     \left[ 
    \begin{array}{c}
    \tau_k \\

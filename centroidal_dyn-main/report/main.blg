@@ -7,46 +7,44 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
-Warning--I didn't find a database entry for "ajita2003biped"
-You've used 22 entries,
+You've used 20 entries,
             1791 wiz_defined-function locations,
-            589 strings with 8600 characters,
-and the built_in function-call counts, 7167 in all, are:
-= -- 707
-> -- 278
+            574 strings with 8178 characters,
+and the built_in function-call counts, 6631 in all, are:
+= -- 662
+> -- 247
 < -- 11
-+ -- 101
-- -- 79
-* -- 489
-:= -- 1029
-add.period$ -- 76
-call.type$ -- 22
-change.case$ -- 22
++ -- 90
+- -- 70
+* -- 442
+:= -- 940
+add.period$ -- 70
+call.type$ -- 20
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 325
-empty$ -- 675
-format.name$ -- 79
-if$ -- 1670
+cite$ -- 20
+duplicate$ -- 307
+empty$ -- 627
+format.name$ -- 70
+if$ -- 1557
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 22
-newline$ -- 113
-num.names$ -- 22
-pop$ -- 73
+int.to.str$ -- 20
+missing$ -- 20
+newline$ -- 103
+num.names$ -- 20
+pop$ -- 71
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 192
+skip$ -- 186
 stack$ -- 0
-substring$ -- 644
-swap$ -- 131
+substring$ -- 595
+swap$ -- 129
 text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 73
-width$ -- 24
-write$ -- 254
-(There was 1 warning)
+while$ -- 68
+width$ -- 22
+write$ -- 232

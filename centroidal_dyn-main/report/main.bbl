@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{orin2013centroidal}
-David~E Orin, Ambarish Goswami, and Sung-Hee Lee.
-\newblock Centroidal dynamics of a humanoid robot.
-\newblock {\em Autonomous robots}, 35:161--176, 2013.
-
 \bibitem{kajita1991study}
 Shuuji Kajita and Kazuo Tani.
 \newblock Study of dynamic biped locomotion on rugged terrain-derivation and
@@ -18,6 +13,23 @@ St{\'e}phane Caron.
   inverted pendulum model.
 \newblock In {\em 2020 IEEE International Conference on Robotics and Automation
   (ICRA)}, pages 9782--9788. IEEE, 2020.
+
+\bibitem{poulakakis2009spring}
+Ioannis Poulakakis and Jessy~W Grizzle.
+\newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
+  asymmetric hopper.
+\newblock {\em IEEE Transactions on Automatic Control}, 54(8):1779--1793, 2009.
+
+\bibitem{tazaki2024trajectory}
+Yuichi Tazaki.
+\newblock Trajectory generation for legged robots based on a closed-form
+  solution of centroidal dynamics.
+\newblock {\em IEEE Robotics and Automation Letters}, 2024.
+
+\bibitem{orin2013centroidal}
+David~E Orin, Ambarish Goswami, and Sung-Hee Lee.
+\newblock Centroidal dynamics of a humanoid robot.
+\newblock {\em Autonomous robots}, 35:161--176, 2013.
 
 \bibitem{englsberger2015three}
 Johannes Englsberger, Christian Ott, and Alin Albu-Sch{\"a}ffer.
@@ -35,12 +47,6 @@ Robert~J Full and Daniel~E Koditschek.
 Philip Holmes, Robert~J Full, Dan Koditschek, and John Guckenheimer.
 \newblock The dynamics of legged locomotion: Models, analyses, and challenges.
 \newblock {\em SIAM review}, 48(2):207--304, 2006.
-
-\bibitem{poulakakis2009spring}
-Ioannis Poulakakis and Jessy~W Grizzle.
-\newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
-  asymmetric hopper.
-\newblock {\em IEEE Transactions on Automatic Control}, 54(8):1779--1793, 2009.
 
 \bibitem{westervelt2003hybrid}
 Eric~R Westervelt, Jessy~W Grizzle, and Daniel~E Koditschek.
@@ -67,6 +73,14 @@ Russ Tedrake, Scott Kuindersma, Robin Deits, and Kanako Miura.
   stabilization.
 \newblock In {\em 2015 IEEE-RAS 15th international conference on humanoid
   robots (humanoids)}, pages 936--940. IEEE, 2015.
+
+\bibitem{kajita2003biped}
+Shuuji Kajita, Fumio Kanehiro, Kenji Kaneko, Kiyoshi Fujiwara, Kensuke Harada,
+  Kazuhito Yokoi, and Hirohisa Hirukawa.
+\newblock Biped walking pattern generation by using preview control of
+  zero-moment point.
+\newblock In {\em 2003 IEEE international conference on robotics and automation
+  (Cat. No. 03CH37422)}, volume~2, pages 1620--1626. IEEE, 2003.
 
 \bibitem{murooka2022centroidal}
 Masaki Murooka, Mitsuharu Morisawa, and Fumio Kanehiro.
@@ -117,30 +131,5 @@ Yuichi Tazaki.
   contact sequences.
 \newblock In {\em 2022 IEEE-RAS 21st International Conference on Humanoid
   Robots (Humanoids)}, pages 277--284. IEEE, 2022.
-
-\bibitem{tazaki2024trajectory}
-Yuichi Tazaki.
-\newblock Trajectory generation for legged robots based on a closed-form
-  solution of centroidal dynamics.
-\newblock {\em IEEE Robotics and Automation Letters}, 2024.
-
-\bibitem{scianca2020mpc}
-Nicola Scianca, Daniele De~Simone, Leonardo Lanari, and Giuseppe Oriolo.
-\newblock Mpc for humanoid gait generation: Stability and feasibility.
-\newblock {\em IEEE Transactions on Robotics}, 36(4):1171--1188, 2020.
-
-\bibitem{cipriano2023humanoid}
-Michele Cipriano, Paolo Ferrari, Nicola Scianca, Leonardo Lanari, and Giuseppe
-  Oriolo.
-\newblock Humanoid motion generation in a world of stairs.
-\newblock {\em Robotics and Autonomous Systems}, 168:104495, 2023.
-
-\bibitem{kajita2003biped}
-Shuuji Kajita, Fumio Kanehiro, Kenji Kaneko, Kiyoshi Fujiwara, Kensuke Harada,
-  Kazuhito Yokoi, and Hirohisa Hirukawa.
-\newblock Biped walking pattern generation by using preview control of
-  zero-moment point.
-\newblock In {\em 2003 IEEE international conference on robotics and automation
-  (Cat. No. 03CH37422)}, volume~2, pages 1620--1626. IEEE, 2003.
 
 \end{thebibliography}

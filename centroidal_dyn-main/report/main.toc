@@ -26,5 +26,5 @@
 \contentsline {subsection}{\numberline {5.2}Implementation Details}{17}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Still Task: results}{20}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Walking Task: results}{23}{subsection.5.4}%
-\contentsline {section}{References}{28}{section*.54}%
-\contentsline {chapter}{references}{30}{section*.54}%
+\contentsline {section}{\numberline {6}Conclusion}{28}{section.6}%
+\contentsline {section}{References}{29}{section*.54}%
