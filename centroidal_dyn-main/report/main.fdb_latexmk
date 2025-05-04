@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1746294718.72089 "main.aux" "main.bbl" "main" 1746294750.38068 0
+["bibtex main"] 1746339068.72097 "main.aux" "main.bbl" "main" 1746339941.82402 0
   "./ref.bib" 1746284366 7831 4c422ea833f8452379491af0a5062084 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291868336 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1746294749 12421 9767224b78ab5d5a5e8511ff41671496 "pdflatex"
-  "title.aux" 1746294736 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1746339940 12515 f25ad29b0bdddec57cc29388f482fe4a "pdflatex"
+  "title.aux" 1746339928 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1746294734.91453 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746294750.38265 0
+["pdflatex"] 1746339926.58902 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746339941.8252 0
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1745391673 184048 8b4cbdf9b31a7d34c2879dde0fcef0cd ""
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1727796667 14064 68aad3df386db7c4237fbef94e309b49 ""
   "C:/Users/giuse/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738070886 12013393 340aa120c33380df9200b841e2c7e3b5 ""
@@ -152,9 +152,9 @@
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/units/units.sty" 1469029150 2206 65ad9fb19763b1681bea4cb389fe84f8 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1746294729 2430 ddcc5d92afab1e0a9aebbd0dc23e64df ""
+  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1746339925 3683 582ce041ed7459976583d7332c9e3484 ""
   "chapters/Formulation and Trajectory Optimization Problem.tex" 1746279789 13528 16f5e0ef3d7e713e6809a0330c664930 ""
-  "chapters/Introduction.tex" 1746294328 3308 8a43196b37b7dfb0401e1e63a84eeeb5 ""
+  "chapters/Introduction.tex" 1746338686 3419 635429260f56146209a79eb3953c86c0 ""
   "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1746285129 12141 6cfd21fc4d44aff6cc022bf5c592a84a ""
   "chapters/Related Works.tex" 1746281490 5623 a3e664ad8d0bcd7b51fc3cadfd930ec7 ""
   "chapters/Simulation and Results.tex" 1746088108 36063 660c2bb16293ec110aadbcfd5f01342f ""
@@ -172,12 +172,12 @@
   "figures/contact_x_still.png" 1746033345 849477 4b00f623c618ec0f5d77900f9e8d8160 ""
   "figures/contact_x_walking.png" 1746033345 1715496 c04e4a24c72d34fb4b8bb95304a84dd9 ""
   "figures/walking.PNG" 1746033344 42859 aa9cff2d05fd54003831e72c936ebe3a ""
-  "main.aux" 1746294749 12421 9767224b78ab5d5a5e8511ff41671496 "pdflatex"
-  "main.bbl" 1746294719 5920 d84a40ede055c57d6b99b73e52407234 "bibtex main"
-  "main.out" 1746294749 2816 5d3dcae8a6438fe526ee77f097a50daa "pdflatex"
-  "main.tex" 1746294729 2430 ddcc5d92afab1e0a9aebbd0dc23e64df ""
-  "main.toc" 1746294749 2428 edeaa888a27a09ab756d6131193753b3 "pdflatex"
-  "title.aux" 1746294736 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1746339940 12515 f25ad29b0bdddec57cc29388f482fe4a "pdflatex"
+  "main.bbl" 1746339069 5920 a4a8713760735e9cae72f680493bffbb "bibtex main"
+  "main.out" 1746339940 2816 5d3dcae8a6438fe526ee77f097a50daa "pdflatex"
+  "main.tex" 1746339925 3683 582ce041ed7459976583d7332c9e3484 ""
+  "main.toc" 1746339940 2430 8f3826ee9391c18acbf0b71f0d786f4d "pdflatex"
+  "title.aux" 1746339928 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   "title.tex" 1745832171 1083 b6e2453ec8b77864a2b3f062d0b39a22 ""
   (generated)
   "main.aux"

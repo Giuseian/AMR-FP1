@@ -85,8 +85,10 @@
 \tableofcontents
 \newpage
 \begin{abstract}
+\begin{sloppypar}
 \noindent
-Hello World !! 
+Recent advances in robotics have led to increasing interest in dynamic motion planning for humanoid and legged robots, which typically have many degrees of freedom. However, generating feasible trajectories in real time using full dynamic models remains computationally challenging. To address this, reduced-order models are often employed, although they can suffer from limited accuracy in complex scenarios. This project builds on the method proposed by Tazaki et al. \cite{tazaki2024trajectory}, which introduces a stiffness-based parametrization of contact wrenches to derive closed-form centroidal dynamics and improve the efficiency of trajectory optimization. The resulting model, known as Stiffness-Based Centroidal Dynamics (SBCD), describes both translational and rotational motion while maintaining a compact and analytically tractable form. This structure makes it particularly well-suited for long-horizon planning and real-time control. The goal of this work is to implement and evaluate the SBCD framework through the generation of reference trajectories for walking and standing tasks. The proposed approach is tested in simulation and assessed using quantitative metrics and visual analysis.
+\end{sloppypar}
 \end{abstract}
 \newpage
 \subfile{chapters/Introduction}
@@ -100,6 +102,7 @@ Hello World !!
 \subfile{chapters/Simulation and Results}
 \clearpage
 \section{Conclusion}
+\label{sec:conclusion}
 Let's write some conclusion and future work here. 
 \clearpage
 

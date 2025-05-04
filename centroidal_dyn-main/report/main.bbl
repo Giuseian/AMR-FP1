@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{tazaki2024trajectory}
+Yuichi Tazaki.
+\newblock Trajectory generation for legged robots based on a closed-form
+  solution of centroidal dynamics.
+\newblock {\em IEEE Robotics and Automation Letters}, 2024.
+
 \bibitem{kajita1991study}
 Shuuji Kajita and Kazuo Tani.
 \newblock Study of dynamic biped locomotion on rugged terrain-derivation and
@@ -19,12 +25,6 @@ Ioannis Poulakakis and Jessy~W Grizzle.
 \newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
   asymmetric hopper.
 \newblock {\em IEEE Transactions on Automatic Control}, 54(8):1779--1793, 2009.
-
-\bibitem{tazaki2024trajectory}
-Yuichi Tazaki.
-\newblock Trajectory generation for legged robots based on a closed-form
-  solution of centroidal dynamics.
-\newblock {\em IEEE Robotics and Automation Letters}, 2024.
 
 \bibitem{orin2013centroidal}
 David~E Orin, Ambarish Goswami, and Sung-Hee Lee.
