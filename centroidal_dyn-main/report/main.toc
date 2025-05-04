@@ -14,17 +14,16 @@
 \contentsline {subsection}{\numberline {3.3}Integration of Base‐Link Rotation}{9}{subsection.3.3}%
 \contentsline {paragraph}{Discrete quaternion update.}{9}{section*.16}%
 \contentsline {section}{\numberline {4}Formulation of Trajectory Optimization Problem}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}State Equation}{10}{subsection.4.1}%
 \contentsline {paragraph}{Equations Update}{10}{section*.18}%
-\contentsline {subsection}{\numberline {4.2}Formulation of Optimal Control Problem}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.1}Formulation of Optimal Control Problem}{10}{subsection.4.1}%
 \contentsline {paragraph}{Task Related Cost}{11}{section*.19}%
 \contentsline {paragraph}{Inequality Constraints}{11}{section*.20}%
-\contentsline {paragraph}{Contact Dependent Cost}{13}{section*.21}%
-\contentsline {paragraph}{Final Cost Function and Problem Formulation}{14}{section*.22}%
-\contentsline {section}{\numberline {5}Simulation and Results}{15}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{15}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Implementation Details}{17}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Still Task: results}{19}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Walking Task: results}{22}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Conclusion}{27}{section.6}%
-\contentsline {section}{References}{28}{section*.54}%
+\contentsline {paragraph}{Contact Dependent Cost}{12}{section*.21}%
+\contentsline {paragraph}{Final Cost Function and Problem Formulation}{13}{section*.22}%
+\contentsline {section}{\numberline {5}Simulation and Results}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Trajectory Generation}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Implementation Details}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Still Task: results}{18}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Walking Task: results}{21}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusion}{26}{section.6}%
+\contentsline {section}{References}{27}{section*.54}%

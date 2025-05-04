@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1746343201.77765 "main.aux" "main.bbl" "main" 1746343213.5338 0
+["bibtex main"] 1746370613.70039 "main.aux" "main.bbl" "main" 1746370629.42053 0
   "./ref.bib" 1746284366 7831 4c422ea833f8452379491af0a5062084 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291868336 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1746343212 12392 aaa127ea3c7887c19eb42c2a7c4f186c "pdflatex"
-  "title.aux" 1746343202 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1746370628 12344 2ed2f0f42fffc45eac7df1958cc998a0 "pdflatex"
+  "title.aux" 1746370615 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1746343202.05648 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746343213.53746 0
+["pdflatex"] 1746370614.19618 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1746370629.42153 0
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1745391673 184048 8b4cbdf9b31a7d34c2879dde0fcef0cd ""
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1727796667 14064 68aad3df386db7c4237fbef94e309b49 ""
   "C:/Users/giuse/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738070886 12013393 340aa120c33380df9200b841e2c7e3b5 ""
@@ -152,10 +152,10 @@
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/units/units.sty" 1469029150 2206 65ad9fb19763b1681bea4cb389fe84f8 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1746343187 3683 582ce041ed7459976583d7332c9e3484 ""
-  "chapters/Formulation and Trajectory Optimization Problem.tex" 1746279789 13528 16f5e0ef3d7e713e6809a0330c664930 ""
+  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1746370597 3683 582ce041ed7459976583d7332c9e3484 ""
+  "chapters/Formulation and Trajectory Optimization Problem.tex" 1746370591 11832 d4fc87b5d4fc62f02d0d6e90912db4ea ""
   "chapters/Introduction.tex" 1746342479 3354 3d0797aae60435b2a872d98ad5610fe0 ""
-  "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1746285129 12141 6cfd21fc4d44aff6cc022bf5c592a84a ""
+  "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1746370240 12175 432066d033058dc413e847ac2794364f ""
   "chapters/Related Works.tex" 1746281490 5623 a3e664ad8d0bcd7b51fc3cadfd930ec7 ""
   "chapters/Simulation and Results.tex" 1746343181 20236 c5a658d4cd31f36095b873d4ae0058d1 ""
   "figures/CoM x Trajectory still.png" 1746033345 98842 87079232f837156bd1c156089a97ce98 ""
@@ -173,12 +173,12 @@
   "figures/contact_x_walking.png" 1746033345 1715496 c04e4a24c72d34fb4b8bb95304a84dd9 ""
   "figures/still.PNG" 1746033345 58790 357d9e483d75da82c248f73fce59fe19 ""
   "figures/walking.PNG" 1746033344 42859 aa9cff2d05fd54003831e72c936ebe3a ""
-  "main.aux" 1746343212 12392 aaa127ea3c7887c19eb42c2a7c4f186c "pdflatex"
-  "main.bbl" 1746343201 5920 a4a8713760735e9cae72f680493bffbb "bibtex main"
-  "main.out" 1746343212 2816 5d3dcae8a6438fe526ee77f097a50daa "pdflatex"
-  "main.tex" 1746343187 3683 582ce041ed7459976583d7332c9e3484 ""
-  "main.toc" 1746343212 2428 d34f9b485ee750b2661e4c4c4e169792 "pdflatex"
-  "title.aux" 1746343202 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1746370628 12344 2ed2f0f42fffc45eac7df1958cc998a0 "pdflatex"
+  "main.bbl" 1746370614 5920 a4a8713760735e9cae72f680493bffbb "bibtex main"
+  "main.out" 1746370628 2685 2e4b547c5e7554393dfb761d6a1b3881 "pdflatex"
+  "main.tex" 1746370597 3683 582ce041ed7459976583d7332c9e3484 ""
+  "main.toc" 1746370628 2347 cb46ed3f931e59b41e2532a686b43441 "pdflatex"
+  "title.aux" 1746370615 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   "title.tex" 1745832171 1083 b6e2453ec8b77864a2b3f062d0b39a22 ""
   (generated)
   "main.aux"
