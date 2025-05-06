@@ -3,8 +3,9 @@
 \begin{document}
 
 \begin{sloppypar}
-\section{Formulation of Trajectory Optimization Problem}
+\section{Trajectory Optimization}
 \label{sec:formulation}
+\subsection{State Equation}
 To formally describe the evolution of the system over discrete time intervals, we define the state and input vectors at each time step \( k \). The state vector \( \mathbf{x}_k \) includes all variables necessary to characterize the system’s configuration and motion, while the control input vector \( \mathbf{u}_k \) is defined according to the stiffness-based control strategy introduced in Section~\ref{sec:proposedmethods}. These vectors are structured as follows:
 \begin{equation}
 \mathbf{x}_k =
