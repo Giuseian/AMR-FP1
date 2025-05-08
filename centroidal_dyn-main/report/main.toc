@@ -26,5 +26,14 @@
 \contentsline {subsection}{\numberline {5.2}Implementation Details}{16}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Still Task: results}{18}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Walking Task: results}{21}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Conclusion}{26}{section.6}%
-\contentsline {section}{References}{27}{section*.54}%
+\contentsline {section}{\numberline {6}New Simulation and Results}{26}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Implementation Details}{26}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Static Balance Task}{26}{subsection.6.2}%
+\contentsline {paragraph}{Reference Trajectory Generation}{26}{section*.55}%
+\contentsline {paragraph}{Simulation Results}{27}{section*.56}%
+\contentsline {subsection}{\numberline {6.3}Walking Task}{30}{subsection.6.3}%
+\contentsline {paragraph}{Reference Trajectory Generation}{30}{section*.62}%
+\contentsline {paragraph}{Simulation Results}{31}{section*.64}%
+\contentsline {paragraph}{Simulation}{34}{section*.70}%
+\contentsline {section}{\numberline {7}Conclusion}{36}{section.7}%
+\contentsline {section}{References}{37}{section*.71}%

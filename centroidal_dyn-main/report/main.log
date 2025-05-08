@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  6 MAY 2025 15:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  8 MAY 2025 18:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -564,7 +564,86 @@ LaTeX Info: Redefining \_ on input line 43.
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/import\import.sty
 Package: import 2020/04/01  v 6.2
-)) (main.aux (title.aux))
+)) (main.aux (title.aux)
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `fig:threeimages' multiply defined.
+
+
+LaTeX Warning: Label `fig:contact_forces_walking' multiply defined.
+
+
+LaTeX Warning: Label `tab:stilltask' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `fig:threeimages' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `fig:threeimages' multiply defined.
+
+
+LaTeX Warning: Label `fig:yourlabel' multiply defined.
+
+
+LaTeX Warning: Label `tab:data_table' multiply defined.
+
+
+LaTeX Warning: Label `fig:contact_forces_walking' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
@@ -650,7 +729,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `title.aux'.
 
  (title.tex
-<figures/SapienzaLogo.pdf, id=67, 284.52731pt x 85.33737pt>
+<figures/SapienzaLogo.pdf, id=83, 284.52731pt x 85.33737pt>
 File: figures/SapienzaLogo.pdf Graphic file (type pdf)
 <use figures/SapienzaLogo.pdf>
 Package pdftex.def Info: figures/SapienzaLogo.pdf  used on input line 4.
@@ -806,27 +885,27 @@ Overfull \hbox (1.28058pt too wide) in paragraph at lines 157--160
 [17]
 
 [18]
-<figures/CoM x Trajectory still.png, id=337, 434.3427pt x 283.2984pt>
+<figures/CoM x Trajectory still.png, id=357, 434.3427pt x 283.2984pt>
 File: figures/CoM x Trajectory still.png Graphic file (type png)
 <use figures/CoM x Trajectory still.png>
 Package pdftex.def Info: figures/CoM x Trajectory still.png  used on input line 215.
 (pdftex.def)             Requested size: 197.3295pt x 128.71075pt.
-<figures/CoM y Trajectory still.png, id=339, 425.9112pt x 283.2984pt>
+<figures/CoM y Trajectory still.png, id=359, 425.9112pt x 283.2984pt>
 File: figures/CoM y Trajectory still.png Graphic file (type png)
 <use figures/CoM y Trajectory still.png>
 Package pdftex.def Info: figures/CoM y Trajectory still.png  used on input line 222.
 (pdftex.def)             Requested size: 197.3295pt x 131.25256pt.
-<figures/CoM z Trajectory still.png, id=340, 406.6392pt x 283.2984pt>
+<figures/CoM z Trajectory still.png, id=360, 406.6392pt x 283.2984pt>
 File: figures/CoM z Trajectory still.png Graphic file (type png)
 <use figures/CoM z Trajectory still.png>
 Package pdftex.def Info: figures/CoM z Trajectory still.png  used on input line 229.
 (pdftex.def)             Requested size: 197.3295pt x 137.47736pt.
-<figures/Feet_z still.png, id=341, 377.9721pt x 283.2984pt>
+<figures/Feet_z still.png, id=361, 377.9721pt x 283.2984pt>
 File: figures/Feet_z still.png Graphic file (type png)
 <use figures/Feet_z still.png>
 Package pdftex.def Info: figures/Feet_z still.png  used on input line 239.
 (pdftex.def)             Requested size: 263.11047pt x 197.20522pt.
-<figures/contact_x_still.png, id=342, 1077.0639pt x 1148.1294pt>
+<figures/contact_x_still.png, id=362, 1077.0639pt x 1148.1294pt>
 File: figures/contact_x_still.png Graphic file (type png)
 <use figures/contact_x_still.png>
 Package pdftex.def Info: figures/contact_x_still.png  used on input line 249.
@@ -834,7 +913,7 @@ Package pdftex.def Info: figures/contact_x_still.png  used on input line 249.
 
 
 [19 <./figures/CoM x Trajectory still.png> <./figures/CoM y Trajectory still.png> <./figures/CoM z Trajectory still.png> <./figures/Feet_z still.png>]
-<figures/contact_forces_still.png, id=356, 1077.0639pt x 714.2685pt>
+<figures/contact_forces_still.png, id=376, 1077.0639pt x 714.2685pt>
 File: figures/contact_forces_still.png Graphic file (type png)
 <use figures/contact_forces_still.png>
 Package pdftex.def Info: figures/contact_forces_still.png  used on input line 276.
@@ -842,39 +921,35 @@ Package pdftex.def Info: figures/contact_forces_still.png  used on input line 27
 
 
 [20 <./figures/contact_x_still.png>]
-
-LaTeX Warning: Reference `fig:sub1' on page 21 undefined on input line 285.
-
-
-LaTeX Warning: Reference `fig:sub2' on page 21 undefined on input line 286.
-
-
-LaTeX Warning: Reference `fig:sub3' on page 21 undefined on input line 287.
-
-<figures/CoM x Trajectory walking.png, id=367, 397.7259pt x 283.2984pt>
+<figures/CoM x Trajectory walking.png, id=390, 397.7259pt x 283.2984pt>
 File: figures/CoM x Trajectory walking.png Graphic file (type png)
 <use figures/CoM x Trajectory walking.png>
 Package pdftex.def Info: figures/CoM x Trajectory walking.png  used on input line 293.
 (pdftex.def)             Requested size: 197.3295pt x 140.55518pt.
-<figures/CoM y Trajectory walking.png, id=368, 418.9251pt x 283.2984pt>
+<figures/CoM y Trajectory walking.png, id=391, 418.9251pt x 283.2984pt>
 File: figures/CoM y Trajectory walking.png Graphic file (type png)
 <use figures/CoM y Trajectory walking.png>
 Package pdftex.def Info: figures/CoM y Trajectory walking.png  used on input line 300.
 (pdftex.def)             Requested size: 197.3295pt x 133.4442pt.
-<figures/CoM z Trajectory walking.png, id=369, 410.4936pt x 283.2984pt>
+<figures/CoM z Trajectory walking.png, id=392, 410.4936pt x 283.2984pt>
 File: figures/CoM z Trajectory walking.png Graphic file (type png)
 <use figures/CoM z Trajectory walking.png>
 Package pdftex.def Info: figures/CoM z Trajectory walking.png  used on input line 307.
 (pdftex.def)             Requested size: 197.3295pt x 136.18484pt.
 
+Overfull \hbox (1.25882pt too wide) in paragraph at lines 285--313
+\OT1/cmr/m/n/12 bob-bing mo-tion of the body dur-ing walk-ing, pro-vid-ing nec-es-sary sta-bil-ity and bal-anc-ing
+ []
+
+
 
 [21 <./figures/contact_forces_still.png>]
-<figures/Feet_z walking.png, id=378, 410.4936pt x 283.2984pt>
+<figures/Feet_z walking.png, id=402, 410.4936pt x 283.2984pt>
 File: figures/Feet_z walking.png Graphic file (type png)
 <use figures/Feet_z walking.png>
 Package pdftex.def Info: figures/Feet_z walking.png  used on input line 317.
 (pdftex.def)             Requested size: 263.11047pt x 181.59132pt.
-<figures/contact_x_walking.png, id=379, 1082.8455pt x 1148.1294pt>
+<figures/contact_x_walking.png, id=403, 1082.8455pt x 1148.1294pt>
 File: figures/contact_x_walking.png Graphic file (type png)
 <use figures/contact_x_walking.png>
 Package pdftex.def Info: figures/contact_x_walking.png  used on input line 327.
@@ -884,7 +959,7 @@ Package pdftex.def Info: figures/contact_x_walking.png  used on input line 327.
 [22 <./figures/CoM x Trajectory walking.png> <./figures/CoM y Trajectory walking.png> <./figures/CoM z Trajectory walking.png> <./figures/Feet_z walking.png>]
 
 [23 <./figures/contact_x_walking.png>]
-<figures/contact_forces_walking.png, id=402, 1076.823pt x 714.2685pt>
+<figures/contact_forces_walking.png, id=426, 1076.823pt x 714.2685pt>
 File: figures/contact_forces_walking.png Graphic file (type png)
 <use figures/contact_forces_walking.png>
 Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 374.
@@ -892,12 +967,12 @@ Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 
 
 
 [24]
-<figures/still.PNG, id=411, 596.82974pt x 357.13425pt>
+<figures/still.PNG, id=435, 596.82974pt x 357.13425pt>
 File: figures/still.PNG Graphic file (type png)
 <use figures/still.PNG>
 Package pdftex.def Info: figures/still.PNG  used on input line 386.
 (pdftex.def)             Requested size: 241.18349pt x 144.31706pt.
-<figures/walking.PNG, id=412, 596.2275pt x 359.54324pt>
+<figures/walking.PNG, id=436, 596.2275pt x 359.54324pt>
 File: figures/walking.PNG Graphic file (type png)
 <use figures/walking.PNG>
 Package pdftex.def Info: figures/walking.PNG  used on input line 394.
@@ -909,7 +984,165 @@ Overfull \hbox (71.00313pt too wide) in paragraph at lines 384--399
 
 )
 
-[25 <./figures/contact_forces_walking.png> <./figures/still.PNG> <./figures/walking.PNG>] (chapters/Conclusion.tex
+[25 <./figures/contact_forces_walking.png> <./figures/still.PNG> <./figures/walking.PNG>] (chapters/New Simulation and Results.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--10
+
+ []
+
+
+Package caption Warning: \label without proper reference on input line 166.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:stilltask' on page 26 undefined on input line 20.
+
+
+Package caption Warning: \label without proper reference on input line 38.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `alg:stilltask' on page 26 undefined on input line 35.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--57
+
+ []
+
+
+
+[26
+
+]
+File: figures/CoM x Trajectory still.png Graphic file (type png)
+<use figures/CoM x Trajectory still.png>
+Package pdftex.def Info: figures/CoM x Trajectory still.png  used on input line 67.
+(pdftex.def)             Requested size: 140.32736pt x 91.53053pt.
+File: figures/CoM y Trajectory still.png Graphic file (type png)
+<use figures/CoM y Trajectory still.png>
+Package pdftex.def Info: figures/CoM y Trajectory still.png  used on input line 74.
+(pdftex.def)             Requested size: 140.32736pt x 93.33745pt.
+File: figures/CoM z Trajectory still.png Graphic file (type png)
+<use figures/CoM z Trajectory still.png>
+Package pdftex.def Info: figures/CoM z Trajectory still.png  used on input line 81.
+(pdftex.def)             Requested size: 140.32736pt x 97.76398pt.
+
+Overfull \hbox (23.7623pt too wide) in paragraph at lines 59--87
+\OT1/cmr/m/n/12 Tra-jec-tory vs So-lu-tion Tra-jec-tory, Con-tact Forces. At the end, in-clude robot rep-re-sen-ta-tion.
+ []
+
+
+
+[27]
+File: figures/Feet_z still.png Graphic file (type png)
+<use figures/Feet_z still.png>
+Package pdftex.def Info: figures/Feet_z still.png  used on input line 93.
+(pdftex.def)             Requested size: 140.32736pt x 105.17755pt.
+<figures/CoM Velocity still.png, id=467, 408.5664pt x 283.2984pt>
+File: figures/CoM Velocity still.png Graphic file (type png)
+<use figures/CoM Velocity still.png>
+Package pdftex.def Info: figures/CoM Velocity still.png  used on input line 100.
+(pdftex.def)             Requested size: 140.32736pt x 97.30144pt.
+<figures/Angular Momentum still.png, id=468, 402.303pt x 283.2984pt>
+File: figures/Angular Momentum still.png Graphic file (type png)
+<use figures/Angular Momentum still.png>
+Package pdftex.def Info: figures/Angular Momentum still.png  used on input line 107.
+(pdftex.def)             Requested size: 140.32736pt x 98.81442pt.
+
+Overfull \hbox (19.21002pt too wide) in paragraph at lines 116--117
+\OT1/cmr/m/n/12 an-gu-lar mo-men-tum com-po-nents ex-hibit no-tice-able de-vi-a-tions from the ref-er-ence, es-pe-cially
+ []
+
+
+Overfull \hbox (25.11552pt too wide) in paragraph at lines 118--119
+[]\OT1/cmr/m/n/12 For the feet po-si-tions, both feet re-main es-sen-tially sta-tion-ary with min-i-mal dis-place-ment,
+ []
+
+File: figures/contact_x_still.png Graphic file (type png)
+<use figures/contact_x_still.png>
+Package pdftex.def Info: figures/contact_x_still.png  used on input line 123.
+(pdftex.def)             Requested size: 350.81174pt x 373.96103pt.
+
+
+[28 <./figures/CoM Velocity still.png> <./figures/Angular Momentum still.png>]
+File: figures/contact_forces_walking.png Graphic file (type png)
+<use figures/contact_forces_walking.png>
+Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 148.
+(pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
+
+Overfull \hbox (6.58627pt too wide) in paragraph at lines 144--152
+\OT1/cmr/m/n/12 (ETA[]-x, ETA[]-y, ETA[]-z) sim-i-larly dis-play os-cil-la-tory pat-terns, with no-tice-able vari-a-tions
+ []
+
+
+
+[29]
+
+[30]
+Overfull \hbox (5.04489pt too wide) in paragraph at lines 163--164
+\OT1/cmr/m/n/12 con-tact se-quence, as pre-sented in Ta-ble 2, de-fines the spe-cific se-quence of double-support
+ []
+
+File: figures/CoM x Trajectory walking.png Graphic file (type png)
+<use figures/CoM x Trajectory walking.png>
+Package pdftex.def Info: figures/CoM x Trajectory walking.png  used on input line 188.
+(pdftex.def)             Requested size: 140.32736pt x 99.95563pt.
+File: figures/CoM y Trajectory walking.png Graphic file (type png)
+<use figures/CoM y Trajectory walking.png>
+Package pdftex.def Info: figures/CoM y Trajectory walking.png  used on input line 195.
+(pdftex.def)             Requested size: 140.32736pt x 94.89366pt.
+File: figures/CoM z Trajectory walking.png Graphic file (type png)
+<use figures/CoM z Trajectory walking.png>
+Package pdftex.def Info: figures/CoM z Trajectory walking.png  used on input line 202.
+(pdftex.def)             Requested size: 140.32736pt x 96.84755pt.
+File: figures/Feet_z walking.png Graphic file (type png)
+<use figures/Feet_z walking.png>
+Package pdftex.def Info: figures/Feet_z walking.png  used on input line 217.
+(pdftex.def)             Requested size: 140.32736pt x 96.84755pt.
+<figures/CoM Velocity walking.png, id=493, 406.1574pt x 283.2984pt>
+File: figures/CoM Velocity walking.png Graphic file (type png)
+<use figures/CoM Velocity walking.png>
+Package pdftex.def Info: figures/CoM Velocity walking.png  used on input line 224.
+(pdftex.def)             Requested size: 140.32736pt x 97.87637pt.
+<figures/Angular Momentum walking.png, id=494, 409.2891pt x 283.2984pt>
+File: figures/Angular Momentum walking.png Graphic file (type png)
+<use figures/Angular Momentum walking.png>
+Package pdftex.def Info: figures/Angular Momentum walking.png  used on input line 231.
+(pdftex.def)             Requested size: 140.32736pt x 97.12852pt.
+File: figures/contact_x_walking.png Graphic file (type png)
+<use figures/contact_x_walking.png>
+Package pdftex.def Info: figures/contact_x_walking.png  used on input line 240.
+(pdftex.def)             Requested size: 350.81174pt x 371.96387pt.
+
+Overfull \hbox (16.03786pt too wide) in paragraph at lines 209--281
+\OT1/cmr/m/n/12 The an-gu-lar mo-men-tum com-po-nents (Lx, Ly, Lz) show no-tice-able os-cil-la-tions, par-tic-u-larly
+ []
+
+
+
+[31]
+File: figures/contact_forces_walking.png Graphic file (type png)
+<use figures/contact_forces_walking.png>
+Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 284.
+(pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
+
+
+[32 <./figures/CoM Velocity walking.png> <./figures/Angular Momentum walking.png>]
+
+[33]
+Overfull \hbox (5.49352pt too wide) in paragraph at lines 291--292
+\OT1/cmr/m/n/12 orig-i-nally pro-vides a com-pre-hen-sive frame-work for sim-u-lat-ing the HRP4 robot, in-clud-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
+
+ []
+
+)
+
+[34]
+
+[35] (chapters/Conclusion.tex
 Underfull \hbox (badness 1117) in paragraph at lines 7--15
 \OT1/cmr/m/n/12 In this project, we im-ple-mented and eval-u-ated the Stiffness-Based Cen-troidal
  []
@@ -926,11 +1159,11 @@ Underfull \hbox (badness 1127) in paragraph at lines 7--15
 
 )
 
-[26
+[36
 
 ] (main.bbl
 
-[27
+[37
 
 ]
 Underfull \hbox (badness 2503) in paragraph at lines 92--97
@@ -944,7 +1177,7 @@ Underfull \hbox (badness 2343) in paragraph at lines 121--127
 
 )
 
-[28] (main.aux (title.aux))
+[38] (main.aux (title.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
@@ -953,21 +1186,24 @@ L3 programming layer <2024-12-25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7494B16E660B7A0F812DA4B2C8D2654D;2692.
+(rerunfilecheck)             Checksum: FD69D1356F32F036F70D38E5FA4A2C3F;3326.
  ) 
 Here is how much of TeX's memory you used:
- 17509 strings out of 473536
- 294567 string characters out of 5714956
- 721464 words of memory out of 5000000
- 40264 multiletter control sequences out of 15000+600000
+ 17595 strings out of 473536
+ 296794 string characters out of 5714956
+ 727464 words of memory out of 5000000
+ 40310 multiletter control sequences out of 15000+600000
  570964 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,19n,82p,1750b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,19n,82p,1750b,717s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\giuse\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (29 pages, 5530694 bytes).
+Output written on main.pdf (39 pages, 6107719 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 154 named destinations out of 1000 (max. 500000)
- 210 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 662 PDF objects out of 1000 (max. 8388607)
+ 187 named destinations out of 1000 (max. 500000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 
