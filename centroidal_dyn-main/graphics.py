@@ -170,7 +170,7 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
             #axs_left[i, j].set_xticklabels(opti.value(dm.SIGMA_L_k[0, :]))
 
             if ref_values is not None:
-                axs_left[i, j].plot(time, ref_values[:, j, 0], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Left Foot", color="r")
+                axs_left[i, j].plot(time, ref_values[:, j, 0], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Right Foot", color="r")
 
 
             axs_left[i, j].set_ylabel(f"{title} ({labels[j]})")
@@ -179,7 +179,7 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
             axs_left[i, j].grid()
 
             # Left Foot (index 1)
-            axs_right[i, j].plot(time, values[:, j, 1], label=f"{title} ({labels[j]}) - Right Foot", color="g")
+            axs_right[i, j].plot(time, values[:, j, 1], label=f"{title} ({labels[j]}) - Left Foot", color="g")
             if N_intervals > 1:
                 axs_right[i, j].set_xticks(time, labels = SIGMA_L_k[1, :], fontsize = 10)
             else:
@@ -193,8 +193,13 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
             axs_right[i, j].grid()
 
     plt.tight_layout()
-    save_path = os.path.join("./plots/", f"contact_forces_{ref_type}.png")  # Save as PNG (change extension if needed)
-    plt.savefig(save_path, dpi=300, bbox_inches="tight")  # High-quality save
+    save_path_left = os.path.join("./plots/", f"contact_forces_{ref_type}_left.png")  # Save as PNG (change extension if needed)
+    save_path_right = os.path.join("./plots/", f"contact_forces_{ref_type}_right.png")  # Save as PNG (change extension if needed)
+    
+    fig_left.savefig(save_path_left, dpi = 300, bbox_inches="tight")
+    fig_right.savefig(save_path_right, dpi = 300, bbox_inches="tight")
+
+    #plt.savefig(save_path, dpi=300, bbox_inches="tight")  # High-quality save
     
     return
 
