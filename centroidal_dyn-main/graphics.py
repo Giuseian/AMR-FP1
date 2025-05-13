@@ -46,7 +46,7 @@ def print_solutions(solutions):
 
 
 def _plt(phases_duration, components, labels, title):
-    time_axis = np.cumsum([0] + phases_duration)[:-1]  # Start at 0
+    print(phases_duration)
     plt.figure(figsize=(6, 4))
     for i in range(len(components)):
         plt.plot(range(len(components[i])), components[i], label=labels[i])
@@ -101,31 +101,22 @@ def plot_components(full_array, phases_duration, ref):
 def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
 
     N_intervals = X.shape[1]  # Number of intervals
-    time = np.arange(N_intervals)  # Create a time vector
+    time = np.arange(N_intervals-1)  # Create a time vector
 
     translational_fs, rotational_etas = [], []
     ref_translational_fs, ref_rotational_etas = [], []
 
-    SIGMA_L_k = np.array(opti.value(dm.SIGMA_L_k)).astype("int")
+    SIGMA_L_k = np.array(opti.value(dm.SIGMA_L_k)).astype("int")[:, :-1]
 
     # Loop to extract the relevant components
-    for k in range(N_intervals):
+    for k in range(N_intervals-1):
         x_k = X[:, k]
         x_ref_k = X_ref[:, k]
-        if N_intervals > 1 and k<U.shape[1]:
-            u_ref_k = U_ref[:,k]
-            u_k = U[:, k]
-        elif N_intervals > 1 and k==U.shape[1]:
-            u_ref_k = U_ref[:,k-1]
-            u_k = U[:, k-1]
-        elif N_intervals == 1:
-            u_ref_k = U_ref[:]
-            u_k = U[:]
-
-        # Decompose state and control
         p_k, q_k, v_k, L_k, t_k, P_L_k, Q_L_k = dm.get_x_comp(x_k)
-        _, _, _, LAMBDA_L_k, R_L_k, ETA_HAT_L_k = dm.get_u_comp(u_k)
         ref_pos, _, ref_vel, ref_for, _, ref_PLk, _ = dm.get_x_comp(x_ref_k)
+        u_k = U[:, k]
+        u_ref_k = U_ref[:, k]
+        _, _, _, LAMBDA_L_k, R_L_k, ETA_HAT_L_k = dm.get_u_comp(u_k)
         _, _, _, ref_LAMBDALk, ref_RLk, ref_ETAHATLk = dm.get_u_comp(u_ref_k)
 
         F_L_k, ETA_L_k = dm.define_contact_wrench(p_k, LAMBDA_L_k, P_L_k, R_L_k, ETA_HAT_L_k)
@@ -135,7 +126,6 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
         rotational_etas.append(ETA_L_k)
         ref_translational_fs.append(F_L_k_ref)
         ref_rotational_etas.append(ref_ETAHATLk)
-
 
     # Convert lists to numpy arrays
     translational_fs = np.array(translational_fs)
@@ -154,8 +144,6 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
         "Translational Forces F": (translational_fs, ref_translational_fs),
         "Rotational Forces ETA": (rotational_etas, ref_rotational_etas),
     }
-
-    time = np.arange(N_intervals)  # Fix the shape issue
 
     for i, (title, (values, ref_values)) in enumerate(properties.items()):
         for j in range(3):  # Loop through x, y, z components
@@ -206,7 +194,6 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
 def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
     
     N_intervals = X.shape[1] # Number of intervals
-    N = N_intervals-1
     time = np.arange(N_intervals)  # Create a time vector
 
     # Extract components for plotting
@@ -217,23 +204,13 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
     for k in range(N_intervals):
         x_k = X[:, k]
         x_ref_k = X_ref[:, k]
-        if N > 1 and N<U.shape[1]:
-            u_k = U[:,k]
-            u_k_ref = U_ref[:,k]
-        elif N == 1:
-            u_k = U[:]
-            u_k_ref = U_ref[:]
-        else:
-            u_k = U[:,k-1]
-            u_k_ref = U_ref[:,k-1]
-        
-        # Decompose state and control
-        p_k, q_k, v_k, L_k, t_k, P_L_k, Q_L_k = dm.get_x_comp(x_k)
-        _, V_L_k, _, _, _, _ = dm.get_u_comp(u_k)
-            
+        p_k, q_k, v_k, L_k, t_k, P_L_k, Q_L_k = dm.get_x_comp(x_k)   
         ref_pos, _, ref_vel, ref_for, _, ref_PLk, _ = dm.get_x_comp(x_ref_k)
-        _, ref_V_L_k, _, _, _, _ = dm.get_u_comp(u_k_ref)
-        
+        if k < U.shape[1]:
+            u_k = U[:,k]
+            _, V_L_k, _, _, _, _ = dm.get_u_comp(u_k)
+            u_k_ref = U_ref[:,k]
+            _, ref_V_L_k, _, _, _, _ = dm.get_u_comp(u_k_ref)
         
         positions.append(p_k)
         velocities.append(v_k)

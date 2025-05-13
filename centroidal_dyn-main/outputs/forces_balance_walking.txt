@@ -1,6 +1,6 @@
 gravity_force: [0, 0, 98.1]
 0-th interval
-right foot x: 0.31864 and left foot x: 0.313525
+right foot x: 0.31864 and left foot x: 0.313524
 right foot y: 9.99296 and left foot y: -8.82171
 right foot z: 49.0644 and left foot z: 49.0531
 SIGMA_L_k: [0. 0.] and sum_forces: [0.632165, 1.17125, 98.1175]

@@ -24,7 +24,7 @@ class StiffnessBasedCentroidalDynamics:
         self.g = [0,0,9.81]
         self.mu = 0.5
         self.mu_z = 0.6
-        self.tau_min = 0.4
+        self.tau_min = 0.1
         self.tau_max = 10
         self.m = 10
         self.LAMBDA_max = 1000
@@ -471,7 +471,7 @@ class StiffnessBasedCentroidalDynamics:
             x_next = self.update_dynamics(x_k, u_k)
             #self.constraint_box(p_k, P_L_k)
             self.opti.subject_to(X[:, k + 1] == x_next) # dynamic constraint
-            self.opti.subject_to(tau_k > 0) # duration constraint
+            self.opti.subject_to(tau_k > self.tau_min) # duration constraint
             #self.opti.subject_to(v_k[0] >= 0)
             if self.non_slip:
                 F_L, ETA_L = self.define_contact_wrench(p_k, LAMBDA_L_k, P_L_k, R_L_k, ETA_HAT_L_k)
