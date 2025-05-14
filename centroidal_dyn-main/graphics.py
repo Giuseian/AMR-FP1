@@ -46,7 +46,19 @@ def print_solutions(solutions):
 
 
 def _plt(phases_duration, components, labels, title):
-    print(phases_duration)
+    label2unit_dict = {
+        "p_x": "meters",
+        "p_y": "meters",
+        "p_z": "meters",
+        "v_x": "m/s",
+        "v_y": "m/s",
+        "v_z": "m/s",
+        "L_x": "kg*m^2/s",
+        "L_y": "kg*m^2/s",
+        "L_z": "kg*m^2/s",
+        "rf_z": "meters",
+        "lf_z": "meters"
+    }
     plt.figure(figsize=(6, 4))
     for i in range(len(components)):
         plt.plot(range(len(components[i])), components[i], label=labels[i])
@@ -60,6 +72,8 @@ def _plt(phases_duration, components, labels, title):
     plt.xlabel("Time Steps")
     plt.ylabel("Values")
     plt.title(title)
+    #add units to y-axis label
+    plt.ylabel(f"{label2unit_dict.get(labels[0], '')}")
     plt.legend()
     plt.grid(True)
     save_path = os.path.join("./plots/", f"{title}.png")  # Save as PNG (change extension if needed)
