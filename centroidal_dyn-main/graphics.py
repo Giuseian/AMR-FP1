@@ -59,7 +59,7 @@ def _plt(phases_duration, components, labels, title):
         "rf_z": "z (m)",
         "lf_z": "z (m)",
     }
-    plt.figure(figsize=(15, 10))
+    plt.figure(figsize=(6, 4))
     for i in range(len(components)):
         plt.plot(range(len(components[i])), components[i], label=labels[i])
 
@@ -175,9 +175,9 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
 
             #set y label (F or ETA and unit)
             if title == "Translational Forces F":
-                axs_right[i, j].set_ylabel(f"{title} ({labels[j]}) (N)")
+                axs_right[i, j].set_ylabel(f"F_{labels[j]} (N)")
             elif title == "Rotational Forces ETA":
-                axs_right[i, j].set_ylabel(f"{title} ({labels[j]}) (N*m)")
+                axs_right[i, j].set_ylabel(f"ETA_{labels[j]} (N*m)")
             axs_right[i, j].set_title(f"{title} - {labels[j]} (Right Foot)")
             axs_right[i, j].legend()
             axs_right[i, j].grid()
@@ -193,9 +193,9 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
 
             #set y label (F or ETA and unit)
             if title == "Translational Forces F":
-                axs_left[i, j].set_ylabel(f"{title} ({labels[j]}) (N)")
+                axs_left[i, j].set_ylabel(f"F_{labels[j]} (N)")
             elif title == "Rotational Forces ETA":
-                axs_left[i, j].set_ylabel(f"{title} ({labels[j]}) (N*m)")
+                axs_left[i, j].set_ylabel(f"ETA_{labels[j]} (N*m)")
             axs_left[i, j].set_title(f"{title} - {labels[j]} (Left Foot)")
             axs_left[i, j].legend()
             axs_left[i, j].grid()
