@@ -406,82 +406,132 @@ INPUT chapters\New Simulation and Results.tex
 INPUT .\chapters\New Simulation and Results.tex
 INPUT .\chapters\New Simulation and Results.tex
 INPUT chapters\New Simulation and Results.tex
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\CoM Velocity still.png
-INPUT .\figures\CoM Velocity still.png
-INPUT figures\CoM Velocity still.png
-INPUT .\figures\CoM Velocity still.png
-INPUT .\figures\CoM Velocity still.png
-INPUT .\figures\CoM Velocity still.png
-INPUT .\figures\CoM Velocity still.png
-INPUT .\figures\Angular Momentum still.png
-INPUT .\figures\Angular Momentum still.png
-INPUT figures\Angular Momentum still.png
-INPUT .\figures\Angular Momentum still.png
-INPUT .\figures\Angular Momentum still.png
-INPUT .\figures\Angular Momentum still.png
-INPUT .\figures\Angular Momentum still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\CoM Velocity walking.png
-INPUT .\figures\CoM Velocity walking.png
-INPUT figures\CoM Velocity walking.png
-INPUT .\figures\CoM Velocity walking.png
-INPUT .\figures\CoM Velocity walking.png
-INPUT .\figures\CoM Velocity walking.png
-INPUT .\figures\CoM Velocity walking.png
-INPUT .\figures\Angular Momentum walking.png
-INPUT .\figures\Angular Momentum walking.png
-INPUT figures\Angular Momentum walking.png
-INPUT .\figures\Angular Momentum walking.png
-INPUT .\figures\Angular Momentum walking.png
-INPUT .\figures\Angular Momentum walking.png
-INPUT .\figures\Angular Momentum walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_still.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_still_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM y Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM z Trajectory walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Feet_z walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM Velocity walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\Angular Momentum walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_x_walking.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_right.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
+INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\contact_forces_walking_left.png
 INPUT .\chapters\Conclusion.tex
 INPUT .\chapters\Conclusion.tex
 INPUT chapters\Conclusion.tex
