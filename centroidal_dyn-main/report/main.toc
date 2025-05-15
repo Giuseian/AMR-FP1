@@ -33,9 +33,9 @@
 \contentsline {subsection}{\numberline {6.2}Still Task}{28}{subsection.6.2}%
 \contentsline {paragraph}{Reference Trajectory Generation}{28}{section*.59}%
 \contentsline {paragraph}{Simulation Results}{29}{section*.60}%
-\contentsline {subsection}{\numberline {6.3}Walking Task}{31}{subsection.6.3}%
-\contentsline {paragraph}{Reference Trajectory Generation}{31}{section*.67}%
-\contentsline {paragraph}{Simulation Results}{32}{section*.69}%
-\contentsline {paragraph}{Simulation}{36}{section*.76}%
-\contentsline {section}{\numberline {7}Conclusion}{37}{section.7}%
-\contentsline {section}{References}{38}{section*.77}%
+\contentsline {subsection}{\numberline {6.3}Walking Task}{32}{subsection.6.3}%
+\contentsline {paragraph}{Reference Trajectory Generation}{34}{table.caption.69}%
+\contentsline {paragraph}{Simulation Results}{34}{section*.70}%
+\contentsline {paragraph}{Simulation}{37}{section*.77}%
+\contentsline {section}{\numberline {7}Conclusion}{39}{section.7}%
+\contentsline {section}{References}{40}{section*.78}%

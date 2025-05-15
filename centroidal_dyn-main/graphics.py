@@ -53,9 +53,9 @@ def _plt(phases_duration, components, labels, title):
         "v_x": "v (m/s)",
         "v_y": "v (m/s)",
         "v_z": "v (m/s)",
-        "L_x": "L (kg*m^2/s)",
-        "L_y": "L (kg*m^2/s)",
-        "L_z": "L (kg*m^2/s)",
+        "L_x": "L_x (kg*m^2/s)",
+        "L_y": "L_y (kg*m^2/s)",
+        "L_z": "L_z (kg*m^2/s)",
         "rf_z": "z (m)",
         "lf_z": "z (m)",
     }
@@ -191,7 +191,11 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
             if ref_values is not None:
                 axs_left[i, j].plot(time, ref_values[:, j, 1], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Left Foot", color="orange")
 
-            axs_left[i, j].set_ylabel(f"{title} ({labels[j]})")
+            #set y label (F or ETA and unit)
+            if title == "Translational Forces F":
+                axs_left[i, j].set_ylabel(f"{title} ({labels[j]}) (N)")
+            elif title == "Rotational Forces ETA":
+                axs_left[i, j].set_ylabel(f"{title} ({labels[j]}) (N*m)")
             axs_left[i, j].set_title(f"{title} - {labels[j]} (Left Foot)")
             axs_left[i, j].legend()
             axs_left[i, j].grid()

@@ -174,11 +174,10 @@ To conclude our analysis of the still task, Figures \ref{fig:contact_forces_stil
     \caption{Trajectory vs Reference Forces Left Foot - Still Task}
     \label{fig:contact_forces_still_left}
 \end{figure}
-
-%\paragraph{}   
+\newpage
 \subsection{Walking Task}
-Generalities about the walking task. 
-\paragraph{Reference Trajectory Generation}
+Generalities about the walking task.
+
 In the walking task, the trajectory is designed to simulate a natural walking pattern by coordinating the movements of the feet and the Center of Mass (CoM) through a sequence of double-support and single-support phases. During double-support phases, when both feet are in contact with the ground, the CoM remains stationary, providing stability. Movement along the X-axis occurs only during single-support phases, where one foot is lifted and the other remains grounded.
 
 The CoM position update depends on the preceding phase. If the previous phase was double-support, the CoM remains at its current position. However, if the previous phase was single-support, the CoM advances by a specified displacement, ensuring consistent forward movement and balance.
@@ -200,6 +199,77 @@ Furthermore, the X-coordinate of the moving foot is updated alternately, dependi
     \end{tabular}
     \caption{Contact sequence - Walking task}
 \end{table}
+
+
+
+\paragraph{Reference Trajectory Generation}
+\begin{algorithm}[H]
+\caption{Reference Trajectory Generation - Walking Task}
+\label{alg:walking_task}
+\textbf{Input:} Number of effectors ($n_e$), Number of timesteps ($N$), Contact sequence ($\sigma$) \\
+\textbf{Output:} Reference state matrix ($X_{ref}$), Reference control matrix ($U_{ref}$)
+
+\begin{algorithmic}[1]
+\State \textbf{Initialize:}
+\State Set $time_k \gets 0$
+\State Initialize $X_{ref}$ and $U_{ref}$ as zero matrices of appropriate sizes
+\State Define initial CoM position, orientation, and velocity
+\State Define initial foot positions and orientations
+
+\State \textbf{Configure Contact Phases:}
+\For{$t = 1$ to $N$}
+    \State Extract right and left contact states from $\sigma$
+    \State Determine phase duration and contact forces:
+    \If{right foot in swing ($right = -1$, $left = 0$)}
+        \State $phase\_duration \gets 1$
+        \State $\lambda_{right} \gets 0$
+        \State $\lambda_{left} \gets \sqrt{\frac{9.81}{0.5}}$
+    \ElsIf{left foot in swing ($left = -1$, $right = 0$)}
+        \State $phase\_duration \gets 1$
+        \State $\lambda_{left} \gets 0$
+        \State $\lambda_{right} \gets \sqrt{\frac{9.81}{0.5}}$
+    \Else
+        \State $phase\_duration \gets 1$
+        \State $\lambda_{right}, \lambda_{left} \gets \sqrt{9.81}$
+    \EndIf
+    \State Store $phase\_duration$ and contact forces in $U_{ref}$
+\EndFor
+
+\State \textbf{Update States:}
+\For{$t = 1$ to $N$}
+    \State Extract current contact states
+    \State Determine velocities and displacements based on transitions (see Table \ref{tab:logic_walking})
+    \State Update CoM position and velocity in $X_{ref}$
+    \State Update foot positions based on calculated foot velocities
+    \State Update $time_k$ based on $phase\_duration$
+\EndFor
+
+\State \textbf{Return:} $X_{ref}, U_{ref}$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\caption{Detailed Logic for Setting Foot/CoM Velocities and Displacements}
+\label{tab:logic_walking}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Transition} & \textbf{CoM Velocity (x, y)} & \textbf{Foot Velocity (x, z)} & \textbf{Displacement (x, y, z)} \\
+\hline
+Right = -1, prev = 0 & (0, 0.07) & (0, 0) & (0, 0.07, 0) \\
+Left = -1, prev = 0 & (0, -0.07) & (0, 0) & (0, -0.07, 0) \\
+Right = 0, prev = -1 & (0.2, -0.07) & (0.1, 0) & (0.1, -0.07, 0) \\
+Left = 0, prev = -1 & (0.2, 0.07) & (0.1, 0) & (0.1, 0.07, 0) \\
+Default (both feet in contact) & (0.1, 0) & (0, 0) & (0.1, 0, 0) \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
 
 \paragraph{Simulation Results}
 Say something about the walking task and the results here. \\ 
