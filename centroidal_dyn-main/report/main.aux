@@ -62,6 +62,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}Trajectory Optimization}{10}{section.4}\protected@file@percent }
 \newlabel{sec:formulation}{{4}{10}{Trajectory Optimization}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}State Equation}{10}{subsection.4.1}\protected@file@percent }
+\newlabel{eq:state_input}{{7}{10}{State Equation}{equation.7}{}}
 \@writefile{toc}{\contentsline {paragraph}{Equations Update}{10}{section*.18}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Formulation of Optimal Control Problem}{10}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Task Related Cost}{11}{section*.19}\protected@file@percent }
@@ -129,66 +130,71 @@
 \@writefile{toc}{\contentsline {section}{\numberline {6}New Simulation and Results}{26}{section.6}\protected@file@percent }
 \newlabel{sec:newsimulation}{{6}{26}{New Simulation and Results}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Implementation Details}{26}{subsection.6.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Weight configuration for state components.}}{26}{table.caption.54}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Weight configuration for state components.}}{26}{table.caption.55}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Weight configuration for state components.}}{26}{table.caption.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Static Balance Task}{27}{subsection.6.2}\protected@file@percent }
-\newlabel{tab:stilltask}{{\caption@xref {tab:stilltask}{ on input line 58}}{27}{Static Balance Task}{table.caption.57}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Contact sequence for still task with foot column}}{27}{table.caption.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Reference Trajectory Generation}{27}{section*.58}\protected@file@percent }
-\newlabel{alg:stilltask}{{\caption@xref {alg:stilltask}{ on input line 74}}{28}{Reference Trajectory Generation}{section*.58}{}}
+\@writefile{toc}{\contentsline {paragraph}{Parameter Initialization and Dynamics}{26}{section*.54}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Weight configuration for state components - Still and Walking Tasks}}{27}{table.caption.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Optimization Framework}{27}{section*.56}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Optimization parameters - Still and Walking Tasks}}{28}{table.caption.57}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Still Task}{28}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Contact sequence - Still Task}}{28}{table.caption.58}\protected@file@percent }
+\newlabel{tab:stilltask}{{11}{28}{Contact sequence - Still Task}{table.caption.58}{}}
+\@writefile{toc}{\contentsline {paragraph}{Reference Trajectory Generation}{28}{section*.59}\protected@file@percent }
 \@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Reference Trajectory Still Task Generation}}{28}{algorithm.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Simulation Results}{28}{section*.59}\protected@file@percent }
-\newlabel{fig:sub1}{{11a}{28}{CoM x component}{figure.caption.60}{}}
-\newlabel{sub@fig:sub1}{{a}{28}{CoM x component}{figure.caption.60}{}}
-\newlabel{fig:sub2}{{11b}{28}{CoM y component}{figure.caption.60}{}}
-\newlabel{sub@fig:sub2}{{b}{28}{CoM y component}{figure.caption.60}{}}
-\newlabel{fig:sub3}{{11c}{28}{CoM z component}{figure.caption.60}{}}
-\newlabel{sub@fig:sub3}{{c}{28}{CoM z component}{figure.caption.60}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Evolution of CoM Position - Still Task}}{28}{figure.caption.60}\protected@file@percent }
-\newlabel{fig:threeimages}{{11}{28}{Evolution of CoM Position - Still Task}{figure.caption.60}{}}
-\newlabel{fig:sub1}{{12a}{29}{Feet along z axis}{figure.caption.61}{}}
-\newlabel{sub@fig:sub1}{{a}{29}{Feet along z axis}{figure.caption.61}{}}
-\newlabel{fig:sub2}{{12b}{29}{CoM Velocity}{figure.caption.61}{}}
-\newlabel{sub@fig:sub2}{{b}{29}{CoM Velocity}{figure.caption.61}{}}
-\newlabel{fig:sub3}{{12c}{29}{Angular Momentum}{figure.caption.61}{}}
-\newlabel{sub@fig:sub3}{{c}{29}{Angular Momentum}{figure.caption.61}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Feet, Com Velocity and Angular Momentum - Still Task}}{29}{figure.caption.61}\protected@file@percent }
-\newlabel{fig:threeimages}{{12}{29}{Feet, Com Velocity and Angular Momentum - Still Task}{figure.caption.61}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Summary of Forces and Foot Positions per Interval - Still Task}}{29}{table.caption.63}\protected@file@percent }
-\newlabel{tab:data_table}{{13}{29}{Summary of Forces and Foot Positions per Interval - Still Task}{table.caption.63}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Trajectory vs Reference - Still Task}}{30}{figure.caption.62}\protected@file@percent }
-\newlabel{fig:yourlabel}{{13}{30}{Trajectory vs Reference - Still Task}{figure.caption.62}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Trajectory vs Reference Forces - Still Task}}{31}{figure.caption.64}\protected@file@percent }
-\newlabel{fig:contact_forces_walking}{{14}{31}{Trajectory vs Reference Forces - Still Task}{figure.caption.64}{}}
+\newlabel{alg:stilltask}{{3}{28}{Reference Trajectory Still Task Generation}{algorithm.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Simulation Results}{29}{section*.60}\protected@file@percent }
+\newlabel{fig:com_x_still}{{11a}{29}{CoM x component}{figure.caption.61}{}}
+\newlabel{sub@fig:com_x_still}{{a}{29}{CoM x component}{figure.caption.61}{}}
+\newlabel{fig:com_y_still}{{11b}{29}{CoM y component}{figure.caption.61}{}}
+\newlabel{sub@fig:com_y_still}{{b}{29}{CoM y component}{figure.caption.61}{}}
+\newlabel{fig:com_z_still}{{11c}{29}{CoM z component}{figure.caption.61}{}}
+\newlabel{sub@fig:com_z_still}{{c}{29}{CoM z component}{figure.caption.61}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Evolution of CoM Position - Still Task}}{29}{figure.caption.61}\protected@file@percent }
+\newlabel{fig:com_still}{{11}{29}{Evolution of CoM Position - Still Task}{figure.caption.61}{}}
+\newlabel{fig:feet_z_still}{{12a}{29}{Feet along z axis}{figure.caption.62}{}}
+\newlabel{sub@fig:feet_z_still}{{a}{29}{Feet along z axis}{figure.caption.62}{}}
+\newlabel{fig:com_velocity_still}{{12b}{29}{CoM Velocity}{figure.caption.62}{}}
+\newlabel{sub@fig:com_velocity_still}{{b}{29}{CoM Velocity}{figure.caption.62}{}}
+\newlabel{fig:angular_momentum_still}{{12c}{29}{Angular Momentum}{figure.caption.62}{}}
+\newlabel{sub@fig:angular_momentum_still}{{c}{29}{Angular Momentum}{figure.caption.62}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Feet, Com Velocity and Angular Momentum - Still Task}}{29}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:three_still}{{12}{29}{Feet, Com Velocity and Angular Momentum - Still Task}{figure.caption.62}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Trajectory vs Reference - Still Task}}{30}{figure.caption.63}\protected@file@percent }
+\newlabel{fig:comparison_still}{{13}{30}{Trajectory vs Reference - Still Task}{figure.caption.63}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Summary of Forces and Foot Positions per Interval - Still Task}}{31}{table.caption.64}\protected@file@percent }
+\newlabel{tab:forces_still}{{12}{31}{Summary of Forces and Foot Positions per Interval - Still Task}{table.caption.64}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Trajectory vs Reference Forces Right Foot - Still Task}}{31}{figure.caption.65}\protected@file@percent }
+\newlabel{fig:contact_forces_still_right}{{14}{31}{Trajectory vs Reference Forces Right Foot - Still Task}{figure.caption.65}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Walking Task}{31}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Reference Trajectory Generation}{31}{section*.65}\protected@file@percent }
-\newlabel{tab:stilltask}{{\caption@xref {tab:stilltask}{ on input line 202}}{32}{Reference Trajectory Generation}{table.caption.66}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Contact sequence for still task with foot column}}{32}{table.caption.66}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Simulation Results}{32}{section*.67}\protected@file@percent }
-\newlabel{fig:sub1}{{15a}{32}{CoM x component}{figure.caption.68}{}}
-\newlabel{sub@fig:sub1}{{a}{32}{CoM x component}{figure.caption.68}{}}
-\newlabel{fig:sub2}{{15b}{32}{CoM y component}{figure.caption.68}{}}
-\newlabel{sub@fig:sub2}{{b}{32}{CoM y component}{figure.caption.68}{}}
-\newlabel{fig:sub3}{{15c}{32}{CoM z component}{figure.caption.68}{}}
-\newlabel{sub@fig:sub3}{{c}{32}{CoM z component}{figure.caption.68}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Evolution of CoM Position - Walking Task}}{32}{figure.caption.68}\protected@file@percent }
-\newlabel{fig:threeimages}{{15}{32}{Evolution of CoM Position - Walking Task}{figure.caption.68}{}}
-\newlabel{fig:sub1}{{16a}{33}{Feet along z axis}{figure.caption.69}{}}
-\newlabel{sub@fig:sub1}{{a}{33}{Feet along z axis}{figure.caption.69}{}}
-\newlabel{fig:sub2}{{16b}{33}{CoM Velocity}{figure.caption.69}{}}
-\newlabel{sub@fig:sub2}{{b}{33}{CoM Velocity}{figure.caption.69}{}}
-\newlabel{fig:sub3}{{16c}{33}{Angular Momentum}{figure.caption.69}{}}
-\newlabel{sub@fig:sub3}{{c}{33}{Angular Momentum}{figure.caption.69}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Feet, Com Velocity and Angular Momentum - Walking Task}}{33}{figure.caption.69}\protected@file@percent }
-\newlabel{fig:threeimages}{{16}{33}{Feet, Com Velocity and Angular Momentum - Walking Task}{figure.caption.69}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Trajectory vs Reference - Walking Task}}{34}{figure.caption.70}\protected@file@percent }
-\newlabel{fig:yourlabel}{{17}{34}{Trajectory vs Reference - Walking Task}{figure.caption.70}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Summary of Forces and Foot Positions per Interval - Walking Task}}{35}{table.caption.71}\protected@file@percent }
-\newlabel{tab:data_table}{{15}{35}{Summary of Forces and Foot Positions per Interval - Walking Task}{table.caption.71}{}}
-\@writefile{toc}{\contentsline {paragraph}{Simulation}{35}{section*.73}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Trajectory vs Reference Forces - Walking Task}}{36}{figure.caption.72}\protected@file@percent }
-\newlabel{fig:contact_forces_walking}{{18}{36}{Trajectory vs Reference Forces - Walking Task}{figure.caption.72}{}}
+\@writefile{toc}{\contentsline {paragraph}{Reference Trajectory Generation}{31}{section*.67}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Trajectory vs Reference Forces Left Foot - Still Task}}{32}{figure.caption.66}\protected@file@percent }
+\newlabel{fig:contact_forces_still_left}{{15}{32}{Trajectory vs Reference Forces Left Foot - Still Task}{figure.caption.66}{}}
+\@writefile{toc}{\contentsline {paragraph}{Simulation Results}{32}{section*.69}\protected@file@percent }
+\newlabel{tab:walkingtask}{{\caption@xref {tab:walkingtask}{ on input line 191}}{33}{Reference Trajectory Generation}{table.caption.68}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Contact sequence - Walking task}}{33}{table.caption.68}\protected@file@percent }
+\newlabel{fig:sub1}{{16a}{33}{CoM x component}{figure.caption.70}{}}
+\newlabel{sub@fig:sub1}{{a}{33}{CoM x component}{figure.caption.70}{}}
+\newlabel{fig:sub2}{{16b}{33}{CoM y component}{figure.caption.70}{}}
+\newlabel{sub@fig:sub2}{{b}{33}{CoM y component}{figure.caption.70}{}}
+\newlabel{fig:sub3}{{16c}{33}{CoM z component}{figure.caption.70}{}}
+\newlabel{sub@fig:sub3}{{c}{33}{CoM z component}{figure.caption.70}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Evolution of CoM Position - Walking Task}}{33}{figure.caption.70}\protected@file@percent }
+\newlabel{fig:threeimages}{{16}{33}{Evolution of CoM Position - Walking Task}{figure.caption.70}{}}
+\newlabel{fig:sub1}{{17a}{34}{Feet along z axis}{figure.caption.71}{}}
+\newlabel{sub@fig:sub1}{{a}{34}{Feet along z axis}{figure.caption.71}{}}
+\newlabel{fig:sub2}{{17b}{34}{CoM Velocity}{figure.caption.71}{}}
+\newlabel{sub@fig:sub2}{{b}{34}{CoM Velocity}{figure.caption.71}{}}
+\newlabel{fig:sub3}{{17c}{34}{Angular Momentum}{figure.caption.71}{}}
+\newlabel{sub@fig:sub3}{{c}{34}{Angular Momentum}{figure.caption.71}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Feet, Com Velocity and Angular Momentum - Walking Task}}{34}{figure.caption.71}\protected@file@percent }
+\newlabel{fig:threeimages}{{17}{34}{Feet, Com Velocity and Angular Momentum - Walking Task}{figure.caption.71}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Summary of Forces and Foot Positions per Interval - Walking Task}}{34}{table.caption.73}\protected@file@percent }
+\newlabel{tab:data_table}{{14}{34}{Summary of Forces and Foot Positions per Interval - Walking Task}{table.caption.73}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Trajectory vs Reference - Walking Task}}{35}{figure.caption.72}\protected@file@percent }
+\newlabel{fig:yourlabel}{{18}{35}{Trajectory vs Reference - Walking Task}{figure.caption.72}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Trajectory vs Reference Forces - Walking Task}}{35}{figure.caption.74}\protected@file@percent }
+\newlabel{fig:contact_forces_walking_right}{{19}{35}{Trajectory vs Reference Forces - Walking Task}{figure.caption.74}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Trajectory vs Reference Forces - Walking Task}}{36}{figure.caption.75}\protected@file@percent }
+\newlabel{fig:contact_forces_walking_left}{{20}{36}{Trajectory vs Reference Forces - Walking Task}{figure.caption.75}{}}
+\@writefile{toc}{\contentsline {paragraph}{Simulation}{36}{section*.76}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{37}{section.7}\protected@file@percent }
 \newlabel{sec:conclusion}{{7}{37}{Conclusion}{section.7}{}}
 \bibstyle{unsrt}
@@ -205,7 +211,7 @@
 \bibcite{englsberger2017smooth}{10}
 \bibcite{kamioka2018simultaneous}{11}
 \bibcite{tedrake2015closed}{12}
-\@writefile{toc}{\contentsline {section}{References}{38}{section*.74}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{38}{section*.77}\protected@file@percent }
 \bibcite{kajita2003biped}{13}
 \bibcite{murooka2022centroidal}{14}
 \bibcite{kuindersma2016optimization}{15}
