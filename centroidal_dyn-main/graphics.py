@@ -47,19 +47,19 @@ def print_solutions(solutions):
 
 def _plt(phases_duration, components, labels, title):
     label2unit_dict = {
-        "p_x": "meters",
-        "p_y": "meters",
-        "p_z": "meters",
-        "v_x": "m/s",
-        "v_y": "m/s",
-        "v_z": "m/s",
-        "L_x": "kg*m^2/s",
-        "L_y": "kg*m^2/s",
-        "L_z": "kg*m^2/s",
-        "rf_z": "meters",
-        "lf_z": "meters"
+        "p_x": "x (m)",
+        "p_y": "y (m)",
+        "p_z": "z (m)",
+        "v_x": "v (m/s)",
+        "v_y": "v (m/s)",
+        "v_z": "v (m/s)",
+        "L_x": "L (kg*m^2/s)",
+        "L_y": "L (kg*m^2/s)",
+        "L_z": "L (kg*m^2/s)",
+        "rf_z": "z (m)",
+        "lf_z": "z (m)",
     }
-    plt.figure(figsize=(6, 4))
+    plt.figure(figsize=(15, 10))
     for i in range(len(components)):
         plt.plot(range(len(components[i])), components[i], label=labels[i])
 
@@ -148,7 +148,6 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
     ref_translational_fs = np.array(ref_translational_fs)
     ref_rotational_etas = np.array(ref_rotational_etas)
 
-
     fig_left, axs_left = plt.subplots(2, 3, figsize=(15, 10))  # Left foot plots
     fig_right, axs_right = plt.subplots(2, 3, figsize=(15, 10))  # Right foot plots
 
@@ -163,36 +162,39 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
         for j in range(3):  # Loop through x, y, z components
 
             # Right Foot (index 0)
-            axs_left[i, j].plot(time, values[:, j, 0], label=f"{title} ({labels[j]}) - Right Foot", color="b")
+            axs_right[i, j].plot(time, values[:, j, 0], label=f"{title} ({labels[j]}) - Right Foot", color="b")
 
             if N_intervals > 1:
-                axs_left[i, j].set_xticks(time, labels = SIGMA_L_k[0, :], fontsize = 10)
+                axs_right[i, j].set_xticks(time, labels = SIGMA_L_k[0, :], fontsize = 10)
             else:
-                axs_left[i, j].set_xticks(time, labels = np.array(SIGMA_L_k), fontsize = 10)
+                axs_right[i, j].set_xticks(time, labels = np.array(SIGMA_L_k), fontsize = 10)
             #axs_left[i, j].set_xticklabels(opti.value(dm.SIGMA_L_k[0, :]))
 
             if ref_values is not None:
-                axs_left[i, j].plot(time, ref_values[:, j, 0], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Right Foot", color="r")
+                axs_right[i, j].plot(time, ref_values[:, j, 0], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Right Foot", color="r")
 
-
-            axs_left[i, j].set_ylabel(f"{title} ({labels[j]})")
-            axs_left[i, j].set_title(f"{title} - {labels[j]} (Right Foot)")
-            axs_left[i, j].legend()
-            axs_left[i, j].grid()
+            #set y label (F or ETA and unit)
+            if title == "Translational Forces F":
+                axs_right[i, j].set_ylabel(f"{title} ({labels[j]}) (N)")
+            elif title == "Rotational Forces ETA":
+                axs_right[i, j].set_ylabel(f"{title} ({labels[j]}) (N*m)")
+            axs_right[i, j].set_title(f"{title} - {labels[j]} (Right Foot)")
+            axs_right[i, j].legend()
+            axs_right[i, j].grid()
 
             # Left Foot (index 1)
-            axs_right[i, j].plot(time, values[:, j, 1], label=f"{title} ({labels[j]}) - Left Foot", color="g")
+            axs_left[i, j].plot(time, values[:, j, 1], label=f"{title} ({labels[j]}) - Left Foot", color="g")
             if N_intervals > 1:
-                axs_right[i, j].set_xticks(time, labels = SIGMA_L_k[1, :], fontsize = 10)
+                axs_left[i, j].set_xticks(time, labels = SIGMA_L_k[1, :], fontsize = 10)
             else:
                 axs_left[i, j].set_xticks(time, labels = np.array(SIGMA_L_k), fontsize = 10)
             if ref_values is not None:
-                axs_right[i, j].plot(time, ref_values[:, j, 1], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Left Foot", color="orange")
+                axs_left[i, j].plot(time, ref_values[:, j, 1], linestyle="dashed", label=f"Ref {title} ({labels[j]}) - Left Foot", color="orange")
 
-            axs_right[i, j].set_ylabel(f"{title} ({labels[j]})")
-            axs_right[i, j].set_title(f"{title} - {labels[j]} (Left Foot)")
-            axs_right[i, j].legend()
-            axs_right[i, j].grid()
+            axs_left[i, j].set_ylabel(f"{title} ({labels[j]})")
+            axs_left[i, j].set_title(f"{title} - {labels[j]} (Left Foot)")
+            axs_left[i, j].legend()
+            axs_left[i, j].grid()
 
     plt.tight_layout()
     save_path_left = os.path.join("./plots/", f"contact_forces_{ref_type}_left.png")  # Save as PNG (change extension if needed)
@@ -265,7 +267,12 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
             ax_row[j].plot(time, values[:, j], label=f"{title}_{labels[j]}")
             if ref_values is not None:
                 ax_row[j].plot(time, ref_values[:, j], color='r', linestyle='--', label=f"ref_{title}_{labels[j]}")
-            ax_row[j].set_ylabel(f"{title} ({labels[j]})")
+            if title == "Angular Momentum":
+                ax_row[j].set_ylabel(f"{labels[j]} (kg*m^2/s)")
+            elif title == "CoM Position":
+                ax_row[j].set_ylabel(f"{labels[j]} (m)")
+            elif title == "CoM Velocity":
+                ax_row[j].set_ylabel(f"{labels[j]} (m/s)")
             ax_row[j].set_title(f"{title} - {labels[j]}")
             ax_row[j].legend()
             ax_row[j].grid()
