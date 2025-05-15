@@ -17,18 +17,18 @@ To formally describe the evolution of the system over discrete time intervals, w
 \mathbf{L}_k \\
 \mathbf{l}_k \\
 t_k \\
-\{\mathbf{q}_{l,k}\}_{l=1,\ldots,n_c} \\
-\{\mathbf{q}_{u,k}\}_{l=1,\ldots,n_c}
+\{\mathbf{q}_{l,k}\}_{l=1,\ldots,n_e} \\
+\{\mathbf{q}_{l,k}\}_{l=1,\ldots,n_e}
 \end{bmatrix}
 \hspace{4cm}
 \mathbf{u}_k =
 \begin{bmatrix}
 \tau_k \\
-\{\mathbf{v}_{l,k}\}_{l=1}^{n_c} \\
-\{\boldsymbol{\omega}_{l,k}\}_{l=1}^{n_c} \\
-\{\lambda_{l,k}\}_{l=1}^{n_c} \\
-\{\mathbf{r}_{l,k}\}_{l=1}^{n_c} \\
-\{\boldsymbol{\eta}_{l,k}\}_{l=1}^{n_c}
+\{\mathbf{v}_{l,k}\}_{l=1}^{n_e} \\
+\{\boldsymbol{\omega}_{l,k}\}_{l=1}^{n_e} \\
+\{\lambda_{l,k}\}_{l=1}^{n_e} \\
+\{\mathbf{r}_{l,k}\}_{l=1}^{n_e} \\
+\{\boldsymbol{\eta}_{l,k}\}_{l=1}^{n_e}
 \end{bmatrix}
 \end{equation}
 By defining end-effector velocities as control inputs, contact complementarity can be enforced penalizing motion at contact points through high velocity costs.
@@ -42,7 +42,7 @@ Next, the position and orientation of each end-effector are updated using basic 
     \mathbf{p}_{l,k+1} = \mathbf{p}_{l,k} + \mathbf{v}_{l,k} \tau_k
 \end{equation}
 \begin{equation}
-    \mathbf{q}_{l,k+1} = \textit{q}(\boldsymbol{\omega}_{l,k}, \tau_k) \cdot \mathbf{q}_{k}
+    \mathbf{q}_{l,k+1} = \textit{q}(\boldsymbol{\omega}_{l,k} \tau_k) \cdot \mathbf{q}_{k}
 \end{equation}
 Here, $\textit{q}(\boldsymbol{\omega}_{l,k}, \tau_k)$ denotes the quaternion representing the angular displacement resulting from integrating the angular velocity $\boldsymbol{\omega}_{l,k}$ over the time step $\tau_k$.
 Integrating all these elements, the system dynamics can be compactly represented by the following state transition function:
@@ -56,7 +56,8 @@ In trajectory tracking tasks, it is important for the system to follow a planned
 \begin{equation}
 L_{\text{task},k} = \frac{1}{2} \| W^x_k (\mathbf{x}_k - \mathbf{x}^{\text{ref}}_k) \|^2 + \frac{1}{2} \| W^u_k (\mathbf{u}_k - \mathbf{u}^{\text{ref}}_k) \|^2
 \end{equation}
-where $(\ast)^{\text{ref}}$ represents the reference (target) values for the state $\mathbf{x}_k$ and the control input $\mathbf{u}_k$. A waypoint-tracking task is considered, where a series of intermediate waypoints are specified for the CoM, base link, and the ends. Desired positions and velocities along a smooth path connecting these waypoints are generated using spline curves. The desired stiffness values are computed by solving the following least-squares optimization problem at each time step $k$:
+where $(\ast)^{\text{ref}}$ represents the reference (target) values for the state $\mathbf{x}_k$ and the control input $\mathbf{u}_k$. The reference trajectories were manually created by the method explained in Sec. \ref{sec:newsimulation} and describe the desired values for the CoM, base link, and end-effectors. The desired stiffness values are computed by solving the following least-squares optimization problem at each time step $k$:
+
 \begin{equation}
 \min \left\| \sum_l \lambda_{l,k}^2 \right\|^2 \quad \text{subject to} \quad \sum_l \lambda_{l,k}^2 (\mathbf{p}^{\text{ref}}_k - \mathbf{p}^{\text{ref}}_{l,k}) = \mathbf{g}
 \end{equation}
@@ -72,10 +73,12 @@ The position of each end link relative to the CoM and the base link is constrain
 \mathbf{p}_{\text{l,min}} \leq \mathbf{q}^{-1}(\mathbf{p}_l - \mathbf{p}) \leq \mathbf{p}_{\text{l,max}},
 \end{equation}
 Simple range constraints are imposed on the duration of each phase and the stiffness values:
-\begin{align}
-\tau_{\text{min}} \leq \tau \leq \tau_{\text{max}}, \\
-0 \leq \lambda_l \leq \lambda_{\text{max}}, \quad \forall l.
-\end{align}
+\begin{equation}
+    \tau_{\text{min}} \leq \tau \leq \tau_{\text{max}}, \tag{16}
+\end{equation}
+\begin{equation}
+    0 \leq \lambda_l \leq \lambda_{\text{max}}, \quad \forall l. \tag{17}
+\end{equation}
 Next, for each end in contact, the contact wrench must satisfy non-slip and moment conditions.  
 To prevent relative motion at the contact surface, sufficient friction must be maintained. This is achieved by requiring the contact force to lie within the friction cone. Specifically, the tangential force $f_t$ must satisfy 
 \begin{equation}
@@ -84,9 +87,9 @@ To prevent relative motion at the contact surface, sufficient friction must be m
 where $\mu$ is the static friction coefficient. \\
 Constraints on the moments at the contact point are expressed as:
 \begin{align}
--c_{\text{max},x} f_{l,z} \leq \eta_{l,x} \leq c_{\text{max},x} f_{l,z}, \\
-c_{\text{min},y} f_{l,z} \leq \eta_{l,y} \leq c_{\text{max},y} f_{l,z}, \\
--\mu_z f_{l,z} \leq \eta_{l,z} \leq \mu_z f_{l,z},
+-c_{\text{max},x} f_{l,z} &\leq \eta_{l,x} \leq -c_{\text{min},x} f_{l,z} \\
+c_{\text{min},y} f_{l,z} &\leq \eta_{l,y} \leq c_{\text{max},y} f_{l,z} \\
+-\mu_z f_{l,z} &\leq \eta_{l,z} \leq \mu_z f_{l,z}
 \end{align}
 where $c_{\text{min}}$ and $c_{\text{max}}$ define the rectangular bounds of the center-of-pressure (CoP) region, and $\mu_z$ is the coefficient of friction torque.\\
 All the inequality constraints can be compactly represented as:

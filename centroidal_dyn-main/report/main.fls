@@ -406,6 +406,10 @@ INPUT chapters\New Simulation and Results.tex
 INPUT .\chapters\New Simulation and Results.tex
 INPUT .\chapters\New Simulation and Results.tex
 INPUT chapters\New Simulation and Results.tex
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
 INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
 INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
 INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png

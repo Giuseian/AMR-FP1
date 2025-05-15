@@ -1,7 +1,7 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-
+\begin{sloppypar}
 \section{New Simulation and Results}
 \label{sec:newsimulation}
 To evaluate the effectiveness of the proposed trajectory optimization framework, we conduct simulations for two representative tasks: static balance and walking. \\ 
@@ -11,21 +11,21 @@ With the reference trajectories defined, we proceed to the examination of the si
 \\
 To provide further validation, we implement the static balance and walking tasks using the HRP-4 humanoid robot, demonstrating the practical application of the optimization framework. 
 \begin{remark}[Contact Phase Representation]
-    For clarity, contact states are defined using the set ${-, 0}$, where $0$ indicates foot contact with the ground and $-$ represents a swing phase. Rather than continuous time, trajectories are described with respect to these discrete contact phases, ensuring consistency in representation across both tasks.
+    For clarity, contact states are defined using the set \{$-$, $0$\}, where $0$ indicates foot contact with the ground and $-$ represents a swing phase. Rather than continuous time, trajectories are described with respect to these discrete contact phases, ensuring consistency in representation across both tasks.
 \end{remark}
 \subsection{Implementation Details}
 Implementing the proposed SBCD model involves requires careful consideration of parameter selection, initialization, and optimization for both static and walking scenarios. Given that the parameter configuration is largely consistent across both scenarios, a unified framework is presented, with task-specific distinctions clearly specified where relevant.
-\paragraph{Parameter Initialization and Dynamics} The implementation leverages the IPOPT solver from the CasADi optimization framework to compute optimal trajectories based on the SBCD model. Both static and walking tasks are characterized by a shared set of parameters governing state initialization, dynamics, and control inputs. These parameters are systematically structured, allowing for easy adaptation between the two tasks. For both scenarios, the robot’s state is initialized with the Center of Mass positioned at a predefined reference point, with neutral foot orientations. Velocity initialization, however, is task-dependent. In the static scenario, CoM velocity is set to zero, serving as a baseline for assessing stationary behavior under SBCD control. In contrast, the walking task initializes the CoM velocity to [0, -0.07, 0] (m/s), simulating forward motion along the y-axis.\\
+\paragraph{Parameter Initialization and Dynamics} The implementation leverages the IPOPT solver from the CasADi optimization framework to compute optimal trajectories based on the SBCD model. Both static and walking tasks are characterized by a shared set of parameters governing state initialization, dynamics, and control inputs. These parameters are systematically structured, allowing for easy adaptation between the two tasks. For both scenarios, the robot’s state is initialized with the Center of Mass positioned at a predefined reference point, with neutral foot orientations. Velocity initialization, however, is task-dependent. In the static scenario, CoM velocity is set to zero, serving as a baseline for assessing stationary behavior under SBCD control. In contrast, the walking task initialized the CoM velocity to [0, -0.07, 0]  (m/s), simulating an initial oscillation to the right. \\ 
 \\
-Before delving into the parameter values, the following table outlines the specific weight configuration applied to some state components. While most parameters remain consistent, the weight for the velocity component differs between the two tasks: for the static task, it is set to 300, emphasizing minimal movement, whereas for the walking task, it is reduced to 3 to allow for more dynamic motion. For all other state components and control inputs, detailed in Eq. \ref{eq:state_input}, weights are uniformly initialized to 1.
+Before delving into the parameter values, the following table outlines the specific weight configuration applied to some state components. While most parameters remain consistent, the weight for the velocity component differs between the two tasks: for the static task, it is set to 100, emphasizing minimal movement, whereas for the walking task, it is reduced to 1 to allow for more dynamic motion. For all other state components and control inputs, detailed in Eq. \ref{eq:state_input}, weights are uniformly initialized to 1.
 \begin{table}[h!]
     \centering
     \begin{tabular}{lcccccc}
     \toprule
     & $p_y$ & $p_z$ & $v_k$ & $L_k$ & $P_{L,k}$ & $Q_{L,k}$ \\
     \midrule
-    Static & 500 & 500 & 300 & 0.0001 & 100 & 0.0001 \\
-    Walking & 500 & 500 & 3 & 0.0001 & 100 & 0.0001 \\
+    Static & 500 & 500 & 100 & 0.0001 & 100 & 0.0001 \\
+    Walking & 500 & 500 & 1 & 0.0001 & 100 & 0.0001 \\
     \bottomrule
     \end{tabular}
     \caption{Weight configuration for state components - Still and Walking Tasks}
@@ -62,20 +62,20 @@ The objective of the still task is to keep the robot stationary, preserving its 
     \label{tab:stilltask}
 \end{table}
 \paragraph{Reference Trajectory Generation}  
-The still task algorithm (Algorithm~\ref{alg:stilltask}) generates reference state and control trajectories aimed at preserving the robot’s initial configuration throughout the task duration. By maintaining constant CoM position, orientation, and foot positions, the algorithm ensures that the robot remains stationary, counteracting gravitational forces through calculated ground reaction forces. The algorithm begins by initializing the state \( X_{ref} \) and control \( U_{ref} \) matrices to zero. At each timestep, the CoM and foot positions are held fixed while ground reaction forces are adjusted to stabilize the robot against gravitational effects. This approach effectively prevents any unintended motion, maintaining the initial configuration without deviations.\\
+The still task algorithm (Algorithm~\ref{alg:stilltask}) generates reference state and control trajectories aimed at preserving the robot’s initial configuration throughout the task duration. By maintaining constant CoM position, orientation, and foot positions, the algorithm ensures that the robot remains stationary, counteracting gravitational forces through ground reaction forces. The algorithm begins by initializing the state \( X_{ref} \) and control \( U_{ref} \) matrices to zero. At each timestep, the CoM and foot positions are held fixed while ground reaction forces are adjusted to stabilize the robot against gravitational effects. This approach effectively prevents any unintended motion, maintaining the initial configuration without deviations.\\
 \begin{algorithm}[H]
 \caption{Reference Trajectory Still Task Generation}
 \label{alg:stilltask}
 \begin{algorithmic}[1]
 \State Initialize state matrix \( X_{ref} \in \mathbb{R}^{28 \times (N+1)} \) and control matrix \( U_{ref} \in \mathbb{R}^{27 \times N} \)
-\State Define initial CoM position, velocity, and orientation in \( X_{ref} \)
+\State Set initial CoM position, velocity, and orientation in \( X_{ref} \)
 \State Set foot positions and orientations in \( X_{ref} \)
-\State Set $time \gets 0$
-\For{\( t = 0 \) to \( N-1 \)}
-    \State Read contact state from \( \sigma \)
-    \State Assign initial state values to \( X_{ref}(t) \)
-    \State Assign $phase\_duration$ and apply ground reaction forces to \( U_{ref}(t) \) based on gravitational acceleration
-    \State Update $time$ as $time + phase\_duration$
+\State Set $t_0 \gets 0$
+\For{\( k = 0 \) to \( N-1 \)}
+    \State Read current contact state from \( \sigma(t) \)
+    \State Set phase\_duration $\tau$ and contact force gains $\lambda$
+    \State Update \( U_{ref} \) with $\tau$ and $\lambda$
+    \State $time \leftarrow time + \tau$
     \State Maintain \( X_{ref}(t+1) \) as a copy of the current state
 \EndFor
 \State \Return \( X_{ref}, U_{ref} \)
@@ -355,6 +355,6 @@ Rotational forces show notable oscillations in both the $x$ and $y$ components, 
 \paragraph{Simulation} 
 Our work is built upon the repository available at [GitHub Link], which originally provides a comprehensive framework for simulating the HRP4 robot, including the dynamics model and control architecture. While the repository offers a complete baseline, we have extensively modified it by implementing our own dynamics and trajectory optimization framework. \\
 
-
+\end{sloppypar}
 
 \end{document}

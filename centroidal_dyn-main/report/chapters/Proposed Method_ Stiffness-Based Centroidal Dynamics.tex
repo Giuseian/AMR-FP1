@@ -21,8 +21,7 @@ Here:
   \item $\mathbf{f}\in\mathbb{R}^3$ and $\boldsymbol{\eta}\in\mathbb{R}^3$ are, respectively, the translational and rotational components of the total external wrench.
   \item $m>0$ is the total mass, and $\mathbf{g}\in\mathbb{R}^3$ is the gravity vector (e.g.\ $\mathbf{g}=[0,0,-9.81]^\top$).
 \end{itemize}
-
-We assume all external wrenches are contact wrenches at $n_e$ end‐effectors (``ends'') of the robot.  Denote by $\mathbf{p}_l\in\mathbb{R}^3$ the world‐frame position of the $l$-th end, and let
+We assume all external wrenches to be contact wrenches at $n_e$ end‐effectors (``ends'') of the robot.  Denote by $\mathbf{p}_l\in\mathbb{R}^3$ the world‐frame position of the $l$-th end, and let
 \[
 \mathbf{f}_l\in\mathbb{R}^3,\quad
 \boldsymbol{\eta}_l\in\mathbb{R}^3,\qquad l=1,\dots,n_e
@@ -34,7 +33,6 @@ be the translational and rotational components of the contact wrench at that end
 \boldsymbol{\eta} \;=\;\sum_{l=1}^{n_e}\Bigl[(\mathbf{p}_l - \mathbf{p})\times \mathbf{f}_l \;+\;\boldsymbol{\eta}_l\Bigr].
 \end{equation}
 The cross‐product in \eqref{eq:sum‐wrench} makes the system \emph{bilinear} in $(\mathbf{p},\mathbf{f}_l)$, coupling CoM motion with contact forces.
-
 \medskip
 \paragraph{Spring-like parametrization of contact wrenches.}
 Rather than holding $\mathbf{f}_l,\boldsymbol{\eta}_l$ constant, we introduce a \emph{stiffness} parameter $\lambda_l\ge0$ and a \emph{CMP‐offset} vector $\mathbf{r}_l\in\mathbb{R}^3$ for each end, plus a pure‐moment direction $\mathbf{\hat{\boldsymbol{\eta}}}_l\in\mathbb{R}^3$.  Inspired by a spring model, we set:
@@ -74,7 +72,6 @@ where
 \quad
 \mathbf{\bar{r}} = \frac{\sum_{l}\lambda_l^2\,\mathbf{r}_l}{\bar\lambda^2}.
 \]
-
 Similarly, substituting into \eqref{eq:centroidal‐dynamics:rot} gives
 \begin{align}
 \dot{\mathbf{L}}
@@ -116,7 +113,7 @@ The aggregated parameters $\bar\lambda,\mathbf{\bar{p}},\mathbf{\bar{r}},\mathbf
 
 \paragraph{Discussion and special cases.}
 \begin{remark}[Exactness vs.\ flight phase]
-If one ignores flight (i.e.\ always in contact, $\sum_l\lambda_l^2>0$), one may set $\epsilon=0$ and \eqref{eq:stiff‐centroidal} hold exactly.  Otherwise $\epsilon>0$ guarantees a well‐defined $\bar\lambda$ in airborne phases.
+If one ignores flight (i.e.\ always in contact, $\sum_l\lambda_l^2>0$), one may set $\epsilon=0$ such that \eqref{eq:stiff‐centroidal:trans} and \eqref{eq:stiff‐centroidal:rot} hold exactly.  Otherwise $\epsilon>0$ guarantees a well‐defined $\bar\lambda$ in airborne phases.
 \end{remark}
 
 \begin{remark}[Ballistic motion]
@@ -212,7 +209,7 @@ and integrating from $t_k$ to $t$ gives
 
 \medskip
 \begin{remark}[Zero‐Order Hold]
-A zero‐order hold means we approximate time‐varying parameters by piecewise–constant values on each interval.  This yields closed‐form expressions above, at the cost of not capturing high‐frequency parameter variations.
+A Zero‐order hold means we approximate time‐varying parameters by piecewise–constant values on each interval.  This yields closed‐form expressions above, at the cost of not capturing high‐frequency parameter variations.
 \end{remark}
 
 \bigskip
@@ -248,7 +245,7 @@ t'_i = t_k + i\,\tau_k'.
 At each substep we assume $\boldsymbol{\omega}$ nearly constant and update
 \[
 \mathbf{q}_{k+1}
-= \underbrace{\mathbf{q}\bigl(\boldsymbol{\omega}(t'_{n_{\rm div}})\,\tau_k'\bigr)}
+= \underbrace{\mathbf{q}\bigl(\boldsymbol{\omega}(t'_{n_{\rm div} - 1})\,\tau_k'\bigr)}
 _{\text{quat. for small rotation}}
 \;\cdots\;
 \mathbf{q}\bigl(\boldsymbol{\omega}(t'_1)\,\tau_k'\bigr)\;\cdot\;
