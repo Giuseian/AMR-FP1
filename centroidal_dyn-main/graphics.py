@@ -272,11 +272,11 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
             if ref_values is not None:
                 ax_row[j].plot(time, ref_values[:, j], color='r', linestyle='--', label=f"ref_{title}_{labels[j]}")
             if title == "Angular Momentum":
-                ax_row[j].set_ylabel(f"{labels[j]} (kg*m^2/s)")
+                ax_row[j].set_ylabel(f"L_{labels[j]} (kg*m^2/s)")
             elif title == "CoM Position":
                 ax_row[j].set_ylabel(f"{labels[j]} (m)")
             elif title == "CoM Velocity":
-                ax_row[j].set_ylabel(f"{labels[j]} (m/s)")
+                ax_row[j].set_ylabel(f"v_{labels[j]} (m/s)")
             ax_row[j].set_title(f"{title} - {labels[j]}")
             ax_row[j].legend()
             ax_row[j].grid()
@@ -287,7 +287,7 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
         axs[3, j].plot(time, foot_positions_L[:, j, 1], label=f"Foot 2 {labels[j]}")
         axs[3, j].plot(time, ref_P_L_k[:, j, 0], color='r', linestyle='--', label=f"ref_Foot 1 {labels[j]}")
         axs[3, j].plot(time, ref_P_L_k[:, j, 1], color='g', linestyle='--', label=f"ref_Foot 2 {labels[j]}")
-        axs[3, j].set_ylabel(f"Foot Position {labels[j]} (m)")
+        axs[3, j].set_ylabel(f"{labels[j]} (m)")
         axs[3, j].set_title(f"Foot Position - {labels[j]}")
         axs[3, j].legend()
         axs[3, j].grid()
@@ -296,7 +296,7 @@ def evolution_plots(X, U, X_ref, U_ref, dm, ref_type):
         axs[4, j].plot(time, foot_velocities_L[:, j, 1], label=f"Foot 2 {labels[j]}")
         axs[4, j].plot(time, ref_foot_velocities_L[:, j, 0], color='r', linestyle='--', label=f"ref_Foot 1 {labels[j]}")
         axs[4, j].plot(time, ref_foot_velocities_L[:, j, 1], color='g', linestyle='--', label=f"ref_Foot 2 {labels[j]}")
-        axs[4, j].set_ylabel(f"Foot Velocity {labels[j]} (m)")
+        axs[4, j].set_ylabel(f"v_{labels[j]} (m)")
         axs[4, j].set_title(f"Foot Velocity - {labels[j]}")
         axs[4, j].legend()
         axs[4, j].grid()
