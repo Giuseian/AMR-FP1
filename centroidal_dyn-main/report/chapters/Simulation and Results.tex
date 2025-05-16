@@ -1,403 +1,354 @@
 \documentclass[main.tex]{subfiles}
 
-
 \begin{document}
-
-% NEW 
-\section{Simulation and Results}\label{sec:simulation}
-
-This section presents the results obtained using the proposed method. We begin by describing the reference trajectory used for each task. Subsequently, relevant plots, tables, and simulations are provided to illustrate system behavior and performance.
-Before introducing the implemented trajectories, we define the contact state notation: \begin{itemize} \item \textbf{0} indicates the foot is in contact with the ground. \item \textbf{-} indicates the foot is not in contact (i.e., lifted). \end{itemize}
-Note that the trajectories are described with respect to contact phases, not continuous time.
-
-
-\subsection{Trajectory Generation}
-
-\subsubsection*{Still Task}
-
-The objective of the still task is for the robot to remain stationary, maintaining its initial configuration throughout the entire duration of the trajectory. In this scenario, both feet stay in continuous contact with the ground, ensuring complete stability and zero locomotion.
-The contact sequence used is shown in Table~\ref{tab:csstill}, where the first row represents the right foot and the second row the left foot.
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|l|}
-\hline
-\textbf{Task} & \textbf{N} & \textbf{Contact Sequence} \\
-\hline
-Still & 4 & 
-\begin{tabular}[c]{@{}l@{}} 
-0\,0\,0\,0 \\
-0\,0\,0\,0
-\end{tabular} \\
-\hline
-\end{tabular}
-\caption{Contact sequence for still task}
-\label{tab:csstill}
-
-\end{table}
-
-The reference trajectory for the "Still Task" is generated and updated in a step-by-step process. First, the system initializes two main components: the reference state vector, which represents the robot's position and motion, and the reference input vector, which contains the control inputs. The dimensions of these vectors are defined based on the number of phases in the task.
-Next, the initial values for the robot's Center of Mass (CoM), foot positions, and orientations are set in the reference state vector. At this point, time is set to zero
-\begin{algorithm}[H]
-\caption{Reference Trajectory Initialization and Update for Still Task}
-\begin{algorithmic}[1]
-\State Initialize $X_{\text{ref}} \in \mathbb{R}^{28 \times (N+1)}$, $U_{\text{ref}} \in \mathbb{R}^{27 \times N}$
-\State Set initial CoM state, feet positions, and orientations in $X_{\text{ref}}$
-\State $\text{time} \gets 0$
-\For{$t = 0$ to $N-1$}
-    \State Read current contact state from $\sigma$
-    \State Set phase duration $\tau$ and contact force gains $\lambda$
-    \State Update $U_{\text{ref}}$ with the above
-    \State Set CoM and feet position, velocities, and orientation as the initial state values
-    \State $\text{time} \gets \text{time} +$ phase duration
-    \State Update $X_{\text{ref}}(t+1)$ with the above
-\EndFor
-\State \Return $X_{\text{ref}}, U_{\text{ref}}$
-\end{algorithmic}
-\end{algorithm}
-
-\subsubsection*{Walking Task}
-
-For the walking task, the trajectory is constructed based on the following principles:
-During double-support phases, where both feet are on the ground ([0, 0]), the Center of Mass (CoM) remains stationary. Movement along the X-axis occurs during single-support phases, when one foot is lifted ([-, 0] or [0, -]). If the preceding phase is double support, the CoM position remains unchanged; if the preceding phase is single support, the CoM advances by a specified displacement.
-The Z-coordinate (height) of each foot is zero at the beginning of each phase, as the feet are in contact with the ground. The X-coordinate increases alternately, depending on which foot was lifted in the previous phase. The foot in motion follows a trajectory that surpasses the stationary foot, simulating a natural walking pattern.
-Each foot's intra-phase height position is interpolated using a parabolic profile, starting and ending at the positions determined by the phase solutions, rather than employing fixed inputs (zero-hold).
-The contact sequence used is presented in Table~\ref{tab:cs_walk}.
-
-\begin{table}[H]
-\centering
-\caption{Contact sequence for walking task}
-\label{tab:cs_walk}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Task} & \textbf{N} & \textbf{Right Foot} & \textbf{Left Foot} \\
-\hline
-Walk & 24 & 0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0 & 0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0\,-\,0\,0\,0 \\
-\hline
-\end{tabular}
-\end{table}
-
-It starts by setting up matrices for the reference trajectory states (X\_ref for positions and U\_ref for control inputs) and defining the initial conditions for the center of mass (CoM), foot positions, and orientations. Then, for each step (from 0 to N-1), the algorithm reads the contact states (which indicate whether the foot is in contact with the ground), sets the phase duration (the length of time each walking phase lasts), and adjusts the control parameters accordingly.
-\begin{algorithm}[H]
-\caption{Reference Trajectory Initialization and Update for Walking Task}
-\begin{algorithmic}[1]
-\State Initialize $X_{\text{ref}} \in \mathbb{R}^{28 \times (N+1)}$, $U_{\text{ref}} \in \mathbb{R}^{27 \times N}$
-\State Set initial CoM state and feet state in $X_{\text{ref}}$
-\State $\text{time} \gets 0$
-\For{$t = 0$ to $N-1$}
-    \State Read contact states from $\sigma$
-    \State Set phase duration and contact force gains $\lambda$
-    \State Update $U_{\text{ref}}$ with the above
-    \State Set CoM velocity and feet velocities, according to which foot is about to move
-    \State Set CoM and feet positions based on velocity and duration ($p = v * t$)
-    
-    \State time = time + phase duration
-    \State Update $X_{\text{ref}}(t+1)$ with the above 
-\EndFor
-\State \Return $X_{\text{ref}}, U_{\text{ref}}$
-\end{algorithmic}
-\end{algorithm}
-
+\begin{sloppypar}
+\section{Simulation and Results}
+\label{sec:newsimulation}
+To evaluate the effectiveness of the proposed trajectory optimization framework, we conduct simulations for two representative tasks: static balance and walking. \\
+\\
+The analysis begins with an overview of key implementation details, focusing on the initialization of cost weights, time discretization parameters, and control bounds. These parameters define the structure of the optimization problem and facilitate the computation of feasible trajectories. Next, we outline the algorithm used to generate the desired reference trajectory for each task, establishing the target path for the robot’s motion. These trajectories serve as benchmarks, allowing us to assess the framework’s performance under different conditions.\\
+\\
+In this framework, contact states are represented using the set {\$-\$, \$0\$}, where \$0\$ indicates foot contact with the ground and \$-\$ denotes a swing phase. Rather than using continuous time, trajectories are structured around these discrete contact phases, ensuring consistency in representation across both tasks. This approach allows for a more intuitive interpretation of contact dynamics and simplifies the integration of state transitions. \\
+\\
+With the reference trajectories defined, we proceed to analyze the simulation results by examining key components of the robot’s motion. First, we assess the CoM trajectories to determine how effectively the robot maintains stability and follows the intended path over time. Next, we compare the optimized state solutions with the reference trajectories at each contact step, providing insights into the effectiveness of the control strategy. Finally, we assess the contact wrenches, focusing on both translational and rotational forces to verify compliance with physical constraints and to evaluate the feasibility of the generated trajectories. \\
+\paragraph{Implementation Overview}
+Our work builds upon the framework provided in the \href{[https://github.com/DIAG-Robotics-Lab/ismpc}{IS - MPC Repository}, which originally offers a comprehensive platform for simulating the HRP4 robot, including the dynamics model and control architecture. We have adapted and integrated our own implementation of the dynamics, trajectory optimization problem, and reference trajectory generation algorithm into the original repository. This integration enables the simulation of the HRP4 robot performing both the still and walking tasks, allowing us to assess the robot’s performance under our modified control and optimization framework.
 \subsection{Implementation Details}
-
-In this section, we provide a summary of the key parameters and choices made in the implementation, particularly distinguishing between the still and walking scenarios. These parameters govern the state initialization, the dynamics, and the optimization settings for the robot's movement.
-\\The solution for both tasks is computed with ipopt solver from Casadi optimizer. Both the reference and solution are contact-dependent, meaning that X and U contain values for each contact phase, thus to find the time dependent solution we used the dynamics. 
-Let's first define the parameters and values that are used both fot still and walking tasks.
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5} % Increases space between rows
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Parameter} & \textbf{Value} & \textbf{Units} \\ \hline
-Initial CoM Position & (-0.00062, 0.00044, 0.724) & m \\ \hline
-Initial Feet Positions & 
-\parbox[c]{10cm}{
-\centering
-(0, -0.102, 0))\\
-(0, 0.102, 0))
-} & m \\ \hline
-Initial Feet Orientations & 
-(1, 0, 0, 0)
-(1, 0, 0, 0) & - \\ \hline
-Feet Length & \(0.1\) & m \\ \hline
-Gravity Factor (\(g\)) & \([0, 0, 9.81]\) & m/s\(^2\) \\ \hline
-\end{tabular}
-\caption{Initial Parameters}
-\label{tab:parameters}
+Implementing the proposed SBCD model involves requires careful consideration of parameter selection, initialization, and optimization for both static and walking scenarios. Given that the parameter configuration is largely consistent across both scenarios, a unified framework is presented, with task-specific distinctions clearly specified where relevant.
+\paragraph{Parameter Initialization and Dynamics} The implementation leverages the IPOPT solver from the CasADi optimization framework to compute optimal trajectories based on the SBCD model. Both static and walking tasks are characterized by a shared set of parameters governing state initialization, dynamics, and control inputs. These parameters are systematically structured, allowing for easy adaptation between the two tasks. For both scenarios, the robot’s state is initialized with the Center of Mass positioned at a predefined reference point, with neutral feet orientations. Velocity initialization, however, is task-dependent. In the static scenario, CoM velocity is set to zero, serving as a baseline for assessing stationary behavior under SBCD control. In contrast, the walking task initialized the CoM velocity to [0, -0.07, 0]  (m/s), simulating an initial oscillation to the right. \\ 
+\\
+Before delving into the parameter values, Table \ref{tab:weight_states} outlines the specific weight configuration applied to some state components. While most parameters remain consistent, the weight for the velocity component differs between the two tasks: for the static task, it is set to 100, emphasizing minimal movement, whereas for the walking task, it is reduced to 1 to allow for more dynamic motion. For all other state components and control inputs, detailed in Eq. \ref{eq:state_input}, weights are uniformly initialized to 1.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcccccc}
+    \toprule
+    & $p_y$ & $p_z$ & $v_k$ & $L_k$ & $P_{L,k}$ & $Q_{L,k}$ \\
+    \midrule
+    Static & 500 & 500 & 100 & 0.0001 & 100 & 0.0001 \\
+    Walking & 500 & 500 & 1 & 0.0001 & 100 & 0.0001 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Weight configuration for state components - Still and Walking Tasks}
+    \label{tab:weight_states}
 \end{table}
-
-
-\subsubsection*{Still Task}
-
-For the still scenario, the robot begins with a fixed initial state, with the Center of Mass (CoM) positioned at a specific point, neutral orientations for the feet, and zero velocities. The system is initialized with parameters that ensure no significant movement, providing a static reference for comparison with dynamic cases. 
-The different parameter for the still scenario concerns initial velocity, which is set to 0.
-In this setup, the robot is essentially in a static position, with minimal movement. 
-\subsubsection*{Cost and Weighting Matrices}
-All parameters weights are set to 1, except the following
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5} % Increases space between rows
-\begin{tabular}{|c|c|}
-\hline
-\textbf{State Component} & \textbf{Weight} \\ \hline
-\(p_y\) & 500 \\ \hline
-\(p_z\) & 500 \\ \hline
-\(v_k\) & 300 \\ \hline
-\(L_k\) & 0.0001 \\ \hline
-\(P_{L,k}\) & 100 \\ \hline
-\(Q_{L,k}\) & 0.0001 \\ \hline
-\end{tabular}
-\caption{State Weight Matrix Still (\(W_{x,k}\))}
-\label{tab:state_weights_still}
+\paragraph{Optimization Framework} The optimization framework is designed to effectively handle contact-dependent dynamics by parameterizing state and control inputs for each contact phase. To achieve this, SBCD-based dynamics formulations are employed, enabling efficient computation of CoM trajectories and contact forces. This structured approach effectively manages transitions between single and double support phases during walking tasks.\\
+\\
+A crucial aspect of the optimization setup is the configuration of parameters that govern the behavior of both static and walking tasks. As illustrated in Table \ref{tab:optimization_params}, these parameters include the complementarity weight ($w_{compl}$), friction coefficients ($\mu$ and $\mu_z$), and phase duration limits ($\tau_{min}$ and $\tau_{max}$). Carefully setting these values ensures that the optimization framework remains grounded within the physical constraints of the robot’s actuators and the environmental interactions, striking a balance between control fidelity and physical feasibility.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lccccc}
+        \toprule
+        & $w_{compl}$ & $\mu$ & $\mu_z$ & $\tau_{max}$ & $\tau_{min}$ \\
+        \midrule 
+        Weight & 1000 & 0.5 & 0.6 & 10 & 0.4 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Optimization parameters - Still and Walking Tasks}
+    \label{tab:optimization_params}
 \end{table}
-
-The inputs weights are all set to one. 
-
-\subsubsection*{Walking Task}
-
-In contrast, for the walking scenario, the robot's state is dynamic, with the CoM moving in response to lifting one foot while the other remains grounded. The robot's motion is controlled by optimizing the contact forces and foot movements according to the phases of walking. Here, the CoM velocity is initialized in the negative y-direction to simulate walking forward.
-The different parameters for the walking scenario concerns initial velocity which is set to [0, -0.07, 0].
-In the walking scenario, the optimization process adjusts the robot's foot positions and orientations, ensuring that the forces exerted during the gait cycle are balanced, with the robot transitioning between phases of double and single support. This approach is essential for dynamic stability during motion.
-
-\subsubsection*{Cost and Weighting Matrices}
-All parameters state weights are set to 1, except the following
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5} % Increases space between rows
-\begin{tabular}{|c|c|}
-\hline
-\textbf{State Component} & \textbf{Weight} \\ \hline
-\(p_y\) & 500 \\ \hline
-\(p_z\) & 500 \\ \hline
-\(v_k\) & 3 \\ \hline
-\(L_k\) & 0.0001 \\ \hline
-\(P_{L,k}\) & 100 \\ \hline
-\(Q_{L,k}\) & 0.0001 \\ \hline
-\end{tabular}
-\caption{State Weight Matrix Walking (\(W_{x,k}\))}
-\label{tab:state_weights_walk}
+\\
+\\
+\subsection{Still Task}  
+The objective of the still task is to keep the robot stationary, preserving its initial configuration throughout the entire trajectory. As indicated in Table~\ref{tab:stilltask}, the contact sequence ensures that both feet remain grounded, establishing a condition of complete stability without locomotion.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    Task & N & Foot & Contact Sequence \\
+    \hline
+    Still & 4 & Right & 0000 \\
+    & & Left & 0000 \\
+    \hline
+    \end{tabular}
+    \caption{Contact sequence - Still Task}
+    \label{tab:stilltask}
 \end{table}
-
-
-The parameters inputs weights are all set to one.
-
-\subsubsection*{Optimization Parameters}
-
-Finally, optimization parameters, used for both tasks, such as the complementarity weight (\(w_{\text{compl}}\)), the friction coefficients (\(\mu\) and \(\mu_z\)), and the maximum and minimum values for the phase duration (\(\tau_{\text{min}}\) and \(\tau_{\text{max}}\)) are set. These values ensure that the optimization is constrained by the physical limits of the robot’s actuators and the forces exerted by the environment.
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5} % Increases space between rows
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Parameter} & \textbf{Value} \\ \hline
-Complementarity Weight (\(w_{\text{compl}}\)) & \(1000\) \\ \hline
-Friction Coefficient (\(\mu\)) & \(0.5\) \\ \hline
-Friction Coefficient in Z (\(\mu_z\)) & \(0.6\) \\ \hline
-Maximum Phase Duration (\(\tau_{\text{max}}\)) & \(10\) \\ \hline
-Minimum Phase Duration (\(\tau_{\text{min}}\)) & \(0.4\) \\ \hline
-\end{tabular}
-\caption{Optimization Parameters}
-\label{tab:optimization_params}
-\end{table}
-
-
-\subsection{Still Task: results}
-In this case the state vector has dimension 3, and the input vector has dimension 2.
-\subsubsection*{CoM Plots}
-The following plots report the CoM trajectory in time. 
-The alternation between light and dark grey on the background suggests the switch between phases.
-As observed, there is negligible motion in any direction, confirming the robot's stationary state.
-
+\paragraph{Reference Trajectory Generation}  
+The still task algorithm (Algorithm~\ref{alg:stilltask}) generates reference state and control trajectories aimed at preserving the robot’s initial configuration throughout the task duration. By maintaining constant CoM position, orientation, and feet positions, the algorithm ensures that the robot remains stationary, counteracting gravitational forces through ground reaction forces. The algorithm begins by initializing the state \( X_{ref} \) and control \( U_{ref} \) matrices to zero. At each timestep, the CoM and feet positions are held fixed while ground reaction forces are adjusted to stabilize the robot against gravitational effects. This approach effectively prevents any unintended motion, maintaining the initial configuration without deviations.\\
+\begin{algorithm}[H]
+\caption{Reference Trajectory Still Task Generation}
+\label{alg:stilltask}
+\begin{algorithmic}[1]
+\State Initialize state matrix \( X_{ref} \in \mathbb{R}^{28 \times N} \) and control matrix \( U_{ref} \in \mathbb{R}^{27 \times (N-1)} \) to zero
+\State Set initial CoM/feet position and orientation and $t_0 \gets 0$ in \( X_{ref}(0) \)
+\For{\( k = 0 \) to \( N-1 \)}
+    \State Set \( X_{ref}(k+1) \) as a copy of the current state \( X_{ref}(k) \)
+    \State Set desired phase\_duration $\tau_k$ and contact force gains $\lambda_k$ in  \( U{ref}(k) \)
+    \State Update \( X_{ref}(k+1) \) with $t_{k+1} \gets t_k + \tau_k$
+\EndFor
+\State \Return \( X_{ref}, U_{ref} \)
+\end{algorithmic}
+\end{algorithm}
+\paragraph{Simulation Results}
+Visual results are presented to illustrate the outcomes of the still task simulation, providing a comprehensive view of the system’s behavior under stationary conditions.\\
+\\
+The plots in Fig.\ref{fig:com_still} illustrate the CoM evolution during the still task. The \( x \) component displays slight horizontal drift, likely due to adjustments in ground reaction forces, while the \( y \) component briefly dips before stabilizing, indicating corrective measures to maintain balance. The \( z \) component initially drops and then recovers, reflecting gravitational compensation. Despite these fluctuations, the CoM remains largely consistent, demonstrating effective stabilization. \\
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/CoM x Trajectory still.png}
-        \caption{Com X Trajectory 1}
-        \label{fig:sub1_still}
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png}
+        \caption{CoM x component}
+        \label{fig:com_x_still}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/CoM y Trajectory still.png}
-        \caption{Com Y Trajectory 1}
-        \label{fig:sub2_still}
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png}
+        \caption{CoM y component}
+        \label{fig:com_y_still}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/CoM z Trajectory still.png}
-        \caption{Com Z Trajectory 1}
-        \label{fig:sub3_still}
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png}
+        \caption{CoM z component}
+        \label{fig:com_z_still}
     \end{subfigure}
-    \caption{Com Trajectory}
-    \label{fig:threeimages_still}
+    \caption{Evolution of CoM Position - Still Task}
+    \label{fig:com_still}
 \end{figure}
-
+Fig.\ref{fig:three_still} shows the evolution of feet positions along the z-axis, CoM velocity, and angular momentum during the still task. The feet positions in Fig. \ref{fig:feet_z_still} remain nearly constant, indicating minimal vertical motion. In Fig. \ref{fig:com_velocity_still}, slight oscillations in the $y$ and $z$ velocity components suggest minor corrective actions to maintain stability. The angular momentum in Fig. \ref{fig:angular_momentum_still} displays brief periodic drops, before returning to zero. This behavior indicates small adjustments to counteract any residual moments, ultimately preserving the robot’s stationary configuration. \\
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/Feet_z still.png}
-    \caption{Feet along Z (scale is 1e-8)}
-    \label{fig:feet_still}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png}
+        \caption{Feet along z axis}
+        \label{fig:feet_z_still}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png}
+        \caption{CoM Velocity}
+        \label{fig:com_velocity_still}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png}
+        \caption{Angular Momentum}
+        \label{fig:angular_momentum_still}
+    \end{subfigure}
+    \caption{Feet, Com Velocity and Angular Momentum - Still Task}
+    \label{fig:three_still}
 \end{figure}
-
-
-\subsubsection*{State and Input Contact Values}
-In the following plots, the main components of the state and input vectors solutions are compared with the reference at each contact step.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figures/contact_x_still.png}
-    \caption{Trajectory vs Reference: state vector}
-    \label{fig:contact_x_still}
-\end{figure}
-
-\subsubsection*{Contact Forces}
-Another important dynamic aspect pertains to the forces involved. The input vector includes the contact wrench, which describes the mechanical influence that a contact point (such as a foot or hand) exerts on the robot, or vice versa.
-In order to satisfy the dynamic balance laws, the environment should exert a reaction force along the Z-axis that is equal to the gravitational force multiplied by the robot's mass. Table ~\ref{tab:contactforcesstill} below lists the contact forces exerted by the environment on both feet. As shown in the table, when both feet are on the ground, the gravitational force is evenly distributed between the left and right foot.
-\begin{table}[H]
-\centering
-\begin{tabular}{ccc}
-\toprule
-Right Foot Z & Left Foot Z & $\Sigma_L^k$ \\
-\midrule
-49.0644 & 49.0531 & [0., 0.] \\
-48.8976 & 49.9925 & [0., 0.] \\
-48.0847 & 49.0895 & [0., 0.] \\
-\bottomrule
-\end{tabular}
-\caption{Z-axis gravity force and $\Sigma_L^k$ values}
-\label{tab:contactforcesstill}
-
-\end{table}
-
-Components of contact wrench, rotational and translational forces, are graphically expressed in the following plots:
+\\
+In Fig. \ref{fig:comparison_still} , the comparison between the reference and optimized trajectories for the still task is presented. The CoM position remains largely aligned with the reference values, with slight deviations observed primarily in the $x$ and $z$ components, reflecting minor adjustments to maintain stability. CoM velocity remains close to zero, consistent with the stationary objective, though minor oscillations indicate corrective actions against gravitational forces. Angular momentum shows small linear trends, particularly in the $x$ and $y$ components, suggesting residual moments being counteracted. Feet positions and velocities remain effectively constant, confirming that the feet maintain their initial stance without significant movement. Overall, the optimized trajectories exhibit minimal divergence from the reference, indicating effective stabilization while accounting for minor corrections.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/contact_forces_still.png}
-    \caption{Trajectory vs Reference: Forces}
-    \label{fig:contact_forces_still}
+    \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png}
+    \caption{Trajectory vs Reference - Still Task}
+    \label{fig:comparison_still}
 \end{figure}
+\\
+\\
+Another key aspect of the dynamics involves the contact wrenches, which represent the mechanical forces and moments applied by contact points, such as the feet, on the robot or vice versa. To maintain dynamic balance, the reaction force along the $z$-axis must counteract the gravitational force acting on the robot’s mass. The contact forces from the environment on both feet are summarized in Table \ref{tab:forces_still}. As indicated, when both feet remain grounded, the gravitational force is evenly distributed between the left and right foot, ensuring stability. \\
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{c|c|c|c|c}
+            \hline
+            Interval & Right Foot (x,y,z) & Left Foot (x,y,z) & $\Sigma L_k$ & Sum Forces (x,y,z) \\
+            \hline
+            0 & (0.0000597, 9.5381, 49.041) & (0.0000750, -9.5381, 49.0453) & (0, 0) & (0.0001347, -0.0000365, 98.0863) \\
+            1 & (-0.0002229, 9.5390, 49.0706) & (-0.0002060, -9.5389, 49.0752) & (0, 0) & (-0.0004289, 0.0001218, 98.1457) \\
+            2 & (-0.0001391, 9.5392, 49.0533) & (-0.0001200, -9.5392, 49.0585) & (0, 0) & (-0.0002590, 0.0000328, 98.1118) \\
+            \hline
+        \end{tabular}
+    }
+    \caption{Summary of Forces and Foot Positions per Interval - Still Task}
+    \label{tab:forces_still}
+\end{table}
 
-\subsection{Walking Task: results}
-In this case the state vector has dimension 24 and the input vector has dimension 23.
-
-\subsubsection*{CoM Plots}
-The following plots illustrate the trajectory of the Center of Mass (CoM) over time. The alternating light and dark grey backgrounds in the plots indicate the transitions between different phases of the walking motion. As shown in Fig. ~\ref{fig:sub1}, the CoM exhibits linear motion along the x-axis.
-In the y-direction, as illustrated in Fig. ~\ref{fig:sub2}, the CoM moves toward the foot that remains on the ground while the other foot is lifted. Specifically, if we consider the first two contact phases: during the first phase, the robot is in double support (both feet on the ground), while in the second phase, the left foot is expected to lift. At the end of the first phase, the CoM has shifted towards the right foot, demonstrating the transition in weight distribution. This pattern of alternating between double and single support phases continues throughout the walking cycle, with the CoM constantly adjusting its position.
-In the z-direction, shown in Fig. ~\ref{fig:sub3}, the CoM exhibits a slight up-and-down motion, with a relatively small range of displacement. This vertical motion is consistent with the natural bobbing motion of the body during walking, providing necessary stability and balancing forces. This pattern of CoM movement is crucial for maintaining dynamic stability as the robot progresses through each phase of the gait.
-In summary, the CoM trajectory provides key insights into the robot’s walking mechanics, including the shift in weight distribution during transitions between support phases and the vertical adjustments required for balance. These movements are essential for achieving stable locomotion.
+To conclude our analysis of the still task, Figures \ref{fig:contact_forces_still_right} and \ref{fig:contact_forces_still_left} illustrate how the translational and rotational forces behave at the contact points. Along the horizontal axes, translational forces remain near zero, confirming minimal lateral interaction with the ground. The vertical component primarily compensates for gravitational effects, with slight variations indicating minor adjustments to maintain equilibrium. Rotational forces exhibit subtle trends, particularly in the \( x \) and \( y \) components, suggesting ongoing corrections to counteract residual torques. The \( z \) component shows a gradual decline, aligning with the angular momentum behavior observed in previous plots.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png}
+    \caption{Trajectory vs Reference Forces Right Foot - Still Task}
+    \label{fig:contact_forces_still_right}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png}
+    \caption{Trajectory vs Reference Forces Left Foot - Still Task}
+    \label{fig:contact_forces_still_left}
+\end{figure}
+\newpage
+\subsection{Walking Task}
+The objective of the walking task is to simulate a natural walking pattern by coordinating the movements of the feet and the Center of Mass (CoM) through a sequence of double-support and single-support phases. During double-support phases, both feet remain in contact with the ground, maintaining stability. In single-support phases, one foot is lifted while the other remains grounded, allowing forward motion.
+The CoM position update depends on the preceding phase. If the previous phase was double-support, the CoM remains stationary. Otherwise, it advances forward, ensuring consistent movement. The foot trajectory is constructed to mimic a natural step, extending the moving foot beyond the stationary one. The Z-coordinate of each foot follows a parabolic profile, ensuring smooth lift-off and descent.
+The contact sequence for the walking task, presented in Table \ref{tab:walkingtask}, defines the alternating pattern of double and single-support phases, guiding the timing and transitions of each step.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Task & N & Foot & Contact Sequence \\
+        \hline
+        Walk & 24 & Right & 000-000-000-000-000-0 \\
+             &    & Left  & 0-000-000-000-000-000 \\
+        \hline
+    \end{tabular}
+    \caption{Contact sequence - Walking Task}
+    \label{tab:walkingtask}
+\end{table}
+\paragraph{Reference Trajectory Generation}
+The reference trajectory generation algorithm for the walking task is designed to compute state and control matrices that guide the robot's CoM and foot movements throughout the walking cycle. The algorithm initializes the robot's state, reads the contact sequence to identify double and single-support phases, and calculates the CoM and feet velocities based on the transition logic.
+The CoM trajectory is computed by integrating velocities over the phase duration, while feet positions are updated based on contact states. The transition logic, detailed in Table \ref{tab:logic_walking}, specifies how velocities and displacements are adjusted for each phase.
+\begin{algorithm}[H]
+\caption{Reference Trajectory Generation - Walking Task}
+\label{alg:walking_task}
+\begin{algorithmic}[1]
+\State Initialize state matrix \( X_{ref} \in \mathbb{R}^{28 \times (N)} \) and control matrix \( U_{ref} \in \mathbb{R}^{27 \times (N-1)} \) to zero
+\State Set initial CoM/feet position and orientation and $t_0 \gets 0$ in \(X_{ref}(0)\)
+\For{$k = 0$ to $N-1$}
+    \State Read current and future contacts state from \( \sigma(k) \) and \( \sigma(k+1) \)
+    \State Set desired phase\_duration \( \tau_k \) and contact force gains \( \lambda_k \) in \(U{ref}(k)\)
+    \State Set desired CoM/feet velocities in \( X_{ref}(k), U_{ref}(k) \)  (See Table \ref{tab:logic_walking})
+    \State Update CoM and feet positions in \( X_{ref}(k+1) \) with \( p_{k+1} \gets p_k + v_k\cdot \tau_k \)
+    \State Update \(  X_{ref}(k+1) \) with \( t_{k+1} \gets t_k + \tau_k \)
+\EndFor
+\State \Return \( X_{ref}, U_{ref} \)
+\end{algorithmic}
+\end{algorithm}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\resizebox{0.85\textwidth}{!}{
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+$\sigma(k)$ & $\sigma(k+1)$ & \( v_{right}^x(k)\) & \( v_{left}^x(k) \) & \( v_{com}^x(k), v_{com}^y(k) \) \\
+\hline
+right = 0, left = 0 & right = -, left = 0 & 0.0 & 0.0 & (0, 0.07) \\
+right = 0, left = 0 & right = 0, left = - & 0.0 & 0.0 & (0, -0.07) \\
+right = -, left = 0 & right = 0, left = 0 & 0.2 & 0.0 & (0.1, -0.07) \\
+right = 0, left = - & right = 0, left = 0 & 0.0 & 0.2 & (0.1, 0.07) \\
+\hline
+\end{tabular}
+}
+\caption{Transition logic for foot and CoM motion updates - Walking Task}
+\label{tab:logic_walking}
+\end{table}
+\paragraph{Simulation Results}
+As we did for the still task, here we present the simulation results for the walking task. The objective is to assess the robot’s ability to execute the walking trajectory while maintaining balance and following the reference CoM path. The results include CoM evolution, feet trajectories, and ground reaction forces. \\ 
+\\
+During the walking task, as shown in Fig. \ref{fig:com_walking}, the CoM follows a distinct trajectory along each axis. The \( x \) component steadily increases, indicating consistent forward motion, while the \( y \) component displays cyclic oscillations corresponding to the lateral sway during each step. The \( z \) component exhibits periodic fluctuations, capturing vertical displacements associated with foot lift-offs and ground contacts. Overall, the CoM trajectory maintains stability, demonstrating effective walking dynamics.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/CoM x Trajectory walking.png}
-        \caption{Com X Trajectory 1}
-        \label{fig:sub1_walking}
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png}
+        \caption{CoM x component}
+        \label{fig:com_x_walking}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/CoM y Trajectory walking.png}
-        \caption{Com Y Trajectory 1}
-        \label{fig:sub2_walking}
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png}
+        \caption{CoM y component}
+        \label{fig:com_y_walking}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/CoM z Trajectory walking.png}
-        \caption{Com Z Trajectory 1}
-        \label{fig:sub3_walking}
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png}
+        \caption{CoM z component}
+        \label{fig:com_z_walking}
     \end{subfigure}
-    \caption{Com Trajectory}
+    \caption{Evolution of CoM Position - Walking Task}
+    \label{fig:com_walking}
+\end{figure}
+The plots in Fig. \ref{fig:threeimages_walking} illustrate the dynamics of feet trajectories, CoM velocity, and angular momentum during the walking task. In Fig. \ref{fig:feet_z_walking}, the periodic variations in feet positions along the $z$ axis capture the transition between ground clearance and contact, underscoring the cyclic nature of the walking gait. These fluctuations correspond to the CoM velocity patterns in Fig. \ref{fig:com_velocity_walking}, where oscillations in the $x$ and $y$ components reflect the alternating support phases and weight shifts. In Fig. \ref{fig:angular_momentum_walking}, the angular momentum exhibits pronounced oscillations, particularly in the $x$ component, indicating the corrective torques employed to maintain stability throughout the walking cycle.
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png}
+        \caption{Feet along z axis}
+        \label{fig:feet_z_walking}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png}
+        \caption{CoM Velocity}
+        \label{fig:com_velocity_walking}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png}
+        \caption{Angular Momentum}
+        \label{fig:angular_momentum_walking}
+    \end{subfigure}
+    \caption{Feet, Com Velocity and Angular Momentum - Walking Task}
     \label{fig:threeimages_walking}
 \end{figure}
-Furthermore, the image below represent the foot position along the Z-axis in time. As one can see, they follow a parabolic profile.  
+\\
+The plots in Fig. \ref{fig:comparison_walking} compare the optimized and reference trajectories for the walking task, highlighting the robot’s adherence to the intended motion patterns. The CoM position plots show a consistent forward motion along the $x$ - axis, lateral oscillations in the $y$ - axis, and minimal vertical fluctuations in the $z$ - axis, indicating stable walking dynamics. CoM velocities reflect these patterns, with pronounced oscillations in the $x$ and $y$ components and minimal $z$ velocity, underscoring vertical stability.
+Angular momentum exhibits periodic variations in the $x$ and $y$ components during foot transitions, while the $z$ component remains stable, suggesting controlled rotational behavior. Feet positions and velocity plots capture the cyclic nature of the gait, with distinct lift-off and ground contact phases in the $z$ component and steady forward movement in the $x$ component. Overall, the optimized trajectories align well with the reference paths, with minor adjustments indicating corrective actions for stability.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/Feet_z walking.png}
-    \caption{Feet along Z}
-    \label{fig:feet_walking}
+    \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png}
+    \caption{Trajectory vs Reference - Walking Task}
+    \label{fig:comparison_walking}
 \end{figure}
-
-
-\subsubsection*{State and Input Contact Values}
-As previously said, in the following plots, the main components of the state and input vectors solutions are compared with the reference at each contact step.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figures/contact_x_walking.png}
-    \caption{Trajectory vs Reference: state vector}
-    \label{fig:contact_x_walking}
-\end{figure}
-
-\subsubsection*{Contact Forces}
-Another key dynamic aspect, which we have already discussed, concerns the forces involved. Specifically, the input vector includes the contact wrench, which captures the mechanical interaction between the robot and contact points, such as the feet or hands. To maintain dynamic balance, the environment must exert a reaction force along the Z-axis equal to the gravitational force, which is the robot's mass multiplied by gravity. Table ~\ref{tab:contactforceswalking} below lists the contact forces exerted by the environment on both feet. As shown, when both feet are on the ground, the gravitational force is evenly distributed between the left and right foot, while during single support, the force is applied only to the foot that remains on the ground.
+\\
+As for the still task, the analysis of the contact forces during the walking task is crucial to verify that the robot maintains balance while executing the motion. As shown in Table \ref{tab:forces_walking}, the sum of the contact forces along the $z$-axis consistently aligns with the gravitational force acting on the robot. This alignment indicates that the control strategy effectively regulates vertical support forces, ensuring stability throughout the gait sequence.
 \begin{table}[H]
-\centering
-\begin{tabular}{ccc}
-\toprule
-Right Foot Z & Left Foot Z & $\Sigma_L^k$ \\
-\midrule
-49.0644 & 49.0531 & [0., 0.] \\
-97.9551 & 0 & [0., -] \\
-48.8973 & 49.65 & [0., 0.] \\
-0 & 97.4904 & [-, 0.] \\
-49.6528 & 49.1563 & [0., 0.] \\
-97.3081 & 0 & [0., -] \\
-49.2399 & 49.7241 & [0., 0.] \\
-0 & 97.2091 & [-, 0.] \\
-49.7388 & 49.293 & [0., 0.] \\
-97.1669 & 0 & [0., -] \\
-49.3007 & 49.7613 & [0., 0.] \\
-0 & 97.1486 & [-, 0.] \\
-49.762 & 49.31 & [0., 0.] \\
-97.1443 & 0 & [0., -] \\
-49.3062 & 49.7655 & [0., 0.] \\
-0 & 97.1495 & [-, 0.] \\
-49.7557 & 49.3045 & [0., 0.] \\
-97.1685 & 0 & [0., -] \\
-49.2815 & 49.7467 & [0., 0.] \\
-0 & 97.216 & [-, 0.] \\
-49.7003 & 49.254 & [0., 0.] \\
-97.3264 & 0 & [0., -] \\
-49.1286 & 49.6485 & [0., 0.] \\
-0 & 97.5828 & [-, 0.] \\
-\bottomrule
-\end{tabular}
-\caption{Z-axis gravity force and $\Sigma_L^k$ values}
-\label{tab:contactforceswalking}
-
-\end{table}
-
-Again, components of contact wrench, rotational and translational forces, are graphically expressed in the following plots:
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{c|c|c|c|c}
+            \hline
+            Interval & Right Foot (x,y,z) & Left Foot (x,y,z) & $\Sigma L_k$ & Sum Forces (x,y,z) \\
+            \hline
+            0 & (0.3186, 9.993, 49.064) & (0.3135, -8.822, 49.053) & (0, 0) & (0.6322, 1.1712, 98.1175) \\
+            1 & (-2.9751, 12.258, 97.955) & (0, 0, 0) & (0, -1) & (-2.9751, 12.258, 97.9551) \\
+            2 & (3.3303, -0.425, 48.897) & (-4.9023, -19.591, 49.650) & (0, 0) & (-1.5720, -20.016, 98.5473) \\
+            3 & (0, 0, 0) & (-6.5058, 4.261, 97.490) & (-1, 0) & (-6.5058, 4.261, 97.4904) \\
+            4 & (-7.0579, 14.053, 49.653) & (4.3045, -4.005, 49.156) & (0, 0) & (-2.7535, 10.048, 98.8092) \\
+            5 & (-6.9692, 1.921, 97.308) & (0, 0, 0) & (0, -1) & (-6.9692, 1.921, 97.3081) \\
+            6 & (3.0511, 1.817, 49.240) & (-5.6393, -16.023, 49.724) & (0, 0) & (-2.5882, -14.206, 98.9640) \\
+            7 & (0, 0, 0) & (-6.7544, 0.511, 97.209) & (-1, 0) & (-6.7544, 0.511, 97.2091) \\
+            8 & (-5.8989, 15.204, 49.739) & (3.3918, -2.610, 49.293) & (0, 0) & (-2.5070, 12.593, 99.0319) \\
+            9 & (-6.8000, 0.593, 97.167) & (0, 0, 0) & (0, -1) & (-6.8000, 0.593, 97.1669) \\
+            10 & (3.3444, 2.219, 49.301) & (-5.8685, -15.554, 49.761) & (0, 0) & (-2.5241, -13.335, 99.0619) \\
+            11 & (0, 0, 0) & (-6.8143, -0.121, 97.149) & (-1, 0) & (-6.8143, -0.121, 97.1486) \\
+            12 & (-5.9310, 15.393, 49.762) & (3.3932, -2.385, 49.310) & (0, 0) & (-2.5378, 13.008, 99.0720) \\
+            13 & (-6.8282, 0.352, 97.144) & (0, 0, 0) & (0, -1) & (-6.8282, 0.352, 97.1443) \\
+            14 & (3.3762, 2.297, 49.306) & (-5.9126, -15.492, 49.766) & (0, 0) & (-2.5364, -13.195, 99.0716) \\
+            15 & (0, 0, 0) & (-6.8131, -0.182, 97.150) & (-1, 0) & (-6.8131, -0.182, 97.1495) \\
+            16 & (-5.8724, 15.400, 49.756) & (3.3634, -2.397, 49.305) & (0, 0) & (-2.5091, 13.003, 99.0602) \\
+            17 & (-6.7635, 0.425, 97.169) & (0, 0, 0) & (0, -1) & (-6.7635, 0.425, 97.1685) \\
+            18 & (3.2848, 2.288, 49.282) & (-5.7111, -15.640, 49.747) & (0, 0) & (-2.4263, -13.351, 99.0282) \\
+            19 & (0, 0, 0) & (-6.6265, 0.084, 97.216) & (-1, 0) & (-6.6265, 0.084, 97.2160) \\
+            20 & (-5.4018, 15.280, 49.700) & (3.1738, -2.710, 49.254) & (0, 0) & (-2.2280, 12.571, 98.9543) \\
+            21 & (-6.2994, 1.076, 97.326) & (0, 0, 0) & (0, -1) & (-6.2994, 1.076, 97.3264) \\
+            22 & (2.6126, 2.308, 49.129) & (-4.3267, -16.682, 49.649) & (0, 0) & (-1.7142, -14.373, 98.7771) \\
+            23 & (0, 0, 0) & (-5.5100, 1.696, 97.583) & (-1, 0) & (-5.5100, 1.696, 97.5828) \\
+            \hline
+        \end{tabular}
+    }
+    \caption{Summary of Forces and Foot Positions per Interval - Walking Task}
+    \label{tab:forces_walking}
+\end{table}      
+To conclude the analysis of the walking task, Figures \ref{fig:contact_forces_walking_right} and \ref{fig:contact_forces_walking_left} depict the behavior of the translational and rotational forces at the contact points for the right and left foot, respectively. Along the horizontal axes, the translational forces exhibit periodic fluctuations, corresponding to the alternating support phases during the walking cycle. In the vertical direction, the forces consistently counteract gravitational effects, with pronounced peaks reflecting ground contact phases and troughs indicating foot lift-off events.
+Rotational forces show notable oscillations in both the $x$ and $y$ components, particularly during transitions between single and double support phases, indicating the corrective torques applied to maintain balance. The $z$ component remains relatively stable, with minor oscillations that align with the angular momentum patterns previously observed.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/contact_forces_walking.png}
-    \caption{Trajectory vs Reference: Forces}
-    \label{fig:contact_forces_walking}
+    \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png}
+    \caption{Trajectory vs Reference Forces Right Foot - Walking Task}
+    \label{fig:contact_forces_walking_right}
+    
+    \vspace{1em} % Adjusts the space between the two plots
+
+    \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png}
+    \caption{Trajectory vs Reference Forces Left Foot - Walking Task}
+    \label{fig:contact_forces_walking_left}
 \end{figure}
-
-\newpage
-\subsubsection*{Robot representation}
-In this section it is possible to visualize the path followed by the CoM, right and left foot in time both for  still (Fig.~\ref{fig:strob}) and walking (Fig.~\ref{fig:walrob}) tasks:
-
-\begin{figure}[H]
-  \begin{minipage}[b]{0.55\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures/still.PNG}
-    \caption{Still}
-    \label{fig:strob}
-  
-  \end{minipage}
-  \hspace{0.05\linewidth}
-  \begin{minipage}[b]{0.55\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures/walking.PNG}
-    \caption{Walking}
-    \label{fig:walrob}
-  
-  \end{minipage}
-\end{figure}
-
-
+\end{sloppypar}
 
 \end{document}

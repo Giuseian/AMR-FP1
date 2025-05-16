@@ -142,6 +142,8 @@ INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\commath\commath.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\commath\commath.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\comment\comment.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\comment\comment.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\placeins\placeins.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\placeins\placeins.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithm.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithm.sty
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
@@ -302,114 +304,6 @@ INPUT chapters\Simulation and Results.tex
 INPUT .\chapters\Simulation and Results.tex
 INPUT .\chapters\Simulation and Results.tex
 INPUT chapters\Simulation and Results.tex
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM x Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM y Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\CoM z Trajectory still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\Feet_z still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_x_still.png
-INPUT .\figures\contact_forces_still.png
-INPUT .\figures\contact_forces_still.png
-INPUT figures\contact_forces_still.png
-INPUT .\figures\contact_forces_still.png
-INPUT .\figures\contact_forces_still.png
-INPUT .\figures\contact_forces_still.png
-INPUT .\figures\contact_forces_still.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM x Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM y Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\CoM z Trajectory walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\Feet_z walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_x_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\contact_forces_walking.png
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\still.PNG
-INPUT .\figures\walking.PNG
-INPUT .\figures\walking.PNG
-INPUT figures\walking.PNG
-INPUT .\figures\walking.PNG
-INPUT .\figures\walking.PNG
-INPUT .\figures\walking.PNG
-INPUT .\figures\walking.PNG
-INPUT .\chapters\New Simulation and Results.tex
-INPUT .\chapters\New Simulation and Results.tex
-INPUT chapters\New Simulation and Results.tex
-INPUT .\chapters\New Simulation and Results.tex
-INPUT .\chapters\New Simulation and Results.tex
-INPUT chapters\New Simulation and Results.tex
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
-INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
 INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
 INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png
 INPUT C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\plots\CoM x Trajectory still.png

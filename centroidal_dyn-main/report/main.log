@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  15 MAY 2025 22:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.28)  16 MAY 2025 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -444,7 +444,9 @@ Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count318
 ) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/commath\commath.sty) (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
 \CommentStream=\write3
- Excluding comment 'comment')
+ Excluding comment 'comment') (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
 \c@definition=\count319
 \c@theorem=\count320
 \c@remark=\count321
@@ -573,11 +575,7 @@ LaTeX Info: Redefining \_ on input line 43.
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/import\import.sty
 Package: import 2020/04/01  v 6.2
-)) (main.aux (title.aux)
-
-LaTeX Warning: Label `fig:threeimages_walking' multiply defined.
-
-)
+)) (main.aux (title.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
@@ -663,7 +661,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `title.aux'.
 
  (title.tex
-<figures/SapienzaLogo.pdf, id=83, 284.52731pt x 85.33737pt>
+<figures/SapienzaLogo.pdf, id=63, 284.52731pt x 85.33737pt>
 File: figures/SapienzaLogo.pdf Graphic file (type pdf)
 <use figures/SapienzaLogo.pdf>
 Package pdftex.def Info: figures/SapienzaLogo.pdf  used on input line 4.
@@ -697,17 +695,16 @@ l.86 \newpage
 
 ]
 
-[2] (chapters/Introduction.tex)
-Overfull \hbox (0.40605pt too wide) in paragraph at lines 7--95
-\OT1/cmr/m/n/12 The or-ga-ni-za-tion of this re-port is as fol-lows.In Sec-tion []2[], re-lated works on reduced-order
+[2] (chapters/Introduction.tex
+
+LaTeX Warning: Reference `sec:simulation' on page 3 undefined on input line 12.
+
+
+Underfull \hbox (badness 1360) in paragraph at lines 8--13
+\OT1/cmr/m/n/12 The or-ga-ni-za-tion of this re-port is as fol-lows.In Sec-tion []2[], re-lated works on
  []
 
-
-Overfull \hbox (5.04489pt too wide) in paragraph at lines 7--95
-\OT1/cmr/m/n/12 re-sults are shown, in-clud-ing al-go-rith-mic im-ple-men-ta-tion and demon-stra-tions of stand-ing
- []
-
-
+)
 
 [3] (chapters/Related Works.tex
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
@@ -805,10 +802,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--123
 Excluding 'comment' comment.)
 
 [13] (chapters/Simulation and Results.tex
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 41.
+Underfull \hbox (badness 10000) in paragraph at lines 7--14
 
-Overfull \hbox (13.13925pt too wide) in paragraph at lines 38--56
-[]\OT1/cmr/m/n/12 The ref-er-ence tra-jec-tory for the "Still Task" is gen-er-ated and up-dated in a step-by-step
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--14
+
  []
 
 
@@ -816,373 +826,197 @@ Overfull \hbox (13.13925pt too wide) in paragraph at lines 38--56
 [14
 
 ]
-Overfull \hbox (11.64168pt too wide) in paragraph at lines 60--65
-\OT1/cmr/m/n/12 Mass (CoM) re-mains sta-tion-ary. Move-ment along the X-axis oc-curs dur-ing single-support
+Underfull \hbox (badness 1546) in paragraph at lines 18--34
+\OT1/cmr/m/n/12 IPOPT solver from the CasADi op-ti-miza-tion frame-work to com-pute op-ti-mal
  []
 
 
-Overfull \hbox (0.64993pt too wide) in paragraph at lines 79--98
-[]\OT1/cmr/m/n/12 It starts by set-ting up ma-tri-ces for the ref-er-ence tra-jec-tory states (X[]-ref for po-si-tions
+Underfull \hbox (badness 1248) in paragraph at lines 18--34
+\OT1/cmr/m/n/12 tra-jec-to-ries based on the SBCD model. Both static and walk-ing tasks are
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--51
+
  []
 
 
 
 [15]
-Overfull \hbox (40.06332pt too wide) in paragraph at lines 108--124
- [][] 
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 69.
+
+Underfull \hbox (badness 1448) in paragraph at lines 67--81
+ []\OT1/cmr/bx/n/12 Reference Tra-jec-tory Gen-er-a-tion[] \OT1/cmr/m/n/12 The still task al-go-rithm (Al-go-rithm []1[])
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--81
+
  []
 
 
 
 [16]
-Overfull \hbox (1.28058pt too wide) in paragraph at lines 157--160
-\OT1/cmr/m/n/12 to sim-u-late walk-ing for-ward. The dif-fer-ent pa-ram-e-ters for the walk-ing sce-nario con-cerns
- []
-
-
-
-[17]
-
-[18]
-<figures/CoM x Trajectory still.png, id=359, 434.3427pt x 283.2984pt>
-File: figures/CoM x Trajectory still.png Graphic file (type png)
-<use figures/CoM x Trajectory still.png>
-Package pdftex.def Info: figures/CoM x Trajectory still.png  used on input line 215.
-(pdftex.def)             Requested size: 197.3295pt x 128.71075pt.
-<figures/CoM y Trajectory still.png, id=361, 425.9112pt x 283.2984pt>
-File: figures/CoM y Trajectory still.png Graphic file (type png)
-<use figures/CoM y Trajectory still.png>
-Package pdftex.def Info: figures/CoM y Trajectory still.png  used on input line 222.
-(pdftex.def)             Requested size: 197.3295pt x 131.25256pt.
-<figures/CoM z Trajectory still.png, id=362, 406.6392pt x 283.2984pt>
-File: figures/CoM z Trajectory still.png Graphic file (type png)
-<use figures/CoM z Trajectory still.png>
-Package pdftex.def Info: figures/CoM z Trajectory still.png  used on input line 229.
-(pdftex.def)             Requested size: 197.3295pt x 137.47736pt.
-<figures/Feet_z still.png, id=363, 377.9721pt x 283.2984pt>
-File: figures/Feet_z still.png Graphic file (type png)
-<use figures/Feet_z still.png>
-Package pdftex.def Info: figures/Feet_z still.png  used on input line 239.
-(pdftex.def)             Requested size: 263.11047pt x 197.20522pt.
-<figures/contact_x_still.png, id=364, 1077.0639pt x 1148.1294pt>
-File: figures/contact_x_still.png Graphic file (type png)
-<use figures/contact_x_still.png>
-Package pdftex.def Info: figures/contact_x_still.png  used on input line 249.
-(pdftex.def)             Requested size: 263.11047pt x 280.462pt.
-
-
-[19 <./figures/CoM x Trajectory still.png> <./figures/CoM y Trajectory still.png> <./figures/CoM z Trajectory still.png> <./figures/Feet_z still.png>]
-<figures/contact_forces_still.png, id=378, 1077.0639pt x 714.2685pt>
-File: figures/contact_forces_still.png Graphic file (type png)
-<use figures/contact_forces_still.png>
-Package pdftex.def Info: figures/contact_forces_still.png  used on input line 276.
-(pdftex.def)             Requested size: 350.81174pt x 232.64676pt.
-
-
-[20 <./figures/contact_x_still.png>]
-
-LaTeX Warning: Reference `fig:sub1' on page 21 undefined on input line 285.
-
-
-LaTeX Warning: Reference `fig:sub2' on page 21 undefined on input line 286.
-
-
-LaTeX Warning: Reference `fig:sub3' on page 21 undefined on input line 287.
-
-<figures/CoM x Trajectory walking.png, id=389, 397.7259pt x 283.2984pt>
-File: figures/CoM x Trajectory walking.png Graphic file (type png)
-<use figures/CoM x Trajectory walking.png>
-Package pdftex.def Info: figures/CoM x Trajectory walking.png  used on input line 293.
-(pdftex.def)             Requested size: 197.3295pt x 140.55518pt.
-<figures/CoM y Trajectory walking.png, id=390, 418.9251pt x 283.2984pt>
-File: figures/CoM y Trajectory walking.png Graphic file (type png)
-<use figures/CoM y Trajectory walking.png>
-Package pdftex.def Info: figures/CoM y Trajectory walking.png  used on input line 300.
-(pdftex.def)             Requested size: 197.3295pt x 133.4442pt.
-<figures/CoM z Trajectory walking.png, id=391, 410.4936pt x 283.2984pt>
-File: figures/CoM z Trajectory walking.png Graphic file (type png)
-<use figures/CoM z Trajectory walking.png>
-Package pdftex.def Info: figures/CoM z Trajectory walking.png  used on input line 307.
-(pdftex.def)             Requested size: 197.3295pt x 136.18484pt.
-
-
-[21 <./figures/contact_forces_still.png>]
-<figures/Feet_z walking.png, id=400, 410.4936pt x 283.2984pt>
-File: figures/Feet_z walking.png Graphic file (type png)
-<use figures/Feet_z walking.png>
-Package pdftex.def Info: figures/Feet_z walking.png  used on input line 317.
-(pdftex.def)             Requested size: 263.11047pt x 181.59132pt.
-<figures/contact_x_walking.png, id=401, 1082.8455pt x 1148.1294pt>
-File: figures/contact_x_walking.png Graphic file (type png)
-<use figures/contact_x_walking.png>
-Package pdftex.def Info: figures/contact_x_walking.png  used on input line 327.
-(pdftex.def)             Requested size: 263.11047pt x 278.9729pt.
-
-
-[22 <./figures/CoM x Trajectory walking.png> <./figures/CoM y Trajectory walking.png> <./figures/CoM z Trajectory walking.png> <./figures/Feet_z walking.png>]
-
-[23 <./figures/contact_x_walking.png>]
-<figures/contact_forces_walking.png, id=424, 1076.823pt x 714.2685pt>
-File: figures/contact_forces_walking.png Graphic file (type png)
-<use figures/contact_forces_walking.png>
-Package pdftex.def Info: figures/contact_forces_walking.png  used on input line 374.
-(pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
-
-
-[24]
-<figures/still.PNG, id=433, 596.82974pt x 357.13425pt>
-File: figures/still.PNG Graphic file (type png)
-<use figures/still.PNG>
-Package pdftex.def Info: figures/still.PNG  used on input line 386.
-(pdftex.def)             Requested size: 241.18349pt x 144.31706pt.
-<figures/walking.PNG, id=434, 596.2275pt x 359.54324pt>
-File: figures/walking.PNG Graphic file (type png)
-<use figures/walking.PNG>
-Package pdftex.def Info: figures/walking.PNG  used on input line 394.
-(pdftex.def)             Requested size: 241.18349pt x 145.43864pt.
-
-Overfull \hbox (71.00313pt too wide) in paragraph at lines 384--399
-[][]   [] 
- []
-
-)
-
-[25 <./figures/contact_forces_walking.png> <./figures/still.PNG> <./figures/walking.PNG>] (chapters/New Simulation and Results.tex
-Underfull \hbox (badness 10000) in paragraph at lines 7--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--13
-
- []
-
-
-Underfull \hbox (badness 1577) in paragraph at lines 7--13
-\OT1/cmr/m/n/12 To pro-vide fur-ther val-i-da-tion, we im-ple-ment the static bal-ance and walk-ing
- []
-
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 14.
-(C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
-
-Underfull \hbox (badness 6575) in paragraph at lines 18--33
- []\OT1/cmr/bx/n/12 Parameter Ini-tial-iza-tion and Dy-nam-ics[] \OT1/cmr/m/n/12 The im-ple-men-ta-tion lever-ages
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--33
-
- []
-
-
-
-[26
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 33--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--49
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[27]
-Underfull \hbox (badness 1448) in paragraph at lines 65--83
- []\OT1/cmr/bx/n/12 Reference Tra-jec-tory Gen-er-a-tion[] \OT1/cmr/m/n/12 The still task al-go-rithm (Al-go-rithm []3[])
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--83
-
- []
-
-
-
-[28]
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png, id=473, 427.8384pt x 283.2984pt>
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png, id=320, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png  used on input line 92.
-(pdftex.def)             Requested size: 140.32736pt x 92.91815pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png, id=474, 425.9112pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png  used on input line 90.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png, id=322, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png  used on input line 99.
-(pdftex.def)             Requested size: 140.32736pt x 93.33745pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png, id=475, 406.6392pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png  used on input line 97.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png, id=323, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png  used on input line 106.
-(pdftex.def)             Requested size: 140.32736pt x 97.76398pt.
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png  used on input line 104.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--112
+Underfull \hbox (badness 10000) in paragraph at lines 83--110
 
  []
 
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png, id=480, 377.9721pt x 283.2984pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--110
+
+ []
+
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png, id=328, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png  used on input line 118.
-(pdftex.def)             Requested size: 140.32736pt x 105.17755pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png, id=481, 415.0707pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png  used on input line 116.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png, id=329, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png  used on input line 125.
-(pdftex.def)             Requested size: 140.32736pt x 95.7755pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png, id=482, 396.2805pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png  used on input line 123.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png, id=330, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png  used on input line 132.
-(pdftex.def)             Requested size: 140.32736pt x 100.31874pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png, id=484, 1076.823pt x 1148.1294pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png  used on input line 130.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png, id=332, 1076.823pt x 1148.1294pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png  used on input line 143.
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png  used on input line 141.
 (pdftex.def)             Requested size: 350.81174pt x 374.0311pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 111--164
 
-[29 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png>]
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png, id=499, 1077.0639pt x 714.2685pt>
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--164
+
+ []
+
+
+
+[17 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory still.png>]
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png, id=348, 1077.0639pt x 714.2685pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png>
 Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png  used on input line 169.
 (pdftex.def)             Requested size: 350.81174pt x 232.64676pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png, id=500, 911.0838pt x 603.2136pt>
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png, id=349, 911.0838pt x 603.2136pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png>
 Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png  used on input line 175.
 (pdftex.def)             Requested size: 350.81174pt x 232.27016pt.
 
 
-[30 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png>]
+[18 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity still.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum still.png>]
 
-[31 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png>]
+[19 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png>]
 
-[32 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png>]
+[20 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png>]
 
-[33]
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png, id=539, 397.7259pt x 283.2984pt>
+[21]
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png, id=387, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png  used on input line 245.
-(pdftex.def)             Requested size: 140.32736pt x 99.95563pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png, id=540, 418.9251pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png  used on input line 242.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png, id=388, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png  used on input line 252.
-(pdftex.def)             Requested size: 140.32736pt x 94.89366pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png, id=541, 410.4936pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png  used on input line 249.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png, id=389, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png  used on input line 259.
-(pdftex.def)             Requested size: 140.32736pt x 96.84755pt.
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png  used on input line 256.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--265
+Underfull \hbox (badness 10000) in paragraph at lines 235--262
 
  []
 
-
-
-[34]
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png, id=554, 410.4936pt x 283.2984pt>
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png, id=394, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png  used on input line 271.
-(pdftex.def)             Requested size: 140.32736pt x 96.84755pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png, id=555, 406.1574pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png  used on input line 268.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png, id=395, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png  used on input line 278.
-(pdftex.def)             Requested size: 140.32736pt x 97.87637pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png, id=556, 409.53pt x 283.2984pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png  used on input line 275.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png, id=396, 602.25pt x 401.5pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png  used on input line 285.
-(pdftex.def)             Requested size: 140.32736pt x 97.07666pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png, id=558, 1083.0864pt x 1148.1294pt>
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png  used on input line 282.
+(pdftex.def)             Requested size: 140.32736pt x 93.54994pt.
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png, id=398, 1083.0864pt x 1148.1294pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png  used on input line 296.
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png  used on input line 294.
 (pdftex.def)             Requested size: 350.81174pt x 371.87627pt.
 
 
-LaTeX Warning: Reference `tab:forces_walking' on page 35 undefined on input line 300.
+[22 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png>]
 
+[23 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png>]
 
-
-[35 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM x Trajectory walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM y Trajectory walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM z Trajectory walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Feet_z walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/CoM Velocity walking.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/Angular Momentum walking.png>]
-
-[36 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png>]
-
-LaTeX Warning: Reference `fig:forces_walking_right' on page 37 undefined on input line 339.
-
-
-LaTeX Warning: Reference `fig:forces_walking_left' on page 37 undefined on input line 339.
-
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png, id=579, 1076.823pt x 714.2685pt>
+[24 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png>]
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png, id=431, 1076.823pt x 714.2685pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png  used on input line 343.
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png  used on input line 342.
 (pdftex.def)             Requested size: 350.81174pt x 232.69035pt.
-<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png, id=580, 897.1116pt x 603.2136pt>
+<C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png, id=432, 897.1116pt x 603.2136pt>
 File: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png Graphic file (type png)
 <use C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png>
-Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png  used on input line 349.
+Package pdftex.def Info: C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png  used on input line 348.
 (pdftex.def)             Requested size: 350.81174pt x 235.88745pt.
-
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
-
- []
-
 )
 
-[38 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png>]
+[25]
 
-[39 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png>] (chapters/Conclusion.tex
-Underfull \hbox (badness 1117) in paragraph at lines 7--15
-\OT1/cmr/m/n/12 In this project, we im-ple-mented and eval-u-ated the Stiffness-Based Cen-troidal
- []
+[26 <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png> <C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png>] (chapters/Conclusion.tex)
 
-
-Underfull \hbox (badness 5217) in paragraph at lines 7--15
-\OT1/cmr/m/n/12 Despite these dif-fi-cul-ties, the fi-nal im-ple-men-ta-tion demon-strated suc-cess-ful
- []
-
-
-Underfull \hbox (badness 1127) in paragraph at lines 7--15
-\OT1/cmr/m/n/12 Ad-di-tion-ally, the in-te-gra-tion of learning-based com-po-nents for adap-ta-tion and
- []
-
-)
-
-[40
+[27
 
 ] (main.bbl
 
-[41
+[28
 
 ]
 Underfull \hbox (badness 2503) in paragraph at lines 92--97
@@ -1196,7 +1030,7 @@ Underfull \hbox (badness 2343) in paragraph at lines 121--127
 
 )
 
-[42] (main.aux (title.aux))
+[29] (main.aux (title.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
@@ -1205,24 +1039,21 @@ L3 programming layer <2024-12-25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9050D8ABF284978D0535531E4B9448F3;3278.
+(rerunfilecheck)             Checksum: 0F5C6863125869B8EC1285A28CE21832;2430.
  ) 
 Here is how much of TeX's memory you used:
- 17837 strings out of 473536
- 312849 string characters out of 5714956
- 722464 words of memory out of 5000000
- 40528 multiletter control sequences out of 15000+600000
+ 17638 strings out of 473536
+ 307685 string characters out of 5714956
+ 731608 words of memory out of 5000000
+ 40392 multiletter control sequences out of 15000+600000
  570964 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,82p,1750b,735s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\giuse\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (43 pages, 12238820 bytes).
+Output written on main.pdf (30 pages, 6160452 bytes).
 PDF statistics:
- 738 PDF objects out of 1000 (max. 8388607)
- 199 named destinations out of 1000 (max. 500000)
- 332 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 146 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
