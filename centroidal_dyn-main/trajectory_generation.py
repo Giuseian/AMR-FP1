@@ -109,6 +109,7 @@ def ref_trajectory_generation(n_e, N, ref_type, sigma):
             X_ref[13:14, t] = time_k
             
             feet_vel = np.array([right_vel_x, 0.0, right_vel_z, left_vel_x, 0.0, left_vel_z])
+            U_ref[1:1+3*n_e, t-1] = feet_vel
             right_ds = feet_vel[:3]*U_ref[0, t-1]
             left_ds = feet_vel[3:6]*U_ref[0, t-1]
             X_ref[14:17, t] = X_ref[14:17, t-1] + right_ds
