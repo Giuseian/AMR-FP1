@@ -8,7 +8,7 @@ To evaluate the effectiveness of the proposed trajectory optimization framework,
 \\
 The analysis begins with an overview of key implementation details, focusing on the initialization of cost weights, time discretization parameters, and control bounds. These parameters define the structure of the optimization problem and facilitate the computation of feasible trajectories. Next, we outline the algorithm used to generate the desired reference trajectory for each task, establishing the target path for the robot’s motion. These trajectories serve as benchmarks, allowing us to assess the framework’s performance under different conditions.\\
 \\
-In this framework, contact states are represented using the set {\$-\$, \$0\$}, where \$0\$ indicates foot contact with the ground and \$-\$ denotes a swing phase. Rather than using continuous time, trajectories are structured around these discrete contact phases, ensuring consistency in representation across both tasks. This approach allows for a more intuitive interpretation of contact dynamics and simplifies the integration of state transitions. \\
+In this framework, contact states are represented using the set \{- , 0\}, where \{0\} indicates foot contact with the ground and \{-\} denotes a swing phase. Rather than using continuous time, trajectories are structured around these discrete contact phases, ensuring consistency in representation across both tasks. This approach allows for a more intuitive interpretation of contact dynamics and simplifies the integration of state transitions. \\
 \\
 With the reference trajectories defined, we proceed to analyze the simulation results by examining key components of the robot’s motion. First, we assess the CoM trajectories to determine how effectively the robot maintains stability and follows the intended path over time. Next, we compare the optimized state solutions with the reference trajectories at each contact step, providing insights into the effectiveness of the control strategy. Finally, we assess the contact wrenches, focusing on both translational and rotational forces to verify compliance with physical constraints and to evaluate the feasibility of the generated trajectories. \\
 \paragraph{Implementation Overview}
@@ -17,7 +17,7 @@ Our work builds upon the framework provided in the \href{[https://github.com/DIA
 Implementing the proposed SBCD model involves requires careful consideration of parameter selection, initialization, and optimization for both static and walking scenarios. Given that the parameter configuration is largely consistent across both scenarios, a unified framework is presented, with task-specific distinctions clearly specified where relevant.
 \paragraph{Parameter Initialization and Dynamics} The implementation leverages the IPOPT solver from the CasADi optimization framework to compute optimal trajectories based on the SBCD model. Both static and walking tasks are characterized by a shared set of parameters governing state initialization, dynamics, and control inputs. These parameters are systematically structured, allowing for easy adaptation between the two tasks. For both scenarios, the robot’s state is initialized with the Center of Mass positioned at a predefined reference point, with neutral feet orientations. Velocity initialization, however, is task-dependent. In the static scenario, CoM velocity is set to zero, serving as a baseline for assessing stationary behavior under SBCD control. In contrast, the walking task initialized the CoM velocity to [0, -0.07, 0]  (m/s), simulating an initial oscillation to the right. \\ 
 \\
-Before delving into the parameter values, Table \ref{tab:weight_states} outlines the specific weight configuration applied to some state components. While most parameters remain consistent, the weight for the velocity component differs between the two tasks: for the static task, it is set to 100, emphasizing minimal movement, whereas for the walking task, it is reduced to 1 to allow for more dynamic motion. For all other state components and control inputs, detailed in Eq. \ref{eq:state_input}, weights are uniformly initialized to 1.
+Before delving into the parameter values, Table \ref{tab:weight_states} outlines the specific weight configuration applied to some state components. While most parameters remain consistent, the weight for the velocity component differs between the two tasks: for the static task, it is set to 100, emphasizing minimal movement, whereas for the walking task, it is reduced to 1 to allow for more dynamic motion. For all other state components and control inputs, detailed in Eq. \eqref{eq:state_input}, weights are uniformly initialized to 1.
 \begin{table}[h!]
     \centering
     \begin{tabular}{lcccccc}
@@ -108,7 +108,7 @@ The plots in Fig.\ref{fig:com_still} illustrate the CoM evolution during the sti
     \caption{Evolution of CoM Position - Still Task}
     \label{fig:com_still}
 \end{figure}
-Fig.\ref{fig:three_still} shows the evolution of feet positions along the z-axis, CoM velocity, and angular momentum during the still task. The feet positions in Fig. \ref{fig:feet_z_still} remain nearly constant, indicating minimal vertical motion. In Fig. \ref{fig:com_velocity_still}, slight oscillations in the $y$ and $z$ velocity components suggest minor corrective actions to maintain stability. The angular momentum in Fig. \ref{fig:angular_momentum_still} displays brief periodic drops, before returning to zero. This behavior indicates small adjustments to counteract any residual moments, ultimately preserving the robot’s stationary configuration. \\
+Fig.\ref{fig:three_still} shows the evolution of feet positions along the z-axis, CoM velocity, and angular momentum during the still task. The feet positions in Fig. \ref{fig:feet_z_still} remain nearly constant, indicating minimal vertical motion. In Fig. \ref{fig:com_velocity_still}, slight oscillations in the $y$ and $z$ velocity components suggest minor corrective actions to maintain stability. The angular momentum in Fig. \ref{fig:angular_momentum_still} exhibits a few distinct spikes in the $L_x$ component, indicating corrective torques applied to maintain stability, while the $L_y$ and the $L_z$ components remain relatively stable, reflecting a largely stable configuration. \\
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.32\textwidth}
@@ -134,8 +134,8 @@ Fig.\ref{fig:three_still} shows the evolution of feet positions along the z-axis
     \caption{Feet, Com Velocity and Angular Momentum - Still Task}
     \label{fig:three_still}
 \end{figure}
-\\
-In Fig. \ref{fig:comparison_still} , the comparison between the reference and optimized trajectories for the still task is presented. The CoM position remains largely aligned with the reference values, with slight deviations observed primarily in the $x$ and $z$ components, reflecting minor adjustments to maintain stability. CoM velocity remains close to zero, consistent with the stationary objective, though minor oscillations indicate corrective actions against gravitational forces. Angular momentum shows small linear trends, particularly in the $x$ and $y$ components, suggesting residual moments being counteracted. Feet positions and velocities remain effectively constant, confirming that the feet maintain their initial stance without significant movement. Overall, the optimized trajectories exhibit minimal divergence from the reference, indicating effective stabilization while accounting for minor corrections.
+\newpage
+In Fig. \ref{fig:comparison_still} , the comparison between the reference and optimized trajectories for the still task is presented. The CoM position remains largely aligned with the reference values, with slight deviations observed primarily in the $x$ and $z$ components, reflecting minor adjustments to maintain stability. CoM velocity remains close to zero, consistent with the stationary objective, though minor oscillations indicate corrective actions against gravitational forces. Angular momentum closely follows the reference values across all components, inidicating that the system remains effectively stationary with minimal rotational adjustments. Feet positions and velocities remain effectively constant, confirming that the feet maintain their initial stance without significant movement. Overall, the optimized trajectories exhibit minimal divergence from the reference, indicating effective stabilization while accounting for minor corrections.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png}
@@ -153,27 +153,28 @@ Another key aspect of the dynamics involves the contact wrenches, which represen
             \hline
             Interval & Right Foot (x,y,z) & Left Foot (x,y,z) & $\Sigma L_k$ & Sum Forces (x,y,z) \\
             \hline
-            0 & (0.0000597, 9.5381, 49.041) & (0.0000750, -9.5381, 49.0453) & (0, 0) & (0.0001347, -0.0000365, 98.0863) \\
-            1 & (-0.0002229, 9.5390, 49.0706) & (-0.0002060, -9.5389, 49.0752) & (0, 0) & (-0.0004289, 0.0001218, 98.1457) \\
-            2 & (-0.0001391, 9.5392, 49.0533) & (-0.0001200, -9.5392, 49.0585) & (0, 0) & (-0.0002590, 0.0000328, 98.1118) \\
+            0 & (0.000059, 9.53808, 49.0403) & (0.000080, -9.53812, 49.046) & (0, 0) & (0.000139, -0.000038, 98.0863) \\
+            1 & (-0.000233, 9.53903, 49.070) & (-0.000211, -9.53891, 49.0757) & (0, 0) & (-0.000444, 0.000127, 98.1457) \\
+            2 & (-0.000143, 9.53922, 49.0531) & (-0.000121, -9.53918, 49.0587) & (0, 0) & (-0.000264, 0.000032, 98.1118) \\
             \hline
         \end{tabular}
     }
     \caption{Summary of Forces and Foot Positions per Interval - Still Task}
     \label{tab:forces_still}
 \end{table}
-
-To conclude our analysis of the still task, Figures \ref{fig:contact_forces_still_right} and \ref{fig:contact_forces_still_left} illustrate how the translational and rotational forces behave at the contact points. Along the horizontal axes, translational forces remain near zero, confirming minimal lateral interaction with the ground. The vertical component primarily compensates for gravitational effects, with slight variations indicating minor adjustments to maintain equilibrium. Rotational forces exhibit subtle trends, particularly in the \( x \) and \( y \) components, suggesting ongoing corrections to counteract residual torques. The \( z \) component shows a gradual decline, aligning with the angular momentum behavior observed in previous plots.
+\newpage
+To conclude the analysis of the still task, Figures \ref{fig:contact_forces_still_right} and \ref{fig:contact_forces_still_left} illustrate the behavior of translational and rotational forces at the contact points for the right and left foot, respectively. Along the horizontal axes, translational forces in the \( x \) and \( y \) components remain near zero, indicating minimal lateral interaction with the ground. The vertical \( z \) component shows a pronounced peak, reflecting the compensation for gravitational forces with slight variations indicating minor adjustments. Rotational forces exhibit a more defined trend, particularly in the \( x \) and \( y \) components, with both displaying a gradual decline, suggesting a slight decrease in corrective torques over time. The \( z \) component shows a slight increase followed by a minor drop, with minor fluctuations that align the angular momentum behavior observed previously. 
+\vspace*{2.5cm}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_right.png}
-    \caption{Trajectory vs Reference Forces Right Foot - Still Task}
+    \caption{Translational and Rotational Forces Right Foot - Still Task}
     \label{fig:contact_forces_still_right}
 \end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_still_left.png}
-    \caption{Trajectory vs Reference Forces Left Foot - Still Task}
+    \caption{Translational and Rotational Forces Left Foot - Still Task}
     \label{fig:contact_forces_still_left}
 \end{figure}
 \newpage
@@ -295,7 +296,7 @@ Angular momentum exhibits periodic variations in the $x$ and $y$ components duri
     \caption{Trajectory vs Reference - Walking Task}
     \label{fig:comparison_walking}
 \end{figure}
-\\
+\newpage
 As for the still task, the analysis of the contact forces during the walking task is crucial to verify that the robot maintains balance while executing the motion. As shown in Table \ref{tab:forces_walking}, the sum of the contact forces along the $z$-axis consistently aligns with the gravitational force acting on the robot. This alignment indicates that the control strategy effectively regulates vertical support forces, ensuring stability throughout the gait sequence.
 \begin{table}[H]
     \centering
@@ -305,48 +306,48 @@ As for the still task, the analysis of the contact forces during the walking tas
             \hline
             Interval & Right Foot (x,y,z) & Left Foot (x,y,z) & $\Sigma L_k$ & Sum Forces (x,y,z) \\
             \hline
-            0 & (0.3186, 9.993, 49.064) & (0.3135, -8.822, 49.053) & (0, 0) & (0.6322, 1.1712, 98.1175) \\
-            1 & (-2.9751, 12.258, 97.955) & (0, 0, 0) & (0, -1) & (-2.9751, 12.258, 97.9551) \\
-            2 & (3.3303, -0.425, 48.897) & (-4.9023, -19.591, 49.650) & (0, 0) & (-1.5720, -20.016, 98.5473) \\
-            3 & (0, 0, 0) & (-6.5058, 4.261, 97.490) & (-1, 0) & (-6.5058, 4.261, 97.4904) \\
-            4 & (-7.0579, 14.053, 49.653) & (4.3045, -4.005, 49.156) & (0, 0) & (-2.7535, 10.048, 98.8092) \\
-            5 & (-6.9692, 1.921, 97.308) & (0, 0, 0) & (0, -1) & (-6.9692, 1.921, 97.3081) \\
-            6 & (3.0511, 1.817, 49.240) & (-5.6393, -16.023, 49.724) & (0, 0) & (-2.5882, -14.206, 98.9640) \\
-            7 & (0, 0, 0) & (-6.7544, 0.511, 97.209) & (-1, 0) & (-6.7544, 0.511, 97.2091) \\
-            8 & (-5.8989, 15.204, 49.739) & (3.3918, -2.610, 49.293) & (0, 0) & (-2.5070, 12.593, 99.0319) \\
-            9 & (-6.8000, 0.593, 97.167) & (0, 0, 0) & (0, -1) & (-6.8000, 0.593, 97.1669) \\
-            10 & (3.3444, 2.219, 49.301) & (-5.8685, -15.554, 49.761) & (0, 0) & (-2.5241, -13.335, 99.0619) \\
-            11 & (0, 0, 0) & (-6.8143, -0.121, 97.149) & (-1, 0) & (-6.8143, -0.121, 97.1486) \\
-            12 & (-5.9310, 15.393, 49.762) & (3.3932, -2.385, 49.310) & (0, 0) & (-2.5378, 13.008, 99.0720) \\
-            13 & (-6.8282, 0.352, 97.144) & (0, 0, 0) & (0, -1) & (-6.8282, 0.352, 97.1443) \\
-            14 & (3.3762, 2.297, 49.306) & (-5.9126, -15.492, 49.766) & (0, 0) & (-2.5364, -13.195, 99.0716) \\
-            15 & (0, 0, 0) & (-6.8131, -0.182, 97.150) & (-1, 0) & (-6.8131, -0.182, 97.1495) \\
-            16 & (-5.8724, 15.400, 49.756) & (3.3634, -2.397, 49.305) & (0, 0) & (-2.5091, 13.003, 99.0602) \\
-            17 & (-6.7635, 0.425, 97.169) & (0, 0, 0) & (0, -1) & (-6.7635, 0.425, 97.1685) \\
-            18 & (3.2848, 2.288, 49.282) & (-5.7111, -15.640, 49.747) & (0, 0) & (-2.4263, -13.351, 99.0282) \\
-            19 & (0, 0, 0) & (-6.6265, 0.084, 97.216) & (-1, 0) & (-6.6265, 0.084, 97.2160) \\
-            20 & (-5.4018, 15.280, 49.700) & (3.1738, -2.710, 49.254) & (0, 0) & (-2.2280, 12.571, 98.9543) \\
-            21 & (-6.2994, 1.076, 97.326) & (0, 0, 0) & (0, -1) & (-6.2994, 1.076, 97.3264) \\
-            22 & (2.6126, 2.308, 49.129) & (-4.3267, -16.682, 49.649) & (0, 0) & (-1.7142, -14.373, 98.7771) \\
-            23 & (0, 0, 0) & (-5.5100, 1.696, 97.583) & (-1, 0) & (-5.5100, 1.696, 97.5828) \\
+            0 & (0.3098, 10.0006, 49.0692) & (0.3076, -8.8127, 49.0480) & (0, 0) & (0.6174, 1.1878, 98.1172) \\
+            1 & (-2.9107, 12.2335, 97.9563) & (0, 0, 0) & (0, -1) & (-2.9107, 12.2335, 97.9563) \\
+            2 & (3.2811, -0.3468, 48.5795) & (-4.8871, -19.6105, 49.9662) & (0, 0) & (-1.6060, -19.9572, 98.5457) \\
+            3 & (0, 0, 0) & (-6.4470, 4.1862, 97.4919) & (-1, 0) & (-6.4470, 4.1862, 97.4919) \\
+            4 & (-6.8093, 14.0802, 49.7681) & (4.0998, -3.9816, 49.0385) & (0, 0) & (-2.7095, 10.0986, 98.8066) \\
+            5 & (-6.9116, 1.8871, 97.3107) & (0, 0, 0) & (0, -1) & (-6.9116, 1.8871, 97.3107) \\
+            6 & (3.1803, 1.8069, 49.0314) & (-5.8173, -15.9695, 49.9272) & (0, 0) & (-2.6370, -14.1626, 98.9586) \\
+            7 & (0, 0, 0) & (-6.7673, 0.4847, 97.2130) & (-1, 0) & (-6.7673, 0.4847, 97.2130) \\
+            8 & (-5.9977, 15.1901, 49.9258) & (3.4081, -2.5941, 49.0988) & (0, 0) & (-2.5896, 12.5961, 99.0246) \\
+            9 & (-6.7991, 0.5855, 97.1717) & (0, 0, 0) & (0, -1) & (-6.7991, 0.5855, 97.1717) \\
+            10 & (3.3447, 2.2144, 49.0962) & (-5.9424, -15.5259, 49.9575) & (0, 0) & (-2.5977, -13.3115, 99.0537) \\
+            11 & (0, 0, 0) & (-6.7993, -0.1305, 97.1539) & (-1, 0) & (-6.7993, -0.1305, 97.1539) \\
+            12 & (-5.9816, 15.3748, 49.9533) & (3.3785, -2.3771, 49.1101) & (0, 0) & (-2.6031, 12.9977, 99.0634) \\
+            13 & (-6.8083, 0.3513, 97.1498) & (0, 0, 0) & (0, -1) & (-6.8083, 0.3513, 97.1498) \\
+            14 & (3.3689, 2.2945, 49.1029) & (-5.9736, -15.4697, 49.9601) & (0, 0) & (-2.6047, -13.1752, 99.0630) \\
+            15 & (0, 0, 0) & (-6.8037, -0.1903, 97.1550) & (-1, 0) & (-6.8037, -0.1903, 97.1550) \\
+            16 & (-5.9649, 15.3831, 49.9465) & (3.3681, -2.3898, 49.1053) & (0, 0) & (-2.5968, 12.9933, 99.0517) \\
+            17 & (-6.7893, 0.4215, 97.1738) & (0, 0, 0) & (0, -1) & (-6.7893, 0.4215, 97.1738) \\
+            18 & (3.3633, 2.2973, 49.0756) & (-5.9344, -15.6231, 49.9448) & (0, 0) & (-2.5711, -13.3258, 99.0204) \\
+            19 & (0, 0, 0) & (-6.7306, 0.0657, 97.2207) & (-1, 0) & (-6.7306, 0.0657, 97.2207) \\
+            20 & (-5.8564, 15.2809, 49.8788) & (3.3748, -2.7034, 49.0690) & (0, 0) & (-2.4816, 12.5775, 98.9477) \\
+            21 & (-6.5267, 1.0544, 97.3302) & (0, 0, 0) & (0, -1) & (-6.5267, 1.0544, 97.3302) \\
+            22 & (3.5736, 2.3792, 48.9388) & (-5.7275, -16.6990, 49.8343) & (0, 0) & (-2.1539, -14.3198, 98.7732) \\
+            23 & (0, 0, 0) & (-5.5944, 1.6324, 97.5852) & (-1, 0) & (-5.5944, 1.6324, 97.5852) \\
             \hline
         \end{tabular}
     }
     \caption{Summary of Forces and Foot Positions per Interval - Walking Task}
     \label{tab:forces_walking}
-\end{table}      
-To conclude the analysis of the walking task, Figures \ref{fig:contact_forces_walking_right} and \ref{fig:contact_forces_walking_left} depict the behavior of the translational and rotational forces at the contact points for the right and left foot, respectively. Along the horizontal axes, the translational forces exhibit periodic fluctuations, corresponding to the alternating support phases during the walking cycle. In the vertical direction, the forces consistently counteract gravitational effects, with pronounced peaks reflecting ground contact phases and troughs indicating foot lift-off events.
+\end{table}    
+To conclude the analysis of the walking task, Figures \ref{fig:contact_forces_walking_right} and \ref{fig:contact_forces_walking_left} depict the behavior of the translational and rotational forces at the contact points for the right and left foot, respectively. Along the horizontal axes, the translational forces exhibit periodic fluctuations, corresponding to the alternating support phases during the walking cycle. In the vertical direction ( $z$ - axis), the forces consistently counteract gravitational effects, with pronounced peaks reflecting ground contact phases and troughs indicating foot lift-off events.
 Rotational forces show notable oscillations in both the $x$ and $y$ components, particularly during transitions between single and double support phases, indicating the corrective torques applied to maintain balance. The $z$ component remains relatively stable, with minor oscillations that align with the angular momentum patterns previously observed.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png}
-    \caption{Trajectory vs Reference Forces Right Foot - Walking Task}
+    \caption{Translational and Rotational Forces Right Foot - Walking Task}
     \label{fig:contact_forces_walking_right}
     
     \vspace{1em} % Adjusts the space between the two plots
 
     \includegraphics[width=0.8\textwidth]{C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_left.png}
-    \caption{Trajectory vs Reference Forces Left Foot - Walking Task}
+    \caption{Translational and Rotational Forces Left Foot - Walking Task}
     \label{fig:contact_forces_walking_left}
 \end{figure}
 \end{sloppypar}
