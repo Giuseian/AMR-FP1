@@ -154,8 +154,8 @@ def evolution_contact_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
     labels = ['x', 'y', 'z']
 
     properties = {
-        "Translational Forces F": (translational_fs, ref_translational_fs),
-        "Rotational Forces ETA": (rotational_etas, ref_rotational_etas),
+        "Translational Forces F": (translational_fs, None),
+        "Rotational Forces ETA": (rotational_etas, None),
     }
 
     for i, (title, (values, ref_values)) in enumerate(properties.items()):
