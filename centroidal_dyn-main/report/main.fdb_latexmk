@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1747412805.29899 "main.aux" "main.bbl" "main" 1747413181.89313 0
+["bibtex main"] 1747920561.25081 "main.aux" "main.bbl" "main" 1747920573.72171 0
   "./ref.bib" 1746284366 7831 4c422ea833f8452379491af0a5062084 ""
   "C:/Users/giuse/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291868336 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1747413180 14895 e199dc662f9e8f4be93a53a56a34d0a6 "pdflatex"
-  "title.aux" 1747413165 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1747920572 14895 e199dc662f9e8f4be93a53a56a34d0a6 "pdflatex"
+  "title.aux" 1747920562 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1747413163.87738 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1747413181.89408 0
+["pdflatex"] 1747920561.51233 "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" "main.pdf" "main" 1747920573.72276 0
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1747399769 184048 8b4cbdf9b31a7d34c2879dde0fcef0cd ""
   "C:/Users/giuse/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1727796667 14064 68aad3df386db7c4237fbef94e309b49 ""
   "C:/Users/giuse/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738070886 12013393 340aa120c33380df9200b841e2c7e3b5 ""
@@ -180,20 +180,20 @@
   "C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_forces_walking_right.png" 1747403041 700555 0479f6627ec89d66e8bb8afde9e6d9fe ""
   "C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_still.png" 1747403041 699775 31df170e50fd76bfdf0f99182b5f59fb ""
   "C:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/plots/contact_x_walking.png" 1747402078 1752148 ba5368f2e15c68e08b6b20f68cb68732 ""
-  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1747413162 3651 87247d159a15c960cac62f53a65a0380 ""
+  "c:/Users/giuse/OneDrive/Desktop/GITHUB PROJECTS/AMR-FP1/centroidal_dyn-main/report/main.tex" 1747920547 3651 87247d159a15c960cac62f53a65a0380 ""
   "chapters/Conclusion.tex" 1747387768 6019 f32cc5a71093c5cace6353ff6ee43ef7 ""
-  "chapters/Formulation and Trajectory Optimization Problem.tex" 1747408216 11861 7462b02ecc403a02d61eeb6274c8faa4 ""
+  "chapters/Formulation and Trajectory Optimization Problem.tex" 1747920544 11861 d070e76c292a391630ed4422e02356d2 ""
   "chapters/Introduction.tex" 1747408332 3384 be4c47c056309a3695b75cd5a0cc6673 ""
   "chapters/Proposed Method_ Stiffness-Based Centroidal Dynamics.tex" 1747337062 12228 e231cee77c31fa1e2bd8d60db3e9a25a ""
   "chapters/Related Works.tex" 1747408390 5617 fad6492ab01d01ef1be8197d0399e6aa ""
-  "chapters/Simulation and Results.tex" 1747413159 30772 4ef2f9008384a0863db8a594c2f3ca76 ""
+  "chapters/Simulation and Results.tex" 1747920475 30772 4ef2f9008384a0863db8a594c2f3ca76 ""
   "figures/SapienzaLogo.pdf" 1746033345 15671 6e4bf1872313f00b9b250cbf46f76a62 ""
-  "main.aux" 1747413180 14895 e199dc662f9e8f4be93a53a56a34d0a6 "pdflatex"
-  "main.bbl" 1747412805 5920 a4a8713760735e9cae72f680493bffbb "bibtex main"
-  "main.out" 1747413180 2430 0f5c6863125869b8ec1285a28ce21832 "pdflatex"
-  "main.tex" 1747413162 3651 87247d159a15c960cac62f53a65a0380 ""
-  "main.toc" 1747413180 2801 b2541bc153691cdd95f5be89f89765f6 "pdflatex"
-  "title.aux" 1747413165 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
+  "main.aux" 1747920572 14895 e199dc662f9e8f4be93a53a56a34d0a6 "pdflatex"
+  "main.bbl" 1747920561 5920 a4a8713760735e9cae72f680493bffbb "bibtex main"
+  "main.out" 1747920572 2430 0f5c6863125869b8ec1285a28ce21832 "pdflatex"
+  "main.tex" 1747920547 3651 87247d159a15c960cac62f53a65a0380 ""
+  "main.toc" 1747920572 2801 b2541bc153691cdd95f5be89f89765f6 "pdflatex"
+  "title.aux" 1747920562 1163 e7c837770a9aef9a799aa874eb7e85aa "pdflatex"
   "title.tex" 1746796210 1083 b6e2453ec8b77864a2b3f062d0b39a22 ""
   (generated)
   "main.aux"
