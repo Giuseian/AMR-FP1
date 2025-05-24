@@ -62,6 +62,8 @@ if __name__ == "__main__":
     print("\nPlots saved under plots folders...\n")
     # Conditionally generate videos
     if args.make_video:
+        animate_com_plots(full_array, X_init_ref, phases_durations, timestep=0.01)
+        animate_contact_2d(X=full_array, ref_type=ref, label="2d plot")
         animate_trajectories_td(full_array, ref_type=ref, label="Actual")
         animate_trajectories(X_sol, ref_type=ref, label="Actual")
         print("\nVideos saved under videos folder ...")

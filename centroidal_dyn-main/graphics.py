@@ -365,6 +365,112 @@ def checking_sum_forces(X, X_ref, U, U_ref, dm, ref_type, opti):
     
     return
 
+def animate_com_plots(X, X_ref, phases_durations, timestep):
+    """
+    X: np.ndarray, shape (T, 3)
+    X_ref: np.ndarray, shape (3, N)  # Note: shape adjusted to match ref_com = X_ref[i, :]
+    phases_durations: np.ndarray, shape (N,) or (1, N), durations in seconds
+    timestep: float, duration of one frame in seconds (e.g., 0.01 for 100 Hz)
+    """
+    coords = ['x', 'y', 'z']
+
+    # Flatten durations if needed and compute when to show each ref point
+    durations = np.array(phases_durations).flatten()
+    ref_display_frames = np.cumsum(durations) / timestep  # convert seconds to frame indices
+    ref_display_frames = ref_display_frames.astype(int)
+
+    for i, coord in enumerate(coords):
+        com = X[:, i]                # shape (T,)
+        ref_com = X_ref[i, :]        # shape (N,)
+        frames = len(com)
+
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.set_xlim(0, frames)
+        min_val = min(np.min(com), np.min(ref_com))
+        max_val = max(np.max(com), np.max(ref_com))
+        ax.set_ylim(min_val - 0.1 * abs(min_val), max_val + 0.1 * abs(max_val))
+
+        ax.set_xlabel('Time')
+        ax.set_ylabel(f'CoM {coord}')
+        ax.set_title(f'CoM vs Ref - {coord}')
+
+        com_line, = ax.plot([], [], label='CoM', color='blue')
+        ref_scatter = ax.scatter([], [], label='Ref CoM (Phases)', color='red')
+        ax.legend()
+
+        def init():
+            com_line.set_data([], [])
+            ref_scatter.set_offsets(np.empty((0, 2)))
+            return com_line, ref_scatter
+
+        def update(frame):
+            t = np.arange(frame + 1)
+            com_line.set_data(t, com[:frame + 1])
+
+            # Display ref points whose phase starts at or before current frame
+            indices_to_show = np.where(ref_display_frames <= frame)[0]
+            if len(indices_to_show) > 0:
+                scatter_x = ref_display_frames[indices_to_show]
+                scatter_y = ref_com[indices_to_show]
+                offsets = np.column_stack((scatter_x, scatter_y))
+                ref_scatter.set_offsets(offsets)
+            else:
+                ref_scatter.set_offsets(np.empty((0, 2)))
+
+            return com_line, ref_scatter
+
+        ani = FuncAnimation(fig, update, frames=frames, init_func=init,
+                            blit=True, interval=timestep * 1000)
+
+        ani.save(f"./videos/animated_plot_com_{coord}.gif", writer='pillow')
+        # plt.close(fig)  # Keep open if debugging
+
+    return
+
+def animate_contact_2d(X, ref_type, label):
+    save_path = f"./videos/trajectory_2d_points_{ref_type}.gif"
+
+    # Extract 2D (X, Y) positions
+    com_xy = X[:, 0:2]
+    left_foot_xy = X[:, 14:16]
+    right_foot_xy = X[:, 17:19]
+
+    # Set up the 2D plot
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    com_line, = ax.plot([], [], color='blue', label='CoM Trajectory')
+    left_dot, = ax.plot([], [], 'go', label='Left Foot', markersize=8)
+    right_dot, = ax.plot([], [], 'ro', label='Right Foot', markersize=8)
+
+    ax.set_xlabel('X (m)')
+    ax.set_ylabel('Y (m)')
+    ax.set_title(f'{label} - {ref_type}')
+    ax.legend()
+    ax.set_xlim(np.min(X[:, [0,14,17]]) - 0.1, np.max(X[:, [0,14,17]]) + 0.1)
+    ax.set_ylim(np.min(X[:, [1,15,18]]) - 0.1, np.max(X[:, [1,15,18]]) + 0.1)
+    ax.grid(True)
+
+    # Initialize CoM trace
+    com_x, com_y = [], []
+
+    def update(frame):
+        # Update CoM line
+        com_x.append(com_xy[frame, 0])
+        com_y.append(com_xy[frame, 1])
+        com_line.set_data(com_x, com_y)
+
+        # Update foot positions (as moving dots)
+        left_dot.set_data(left_foot_xy[frame, 0], left_foot_xy[frame, 1])
+        right_dot.set_data(right_foot_xy[frame, 0], right_foot_xy[frame, 1])
+
+        return com_line, left_dot, right_dot
+
+    # Create animation
+    anim = FuncAnimation(fig, update, frames=X.shape[0], interval=100, blit=True)
+
+    # Save the animation
+    anim.save(save_path, writer='pillow', fps=30)
+    return 
 
 
 def animate_trajectories_td(X, ref_type, label):
