@@ -20,12 +20,6 @@ St{\'e}phane Caron.
 \newblock In {\em 2020 IEEE International Conference on Robotics and Automation
   (ICRA)}, pages 9782--9788. IEEE, 2020.
 
-\bibitem{poulakakis2009spring}
-Ioannis Poulakakis and Jessy~W Grizzle.
-\newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
-  asymmetric hopper.
-\newblock {\em IEEE Transactions on Automatic Control}, 54(8):1779--1793, 2009.
-
 \bibitem{orin2013centroidal}
 David~E Orin, Ambarish Goswami, and Sung-Hee Lee.
 \newblock Centroidal dynamics of a humanoid robot.
@@ -47,6 +41,12 @@ Robert~J Full and Daniel~E Koditschek.
 Philip Holmes, Robert~J Full, Dan Koditschek, and John Guckenheimer.
 \newblock The dynamics of legged locomotion: Models, analyses, and challenges.
 \newblock {\em SIAM review}, 48(2):207--304, 2006.
+
+\bibitem{poulakakis2009spring}
+Ioannis Poulakakis and Jessy~W Grizzle.
+\newblock The spring loaded inverted pendulum as the hybrid zero dynamics of an
+  asymmetric hopper.
+\newblock {\em IEEE Transactions on Automatic Control}, 54(8):1779--1793, 2009.
 
 \bibitem{westervelt2003hybrid}
 Eric~R Westervelt, Jessy~W Grizzle, and Daniel~E Koditschek.

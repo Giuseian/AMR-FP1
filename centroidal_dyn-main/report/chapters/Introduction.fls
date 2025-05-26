@@ -1,0 +1,8 @@
+PWD c:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\report\chapters
+INPUT C:\Users\giuse\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\centroidal_dyn-main\report\chapters\Introduction.tex
+OUTPUT Introduction.log
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\subfiles\subfiles.cls
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\subfiles\subfiles.cls
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\import\import.sty
+INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex\latex\import\import.sty
