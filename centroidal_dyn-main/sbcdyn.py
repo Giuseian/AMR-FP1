@@ -282,7 +282,7 @@ class StiffnessBasedCentroidalDynamics:
             L_k +
             self.m * (
                 cs.cross((v_k_plus_one - v_k), r_bar) +
-                tau_k * eta_bar
+                t * eta_bar
             )
         )
 
