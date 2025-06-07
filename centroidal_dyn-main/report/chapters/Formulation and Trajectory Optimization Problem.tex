@@ -15,7 +15,6 @@ To formally describe the evolution of the system over discrete time intervals, w
 \mathbf{q}_k \\
 \mathbf{v}_k \\
 \mathbf{L}_k \\
-\mathbf{l}_k \\
 t_k \\
 \{\mathbf{p}_{l,k}\}_{l=1,\ldots,n_e} \\
 \{\mathbf{q}_{l,k}\}_{l=1,\ldots,n_e}
@@ -44,7 +43,7 @@ Next, the position and orientation of each end-effector are updated using basic 
 \begin{equation}
     \mathbf{q}_{l,k+1} = \textit{q}(\boldsymbol{\omega}_{l,k} \tau_k) \cdot \mathbf{q}_{k}
 \end{equation}
-Here, $\textit{q}(\boldsymbol{\omega}_{l,k}, \tau_k)$ denotes the quaternion representing the angular displacement resulting from integrating the angular velocity $\boldsymbol{\omega}_{l,k}$ over the time step $\tau_k$.
+Here, $\textit{q}(\boldsymbol{\omega}_{l,k} \tau_k)$ denotes the quaternion representing the angular displacement resulting from integrating the angular velocity $\boldsymbol{\omega}_{l,k}$ over the time step $\tau_k$.
 Integrating all these elements, the system dynamics can be compactly represented by the following state transition function:
 \begin{equation}
     \mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
