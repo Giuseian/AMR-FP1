@@ -1,7 +1,7 @@
 # Trajectory Optimization for Humanoids via Centroidal Dynamics 
 
 <p align="center">
-  <img src="C:\Users\giuse\OneDrive\Desktop\GITHUB PROJECTS\AMR-FP1\walking.gif" width="600" alt="Robot walking"/>
+  <img src="./walking.gif" width="400" alt="Robot walking"/>
 </p>
 
 ## Project Description
