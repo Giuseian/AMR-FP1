@@ -5,8 +5,8 @@
 </p>
 
 ## Project Description
-This repository contains the implementation of a trajectory optimization framework for humanoid robots based on Stiffness-Based Centroidal Dynamics (SBCD).
-The project builds upon the work by Tazaki et al. (2024) and aims to reproduce and evaluate closed-form centroidal dynamics for standing and walking tasks.
+This repository contains the implementation of a trajectory optimization framework for humanoid robots based on **Stiffness-Based Centroidal Dynamics (SBCD)**.
+The project builds upon the work by Tazaki et al. (2024) and aims to reproduce and evaluate closed-form centroidal dynamics for **standing** and **walking** tasks.
 
 The core idea is to parametrize contact wrenches through stiffness-like variables, allowing:
 - closed-form integration of centroidal dynamics,
@@ -36,66 +36,101 @@ AMR-FP1-centroidal_dyn-main/
 ```
 
 
+
+
+
 ## Proposed Method
-The method is based on Stiffness-Based Centroidal Dynamics (SBCD), a reduced-order model describing the motion of the robot’s Center of Mass (CoM) and angular momentum.
+The proposed method is based on **Stiffness-Based Centroidal Dynamics**, a reduced-order model that describes the robot motion through the evolution of its **Center of Mass (CoM)** and **angular momentum**.
 
-Key elements:
-- Centroidal dynamics expressed in terms of total external wrench.
-- Spring-like parametrization of contact wrenches, where each contact is modeled using:
-  - a stiffness parameter,
-  - a virtual pivot point (CMP-like),
-  - an optional pure moment term.
-- Closed-form analytical solutions for CoM position, velocity, and angular momentum over each contact phase using zero-order hold.
-- Discrete-time formulation suitable for trajectory optimization.
-- Quaternion-based integration of the base-link orientation.
+At the centroidal level, the robot dynamics are expressed in terms of the total external wrench acting on the system. Contact interactions are modeled through a spring-like parametrization, where each contact is associated with a stiffness parameter, a CMP-like virtual pivot point, and an optional pure moment term.
 
-This formulation allows the dynamics to be integrated analytically within each contact phase, significantly reducing the number of optimization variables while maintaining physical consistency.
+Assuming piecewise-constant contact parameters over each contact phase, the resulting dynamics admit **closed-form analytical solutions** for the CoM position, velocity, and angular momentum. These solutions naturally lead to a discrete-time formulation that is well suited for trajectory optimization. The base-link orientation is handled separately through quaternion-based integration, ensuring a consistent representation of rotational motion.
+
+
+
+## Mathematical Model (SBCD)
+The centroidal dynamics describe the evolution of the CoM position and angular momentum under the effect of gravity and external contact wrenches. At this level, the translational and rotational dynamics are given by:
+
+$$
+m\ddot{\mathbf{p}} = \mathbf{f} - m\mathbf{g}
+$$
+
+$$
+\dot{\mathbf{L}} = \boldsymbol{\eta}
+$$
+
+where $\mathbf{p}$ denotes the CoM position, $\mathbf{L}$ the angular momentum about the CoM, $\mathbf{f}$ and $\boldsymbol{\eta}$ the total external force and moment, and $m$ the robot mass.
+
+Each contact wrench is modeled through a stiffness-based parametrization. In this formulation, contact forces behave as virtual springs pulling the CoM toward a pivot point, while contact moments are scaled consistently by the same stiffness parameter:
+
+$$
+\mathbf{f}_l = m\lambda_l^2 \left( \mathbf{p} - (\mathbf{p}_l + \mathbf{r}_l) \right), \quad
+\boldsymbol{\eta}_l = m\lambda_l^2 \hat{\boldsymbol{\eta}}_l
+$$
+
+By aggregating all active contacts, the centroidal dynamics can be rewritten in a compact form, leading to the **Stiffness-Based Centroidal Dynamics (SBCD)** equations. Under the assumption of piecewise-constant parameters, these equations admit closed-form solutions over each contact phase.
+
+In particular, the CoM trajectory over a time interval $[t_k, t_{k+1}]$ is given by:
+
+$$
+\mathbf{p}(t) =
+(\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)
++ C_k(\Delta t)\left(\mathbf{p}_k - (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)\right)
++ \frac{S_k(\Delta t)}{\bar{\lambda}_k} \mathbf{v}_k
+$$
+
+with $C_k(\Delta t) = \cosh(\bar{\lambda}_k \Delta t)$ and
+$S_k(\Delta t) = \sinh(\bar{\lambda}_k \Delta t)$.
+
+
 
 ## Trajectory Optimization
-The planning problem is formulated as a finite-horizon optimal control problem, where:
-- State variables include:
-  - CoM position and velocity,
-  - Base orientation and angular momentum,
-  - End-effector positions and orientations,
-  - Time.
+The trajectory planning problem is formulated as a **finite-horizon optimal control problem**. The system state includes the CoM position and velocity, the base orientation and angular momentum, the positions and orientations of the end-effectors, as well as the time variable used to parametrize phase durations. Control inputs consist of phase durations, end-effector linear and angular velocities, contact stiffness parameters, and CMP offsets.
 
-- Control inputs include:
-  - Phase duration,
-  - End-effector linear and angular velocities,
-  - Contact stiffness parameters,
-  - CMP offsets and moment terms.
+The objective function combines multiple contributions. A task-related term encourages tracking of reference trajectories for the CoM, feet, and base motion. Limit-related terms enforce physical feasibility through inequality constraints such as friction cones, center-of-pressure bounds, stiffness limits, and phase duration bounds. Additionally, contact-dependent costs ensure consistency between contact states, velocities, and stiffness values.
 
+In compact form, the optimization problem can be written as:
 
-The total cost function is composed of:
-- Task-related cost: tracking reference trajectories for CoM, feet, and base.
-- Limit-related cost: inequality constraints handled via log-barrier functions (friction cones, CoP bounds, stiffness limits, phase duration bounds).
-- Contact-dependent cost: enforces physical consistency between contact states, velocities, and stiffness values.
+$$
+\min_{\mathbf{x},\mathbf{u}} \sum_k
+\left(
+\mathcal{L}_{\text{task},k}
++ \mathcal{L}_{\text{limit},k}
++ \mathcal{L}_{\text{contact},k}
+\right)
+\quad \text{s.t.} \quad
+\mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
+$$
 
-The optimization problem is solved using CasADi + IPOPT.
-
-## Tasks Implemented 
-1. Still Task:
-   - Both feet remain in contact with the ground.
-   - Objective: maintain a stable posture while compensating gravity.
-   - Used to validate balance and force distribution.
-
-2. Walking Task:
-   - Alternating single-support and double-support phases.
-   - Predefined contact sequence and footstep plan.
-   - CoM and foot trajectories generated to produce forward locomotion with lateral sway and vertical motion.
+The problem is solved using **CasADi** and the **IPOPT** nonlinear programming solver.
 
 
-## Results 
-Simulation results show that:
-- The robot successfully maintains balance during the still task with stable CoM and angular momentum.
-- During walking, the optimized trajectories reproduce realistic CoM motion, foot swing phases, and contact forces.
-- Contact wrenches satisfy friction and moment constraints.
-- The framework produces physically consistent motions with relatively low computational cost.
 
-Plots and numerical results are stored in the plots/ and outputs/ folders.
+<!-- ## Tasks Implemented
+Two representative tasks are implemented to validate the proposed framework.
+
+**Still Task.**  
+Both feet remain in contact with the ground while the robot maintains a stable posture. The objective is to compensate gravity and preserve balance, allowing the evaluation of force distribution and centroidal stability.
+
+**Walking Task.**  
+The robot performs a walking motion characterized by alternating single-support and double-support phases. A predefined contact sequence and footstep plan are used, while CoM and foot trajectories are optimized to generate forward locomotion with lateral sway and vertical motion. -->
 
 
-# Installation
+## Tasks Implemented & Results 
+Two representative tasks are implemented to validate the proposed framework.
+
+| Task    | Description |
+|--------|-------------|
+| Still | Static balance with both feet in contact, used to validate force distribution and stability. |
+| Walking | Dynamic locomotion with alternating support phases and optimized CoM and foot trajectories. |
+
+
+Simulation results show that the robot successfully maintains balance during the still task, with stable CoM motion and bounded angular momentum. During walking, the optimized trajectories reproduce realistic CoM evolution, foot swing phases, and physically consistent contact forces. In all cases, friction and moment constraints are satisfied, and the resulting motions are dynamically feasible while maintaining a relatively low computational cost.
+
+Plots and numerical results are stored in the `plots/` and `outputs/` folders.
+
+
+## Installation
 You need a Python installation and some dependencis. If using PIP, you can run the following
 ```
 pip install dartpy casadi scipy matplotlib osqp
