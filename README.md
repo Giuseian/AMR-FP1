@@ -95,13 +95,22 @@ The trajectory planning problem is formulated as a **finite-horizon optimal cont
 
 The objective function combines multiple contributions. A task-related term encourages tracking of reference trajectories for the CoM, feet, and base motion. Limit-related terms enforce physical feasibility through inequality constraints such as friction cones, center-of-pressure bounds, stiffness limits, and phase duration bounds. Additionally, contact-dependent costs ensure consistency between contact states, velocities, and stiffness values.
 
+
+
 In compact form, the optimization problem can be written as:
 
-![optimization](https://latex.codecogs.com/svg.image?\min_{\mathbf{x},\mathbf{u}}\sum_k(\mathcal{L}_{\text{task},k}+\mathcal{L}_{\text{limit},k}+\mathcal{L}_{\text{contact},k})\ \text{s.t.}\ \mathbf{x}_{k+1}=f(\mathbf{x}_k,\mathbf{u}_k))
-
-
-
-
+$$
+\begin{aligned}
+\min_{\mathbf{x}, \mathbf{u}} \quad &
+\sum_k \Big(
+\mathcal{L}_{\text{task},k}
++ \mathcal{L}_{\text{limit},k}
++ \mathcal{L}_{\text{contact},k}
+\Big) \\
+\text{s.t.} \quad &
+\mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
+\end{aligned}
+$$
 
 
 
