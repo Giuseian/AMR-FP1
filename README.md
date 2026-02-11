@@ -75,9 +75,7 @@ In particular, the CoM trajectory over a time interval $[t_k, t_{k+1}]$ is given
 $$
 \begin{aligned}
 \mathbf{p}(t)
-&= (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k) \\
-&\quad + C_k(\Delta t)\left(\mathbf{p}_k - (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)\right) \\
-&\quad + \frac{S_k(\Delta t)}{\bar{\lambda}_k}\mathbf{v}_k
+&= (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k) + C_k(\Delta t)\left(\mathbf{p}_k - (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)\right) + \frac{S_k(\Delta t)}{\bar{\lambda}_k}\mathbf{v}_k
 \end{aligned}
 $$
 
