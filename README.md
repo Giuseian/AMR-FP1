@@ -72,10 +72,8 @@ By aggregating all active contacts, the centroidal dynamics can be rewritten in 
 
 In particular, the CoM trajectory over a time interval $[t_k, t_{k+1}]$ is given by:
 
-In particular, the CoM trajectory over a time interval $[t_k, t_{k+1}]$ is given by:
-
 $$
-\mathbf{p}(t)
+{p}(t)
 =
 (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)
 + C_k(\Delta t)\left(\mathbf{p}_k - (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)\right)
