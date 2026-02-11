@@ -73,14 +73,24 @@ By aggregating all active contacts, the centroidal dynamics can be rewritten in 
 In particular, the CoM trajectory over a time interval $[t_k, t_{k+1}]$ is given by:
 
 $$
-\mathbf{p}(t) =
+\mathbf{p}(t)
+=
 (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)
-+ C_k(\Delta t)\left(\mathbf{p}_k - (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)\right)
-+ \frac{S_k(\Delta t)}{\bar{\lambda}_k} \mathbf{v}_k
++ C_k(\Delta t)
+\left(
+\mathbf{p}_k - (\bar{\mathbf{p}}_k + \bar{\mathbf{r}}_k)
+\right)
++ \frac{S_k(\Delta t)}{\bar{\lambda}_k}
+\mathbf{v}_k
 $$
 
-with $C_k(\Delta t) = \cosh(\bar{\lambda}_k \Delta t)$ and
-$S_k(\Delta t) = \sinh(\bar{\lambda}_k \Delta t)$.
+with
+
+$$
+C_k(\Delta t) = \cosh(\bar{\lambda}_k \Delta t),
+\qquad
+S_k(\Delta t) = \sinh(\bar{\lambda}_k \Delta t).
+$$
 
 
 
@@ -92,7 +102,8 @@ The objective function combines multiple contributions. A task-related term enco
 In compact form, the optimization problem can be written as:
 
 $$
-\min_{\mathbf{x},\mathbf{u}} \sum_k
+\min_{\mathbf{x}, \mathbf{u}}
+\sum_k
 \left(
 \mathcal{L}_{\text{task},k}
 + \mathcal{L}_{\text{limit},k}
@@ -101,6 +112,7 @@ $$
 \quad \text{s.t.} \quad
 \mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
 $$
+
 
 The problem is solved using **CasADi** and the **IPOPT** nonlinear programming solver.
 
