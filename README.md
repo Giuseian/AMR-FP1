@@ -97,15 +97,19 @@ The objective function combines multiple contributions. A task-related term enco
 
 In compact form, the optimization problem can be written as:
 
-$$
-\begin{aligned}
-\min_{\mathbf{x}, \mathbf{u}} \quad &
-\sum_k \Big(
+## Optimization (math test)
+
+\[
+\min_{\mathbf{x}, \mathbf{u}} \sum_k
+\Big(
 \mathcal{L}_{\text{task},k}
 + \mathcal{L}_{\text{limit},k}
 + \mathcal{L}_{\text{contact},k}
-\Big) \\
-$$
+\Big)
+\quad \text{s.t.} \quad
+\mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k)
+\]
+$
 
 
 
